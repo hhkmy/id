@@ -1,0 +1,17 @@
+baseURL = "http://ksvblog.in"
+languageCode = "my"
+theme = "ksv"
+title = "K's V/Blog"
+
+canonifyURLs = true
+enableEmoji = true
+# enableGitInfo = true
+enableRobotsTXT = true
+
+[params]
+author = "Praveen Juge"
+facebook = "https://facebook.com/praveenjuge"
+github = "https://github.com/praveenjuge"
+og_image = "/images/og.png"
+sitename = "Site Name"
+twitter = "@praveenjuge"
