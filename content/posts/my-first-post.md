@@ -1,7 +1,7 @@
 ---
-title: "My First Post"
+title: 'My First Post'
 date: 2023-09-15T19:47:00+06:30
-draft: true
+draft: false
 ---
 
 Testing isn't Testing in this Testing!
