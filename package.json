@@ -1,16 +1,25 @@
 {
   "name": "ksvblog",
   "version": "1.0.0",
-  "description": "",
+  "description": "K's V/Blog Website nth more with testing my learning skills",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently npm:watch:*",
+    "watch:tw": "tailwindcss -i ./themes/ksv/assets/css/main.css -o ./themes/ksv/assets/css/style.cs --watch",
+    "watch:hugo": "hugo server",
+    "build": "hugo --minify"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "hguo",
+    "tailwindcss",
+    "VScode"
+  ],
+  "author": "Hein Htet Kyaw",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.15",
+    "concurrently": "^8.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "postcss": "^8.4.29",
