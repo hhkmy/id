@@ -1,3 +1,4 @@
+.hugo_build.lockpublic
 node_modules
 resources
-.hugo_build.lock
+public
