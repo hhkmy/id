@@ -1,0 +1,19 @@
+{
+  "name": "Hein Htet Kyaw",
+  "bio": "Hey there, I'm Hein Htet Kyaw - a passionate writer, content creator, and lifelong learner based in Yangon. Welcome to my corner of the internet where words come to life and ideas take flight.",
+  "avatar": "/images/ProfilePhoto.jpg",
+  "weight": 1,
+  "roles": ["Content Writer", "Scripter", "Web Designer", "Narrator"],
+  "social": {
+    "facebook": "nozzleio",
+    "facebook_admin": "17807199",
+    "twitter": "HeinHtetKyaw_",
+    "twitter_domain": "nozzle.io",
+    "github": "https://www.github.com/h2kyaw",
+    "linkedin": "https://www.linkedin.com/in/h2kyaw/",
+    "website": "https://www.h2kyaw.github.io",
+    "pinterest": "nozzleio",
+    "instagram": "nozzleio",
+    "youtube": "nozzleio"
+  }
+}
