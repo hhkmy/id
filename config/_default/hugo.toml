@@ -1,0 +1,23 @@
+baseURL = "http://ksvblog.in"
+languageCode = "my"
+theme = "ksv"
+title = "K's V/Blog"
+
+canonifyURLs = true
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+
+[params]
+author = "Hein Htet Kyaw"
+facebook = "https://facebook.com/callmeHeinHtetKyaw"
+github = "https://github.com/h2kyaw"
+og_image = "/images/og.png"
+sitename = "K's V/Blog"
+twitter = "@HeinHtetKyaw_"
+
+[frontmatter]
+date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
+expiryDate = ['expirydate', 'unpublishdate']
+lastmod = [':git', 'lastmod', 'modified', 'date', 'publishdate', 'pubdate', 'published']
+publishDate = ['publishdate', 'pubdate', 'published', 'date']
