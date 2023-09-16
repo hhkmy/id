@@ -1,4 +1,7 @@
 .hugo_build.lockpublic
+desktop.ini
+**/desktop.ini
+
 node_modules
 resources
 public
