@@ -7,6 +7,7 @@ canonifyURLs = true
 enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
+relativeURLs = true
 
 [params]
 author = "Hein Htet Kyaw"
