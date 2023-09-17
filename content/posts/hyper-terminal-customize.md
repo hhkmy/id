@@ -7,7 +7,7 @@ tags = ["Terminal", "Windows"]
 series = ["Windows"]
 image = "/images/hyper-terminal-windows-10.png"
 thumbnail_image = "/images/hyper-terminal-windows-10.png"
-description = "Hyper Terminal Install လုပ်ပြီးပြီဆိုတော့ Customize လုပ်ဖို့အပိုင်းလေးပေါ့။ အစကတော့ အကုန်လုံးကို Content တစ်ခုထဲရေးမယ်ဆိုပေမယ့် အရမ်းရှည်သွားမှာဆိုတော့ ၂ ခုခွဲရေးဖြစ်သွားတော့တာလေးပေါ့"
+description = "Hyper Terminal Install လုပ်ပြီးပြီဆိုတော့ Customize လုပ်ဖို့အပိုင်းလေးပေါ့။ အစကတော့ အကုန်လုံးကို Content တစ်ခုထဲချင်ပေမယ့် ၂ ခုခွဲရေးဖြစ်သွားတဲ့အဆက်"
 toc = "true"
 backtotop = "true"
 +++
