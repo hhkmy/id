@@ -14,7 +14,7 @@
     }
   ],
   "singleQuote": true,
-  "printWidth": 600,
+  "printWidth": 250,
   "goTemplateBracketSpacing": true,
   "plugins": ["prettier-plugin-go-template"]
 }
