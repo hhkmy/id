@@ -1,0 +1,34 @@
+[params.katex]
+enable = true
+html_dom_element = "document.body"
+[params.katex.mhchem]
+enable = true
+[params.katex.options]
+errorColor = "#CD5C5C"
+throwOnError = false
+
+[[params.katex.options.delimiters]]
+display = true
+left = "$$"
+right = "$$"
+[[params.katex.options.delimiters]]
+display = false
+left = "$"
+right = "$"
+[[params.katex.options.delimiters]]
+display = false
+left = "\\("
+right = "\\)"
+[[params.katex.options.delimiters]]
+display = true
+left = "\\["
+right = "\\]"
+
+[params.mermaid]
+enable = true
+theme = "neutral"
+[params.mermaid.flowchart]
+diagramPadding = 6
+
+[params.markmap]
+enable = true

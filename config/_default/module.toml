@@ -1,0 +1,16 @@
+[[imports]]
+path = "github.com/hugomods/shortcodes"
+[[imports]]
+path = "github.com/hugomods/mermaid"
+[[imports]]
+path = "github.com/hugomods/katex"
+[[imports]]
+path = "github.com/gethugothemes/hugo-modules/search"
+[[imports]]
+path = "github.com/gethugothemes/hugo-modules/seo-tools/site-verifications"
+[[imports]]
+path = "github.com/gethugothemes/hugo-modules/pwa"
+[[imports]]
+path = "github.com/gethugothemes/hugo-modules/gzip-caching"
+# [[imports]]
+# path = "github.com/jakejarvis/hugo-mod-twemoji"
