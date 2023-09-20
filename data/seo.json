@@ -1,14 +1,12 @@
 {
   "year": "2012",
-  "og_meta": [
-    {
-      "meta_twitter_site": "@HeinHtetKyaw_",
-      "meta_twitter_creator": "@HeinHtetKyaw_",
-      "meta_twitter_image": "/images/og.jpg",
-      "meta_image": "/images/og.jpg",
-      "meta_description": "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too."
-    }
-  ],
+  "license": "CC BY-NC-ND 4.0",
+  "meta_twitter_site": "@HeinHtetKyaw_",
+  "meta_twitter_creator": "@HeinHtetKyaw_",
+  "meta_twitter_image": "/images/og.jpg",
+  "meta_image": "/images/og.jpg",
+  "meta_description": "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too.",
+
   "social": [
     {
       "title": "Facebook",
