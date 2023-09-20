@@ -1,17 +1,7 @@
-const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./hugo_stats.json'],
-  defaultExtractor: (content) => {
-    const els = JSON.parse(content).htmlElements;
-    return [...(els.tags || []), ...(els.classes || []), ...(els.ids || [])];
-  },
-  safelist: [],
-});
+let tailwindConfig = process.env.HUGO_FILE_TAILWIND_CONFIG_JS || './tailwind.config.js';
+const tailwind = require('tailwindcss')(tailwindConfig);
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  plugins: [...(process.env.HUGO_ENVIRONMENT === 'production' ? [purgecss] : [])],
-  plugins: {
-    'postcss-import': {},
-    tailwindcss: {},
-    autoprefixer: {},
-  },
+  plugins: [tailwind, ...(process.env.HUGO_ENVIRONMENT === 'production' ? [autoprefixer] : [])],
 };
