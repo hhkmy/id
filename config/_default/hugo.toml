@@ -20,13 +20,82 @@ tag = 'tags'
 author = "Hein Htet Kyaw"
 facebook = "https://facebook.com/callmeHeinHtetKyaw"
 github = "https://github.com/h2kyaw"
-image = "/images/og.png"
-og_image = "/images/og.png"
-sitename = "K's V/Blog"
-twitter = "@HeinHtetKyaw_"
+# google tag manager, see https://developers.google.com/tag-manager/
+google_tag_manager = "G-MSGPDQ4L7R" # example: G-XXXXXXXXXX
+image = "/images/og.png" 
+og_image = "/images/og.png" 
+sitename = "K's V/Blog" 
+twitter = "@HeinHtetKyaw_" 
 
 [frontmatter]
 date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
 expiryDate = ['expirydate', 'unpublishdate']
 lastmod = [':git', 'lastmod', 'modified', 'date', 'publishdate', 'pubdate', 'published']
 publishDate = ['publishdate', 'pubdate', 'published', 'date']
+
+[module]
+[module.hugoVersion]
+extended = false
+min = "0.110.0"
+
+[[module.mounts]]
+source = 'content'
+target = 'content'
+[[module.mounts]]
+source = 'static'
+target = 'static'
+[[module.mounts]]
+source = 'layouts'
+target = 'layouts'
+[[module.mounts]]
+source = 'data'
+target = 'data'
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
+[[module.mounts]]
+source = 'i18n'
+target = 'i18n'
+[[module.mounts]]
+source = 'archetypes'
+target = 'archetypes'
+[[module.mounts]]
+source = 'static/uploads'
+target = 'assets/uploads'
+
+[[module.mounts]]
+source = "hugo_stats.json"
+target = "assets/watching/hugo_stats.json"
+
+[build]
+writeStats = true
+[[build.cachebusters]]
+source = "assets/watching/hugo_stats\\.json"
+target = "main\\.css"
+[[build.cachebusters]]
+source = "(postcss|tailwind)\\.config\\.js"
+target = "css"
+[[build.cachebusters]]
+source = "assets/.*\\.(js|ts|jsx|tsx)"
+target = "js"
+[[build.cachebusters]]
+source = "assets/.*\\.(.*)$"
+target = "$1"
+
+[[params.plugins.js]]
+link = "js/search.js"
+
+[outputs]
+home = ['html', 'rss', 'SearchIndex']
+page = ['html']
+rss = ['rss']
+section = ['html', 'rss']
+taxonomy = ['html', 'rss']
+term = ['html', 'rss']
+
+[outputFormats]
+[outputFormats.SearchIndex]
+baseName = "searchindex"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
