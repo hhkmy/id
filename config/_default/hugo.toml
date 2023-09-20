@@ -10,6 +10,12 @@ enableGitInfo = true
 enableRobotsTXT = true
 #relativeURLs = true
 
+[taxonomies]
+author = 'authors'
+category = 'categories'
+series = 'series'
+tag = 'tags'
+
 [params]
 author = "Hein Htet Kyaw"
 facebook = "https://facebook.com/callmeHeinHtetKyaw"
