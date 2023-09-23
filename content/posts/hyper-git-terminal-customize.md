@@ -1,6 +1,6 @@
 +++
 author = 'heinhtetkyaw'
-title = 'Hyper + Git Terminal Windows 10'
+title = 'Hyper + Git Terminal Customize'
 date = 2023-08-23T07:01:30+07:00
 categories = ["Terminal", "Windows"]
 tags = ["Terminal", "Windows"]
@@ -8,10 +8,9 @@ series = ["Tools"]
 image = "/images/hyper-terminal-windows-10.png"
 thumbnail_image = "/images/hyper-terminal-windows-10.png"
 description = "Windows ပြန်တင်ပြီးတော့ Clean Installation တွေလုပ်လိုက်တော့ စိတ်ထဲ Command Prompt တစ်ခုကို ကောင်းကောင်းသုံးချင်လာတော့တယ်။"
-backtotop = "true"
 +++
 
-Windows ပြန်တင်ပြီးတော့ Clean Installation တွေလုပ်လိုက်တော့ စိတ်ထဲ Command Prompt တစ်ခုကို ကောင်းကောင်းသုံးချင်လာတော့တယ်။ Customize လည်းလုပ်လို့ရ၊ Open Source သဘောမျိုးလည်းဖြစ်တာမျိုးရှာရင်းနဲ့ပဲ Hyper ကို တွေ့မိတော့တယ်။ အရင်ကတော့ cmder နဲ့ zsh ကိုသုံးပေမယ့် နောက်ပိုင်း အီလာတာနဲ့ အသစ်ရှာရင်း ဒီနေ့တော့ Hyper ကိုတွေ့တာနဲ့ နည်းနည်းလေး Customize ချင်လာတာနဲ့ပဲ ဒီ Content လေးတစ်ခုရသွားပါတော့တယ်ပေါ့။ အစောပိုင်း လောဘကြီးပြီးတော့ Content အရှည်ကြီးရေးချင်တာဆိုပေမယ့် content တွေခွဲပြီး Customize လှလှလေးပဲ လုပ်သွားတော့မယ်။
+Windows ပြန်တင်ပြီးတော့ Clean Installation တွေလုပ်လိုက်တော့ စိတ်ထဲ Command Prompt တစ်ခုကို ကောင်းကောင်းသုံးချင်လာတော့တယ်။ Customize လည်းလုပ်လို့ရ၊ Open Source သဘောမျိုးလည်းဖြစ်တာမျိုးရှာရင်းနဲ့ပဲ Hyper ကို တွေ့မိတော့တယ်။ အရင်ကတော့ cmder နဲ့ zsh ကိုသုံးပေမယ့် နောက်ပိုင်း အီလာတာနဲ့ အသစ်ရှာရင်း ဒီနေ့တော့ Hyper ကိုတွေ့တာနဲ့ နည်းနည်းလေး Customize ချင်လာတာနဲ့ပဲ ဒီ Content လေးတစ်ခုရသွားပါတော့တယ်ပေါ့။
 
 <!--more-->
 
@@ -90,5 +89,29 @@ verminal installed successfully!
 ဆိုရင်တော့ Hyper ကောင်းကောင်းအလုပ်လုပ်သွားပြီပဲဖြစ်ပါတယ်။ ပြီးရင်တော့ Hyper Terminal ထဲဝင်ပြီး Tools > View > Reload // Full Reload ကိုလုပ်လိုက်မယ်ဆိုရင်တော့ အပေါ်က သွင်းထားတဲ့ verminal theme ပြောင်းလဲသွားပြီပဲဖြစ်ပါတယ်။ Shortcut အနေနဲ့ကတော့ `Ctrl` <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> နဲ့ ရိုးရိုး Reload လုပ်လို့ရပြီး <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F5</kbd> ဆိုပြီး Full Reload လုပ်လို့ရပါပြီ။ ဒါဆိုရင်တော့ အောက်ကလို Theme Color လေးပြောင်းသွားရင်တော့ Success ဖြစ်သွားပြီပဲဖြစ်ပါတယ်။
 
 ![Hyper Verminal Theme](/images/hyper-verminal.png)
+
+နောက်ထပ် Customize လုပ်ဖို့အတွက်ကတော့ Hyper Terminal ထဲမှာပဲ ဆက်ပြီး၊ ။
+
+```cmd
+hyper install hyperborder
+hyper install hyper-opacity
+hyper install hyper-tab-icons
+hyper install hyper-search
+hyper install hyperpower
+```
+
+- hyperborder - Hyper Terminal ကို ဘောင်လေးအတွက်ပါ
+- hyper-opacity - နောက်ခံကြီးကိုဖျောက်လိုက်ဖို့အတွက်ပါ Terminal ကို opacity ထားလိုက်တဲ့သဘောမျိုးပေါ့။
+- hyper-tab-icons - Hyper Terminal မှာ Tab တွေအတွက် Icon လေးတွေပေါ်နေအောင်ပါ။
+- hyper-search - ကတော့ Terminal အတွက် Search Function အတွက်ပါ။
+- hyperpower - Style/ Design အတွက် အဆင်ပြေအောင်ပါ။
+
+ပြီးသွားရင်တော့ C:\Users\Username အောက်က .bashrc ကို အဆင်ပြေတဲ့ Text Editor နဲ့ဖွင့်လိုက်ပါ။ အခုလောလောဆယ် ကျွန်တော်က VS Code သုံးထားတဲ့အတွက်ကြောင့် VS Code နဲ့ပဲ ဖွင့်လိုက်ပြီး အောက်က Code တွေ အကုန်ကူးထည့်ထားလိုက်ပါတယ်။
+
+{{< gist h2kyaw 3b71327ffe9af153dbdc3669349f9cef >}}
+
+ပြီးသွားရင်တော့ Terminal ကို Reload or Full Reload ဖြစ်ဖြစ် ပိတ်ပြီးဖွင့်လိုက်ရင်တော့ လှတယ်လို့ ထင်ရတဲ့ ကျွန်တော် သဘောကျတဲ့ Terminal ကိုရသွားပြီပဲဖြစ်ပါတယ်။
+
+![Hyper Terminal ><](/images/hyper-terminal-windows-10.png 'Hyper Terminal')
 
 အားလုံးအဆင်ပြေသွားတဲ့အတွက် — enjoy your new terminal and Wait other Content for Customize ~ :clapping_hands:
