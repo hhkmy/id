@@ -1,6 +1,6 @@
 # Ignore artifacts:
 build
 coverage
-resources
 
+# Ignore all HTML files:
 **/*.toml
