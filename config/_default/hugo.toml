@@ -1,5 +1,7 @@
 baseURL = "https://ksvblog.site/"
+defaultContentLanguage = 'my'
 languageCode = "my"
+languageName = "my"
 theme = ["ksv"]
 themesDir = "themes"
 title = "K's V/Blog"
