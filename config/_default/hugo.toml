@@ -1,6 +1,6 @@
 baseURL = "https://ksvblog.site/"
 languageCode = "my"
-theme = ['hugo-shortcode-roneo-collection', 'ksv']
+theme = ["ksv"]
 themesDir = "themes"
 title = "K's V/Blog"
 
