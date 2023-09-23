@@ -10,8 +10,6 @@ enableGitInfo = true
 enableRobotsTXT = true
 #relativeURLs = true
 
-sectionPagesMenu = 'main'
-
 [taxonomies]
 author = 'authors'
 category = 'categories'
