@@ -23,7 +23,7 @@ from os.path import splitext    # To seperate filename & its extension
 from time import perf_counter   # To measure the execution time
 
 # Global namespace
-dir_name = 'webp'
+dir_name = ''
 any_missing_images = False
 extensions = ('.png', '.jpg', '.jpeg')
 are_images_converted = os.path.exists(os.path.join(os.curdir, dir_name))
