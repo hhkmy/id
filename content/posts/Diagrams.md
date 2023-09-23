@@ -4,9 +4,6 @@ date: 2023-09-18T05:19:51+06:30
 author: heinhtetkyaw
 draft: false
 markup: 'mmark'
-katex: true
-math: true
-chem: true
 description: Testing KaTex Data in Hugo Website.
 ---
 
