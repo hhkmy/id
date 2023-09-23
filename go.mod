@@ -1,6 +1,6 @@
 module github.com/ksvblog/ksvblog.github.io
 
-go 1.21.1
+go 1.21
 
 require (
 	github.com/gethugothemes/hugo-modules/gzip-caching v0.0.0-20230913031841-c3e6f1eb8b7b // indirect
