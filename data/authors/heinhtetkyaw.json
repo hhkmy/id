@@ -4,16 +4,17 @@
   "avatar": "/images/ProfilePhoto.jpg",
   "weight": 1,
   "roles": ["Content Writer", "Scripter", "Web Designer", "Narrator"],
+  "postsrole": ["Writer"],
   "social": {
-    "facebook": "nozzleio",
-    "facebook_admin": "17807199",
+    "facebook": "callmeHeinHtetKyaw",
+    "facebook_admin": "100008954538831",
     "twitter": "HeinHtetKyaw_",
-    "twitter_domain": "nozzle.io",
+    "twitter_domain": "ksvblog.in",
     "github": "https://www.github.com/h2kyaw",
     "linkedin": "https://www.linkedin.com/in/h2kyaw/",
     "website": "https://www.h2kyaw.github.io",
-    "pinterest": "nozzleio",
-    "instagram": "nozzleio",
-    "youtube": "nozzleio"
+    "pinterest": "h2kyaw",
+    "instagram": "__heinhtetkyaw__",
+    "youtube": "heinhtetkyaw279"
   }
 }
