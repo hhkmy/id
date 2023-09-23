@@ -1,0 +1,18 @@
+[[main]]
+Pre = 'fa-light fa-id-badge'
+Url = '/about'
+name = 'About'
+pageRef = '/about'
+weight = 1
+[[main]]
+Pre = 'fa-light fa-cabinet-filing'
+Url = '/archive'
+name = 'Archive'
+pageRef = '/archive'
+weight = 2
+[[main]]
+Pre = 'fa-light fa-id-badge'
+Url = '/books'
+name = 'Books'
+pageRef = '/books'
+weight = 3
