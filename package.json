@@ -10,8 +10,7 @@
     "watch:hugo": "hugo server",
     "build": "hugo --minify",
     "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
-    "prepare": "husky install"
+    "format:write": "prettier --write ."
   },
   "keywords": [
     "hguo",
