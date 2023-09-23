@@ -1,0 +1,185 @@
+{
+  "contact": [
+    {
+      "icon": "fa-light fa-phone",
+      "value": "+959252113611",
+      "link": "tel:+959252113611"
+    },
+    {
+      "icon": "fa-light fa-at",
+      "value": "mr.kiddomonster@gmail.com",
+      "link": "mailto:mr.kiddomonster@gmail.com"
+    },
+    {
+      "icon": "fa-light fa-map-marked-alt",
+      "value": "Htaukkyant, Yangon, Myanmar (Burma), 11022",
+      "link": "https://goo.gl/maps/KsnuQmQkzf5UF7hZ9"
+    }
+  ],
+  "education": [
+    {
+      "year": "2001 - 2011",
+      "name": "No.4: Basic Education High School",
+      "location": "Yezin, Zayartheri, Naypyitaw Union Territory",
+      "link": "https://goo.gl/maps/gwWDJBXpsKnUBvCb9"
+    },
+    {
+      "year": "2011 - 2013",
+      "name": "English Major (Second Year)",
+      "location": "University of Distance Education, Mandalay",
+      "link": "https://goo.gl/maps/cjkC3M7Tew5mp2q4A"
+    }
+  ],
+  "qualifications": [
+    {
+      "year": "2008",
+      "name": "Computer A+",
+      "training": "MCG Training Group",
+      "location": "Yezin"
+    },
+    {
+      "year": "2010",
+      "name": "Windows Special ( Office ) Course",
+      "training": "MCG Training Group",
+      "location": "Yezin"
+    },
+    {
+      "year": "2016",
+      "name": "Network / Internet Engineering, Administration & System Development",
+      "training": "ICTmm (System & Networking Academy)",
+      "location": "Yangon"
+    },
+    {
+      "year": "2019",
+      "name": "Master in Digital Marketing",
+      "training": "Escils",
+      "location": "OLP"
+    }
+  ],
+  "employment": [
+    {
+      "company": "Kiddo Monster",
+      "role": "V/Blogger",
+      "year": "Dec 2012 - Present",
+      "link": "fb.me/heinhtetkyaw.blog"
+    },
+    {
+      "company": "Department of Agricultural Research (Government Organizations)",
+      "role": "Web Administrator",
+      "year": "Jan 2016 - Jan 2021",
+      "link": "dar.gov.mm"
+    },
+    {
+      "company": "Myanmar Excited Group Co.,Ltd",
+      "role": "eCommerce Department Manager",
+      "year": "May 2019 - Feb 2020",
+      "link": "meg.com.mm"
+    },
+    {
+      "company": "MEG eCommerce Co.,Ltd",
+      "role": "Manager",
+      "year": "May 2019 - Feb 2020",
+      "link": "megshop.com.mm"
+    },
+    {
+      "company": "BD Sound Myanmar",
+      "role": "Digital Marketing Manager",
+      "year": "May 2019 - Feb 2020",
+      "link": "fb.me/OfficialBDSoundMyanmar"
+    },
+    {
+      "company": "The Cool Creatures",
+      "role": "Creator",
+      "year": "Jul 2019 - Present",
+      "link": "fb.me/TheCoolCreatures"
+    },
+    {
+      "company": "The Insider Myanmar Co.,Ltd",
+      "role": "Chairman",
+      "year": "May 2019 - Present",
+      "link": "fb.me/TheInsiderMyanmarCoLtd"
+    }
+  ],
+  "activities": [
+    {
+      "team": "ထေရဝါဒ ဓမ္မပြန့်ပွားရေး နှင့် နာရေးကူညီမှုအသင်း “လူငယ်”",
+      "role": "Volenteer",
+      "year": "Jan 2013 - Dec 2022",
+      "status": "(I had to move to Yangon)",
+      "location": "နေပြည်တော်၊ ပျဉ်းမနားမြို့နယ်၊ လည်တီကျောင်း",
+      "link": "https://goo.gl/maps/sWGSu2PtSHs2iPNq8"
+    }
+  ],
+  "skills": [
+    {
+      "icon": "fa-brands fa-python",
+      "dev": "Python",
+      "percentage": "1"
+    },
+    {
+      "icon": "fa-brands fa-react",
+      "dev": "React",
+      "percentage": "1"
+    },
+    {
+      "icon": "fa-brands fa-js",
+      "dev": "Javascript",
+      "percentage": "5"
+    },
+    {
+      "icon": "fa-brands fa-laravel",
+      "dev": "Laravel",
+      "percentage": "20"
+    },
+    {
+      "icon": "fa-brands fa-php",
+      "dev": "PHP",
+      "percentage": "35"
+    },
+    {
+      "icon": "fa-light fa-code",
+      "dev": "Hugo",
+      "percentage": "65"
+    },
+    {
+      "icon": "fa-brands fa-css3",
+      "dev": "CSS3",
+      "percentage": "70"
+    },
+    {
+      "icon": "fa-brands fa-html5",
+      "dev": "HTML",
+      "percentage": "85"
+    },
+    {
+      "icon": "fa-brands fa-github",
+      "dev": "Github",
+      "percentage": "90"
+    },
+    {
+      "icon": "fa-brands fa-elementor",
+      "dev": "Elementor",
+      "percentage": "93"
+    },
+    {
+      "icon": "fa-brands fa-wordpress",
+      "dev": "Wordpress",
+      "percentage": "93"
+    },
+    {
+      "icon": "fa-brands fa-microsoft",
+      "dev": "Microsoft Office",
+      "percentage": "95"
+    },
+    {
+      "icon": "fa-brands fa-windows",
+      "dev": "Windows Troubleshooting",
+      "percentage": "97"
+    },
+    {
+      "icon": "fa-brands fa-linux",
+      "dev": "Linux / Server Administration",
+      "percentage": "97"
+    }
+  ]
+}

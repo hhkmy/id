@@ -1,0 +1,14 @@
+github.com/gethugothemes/hugo-modules/gzip-caching v0.0.0-20230913031841-c3e6f1eb8b7b h1:BvMvF9DcEVy9ePR7qP9FMVfeW6dxbzx5HnH+t9bDlL4=
+github.com/gethugothemes/hugo-modules/gzip-caching v0.0.0-20230913031841-c3e6f1eb8b7b/go.mod h1:0ZMjTZVG4XLZU2/icc8Saqo4mmgMpfRTrUZU2Aa2Pwg=
+github.com/gethugothemes/hugo-modules/pwa v0.0.0-20230913031841-c3e6f1eb8b7b h1:7r3tSNbtTt+vLDW7kHVQzU2kblAR4x6Y40pAD4EMReI=
+github.com/gethugothemes/hugo-modules/pwa v0.0.0-20230913031841-c3e6f1eb8b7b/go.mod h1:TRv7iszdfo37O1PbBEE+S8X/enAdpRIxK5DGrp13Qbo=
+github.com/gethugothemes/hugo-modules/search v0.0.0-20230913031841-c3e6f1eb8b7b h1:7qEdWNVGhUS5N6OvfQFw3+5ZEkZXqatgMYMwwrHQ4Uw=
+github.com/gethugothemes/hugo-modules/search v0.0.0-20230913031841-c3e6f1eb8b7b/go.mod h1:tmDvLaZCM+QDvS/WLZXNjY1QTdWh7/68D2wIToECbyA=
+github.com/gethugothemes/hugo-modules/seo-tools/site-verifications v0.0.0-20230913031841-c3e6f1eb8b7b h1:jWtAZlshBQA1shIBXnqcPhXR9nrvxbET18LFNcUVdGs=
+github.com/gethugothemes/hugo-modules/seo-tools/site-verifications v0.0.0-20230913031841-c3e6f1eb8b7b/go.mod h1:iXielaya126qJscz7Bc2G2WB91moloQOoWru6UoBUyE=
+github.com/hugomods/katex v0.2.0 h1:h5hG0vnyL6dMzNiLeNMXb+VPwseZXoTORjzV6e6YgJw=
+github.com/hugomods/katex v0.2.0/go.mod h1:8wO7jRjPT+M6UeipsJ0Hpah4LjWU9P6V5CO0eEKvL8U=
+github.com/hugomods/mermaid v0.1.1 h1:12b8DbdiKOTtPmkWOMXsBz3LKkAWVqa5tGkbEboj0a4=
+github.com/hugomods/mermaid v0.1.1/go.mod h1:7sKIZLAeYsXXnKRh4KR70UQx27xnzf0mSQ2o99zTLS0=
+github.com/hugomods/shortcodes v0.12.0 h1:bB9bPoNRifiXHeaBS6UceqqKHuvWLAxhXdPn4Mu83Qc=
+github.com/hugomods/shortcodes v0.12.0/go.mod h1:EnVopbZMNI/HeteM3Lp3phBTCRLvPSe7l142qhRFFPY=
