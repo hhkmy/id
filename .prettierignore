@@ -5,3 +5,6 @@ themes/ksv/layouts/_default/_markup/*.html
 
 # Ignore all HTML files:
 **/*.toml
+
+# Ignore files
+hugo_stats.json
