@@ -1,4 +1,8 @@
 {
+  "singleQuote": true,
+  "printWidth": 600,
+  "goTemplateBracketSpacing": true,
+  "plugins": ["prettier-plugin-go-template"],
   "overrides": [
     {
       "files": ["*.html"],
@@ -12,9 +16,5 @@
         "singleQuote": false
       }
     }
-  ],
-  "singleQuote": true,
-  "printWidth": 250,
-  "goTemplateBracketSpacing": true,
-  "plugins": ["prettier-plugin-go-template"]
+  ]
 }
