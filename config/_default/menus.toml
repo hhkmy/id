@@ -16,3 +16,9 @@ Url = '/books'
 name = 'Books'
 pageRef = '/books'
 weight = 3
+[[main]]
+Pre = 'fa-light fa-id-badge'
+Url = '/posts'
+name = 'Posts'
+pageRef = '/posts'
+weight = 4
