@@ -1,9 +1,0 @@
-.hugo_build.lockpublic
-desktop.ini
-**/desktop.ini
-*.ini
-
-node_modules
-resources
-public
-themes/hugo-shortcode-roneo-collection
