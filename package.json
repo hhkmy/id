@@ -37,7 +37,6 @@
     "@fullhuman/postcss-purgecss": "^5.0.0"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
-    "*.{js,css,html,md}": "prettier --write"
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
