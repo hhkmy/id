@@ -18,6 +18,7 @@ tag = 'tags'
 
 [params]
 author = "Hein Htet Kyaw"
+description = "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too."
 facebook = "https://facebook.com/callmeHeinHtetKyaw"
 github = "https://github.com/h2kyaw"
 # google tag manager, see https://developers.google.com/tag-manager/
