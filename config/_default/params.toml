@@ -1,3 +1,5 @@
+description = "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too."
+
 # site verifications
 [site_verification]
 baidu = "" # Your verification code
@@ -9,7 +11,7 @@ mastodon = "" # Your verification code
 [search]
 enable = true 
 include_all_sections = false # if `include_all_sections` is true, then comment out the `include_sections`
-include_sections = ["posts", "shop"] # if `include_sections` empty, then sections will come from the `mainSections`      
+include_sections = ["posts", "shop"] # if `include_sections` empty, then sections will come from the `mainSections`           
 primary_color = "#ce8460" 
 show_categories = true 
 show_description = true 
