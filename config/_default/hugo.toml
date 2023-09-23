@@ -34,8 +34,17 @@ lastmod = [':git', 'lastmod', 'modified', 'date', 'publishdate', 'pubdate', 'pub
 publishDate = ['publishdate', 'pubdate', 'published', 'date']
 
 [security]
+enableInlineShortcodes = false
 [security.exec]
-osEnv = '(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|HOME|SSH_AUTH_SOCK)$'
+allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$']
+osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG)$']
+[security.funcs]
+getenv = ['^HUGO_', '^CI$']
+[security.goTemplates]
+allowActionJSTmpl = false
+[security.http]
+methods = ['(?i)GET|POST']
+urls = ['.*']
 
 [module]
 [module.hugoVersion]
