@@ -10,7 +10,8 @@
     "watch:hugo": "hugo server",
     "build": "hugo --minify",
     "format:check": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:write": "prettier --write .",
+    "prepare": "husky install"
   },
   "keywords": [
     "hguo",
@@ -23,6 +24,7 @@
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "autoprefixer": "^10.4.15",
     "concurrently": "^8.2.1",
+    "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "postcss": "^8.4.30",
     "postcss-cli": "^10.1.0",
