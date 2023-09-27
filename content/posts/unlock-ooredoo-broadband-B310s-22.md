@@ -1,18 +1,28 @@
-+++
-author = 'heinhtetkyaw'
-title = "Unlock Ooredoo Broadband B310s-22"
-image = "/images/Multicast_Upgrade_Tool.png"
-thumbnail_image = "/images/Multicast_Upgrade_Tool.png"
-date = "2021-05-18T22:45:31+06:30"
-description = "Ooredoo Broadband တွေထဲကမှတစ်ခုဖြစ်တဲ့ B310s-22 Device လေး Unlock လုပ်ဖြစ်တဲ့အကြောင်း ရေးထားတာလေးပေါ့"
-tags = ["Wireless", "Broadband", "LTE Router", "Unlocking"]
-categories = ["Unlocking Router"]
-series = ["Router"]
-+++
+---
+author: heinhtetkyaw
+title: Unlock Ooredoo Broadband B310s-22
+date: 2021-05-18T22:45:31+06:30
+image: /images/Multicast_Upgrade_Tool.png
+thumbnail_image: /images/Multicast_Upgrade_Tool.png
+description: B310s-22 Ooredoo Device လေး Unlock လုပ်ဖြစ်တဲ့အကြောင်း ရေးထားတာလေးပေါ့ Broadband တွေကို Unlock လုပ်ပြီး Sim Card တွေ ကြိုက်ရာကိုထည့်သုံးလို့ရသွားပါတယ်။
+summary: Operator တွေစီက ဝယ်ထားတဲ့ Broadband တွေ Wireless တွေက Locked device တွေဖြစ်နေတဲ့အတွက် Unlock လုပ်ဖို့ရာဖြစ်လာရင်းနဲ့ စမ်းချင်ခဲ့တာလေးပေါ့။ တော်သေးတာကတော့ B310s-22 ဖြစ်နေတော့ အဆင်ပြေပြေ Unlock လုပ်လို့ရသွားတော့တယ်။ အခြား Device တော်တော်များများကတော့ Unlock လုပ်လို့မရပဲ Hardware Method နဲ့ ကျော်ရင် အဆင်ပြေတယ်ဆိုပေမယ့် Hardware ပိုင်း အဲ့လောက်မရတာနဲ့ပဲ Software နဲ့ ကျော်လို့အဆင်ပြေသွားတဲ့ Device လေးအကြောင်း အဆင့်ဆင့် ရေးထားတာလေးပါ။
+categories:
+  - Unlocking Router
+tags:
+  - Wireless
+  - Broadband
+  - LTE Router
+  - Unlocking
+series:
+  - Router
+keywords:
+  - ooredoo
+  - unlock
+  - broadband
+slug: unlock-ooredoo-broadband-b310s-22
+---
 
 ရောက်နေတဲ့နေရာမှာက လိုင်းမကောင်းတာနဲ့ Supernet ဝယ်တုန်းက ပါလာတဲ့ 4G Router လေး ကို Other SIM ထည့်စမ်းလိုက်တဲ့အခါမှာတော့ SIM Lock ဖြစ်ပြီး လိုင်းမတက်တာနဲ့ ကြုံပြီးတဲ့နောက်မှာတော့ ဟိုရှာဒီရှာဇာတ်လမ်းကြီး ပိတ်ကားပေါ်ရောက်ရှိသွားခဲ့ပါတော့တယ်။ ဇာတ်ကားလို့ပြောလိုက်ရင် Spoil တာလို့ ပြေးမြင်နေကြပါလိမ့်မယ်။ တကယ်တော့ Spoil တာမဟုတ်ပါဘူး ကျွန်တော် စမ်းခဲ့လို့ အဆင်ပြေတာလေးအကြောင်း မှတ်စုလေးတစ်ပုဒ်အဖြစ် ချရေးချင်လို့ပါ။
-
-<!--more-->
 
 ![Huawei B310 B310s-22 150Mbps 4G LTE CPE WIFI ROUTER Modem with antennas](/images/Huawei-B310-B310s-22-4G-LTE-CPE-WIFI-ROUTER-Modem-with-antennas.jpg)
 

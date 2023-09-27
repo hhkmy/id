@@ -1,18 +1,25 @@
-+++
-author = 'heinhtetkyaw'
-title = "Useful Browser Tools"
-image = "/images/Inspect_Elements.png"
-thumbnail_image = "/images/Inspect_Elements.png"
-date = "2021-03-01T19:36:56+06:30"
-description = "Useful Browser tools for take snapshot or other useful things"
-tags = ["Tools"]
-categories = ["Tools"]
-series = ["Tools"]
-+++
+---
+author: heinhtetkyaw
+title: Useful Browser Tools
+date: 2021-03-01T19:36:56+06:30
+image: /images/Inspect_Elements.png
+thumbnail_image: /images/Inspect_Elements.png
+description: အသုံးဝင်တဲ့ useful Browser tools functions တွေထဲကမှ snapshot ဘယ်လိုရိုက်ရမလဲဆိုတာရယ် အခြားအသုံးဝင်တဲ့ Function တွေအကြောင်းရေးထားတာလေး
+summary: Daliy use ဖြစ်တဲ့ Browser တွေထဲမှာ အသုံးဝင်ပြီး လိုအပ်တဲ့ အသုံးပြုများတဲ့ tool လို့ပြောလို့ရတဲ့ function လေးတွေအကြောင်းပေါ့။ ဒီထဲမှာ Tag တွေကို Sanpshot ရိုက်လို့ရတာတွေ အပြင် အခြားသော အသုံးဝင်တဲ့ Debug လုပ်လို့ရတာတွေကို Developer tools ထဲက သုံးဖြစ်၊ စမ်းဖြစ်ပြီး ဘယ်လိုသုံးရမလဲဆိုတဲ့အကြောင်းနဲ့ နောက်ထပ် ပိုပြီး လေ့လာဖြစ်မယ့် Content လေးတစ်ပုဒ်ပေါ့။
+categories:
+  - Tools
+tags:
+  - Tools
+series:
+  - Tools
+keywords:
+  - browser
+  - useful
+  - tools
+slug: browser-tools
+---
 
 Browser တွေဖြစ်တဲ့ Google Chrome, Mozilla Firefox, Opera နှင့်အခြားသော Browser တွေ တော်တော်များများ သုံးနေကြပါတယ်။ အဲ့ဒီ ထဲမှာမှ အသုံးဝင်တဲ့ Tool လေးတွေအကြောင်းနဲ့ အခြားသော Third Party Tool တွေ ထည့်သွင်းစရာမလိုတဲ့အရာတွေ အကြောင်းလေးပေါ့။
-
-<!--more-->
 
 ကျွန်တော်တို့နေ့စဉ်နဲ့အမျှ အင်တာနက် အသုံးပြုမှုအတွက် Mobile Device တွေမှမဟုတ်ဘူးဆိုရင် Computer မှာ Browser တစ်ခုခုကိုတော့ သုံးကြရပါလိမ့်မယ်။ အဲ့ဒီအထဲကမှ နာမည်ကြီးပြီးသားတွေရှိတဲ့အထဲမှာမှ ကျွန်တော် အကြိုက်ဆုံး ပြောင်းမရအောင် ဘာလို့ကြိုက်မှန်းမသိ ကြိုက်တာကတော့ Google Chrome ပါပဲ။ အဲ့ဒီ Chrome မှာပဲ Screenshot ရိုက်ချင်တာ အခြားသော အရာများကို Browser ထဲမှာတင်လုပ်လို့ရပါတယ်။ css code တွေ ဘာတွေကို Checking လုပ်ဖို့အတွက်ကတော့ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> ဆိုတဲ့ Keyboard shortcutt နဲ့ Inspect Window ကို ဖွင့်လို့ရပါတယ်။ အဲ့ဒီမှာတော့ **Elements, Console, Sources, Network, Performance, Memory, Application, Security, Lighthouse** စသဖြင့် ပါဝင်ပါတယ်။ Elements အကွက်မှာတော့ Website နဲ့ပက်သက်ပြီး ဘာ Tag တွေကို အသုံးပြုထားတယ် ဘယ် Tag ကို ဘယ်လို css နဲ့ အလှလုပ်ထားသလဲ ဆိုတာမျိုးတွေကို Detail ကြည့်လို့ရပြီး Live Styling လုပ်လို့ရပါတယ် (တစ်ခုရှိတာကတော့ Browser Refresh လုပ်ရင် ပြင်ထားတာတွေကတော့ ပျက်သွားမှာပေါ့ 😁) အောက်မှာကတော့ Inspect Windows ထဲကမှ Elements Tab တွင် မြင်ရတာမျိုးကို ပြထားတာပါ။
 

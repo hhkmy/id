@@ -1,18 +1,23 @@
-+++
-author = 'heinhtetkyaw'
-date = 2021-08-15T14:39:23+06:30
-title = "Spotify Downloader"
-image = "/images/spotDL_spotify-downloader.png"
-thumbnail_image = "/images/spotDL_spotify-downloader.png"
-description = "Download Spotify Public Playlist without Login with spotDL Python spotify Downloader."
-tags = ["Python"]
-categories = ["Python"]
-series = ["Python"]
-+++
+---
+author: heinhtetkyaw
+title: Spotify Downloader
+date: 2021-08-15T14:39:23+06:30
+image: /images/spotDL_spotify-downloader.png
+thumbnail_image: /images/spotDL_spotify-downloader.png
+description: Download Spotify Public Playlist without Login with spotDL Python spotify Downloader.
+summary: Spotify url ရှိတာနဲ့ youtube Music အသုံးပြုလို့ရတာနဲ့ Spotify Music တွေကို Download လုပ်နိုင်တဲ့ npm package လေးပါပဲ။ တကယ် တော်တော်လေးကို အဆင်ပြေပြီး အခုအချိန်အထိလည်း အဆင်ပြေနေတာလေးနည်း နောက်ထပ် udpate တွေမှာ comment ထဲမှာ Youtube URL လေးတွေကို ပြန်ပြန်ထည့်ပေးထားလို့ ပိုလို့တောင် အဆင်ပြေလာပါသေးတယ်။ နောက်တစ်နည်းလည်းရှိပေမယ့် နောက်တစ်နည်းကိုတော့ အဆင်ပြေတဲ့အချိန်မှပဲ ရေးပေးပါတော့မယ်။
+categories:
+  - Python
+  - Spotify
+tags:
+  - Python
+  - Spotify
+series:
+  - Python
+slug: spotify-downloader
+---
 
 ဒီရက်ပိုင်းက စရတဲ့ Blog တွေကများနေပြီ မတတ်နိုင်ဘူး။ ဒီ Content ကိုလဲ ဒီရက်ပိုင်းက စရမှာပဲဗျ။ ဒီရက်ပိုင်းမှာ အလုပ်လုပ်မယ် ဆိုပြီးသီချင်းနားထောင်တဲ့အခါမှာ Rock နဲ့ Alternative ဘက်ကို နားထောင်ဖြစ်ပေမယ့်လို့ အရမ်းနားထောင်ဖြစ်တဲ့အထဲမှာမပါတာကြောင့်ကော အာရုံမရတာကောကြောင့် Lofi လေးတွေ နားထောင်ရင်း အလုပ်လုပ်ချင်တာရယ်။ အေးအေးချမ်းချမ်းလေးမှာ Lofi Beat လေးတွေ နားထောင်ချင်တာကြောင့် Spotify က သီချင်းတွေ နားထောင်ရင်းလုပ်မယ်လို့ စဉ်းစားဖြစ်ခဲ့ပါသေးတယ်။
-
-<!--more-->
 
 ဟိုးအရင်ကတော့ Spotify ကို Family package ဝယ်ပြီး နားထောင်ဖြစ်ပေမယ့် အလုပ်နားထားတာကော အပိုဝင်ငွေမရှိသေးတာကောကြောင့် နားထားရတာကြာနေပြီဖြစ်တာကြောင့် Spotify ကိုပြန်မဝယ်ဖြစ်ဘူးဖြစ်နေတယ်။ ဆိုတော့ Spotify က သီချင်းတော်တော်များများကိုလဲ နားမထောင်ဖြစ်ဘူးပေါ့။ ဒီရက်ပိုင်း Lofi ကို အာသီသဖြစ်နေတာနဲ့ပဲ Spotify ကနားထောင်ရရင် အဆင်ပြေမယ်လို့ တွေးမိတာကြောင့် Spotify ကို ဖွင့်ပေမယ့် အကောင့်ဝင်ပြီး နားထောင်လို့ရရင်း မူးနေလို့လား ဘာကြောင့်လဲတော့မသိဘူး နားထောင်ရင်းတန်းလန်းကြီး Account က မီးပျက်လို့ Computer Restart ကျပြီးတော့ Password မှားနေတယ်ပဲ ပြောတာနဲ့ အာရုံအတော်နောက်သွားရတယ်။ ဖြစ်ချင်တော့ ပြောင်းထားတဲ့ Recovery Mail ကလဲ အရင် domain name နဲ့ ဝယ်ထားတဲ့ Gsuite ဖြစ်နေတာကြောင့် Recovery ပြန်ခေါ်လို့မရပြန်ဘူး။ ဆိုတော့ ဘာလုပ်ရမယ်ကမသိ Mail ကို Recovery ပြန်လိုက်ဖို့အတွက် ဟိုလုပ်ဒီလုပ်ရင်း အချိန်ပေးရမှာမလို့ မလုပ်တော့ဘူး ထားလိုက်တော့မယ်ဆိုပြီး၊ ထားလိုက်ရင်းနဲ့ အရင်ကတည်းက သုံးဖြစ်ခဲ့တဲ့ Python Script လေးအကြောင်းကို သတိရသွားတာနဲ့ပဲ ပြန်သုံးဖြစ်ခဲ့ရင်း အခုအချိန်အထိလဲ အတော်ကို အဆင်ပြေနေတာကိုတွေ့ရပြီး Update လဲ တော်တော်ကိုဖြစ်နေတာနဲ့ အဆင်ပြေတာကြောင့် မှတ်စုလေးအဖြစ်ရေးရင်း လာသိမ်းမိပြန်ပါတော့တယ်။ ✍️ စကားချပ်၊ ၊ Youtube က နားထောင်လို့ရပေမယ့် Opera မှာဘာကြောင်တယ်မသိဘူး။ နားထောင်ရင်းနဲ့ ရပ်ရပ်သွားတာကလဲ အာရုံ တော်တော်နောက်တာနဲ့ပဲ Spotify ကို သတိရမိတော့တယ်။
 

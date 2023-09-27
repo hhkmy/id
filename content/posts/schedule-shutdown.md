@@ -1,20 +1,24 @@
-+++
-author = 'heinhtetkyaw'
-title = "Schedule Shutdown"
-date = 2021-08-20T20:05:01+06:30
-image = "/images/schedule-shutdown_run.png"
-thumbnail_image = "/images/schedule-shutdown_run.png"
-description = "အသုံးဝင်တဲ့ Schedule Shutdown အကြောင်း ဖောရှောပေါ့။ ဖတ်ရင်းလည်ရင်း လည်ရင်းဖတ်ရင်း ဖြစ်နိုင်ကြပါစေ၊ အယ်လေ အဆင်ပြေကြပါစေပေါ့။"
-tags = ["Windows", "Tweak"]
-categories = ["Windows"]
-draft = false
-toc = false
-backtotop = false
-+++
+---
+author: heinhtetkyaw
+title: Schedule Shutdown Windows 10
+date: 2021-08-20T20:05:01+06:30
+image: /images/schedule-shutdown_run.png
+thumbnail_image: /images/schedule-shutdown_run.png
+description: အသုံးဝင်တဲ့ Schedule Windows Shutdown အကြောင်း ဖောရှောပေါ့။ ဖတ်ရင်းလည်ရင်း လည်ရင်းဖတ်ရင်း ဖြစ်နိုင်ကြပါစေ၊ အယ်လေ အဆင်ပြေကြပါစေပေါ့။
+summary: Schedule Shutdown လေးလုပ်ချင်တဲ့လူတွေအတွက် အဆင်ပြေအောင်လို့ပေါ့။ ဒီ Function ကတော့ တော်တော်များများအတွက် မလိုအပ်ဘူးဆိုပေမယ့် လိုအပ်တဲ့လူတွေ ဖတ်လို့ရအောင် ရေးထားတဲ့ အကြောင်းအရာလေးပါ။ လုပ်တဲ့နည်းကတော့ ၃ နည်းရှိတာဆိုတော့ ဖတ်ကြည့်ရင်း အဆင်ပြေနိုင်အောင် ရေးသားပေးလိုက်ပါတော့တယ်။
+categories:
+  - Windows
+tags:
+  - Tweak
+  - Windows
+series:
+  - Windows
+keywords:
+  - Windows
+slug: schedule-shutdown-windows-10
+---
 
 ကိုယ်က အပြင်သွားချင်တာပဲဖြစ်ဖြစ် Download လုပ်ထားတယ်။ အလုပ်တစ်ခုခုလုပ်ထားတယ်ဆိုရင်ပဲဖြစ်ဖြစ် ကွန်ပျူတာကို ပိတ်တော့ ပိတ်ချင်တယ် အိပ်နေတုန်း အပြင်ရောက်နေတုန်း တစ်နေရာရာကို ရောက်နေတုန်း လှမ်းပိတ်ဖို့ဆိုတာ အဆင်မပြေတဲ့အလုပ်ကြီး တစ်ခုလိုပဲ။ ဘာလုပ်သင့်လဲဆိုရင်တော့ ကျွန်တော်တို့တွေ ကွန်ပျူတာကို Schedule လုပ်ပြီး Shutdown သင့်တာကြောင့် ဟိုရှာဒီမွှေရင်း လိုက်ရှာကြည့်ပြီးတဲ့နောက်မှာတော့ ဘယ်လိုလုပ်ရမလဲဆိုတာကိုတွေ့ပြီး ဒီလိုလုပ်ဖို့အတွက်ကတော့ နည်းလမ်း ၃ မျိုးရှိပါတယ်။ တစ်ဆင့်ချင်းစီ သေချာရှင်းပြပေးပါ့မယ်။
-
-<!--more-->
 
 ### နည်းလမ်း - ၁ [Run Box & CMD Auto Shutdown]
 
