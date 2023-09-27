@@ -1,13 +1,24 @@
 ---
-title: 'KaTeX'
-date: 2023-09-18T05:19:51+06:30
+title: KaTeX - Math
+date: 2023-09-25T05:19:51+06:30
 author: heinhtetkyaw
-draft: false
-markup: 'mmark'
 katex: true
-math: true
-chem: true
-description: KaTeX data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ ပြန်ပြန်ပေးထားပါတယ်။
+image: /images/katex.png
+thumbnail_image: /images/katex.png
+preivew: /images/katex.png
+description: KaTeX and math data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ ပြန်ပြန်ပေးထားပါတယ်။
+summary: KaTeX data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ ပြန်ပြန်ပေးထားပါတယ်။ နောက်ပိုင်းမှာ KaTeX တွေ လိုက်ပြီး လေ့လာဖြစ်မလားမသိသေးပေမယ့် အခုလောလောဆယ်တော Content လေးတစ်ခုအဖြစ်နဲ့ပဲ သိမ်းထားလိုက်ပါတော့မယ်။ Example code တွေပါ ပြပေးထားလို့ ကိုယ်တိုင် Hugo Website လုပ်ပြီး ပြန်ရှင်းချင်တဲ့လူတွေအတွက်လည်း အတော်ကို အဆင်ပြေမှာပါ။
+categories:
+  - KaTeX
+tags:
+  - KaTeX
+  - Math
+series:
+  - KaTeX
+keywords:
+  - katex
+  - math
+slug: katex-math
 ---
 
 **$$** ဆိုရင် အလည်မှာဖြစ်သွားမှာဖြစ်ပြီး ရိုးရိုး **$** ဆိုရင်တော့ ရှေ့မှာပဲရှိနေမှာပါ။

@@ -1,19 +1,23 @@
-+++
-author = 'heinhtetkyaw'
-title = "Generals Zero Hour Crash Fix"
-date = "2021-02-06T19:22:51+06:30"
-image = "/images/CCGeneralsRemasteredDemo32022Update.png"
-thumbnail_image = "/images/CCGeneralsRemasteredDemo32022Update.png"
-description = "Fixing Command & Conquer Generals Zero Hour Crach Error"
-tags = ["Games",]
-categories = ["Games",]
-series = ["Games"]
-backtotop = true
-+++
+---
+author: heinhtetkyaw
+title: Generals Zero Hour Crash Fix
+date: 2021-02-06T19:22:51+06:30
+image: /images/CCGeneralsRemasteredDemo32022Update.png
+thumbnail_image: /images/CCGeneralsRemasteredDemo32022Update.png
+description: Fixing Command & Conquer Generals Zero Hour Crach Error at High Windows like windows 10 and above.
+summary: Fixing Command & Conquer Generals Zero Hour Crach Error ဆိုတာလေးပေါ့ ငယ်ငယ်တုန်းကလို့ ပြောလို့ရတဲ့ အချိန်က ဆော့ဖြစ်ခဲ့တဲ့ ဂိမ်းလေးကို ပြန်ဆော့ချင်တာနဲ့ ဆော့ပေမယ့် နည်းနည်း load များသွားရင် ဂိမ်းက crach ဖြစ်ပြီး ပြန်ပြန်ပိတ်သွားရတေ့တယ်။ မပိတ်သွားအောင်လိုက်ရှာရင်းနဲ့ နည်းလမ်းတစ်ခုက အဆင်ပြေပေမယ့် ဘာကြောင်မှန်းမသိ ဆော့ရတာ smooth မဖြစ်တော့တာနဲ့ မဆော့ဖြစ်ပေမယ့် အဆင်ပြေခဲ့တာလေး Note အဖြစ်နဲ့ သိမ်းထားမိတော့တယ်။
+categories:
+  - Games
+tags:
+  - Games
+series: Games
+keywords:
+  - Generals
+  - zero hour
+slug: generals-hour-crash-fix
+---
 
 ဒီရက်ပိုင်း စိတ်ထဲမှာ ပစ်ချင် တိုက်ချင်တဲ့ စိတ်ဖြစ်နေတာနဲ့ပဲ ဟိုးအရင်က ဆော့နေကျဂိမ်းလေးကိုသွားသတိရခဲ့မိသေးတယ်။ အဲ့ဒီ ဂိမ်းလေးကတော့ Command & Conquer Generals Zero Hour ဆိုတာလေးပါပဲ။ အင်တာနက် ဆိုင်ကိုသွားပြီး သူငယ်ချင်းတွေနဲ့ ဆော့ခဲ့ရတဲ့အချိန်တွေကိုလဲ သတိရတာနဲ့ ပြန်ဆော့ဖြစ်ရင်းနဲ့ Windows 10 မှာ အဆင်မပြေတာလေးတွေ တွေ့တာနဲ့ ရှာရင်း ဖွေရင်း ရှာဖွေရင်း အဆင်ပြေသွားတာလေးကို နည်းနည်း ပြန်မျှပေးချင်လို့ပါ။ အဆင်ပြေလှမဟုတ်ပေမယ့် ဆော့တဲ့အချိန်တွေကတော့အရင်ကလောက်မထစ်တော့တာနဲ့ပဲ ဒါလေးကိုလဲ မှတ်စုအဖြစ် သိမ်းဖို့ စဉ်းစားမိရင်း ရေးပေးပါအုံးမယ်။
-
-<!--more-->
 
 ကျွန်တော် ဒီ Game ကိုတော့ Torrent Website တစ်ခုကနေ ရှာဒေါင်းပြီး ဆော့ရတော့မယ်ဆိုတဲ့ မျှော်လင့်တကြီး ဒေါင်းပြီးဆော့ခဲ့တာပေါ့။ ဒါပေမယ့် ပြဿနာက ဂိမ်းထဲကို ဝင်ရင်ပဲဖြစ်ဖြစ်၊ ဂိမ်းကဆော့နေရင်းပဲဖြစ်ဖြစ် နည်းနည်း Lag ပြီး Crash ဖြစ်သွားတယ်။ Torrent ထဲမှာပါဝင်တဲ့ Fix တဲ့ နည်းတွေကို စမ်းကြည့်ပေမယ့် လုံးဝအဆင်မပြေခဲ့ဘူး။ ဆော့လို့ကောင်းနေပြီ ဂိမ်းထဲဝင်ပြီဆိုရင် ဇာတ်လမ်းက စပြီလို့တောင် ပြောရမယ်။ ဆိုတော့ ကြာတော့ ခွီးလာတာအမှန်ပဲ။
 
@@ -33,37 +37,37 @@ backtotop = true
 **"C:\Users\User\Documents\Command and Conquer Generals Zero Hour Data** ဆိုတဲ့ Direction ကိုသွားဖို့လိုအပ်ပါတယ်။ ပြီးရင်တော့ Options.ini file လေး တစ်ခုတည်ဆောက်တဲ့နည်းပါ။ မဟုတ်ရင်လဲ Notepad ဖွင့်ပြီး အောက်ကဟာတွေကို ကူးထည့်ပြီး သက်ဆိုင်ရာ Direction ကိုသွားထည့်ပေးရမှာပဲဖြစ်ပါတယ်။
 
 ```ini
-AntiAliasing = 2
-BuildingOcclusion = yes
-DrawScrollAnchor =
-DynamicLOD = yes
-ExtraAnimations = yes
-GameSpyIPAddress = 127.0.0.1
-Gamma = 50
-HeatEffects = yes
-IPAddress = 127.0.0.1
-IdealStaticGameLOD = High
-LanguageFilter = false
-MaxParticleCount = 2000
-MoveScrollAnchor =
-MusicVolume = 55
-Resolution = 1024 768
-Retaliation = yes
-SFX3DVolume = 79
-SFXVolume = 71
-ScrollFactor = 50
-SendDelay = no
-ShowSoftWaterEdge = yes
-ShowTrees = yes
-StaticGameLOD = High
-TextureReduction = 0
-UseAlternateMouse = no
-UseCloudMap = yes
-UseDoubleClickAttackMove = no
-UseLightMap = yes
-UseShadowDecals = yes
-UseShadowVolumes = yes
-VoiceVolume = 70
+AntiAliasing: 2
+BuildingOcclusion: yes
+DrawScrollAnchor:
+DynamicLOD: yes
+ExtraAnimations: yes
+GameSpyIPAddress: 127.0.0.1
+Gamma: 50
+HeatEffects: yes
+IPAddress: 127.0.0.1
+IdealStaticGameLOD: High
+LanguageFilter: false
+MaxParticleCount: 2000
+MoveScrollAnchor:
+MusicVolume: 55
+Resolution: 1024 768
+Retaliation: yes
+SFX3DVolume: 79
+SFXVolume: 71
+ScrollFactor: 50
+SendDelay: no
+ShowSoftWaterEdge: yes
+ShowTrees: yes
+StaticGameLOD: High
+TextureReduction: 0
+UseAlternateMouse: no
+UseCloudMap: yes
+UseDoubleClickAttackMove: no
+UseLightMap: yes
+UseShadowDecals: yes
+UseShadowVolumes: yes
+VoiceVolume: 70
 ```
 
 အချို့ကျတော့လဲ ဒီအဆင့်မှာအဆင်ပြေသွားတယ်ပြောကြပေမယ့် ကျွန်တော့အတွက်ကတော့ အဆင်မပြေပါဘူး။ ဒါနဲ့ပဲ နည်းလမ်း ၂ ကို ဆက်လုပ်ရတာပေါ့။

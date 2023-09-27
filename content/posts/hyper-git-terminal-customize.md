@@ -1,18 +1,28 @@
-+++
-author = 'heinhtetkyaw'
-title = 'Hyper + Git Terminal Customize'
-date = 2023-08-23T07:01:30+07:00
-categories = ["Terminal", "Windows"]
-tags = ["Terminal", "Windows"]
-series = ["Tools"]
-image = "/images/hyper-terminal-windows-10.png"
-thumbnail_image = "/images/hyper-terminal-windows-10.png"
-description = "Windows ပြန်တင်ပြီးတော့ Clean Installation တွေလုပ်လိုက်တော့ စိတ်ထဲ Command Prompt တစ်ခုကို ကောင်းကောင်းသုံးချင်လာတော့တယ်။"
-+++
+---
+author: heinhtetkyaw
+title: Hyper + Git Terminal Customize
+date: 2023-08-23T07:01:30+07:00
+image: /images/hyper-terminal-windows-10.png
+thumbnail_image: /images/hyper-terminal-windows-10.png
+description: Terminal တွေအများကြီး သုံးဖူးတာမဟုတ်ပေမယ့် Terminal တော်တော်များများလိုက်သုံးရင်း ဒီတစ်ခါကတော့ Hyper + terminal လေးကို Git နဲရောသုးဖြစ်သွားတာလေးပါ။
+summary: Terminal တွေအများကြီးထဲကမှ နောက်ထပ် Testing and Customize လုပ်မိတာကတော့ Hyper Terminal လေးပါ။ နည်းနည်းလေး သွက်တယ်ထင်ရပေမယ့် မသွက်သလိုလိုဖြစ်နေတာနဲ့ Testing လုပ်ပြီး Windows နောက်တစ်ခါ တင်လိုက်တော့ မထည့်ဖြစ်တော့တာလေး ဆိုပေမယ့် Test လည်းလုပ်ခဲ့သလို Customize လည်း ကောင်းကောင်းလုပ်ခဲ့တာလေးကို Note အဖြစ်နဲ့ မှတ်ရင်း
+categories:
+  - Terminal
+  - Windows
+tags:
+  - Terminal
+  - Windows
+series:
+  - Terminal
+  - Windows
+keywords:
+  - git
+  - hyper
+  - Terminal
+slug: hyper-git-terminal-customize
+---
 
 Windows ပြန်တင်ပြီးတော့ Clean Installation တွေလုပ်လိုက်တော့ စိတ်ထဲ Command Prompt တစ်ခုကို ကောင်းကောင်းသုံးချင်လာတော့တယ်။ Customize လည်းလုပ်လို့ရ၊ Open Source သဘောမျိုးလည်းဖြစ်တာမျိုးရှာရင်းနဲ့ပဲ Hyper ကို တွေ့မိတော့တယ်။ အရင်ကတော့ cmder နဲ့ zsh ကိုသုံးပေမယ့် နောက်ပိုင်း အီလာတာနဲ့ အသစ်ရှာရင်း ဒီနေ့တော့ Hyper ကိုတွေ့တာနဲ့ နည်းနည်းလေး Customize ချင်လာတာနဲ့ပဲ ဒီ Content လေးတစ်ခုရသွားပါတော့တယ်ပေါ့။
-
-<!--more-->
 
 Fresh installed ဖြစ်တဲ့အညီအကုန်လုံးကိုတော့ လုံးဝ အသေးစိတ်ပဲ ပြောပြပေးသွားပါတော့မယ်။ ပထမဦးဆုံး app ကို Download လုပ်ဖို့ဖြစ်တဲ့အတွက်ကြောင့် မူရင်း Website မှာပဲ Download သွားလုပ်လိုက်ပါ။
 

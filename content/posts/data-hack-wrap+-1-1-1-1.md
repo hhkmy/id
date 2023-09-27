@@ -1,23 +1,26 @@
-+++
-author = 'heinhtetkyaw'
-title = "Data Hack Warp+ 1.1.1.1"
-date = "2021-02-02T16:35:04+06:30"
-image = "/images/Warp.jpg"
-thumbnail_image = "/images/Warp.jpg"
-description = "အင်တာနက်တွေ အပိတ်ခံရတဲ့အချိန်အတွင်းမှာ တွေ့ရှိခဲ့တဲ့ Warp+ VPN ကို Share မလုပ်ပဲ Bandwidth တိုးနည်းလမ်းလေးတစ်ခုအကြောင်းကို ပြန်ပြီး ရေးထားတာပဲဖြစ်ပါတယ်။"
-tags = [
-    "VPN",
-]
-categories = [
-    "VPN",
-]
-series = ["Networking"]
-backtotop = "true"
-+++
+---
+author: heinhtetkyaw
+title: Data Hack Warp+ 1-1-1-1
+date: 2021-02-02T16:35:04+06:30
+image: /images/Warp.jpg
+thumbnail_image: /images/Warp.jpg
+description: မြန်မာနိုင်ငံမှာ Website တော်တော်များများက Blacklist ဖြစ်သွားပြီး Banned ခံထားရတဲ့အချိန်သုံးဖြစ်တဲ့ Warp+ VPN ကို GB တိုးနည်း
+summary: Warp+ ရဲ့သဘောတရားအရကတော့ တစ်ခါရှယ်လိုက်လို့ တစ်ခါမန်ဘာဝင်ကြတယ်ဆိုရင် 1GB တိုးတာပေါ့။ အဲ့ဒါကိုတော့ မရှယ်ပဲ python script သုံးပြီး GB တိုးတဲ့နည်းလေးကို ရှာတွေ့ထားတာနဲ့ပဲ Content လေးအဖြစ်နဲ့ ရေးရင်းနဲ့ ကိုယ်တိုင်လည်း တိုးခဲ့တာ တော်တော်အဆင်ပြေခဲ့တာကြောင့် Note လေးတစ်ခုအဖြစ်နဲ့ မှတ်ရင်း Sharing လုပ်ဖြစ်တာလေးပေါ့။ ကွန်ပျူတာနဲ့လည်းအဆင်ပြေသလို ဖုန်းနဲ့လည်းအဆင်ပြေပေမယ့် ကျွန်တော်ကတော့ ကွန်ပျူတာနဲ့ လုပ်ဖြစ်တာလေးပေါ့။ တော်တော်များများကိုတော့ ကွန်ပျူတာနဲ့ လုပ်ဖြစ်တာများတယ်ဆိုတောလည်း။ ။
+categories:
+  - VPN
+tags:
+  - VPN
+series:
+  - VPN
+keywords:
+  - 1.1.1.1
+  - data hack
+  - warp+
+  - 1-1-1-1
+slug: data-hack-warp-1-1-1-1
+---
 
 [Virtual private network](https://en.wikipedia.org/wiki/Virtual_private_network) အကြောင်းကိုကျွန်တော်တို့ သုံးဖူးကြသလို တော်တော်များများလဲ ကြားဖူးကြမှာပဲဖြစ်ပါတယ်။ ၂၀၂၁ ရဲ့ ဖေဖော်ဝါရီလထဲမှာတော့ တော်တော်များများကို အသုံးပြုနေကြတာပဲဖြစ်ပါတယ်။ [VPN](https://en.wikipedia.org/wiki/Virtual_private_network) တွေထဲကတစ်ခုဖြစ်တဲ့ 1.1.1.1 ဆိုတဲ့ကောင်လေးကို Data တွေကို Share မလုပ်ပါပဲ ဘယ်လို တိုးလို့ရမလဲဆိုတာကို မျှဝေပေးသွားမှာပဲဖြစ်ပါတယ်။
-
-<!--more-->
 
 ![Data Hack Warp+ 1.1.1.1](/images/Warp.jpg)
 

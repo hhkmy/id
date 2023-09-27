@@ -1,22 +1,23 @@
-+++
-author = 'heinhtetkyaw'
-title = "Removing Desktop Shortcut Arrow"
-date = 2023-08-21T01:15:41+07:00
-categories = ["Windows", "Tips & Tricks"]
-tags = ["Windows", "Tips & Tricks"]
-image = "/images/BlankShortcut.png"
-thumbnail_image = "/images/BlankShortcut.png"
-backtotop = true
-description = "ကွန်ပျူတာမှာမြင်မြင်ကြ Shortcut Arrow လေးတွေက ကြည့်ပါများတော့ မျက်စိနောက်လာပြီ"
-+++
+---
+author: heinhtetkyaw
+title: Removing Desktop Shortcut Arrow
+date: 2023-08-21T01:15:41+07:00
+image: /images/BlankShortcut.png
+thumbnail_image: /images/BlankShortcut.png
+description: ကွန်ပျူတာမှာမြင်မြင်ကြ Shortcut Arrow လေးတွေက ကြည့်ပါများတော့ မျက်စိနောက်လာတာနဲ့ regedit နဲ့ ဖျောက်တဲ့နည်း
+summary: ကွန်ပျူတာမှာ မြင်နေကြ Desktop Shortcut Arrow လေးက တော်တော်လေးတော့ မျက်စိနောက်ဖို့ကောင်းတာအမှန်ပဲ။ အဲ့ဒါနဲ့ ရှာကြည့်လိုက်တော့ အခြား Software တွေနဲ့ ဖျောက်လို့ရပေမယ့် regedit ကိုအသုံးပြုပြီး ဖျောက်လို့ရတာနဲ့ အဆင်ပြေတာလေး သိမ်းဖြစ်ခဲ့တာလေးပေါ့။
+categories:
+  - Windows
+  - Tips & Tricks
+tags:
+  - Windows
+  - Tips & Tricks
+series:
+  - Windows
+slug: removing-desktop-shortcut-arrow
+---
 
-ကွန်ပျူတာမှာမြင်နေကြ Desktop icon ပေါ်က shortcut arrow လေးက မျက်စိနောက်တာမဟုတ်ပေမယ့် ဖျောက်ထားချင်ကြတဲ့ ကျွန်တော့လိုလူတွေအတွက်လိုက်ရှာရင်း Error တက်ရင်းနဲ့ပဲ ဒါလေးကို မှတ်ထားချင်လာတော့တယ်။
-
-<!--more-->
-
-အရင်ဆုံး shell32.dll ကိုသုံးတဲ့နည်းရှိပေမယ့် အဲ့ဒီနည်းက သိပ်အဆင်မပြေတာနဲ့ နောက်တစ်နည်းကို ထပ်ရှာမိတော့တယ်။
-
-အရင် ဦးဆုံးလုပ်ရမှာကတော့ <kdb>Window Key + R</kdb> ကိုနှိပ်ပြီး **regedit** လို့ရိုက်ပြီး **OK** ကိုနှိပ်ပေးရပါမယ်။ မဟုတ်ရင်တော့ <kdb>Window Key</kdb> ကိုနှိပ်ပြီး **regedit** လို့ရိုက်လိုက်ရင်လည်း အတူတူပါပဲ။ သူက Permission တောင်းရင်တော့ Yes ကိုရွေးပြီးတော့ ဖွင့်လိုက်ပါ။
+ကွန်ပျူတာမှာမြင်နေကြ Desktop icon ပေါ်က shortcut arrow လေးက မျက်စိနောက်တာမဟုတ်ပေမယ့် ဖျောက်ထားချင်ကြတဲ့ ကျွန်တော့လိုလူတွေအတွက်လိုက်ရှာရင်း Error တက်ရင်းနဲ့ပဲ ဒါလေးကို မှတ်ထားချင်လာတော့တယ်။ အရင်ဆုံး shell32.dll ကိုသုံးတဲ့နည်းရှိပေမယ့် အဲ့ဒီနည်းက သိပ်အဆင်မပြေတာနဲ့ နောက်တစ်နည်းကို ထပ်ရှာမိတော့တယ်။ အရင် ဦးဆုံးလုပ်ရမှာကတော့ <kdb>Window Key + R</kdb> ကိုနှိပ်ပြီး **regedit** လို့ရိုက်ပြီး **OK** ကိုနှိပ်ပေးရပါမယ်။ မဟုတ်ရင်တော့ <kdb>Window Key</kdb> ကိုနှိပ်ပြီး **regedit** လို့ရိုက်လိုက်ရင်လည်း အတူတူပါပဲ။ သူက Permission တောင်းရင်တော့ Yes ကိုရွေးပြီးတော့ ဖွင့်လိုက်ပါ။
 
 ပွင့်လာတဲ့ Regedit Window ကနေပြီးတော့။
 
@@ -32,11 +33,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 
 ![Edit String ><](/images/Edit-String.png)
 
-ပုံပါအတိုင်းလေးကူးထည့်ပြီး Ok ကိုနှိပ်လိုက်ပြီး။
-
-**Task Manager > File Explore > Right Click > Restart** ဆိုရင်တော့ Shortcut Arrow လေးတွေ ပျောက်သွားပြီပဲဖြစ်ပါတယ်။
-
-အကယ်လို့သာ ဒီနည်းလမ်းက Error တက်ခဲ့မယ်ဆိုရင်တော့ နောက်ထပ် တစ်နည်းကတော့
+ပုံပါအတိုင်းလေးကူးထည့်ပြီး Ok ကိုနှိပ်လိုက်ပြီး။ **Task Manager > File Explore > Right Click > Restart** ဆိုရင်တော့ Shortcut Arrow လေးတွေ ပျောက်သွားပြီပဲဖြစ်ပါတယ်။ အကယ်လို့သာ ဒီနည်းလမ်းက Error တက်ခဲ့မယ်ဆိုရင်တော့ နောက်ထပ် တစ်နည်းကတော့
 
 ```
 %windir%\System32\shell32.dll,-50
@@ -46,7 +43,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 
 အကုန်လုံး အပေါ်က နည်းအတိုင်းလေးပဲ လုပ်သွားရင်အဆင်ပြေပါတယ်။ လိုအပ်တာကတော့ Black.ico လေးပဲဖြစ်တဲ့အတွက်ကြောင့် Download လုပ်လိုက်ပါ့မယ်။
 
-[Download Blank.ico](/files/Blank.ico.zip)
+**[Download Blank.ico](/files/Blank.ico.zip)**
 
 Download လုပ်ပြီးသွားရင်တော့။ Extract လုပ်ပြီး Folder တစ်ခုထဲကို သွားထားထားလိုက်ပါ။ ကျွန်တော်ကတော့ Document ထဲက Pictures ထဲမှာပဲ ထည့်ထားလိုက်တာဆိုတော့။ ကျွန်တော့ Location က
 

@@ -1,26 +1,28 @@
-+++
-author = 'heinhtetkyaw'
-date = "2021-02-03T20:05:29+06:30"
-title = "Woocommerce States Places Dropdown"
-description = "Wordpress ရဲ့ Sates တွေ နေရာတွေ ကို Dropdown လုပ်ဖို့ ရှာနေတဲ့လူတွေအတွက် အဆင်ပြေမှာအမှန်ပါပဲ"
-image = "/images/woocommerce-states-places-dropdown.gif"
-thumbnail_image = "/images/woocommerce-states-places-dropdown.gif"
-tags = [
-    "wordpress",
-    "woocommerce",
-]
-categories = [
-    "Wordpress",
-    "Woocommerce",
-]
-series = ["Woocommerce"]
-aliases = ["wordpress-collection"]
-backtotop = "true"
-+++
+---
+author: heinhtetkyaw
+title: Woocommerce States Places Dropdown
+date: 2021-02-03T20:05:29+06:30
+image: /images/woocommerce-states-places-dropdown.gif
+thumbnail_image: /images/woocommerce-states-places-dropdown.gif
+description: Wordpress ရဲ့ Woocommerce မှာ States Places တွေ ကို Dropdown လုပ်ဖို့ ရှာနေတဲ့လူတွေအတွက် Github repo လေး ဝင်ပြီး Edit ပေးဖြစ်ခဲ့တဲ့ Content
+summary: Wordpress ရဲ့ Woocommerce ကို Testing လုပ်ခဲ့တုန်းကပေါ့။ Myanmar နိုင်ငံက States တွေ နေရာတွေက အရမ်းများပေမယ့် ဘယ်တိုင်း ဘယ်မြို့နယ်ဆိုတာလေးကို အခြား နိုင်ငံတွေလိုပဲ Dropdown လေးနဲ့ ပြချင်ခဲ့တာ ကြာခဲ့ပြီ။ ရှာရင်းနဲ့ Github repo လေးတွေ့တာနဲ့ ဝင်ပြီး Contributions လုပ်ပြီး ကိုယ်တိုင် အနည်းငယ်လေး Modify လုပ်ဖြစ်ခဲ့တဲ့ Wordpress Plugin အကြောင်း
+categories:
+  - Wordpress
+  - Woocommerce
+tags:
+  - wordpress
+  - woocommerce
+series:
+  - Woocommerce
+keywords:
+  - places
+  - states
+  - woocommerce
+  - dropdown
+slug: woocommerce-states-places-dropdown
+---
 
 ဒီရက်ပိုင်း လုပ်ဖြစ်တဲ့အလုပ်တွေထဲက တစ်ခုလို့ပြောလို့ရတဲ့ ecommerce CMS တွေထဲကမှ တစ်ခုဖြစ်တဲ့ Woocommerce နဲ့ပတ်သက်တာကို စမ်းနေရင်းနဲ့ Website တစ်ခုတွေ့ပြီးကတည်းက လိုချင်နေခဲ့တာ ကြာခဲ့ပါပြီ။ ဒီနေ့တော့ ကိုယ်တိုင်လိုက်ရှာရင်း တွေ့တော့တွေ့တယ်မြန်မာနိုင်ငံအတွက် မရှိသေးတာနဲ့ နည်းနည်းအပင်ပန်းခံပြီးလုပ်ဖြစ်ခဲ့တာလေးကို အသေးစိတ်ဘယ်လို အသုံးပြုရမလဲဆိုတာကို ပြန်ရှင်းပြပေးမှာပဲဖြစ်ပါတယ်။
-
-<!--more-->
 
 ဒီရက်ပိုင်း အတော်အားနေတာနဲ့ပဲ ကိုယ်ပိုင်ရေးချင်တာရေးဖို့အတွက် [Personal Website is Up Again]({{< ref "personal-website-is-up-again.md" >}} "Personal Website is Up Again") ဆိုပြီးတောင် အစချီပြီး လုပ်ဖြစ်ခဲ့ပါသေးတယ်။ ဒီလိုတွေထဲမှာမှ နောက်အားနေတာနဲ့ပဲ Wordpress နဲ့ eCommerce လေး အစမ်းလုပ်ရင်းနဲ့ သဘောကျတာလေးတွေရှိတာနဲ့ ရှာရင်းရှာရင်း လိုချင်တာလေးကို ရခဲ့တယ်။ မြန်မာနိုင်ငံအတွက် မပါသေးတာနဲ့ဘာသာပြန် ပြည်နယ်နဲ့တိုင်းတွေထည့်ပြီး မြန်မာနိုင်ငံအတွက် သီးသန့် Custom Plugin တစ်ခုကိုတောင် ဖန်တီးခဲ့မိပါသေးတယ်။ ဆိုတော့ စမ်းခဲ့တဲ့အတိုင်းမှာ ဘယ်လိုအဆင်ပြေခဲ့တာလဲဆိုတာကိုတော့ နည်းနည်းလေး ရေးချင်စိတ်ရှိတာနဲ့ ချရေးပြီး မှတ်သားမျှဝေပါအုံးမးယ်။
 

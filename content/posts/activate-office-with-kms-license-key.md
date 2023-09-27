@@ -1,20 +1,29 @@
-+++
-author = 'heinhtetkyaw'
-title = "Activate Office With KMS License Key"
-date = "2021-02-05T21:41:16+06:30"
-image = "/images/open-cmd.png"
-thumbnail_image = "/images/open-cmd.png"
-type = 'post'
-description = "ဒီအကြောင်းအရာလေးကတော့ Windows 10 မှာ Office တွေကို ဘယ်လို Activate လုပ်ရမလဲဆိုတာကို ရှင်းပြသွားမှာပဲဖြစ်ပါတယ်။"
-tags = ["Office", "Microsoft", "Windows"]
-categories = ["Office", "Microsoft", "Windows"]
-series = ["Microsoft"]
-backtotop = true
-+++
+---
+author: heinhtetkyaw
+title: Activate Office With KMS License Key
+date: 2021-02-05T21:41:16+06:30
+image: /images/open-cmd.png
+thumbnail_image: /images/open-cmd.png
+description: ဒီအကြောင်းအရာလေးကတော့ Windows 10 မှာ Office တွေကို ဘယ်လို Activate လုပ်ရမလဲဆိုတာကို ရှင်းပြသွားမှာပဲဖြစ်ပါတယ်။
+summary: Microsoft ရဲ့ Office ဆိုတာကတော့ လူတိုင်းလိုလို အသုံးပြုဖြစ်တဲ့ Software ပေါ့၊ အဲ့ဒါကို License key တွေနဲ့ patch မလုပ်ပဲ bat script နဲ့ Patch လုပ်တဲ့ Content လေးပေါ့။ ဒါကလည်း ကာလအတော်ကြာအဆင်ပြေခဲ့တဲ့ Method ဆိုပေမယ့် နောက်ပိုင်း Microsoft ဘက်က ပြန်ပြီး Repatch လုပ်ခဲ့တော့တယ်ထင်တယ်။ နောက်ပိုင်း Office 365 ဘက်ကို စမ်းခဲ့တာ အဆင်ပြေတာနဲ့ပဲ ပြန်မသုံးဖြစ်ခဲ့တော့ဘူး၊ ဆိုပေမယ့် အဆင်ပြေခဲ့တဲ့ အမှတ်တရ Content လေးအကြောင်း
+categories:
+  - Office
+  - Microsoft
+  - Windows
+tags:
+  - Office
+  - Microsoft
+  - Windows
+series:
+  - Microsoft
+keywords:
+  - microsoft
+  - office
+  - windows
+slug: activate-office-kms-license-key
+---
 
 မနေ့ကရေးခဲ့တာကတော့ Windows 10 ကို Active လုပ်မလဲလို့ ရေးခဲ့ပြီးပြီဆိုတော့ ဒီနေ့တော့ ကျွန်တော် ရေးသွားမှာက Microsoft Office နဲ့ Office 365 ကို ဘယ်လို Active လုပ်ရမလဲဆိုတာပါပဲ။ ဘာ Software မှမသုံးပါပဲ command File တစ်ခုတည်းနဲ့လုပ်သွားမှာပဲဖြစ်ပါတယ်။ အကယ်လို့သာ Manual လုပ်ချင်ရင်လဲ အဆင်ပြေမှာပဲဖြစ်ပါတယ်။ နည်းလမ်းနှစ်ခုလုံးကိုတော့ ပြောပြပေးသွားပါ့မယ်။
-
-<!--more-->
 
 Windows တွေတင်ပြီးကြပြီဆိုရင်တော့ ကျွန်တော်တို့ Office တစ်ခုခုလဲ သုံးကြမှာပါ။ ကျွန်တော့အနေနဲ့ကတော့ Office 2019 ကို သုံးရတာ ကြိုက်သလို Office 365 သုံးရတာကိုလဲ သဘောကျပါတယ်။ အရင်ဆုံးလိုအပ်တာတွေ Download လုပ်ဖို့တော့လိုအပ်ပါလိမ့်မယ်။
 
@@ -90,17 +99,17 @@ Notepad ကိုဖွင့်လိုက်ပါ ပြီးရင်အ�
 
 ```batch
 @echo off
-title Activate Microsoft Office 2019 ALL versions for FREE!&cls&echo ============================================================================&echo #Project: Activating Microsoft software products for FREE without software&echo ============================================================================&echo.&echo #Supported products:&echo - Microsoft Office Standard 2019&echo - Microsoft Office Professional Plus 2019&echo.&echo.&(if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16")&(if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16")&(for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&(for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&echo.&echo ============================================================================&echo Activating your Office...&cscript //nologo slmgr.vbs /ckms >nul&cscript //nologo ospp.vbs /setprt:1688 >nul&cscript //nologo ospp.vbs /unpkey:6MWKP >nul&cscript //nologo ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP >nul&set i=1
+title Activate Microsoft Office 2019 ALL versions for FREE!&cls&echo:===========================================================================&echo #Project: Activating Microsoft software products for FREE without software&echo:===========================================================================&echo.&echo #Supported products:&echo - Microsoft Office Standard 2019&echo - Microsoft Office Professional Plus 2019&echo.&echo.&(if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16")&(if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16")&(for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&(for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&echo.&echo:===========================================================================&echo Activating your Office...&cscript //nologo slmgr.vbs /ckms >nul&cscript //nologo ospp.vbs /setprt:1688 >nul&cscript //nologo ospp.vbs /unpkey:6MWKP >nul&cscript //nologo ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP >nul&set i=1
 :server
 if %i%==1 set KMS=kms7.MSGuides.com
 if %i%==2 set KMS=kms8.MSGuides.com
 if %i%==3 set KMS=kms9.MSGuides.com
 if %i%==4 goto notsupported
-cscript //nologo ospp.vbs /sethst:%KMS% >nul&echo ============================================================================&echo.&echo.
-cscript //nologo ospp.vbs /act | find /i "successful" && (echo.&echo ============================================================================&echo.&echo #My official blog: MSGuides.com&echo.&echo #How it works: bit.ly/kms-server&echo.&echo #Please feel free to contact me at msguides.com@gmail.com if you have any questions or concerns.&echo.&echo #Please consider supporting this project: donate.msguides.com&echo #Your support is helping me keep my servers running everyday!&echo.&echo ============================================================================&choice /n /c YN /m "Would you like to visit my blog [Y,N]?" & if errorlevel 2 exit) || (echo The connection to my KMS server failed! Trying to connect to another one... & echo Please wait... & echo. & echo. & set /a i+=1 & goto server)
+cscript //nologo ospp.vbs /sethst:%KMS% >nul&echo:===========================================================================&echo.&echo.
+cscript //nologo ospp.vbs /act | find /i "successful" && (echo.&echo:===========================================================================&echo.&echo #My official blog: MSGuides.com&echo.&echo #How it works: bit.ly/kms-server&echo.&echo #Please feel free to contact me at msguides.com@gmail.com if you have any questions or concerns.&echo.&echo #Please consider supporting this project: donate.msguides.com&echo #Your support is helping me keep my servers running everyday!&echo.&echo:===========================================================================&choice /n /c YN /m "Would you like to visit my blog [Y,N]?" & if errorlevel 2 exit) || (echo The connection to my KMS server failed! Trying to connect to another one... & echo Please wait... & echo. & echo. & set /a i+=1 & goto server)
 explorer "http://MSGuides.com"&goto halt
 :notsupported
-echo.&echo ============================================================================&echo Sorry! Your version is not supported.&echo Please try installing the latest version here: bit.ly/aiomsp
+echo.&echo:===========================================================================&echo Sorry! Your version is not supported.&echo Please try installing the latest version here: bit.ly/aiomsp
 :halt
 pause >nul
 ```

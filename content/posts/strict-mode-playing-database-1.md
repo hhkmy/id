@@ -1,19 +1,24 @@
-+++
-author = 'heinhtetkyaw'
-title = "Playing With Database - 1"
-date = "2021-11-26T03:44:49+06:30"
-image = "/images/runcloud_running_services.png"
-thumbnail_image = "/images/runcloud_running_services.png"
-description = "တွေ့ရကြုံရ ဖြေရှင်းရင်းနဲ့ ဖြစ်ခဲ့တဲ့ Database အတွေ့အကြုံများအကြောင်းထဲကမှ အကြောင်းအရာ နံပါတ် (၁)"
-tags = ["Database"]
-categories = ["Database"]
-series = ["Database"]
-backtotop = true
-+++
+---
+author: heinhtetkyaw
+title: Strict Mode - Playing With Database - 1
+date: 2021-11-26T03:44:49+06:30
+image: /images/runcloud_running_services.png
+thumbnail_image: /images/runcloud_running_services.png
+description: တွေ့ရကြုံရ ဖြေရှင်းရင်းနဲ့ ဖြစ်ခဲ့တဲ့ Database အတွေ့အကြုံများအကြောင်းထဲကမှ Strict Mode ဖြစ်တဲ့ Database အကြောင်း
+summary: Mybb သုံးဖြစ်ခဲ့တုန်းက Database Table တွေထဲမှာ Stict Mode အတွက် ဖြေရှင်းခဲ့တုန်းက ရှာရင်းဖွေရင်း အဆင်ပြေသွားခဲ့တာလေးပေါ့။ Table တော်တော်များများက Strict Mode လိုအပ်ခဲ့တဲ့အတွက် Default Database setting တွေ နည်းနည်းလေး patch လုပ်ပြီးမှ သုံးလို့ရတာဖြစ်လို့ ဆက်ရှာဖွေခဲမိတာလေးပေါ့။ အခြားလူတွေအတွက် အသုံးမဝင်တောင် ကိုယ့်အတွက် ခဏခဏ ပြန်ပြန်မရှာနေရအောင် Note လေးအဖြစ်သိမ်းမှတ်ရင်းနဲ့
+categories:
+  - Database
+tags:
+  - Database
+series:
+  - Database
+keywords:
+  - Database
+  - Strict Mode
+slug: strict-mode-playing-database-1
+---
 
 အလုပ်လုပ်ရင်းနဲ့ တွေ့ကြုံဖြေရှင်းနေရတာနဲ့တင် Blog တောင်မရေးဖြစ်တာ တော်တော်လေးကို ကြာခဲ့ပါပြီ။ ဒီနေ့တော့ ရေးချင်တာရော နောက်ကြုံတွေ့ရရင် ပြန်ရှာလို့ရနိုင်ဖို့အတွက်ရော ရေးသားဖြစ်လိုက်ပါတော့တယ်။
-
-<!--more-->
 
 အခုလောလောဆယ်မှာတော့ Mybb ကို အသုံးပြုပြီး Forum တစ်ခုကို Develop လုပ်နေရင်းနဲ့မှ Database ထဲမှာ **Strict Mode** က Enable ဖြစ်နေတဲ့အတွက်ကြောင့် ရှာရင်း ဖွေရင်းနဲ့ တွေ့ရတဲ့ Solution လေးအကြောင်းကို မှတ်ထားချင်တာကြောင့် ဒီလိုလေးလုပ်ခဲ့ပါတယ်ပေါ့။
 
@@ -46,7 +51,7 @@ nano my.cnf
 ပွင့်လာတဲ့ my.cnf မှာပဲ Nano ရဲ့ command ဖြစ်တဲ့ <kbd>Ctrl</kbd> + <kbd>W</kbd> နဲ့ **sql_mode** ကိုရှာလိုက်ပါတော့တယ်။ ကျွန်တော်ပြင်ချင်တာကလဲ sql_mode ဖြစ်တဲ့အတွက်ကြောင့်ပါပဲ။ ဆိုတော့ တွေ့ပြီဆိုရင်တော့။ Default ရှိပြီးသား Line ရဲ့အောက်မှာ အသစ်လေးကို ထည့်ပေးလိုက်ပါတော့တယ်။ တစ်ခုခုဖြစ်တဲ့အခါ အသစ်ထည့်ထားတဲ့ Line ကို Remove လုပ်လိုက်ရင် ရတာဖြစ်တာကြောင့်ပါပဲ။ Server နဲ့ပက်သက်ပြီး error တက်သွားရင် အချိန်ပိုကုန်တာကြောင့် ကိုယ့်ဘက်က Safe Side ဖြစ်အောင်လုပ်ထားတာအကောင်းဆုံးပါပဲ။ အသစ်ထည့်လိုက်တာကတော့
 
 ```cmd
-sql_mode                = ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+sql_mode               : ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 ```
 
 ![Nano Search Result of sql_mode ><](/images/nano_sql_mode_search_result.png)
