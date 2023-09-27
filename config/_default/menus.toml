@@ -1,24 +1,28 @@
 [[main]]
 Pre = 'fa-light fa-id-badge'
 Url = '/about'
+identifier = 'about'
 name = 'About'
 pageRef = '/about'
 weight = 1
 [[main]]
 Pre = 'fa-light fa-cabinet-filing'
 Url = '/archive'
+identifier = 'archive'
 name = 'Archive'
 pageRef = '/archive'
 weight = 2
 [[main]]
-Pre = 'fa-light fa-id-badge'
+Pre = 'fa-light fa-books'
 Url = '/books'
+identifier = 'books'
 name = 'Books'
 pageRef = '/books'
 weight = 3
 [[main]]
-Pre = 'fa-light fa-id-badge'
+Pre = 'fa-light fa-blog'
 Url = '/posts'
+identifier = 'posts'
 name = 'Posts'
 pageRef = '/posts'
 weight = 4
