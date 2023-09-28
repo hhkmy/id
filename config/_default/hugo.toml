@@ -116,9 +116,6 @@ target = "js"
 source = "assets/.*\\.(.*)$"
 target = "$1"
 
-[[params.plugins.js]]
-link = "js/search.js"
-
 [outputs]
 home = ['html', 'rss', 'SearchIndex']
 page = ['html']
