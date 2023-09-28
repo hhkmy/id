@@ -17,16 +17,6 @@
           "type": "datetime"
         },
         {
-          "title": "author",
-          "name": "author",
-          "type": "string"
-        },
-        {
-          "title": "katex",
-          "name": "katex",
-          "type": "datetime"
-        },
-        {
           "title": "image",
           "name": "image",
           "type": "image"
@@ -37,8 +27,8 @@
           "type": "image"
         },
         {
-          "title": "preivew",
-          "name": "preivew",
+          "title": "preview",
+          "name": "preview",
           "type": "string"
         },
         {
@@ -52,9 +42,10 @@
           "type": "string"
         },
         {
-          "title": "categories",
-          "name": "categories",
-          "type": "categories"
+          "title": "categores",
+          "name": "categores",
+          "type": "choice",
+          "choices": ["m3u8", "ffmpeg"]
         },
         {
           "title": "tags",
@@ -64,14 +55,13 @@
         {
           "title": "series",
           "name": "series",
-          "type": "choice",
-          "choices": ["KaTeX"]
+          "type": "string"
         },
         {
           "title": "keywords",
           "name": "keywords",
           "type": "choice",
-          "choices": ["katex", "math"]
+          "choices": ["download", "m3u8", "ffmpeg"]
         }
       ]
     }
@@ -84,5 +74,6 @@
       "title": "posts",
       "path": "[[workspace]]/content/posts"
     }
-  ]
+  ],
+  "frontMatter.dashboard.openOnStart": false
 }
