@@ -1,1 +1,6 @@
-{}
+{
+  "taxonomy": {
+    "tags": ["Activation", "Broadband", "Database", "Emoji", "Games", "KaTeX", "LTE Router", "Math", "Microsoft", "Networking", "Office", "Personal", "Python", "Software", "Spotify", "Terminal", "Tips & Tricks", "Tools", "Tweak", "Unlocking", "VPN", "Windows", "Wireless", "chemical", "diagrams", "hugo", "woocommerce", "wordpress"],
+    "categories": ["Database", "Games", "KaTeX", "Microsoft", "Networking", "Office", "Personal", "Python", "Software", "Spotify", "Terminal", "Tips & Tricks", "Tools", "Unlocking Router", "VPN", "Windows", "Woocommerce", "Wordpress", "chemical", "diagrams", "hugo"]
+  }
+}
