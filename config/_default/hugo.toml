@@ -204,3 +204,20 @@ baseName = "searchindex"
 isPlainText = true
 mediaType = "application/json"
 notAlternative = true
+
+[deployment]
+[[deployment.matchers]]
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+pattern = "^.+\\.(js|css|svg|ttf)$"
+[[deployment.matchers]]
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+pattern = "^.+\\.(png|jpg)$"
+[[deployment.matchers]]
+contentType = "application/xml"
+gzip = true
+pattern = "^sitemap\\.xml$"
+[[deployment.matchers]]
+gzip = true
+pattern = "^.+\\.(html|xml|json)$"
