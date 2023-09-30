@@ -26,6 +26,7 @@ facebook = "https://facebook.com/callmeHeinHtetKyaw"
 github = "https://github.com/h2kyaw"
 # google tag manager, see https://developers.google.com/tag-manager/
 google_tag_manager = "G-MSGPDQ4L7R" # example: G-XXXXXXXXXX
+gtm = "GTM-TRZM5JG9" 
 image = "/images/og.png" 
 ogimage = "/images/og.png" 
 sitename = "K's V/Blog" 
