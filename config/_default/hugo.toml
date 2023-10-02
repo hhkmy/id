@@ -6,6 +6,8 @@ theme = "ksv"
 themesDir = "themes"
 title = "K's V/Blog"
 
+googleAnalytics = "UA-285731265-1"
+
 canonifyURLs = true
 enableEmoji = true
 enableGitInfo = true
