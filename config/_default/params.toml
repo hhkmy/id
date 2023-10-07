@@ -11,9 +11,101 @@ mastodon = "" # Your verification code
 [search]
 enable = true 
 include_all_sections = false # if `include_all_sections` is true, then comment out the `include_sections`
-include_sections = ["posts", "shop"] # if `include_sections` empty, then sections will come from the `mainSections`           
+include_sections = ["posts", "shop"] # if `include_sections` empty, then sections will come from the `mainSections`               
 primary_color = "#ce8460" 
 show_categories = true 
 show_description = true 
 show_image = true 
-show_tags = true
+show_tags = true 
+
+########################### Default parameters ######################
+attorney_photo = "/images/Samantha-Greene-2.jpg"
+backgroundint = "/images/backgrounds/page-title.webp"
+disableHugoGeneratorInject = "false"
+favicon = "/images/favicon.svg"
+founder = "Samantha Greene"
+foundinglocation = "San Diego, California"
+googleAnalytics = "UA-285731265-1"
+lawFirmName = "Sevens Legal, APC"
+logo = "/images/sevens-legal-logo.svg"
+logo_footer = "/images/sevens-legal-logo.svg"
+logo_png = "/images/sevens-legal-logo.png"
+logo_width = "180px"
+slogan = "San Diego Criminal Lawyer"
+# Schema
+avvo = "https://www.avvo.com/attorneys/92103-ca-samantha-greene-297353.html"
+# top header
+enableRobotsTXT = true
+top_header = false
+# Meta data
+author = "Samantha Greene"
+description = "Sevens Legal, APC is San Diego's premier criminal defense lawyers. We offer a free consultation. Call us today at (619) 430-2355."
+# contact info
+address = "3555 Fourth Ave, San Diego CA 92103"
+address2 = "500 La Terraza Blvd. Suite 150, Escondido, CA 92025"
+calltrackingCode = "30789.tctm.co/t.js"
+contact_picture = "/wp-content/uploads/2019/02/619-Divorce-Fav-320-320.gif"
+location1 = "San Diego"
+location2 = "Escondido"
+mapImage = "/images/3555-fourth-ave-san-diego-92103.jpg"
+mapImage2 = "/images/500-la-terraza-blvd-suite-150-escondido-ca-92025.jpg"
+mapImagewebp = "/images/3555-fourth-ave-san-diego-92103.webp"
+mapImagewebp2 = "/images/500-la-terraza-blvd-suite-150-escondido-ca-92025.jpg"
+mapcover = "/wp-content/uploads/2015/12/619-DIVORCE-BG.jpg"
+mapcover_webp = "/wp-content/uploads/2015/12/619-DIVORCE-BG.webp"
+mappinicon = "/images/icons/mappin.svg"
+mobile = "(619) 430-2355"
+mobile2 = "(760) 973-4005"
+phoneicon = "/images/icons/phone.svg"
+site-directions-long1 = "https://www.google.com/maps/dir/33.8952192,-118.4038912/3555+fourth+ave/@33.3973946,-118.2969982,9z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x80d9552574d2cd71:0xbb4c889ccb39704b!2m2!1d-117.1613045!2d32.7425026?entry=ttu"
+site-directions-long2 = "https://www.google.com/maps/place/Sevens+Legal+Criminal+Lawyers/@33.1125565,-117.0980729,17z/data=!3m1!4b1!4m6!3m5!1s0x80dbf48e93d388db:0x9d661379896854be!8m2!3d33.1125565!4d-117.0958842!16s%2Fg%2F11c60b21yq?entry=ttu"
+# contact form action
+# page sidebar quick contact form
+quick_contact = true
+# search
+search = false
+[markup]
+[markup.tableOfContents]
+endLevel = 5
+ordered = false
+startLevel = 2
+
+# Preloader
+[preloader]
+enable = false 
+preloader = "" # use jpg, png, svg or gif format.
+
+# Navigation button
+[navigation_button]
+enable = true
+label = "(619) 430-2355"
+
+# Subscription
+[subscription]
+enable = false
+
+# google map
+[gmap]
+enable = false
+map_latitude = '32.742490'
+map_latitude2 = ""
+map_longitude = '-117.161220'
+map_longitude2 = ""
+map_marker = "images/marker.png"
+map_marker_name = "Sevens Legal, APC"
+
+########################### social icon ############################
+[[social]]
+icon = "/images/icons/facebook.svg"
+link = "https://www.facebook.com/sevenslegalapc/"
+title = "Facebook Page"
+
+[[social]]
+icon = "/images/icons/linkedin.svg"
+link = "https://www.linkedin.com/company/sevens-legal"
+title = "Linkedin Page"
+
+[[social]]
+icon = "/images/icons/instagram.svg"
+link = "https://instagram.com/sevenslegal/"
+title = "Instagram Page"
