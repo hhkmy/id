@@ -1,0 +1,73 @@
+[markup]
+[markup.goldmark]
+[markup.goldmark.extensions]
+KaTeX = true
+definitionList = true
+footnote = true
+linkify = true
+linkifyProtocol = 'https'
+strikethrough = true
+table = true
+taskList = true
+
+[markup.goldmark.extensions.cjk]
+eastAsianLineBreaks = false
+enable = false
+escapedSpace = false
+[markup.goldmark.extensions.typographer]
+apostrophe = '&rsquo;'
+disable = false
+ellipsis = '&hellip;'
+emDash = '&mdash;'
+enDash = '&ndash;'
+leftAngleQuote = '&laquo;'
+leftDoubleQuote = '&ldquo;'
+leftSingleQuote = '&lsquo;'
+rightAngleQuote = '&raquo;'
+rightDoubleQuote = '&rdquo;'
+rightSingleQuote = '&rsquo;'
+[markup.goldmark.parser]
+autoHeadingID = true
+autoHeadingIDType = 'github'
+wrapStandAloneImageWithinParagraph = true
+[markup.goldmark.parser.attribute]
+block = false
+title = true
+[markup.goldmark.renderer]
+hardWraps = false
+unsafe = false
+xhtml = false
+
+[params.katex]
+enable = true
+html_dom_element = "document.body"
+[params.katex.mhchem]
+enable = true
+[params.katex.options]
+errorColor = "#CD5C5C"
+throwOnError = false
+
+[[params.katex.options.delimiters]]
+display = true
+left = "$$"
+right = "$$"
+[[params.katex.options.delimiters]]
+display = false
+left = "$"
+right = "$"
+[[params.katex.options.delimiters]]
+display = false
+left = "\\("
+right = "\\)"
+[[params.katex.options.delimiters]]
+display = true
+left = "\\["
+right = "\\]"
+
+[params.markmap]
+enable = true
+[params.mermaid]
+enable = true
+theme = "neutral"
+[params.mermaid.flowchart]
+diagramPadding = 6
