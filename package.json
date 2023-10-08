@@ -22,11 +22,11 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy-cache-assets": "^2.3.0",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.16",
     "concurrently": "^8.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "postcss": "^8.4.30",
+    "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
     "prettier": "3.0.3",
