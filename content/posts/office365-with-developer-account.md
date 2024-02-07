@@ -4,6 +4,7 @@ date: 2023-12-21T21:52:06.768Z
 author: heinhtetkyaw
 image: /images/microsoft_dns.png
 thumbnail_image: /images/microsoft_dns.png
+preview: /images/microsoft_dns.png
 description: Microsoft ရဲ့ Office 365 ကြီးကိုတော့ မဝယ်နိုင်ဘူး ဒါပေမယ့် သုံးချင်တယ်ဆိုတဲ့ ကိုယ့်လိုလူတွေအတွက်တော့ အသုံးဝင်မယ့် Note လေးတစ်ခုမှတ်ထားဖို့။
 summary: Microsoft ရဲ့ Office 365 ကို ဝယ်သုံးဖို့က ဈေးနည်းနည်းများသလို တစ်နှစ်တစ်ခါကြီး ဝယ်ဝယ်နေရတော့ အဆင်မပြေဖြစ်တာရယ် Microsoft ရဲ့ Devloper program ကိုတွေ့ထားတာနဲ့ ရေးဖြစ်တဲ့ Note လေး
 categores:

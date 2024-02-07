@@ -7,14 +7,36 @@
       "previewPath": null,
       "fields": [
         {
-          "title": "title",
+          "title": "Title",
           "name": "title",
           "type": "string"
         },
         {
-          "title": "date",
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
           "name": "date",
-          "type": "datetime"
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
         },
         {
           "title": "author",
@@ -32,25 +54,19 @@
           "type": "image"
         },
         {
-          "title": "description",
-          "name": "description",
-          "type": "string"
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
         },
         {
           "title": "summary",
           "name": "summary",
-          "type": "string"
+          "type": "datetime"
         },
         {
           "title": "categores",
           "name": "categores",
-          "type": "choice",
-          "choices": ["m3u8", "ffmpeg"]
-        },
-        {
-          "title": "tags",
-          "name": "tags",
-          "type": "tags"
+          "type": "string"
         },
         {
           "title": "series",
@@ -60,8 +76,12 @@
         {
           "title": "keywords",
           "name": "keywords",
-          "type": "choice",
-          "choices": ["ffmpeg", "m3u8"]
+          "type": "datetime"
+        },
+        {
+          "title": "slug",
+          "name": "slug",
+          "type": "datetime"
         }
       ]
     }

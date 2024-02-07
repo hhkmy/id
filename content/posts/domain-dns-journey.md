@@ -4,6 +4,7 @@ date: 2023-10-09T05:40:42+06:30
 author: heinhtetkyaw
 image: images/autumn.jpg
 thumbnail_image: images/autumn.jpg
+preview: images/autumn.jpg
 description: Domain (DNS) တစ်ခုကို ကောင်းကောင်းမသုံးဖြစ်ပဲ ဟိုပြောင်းလိုက် ဒီပြောင်းလိုက်ဖြစ်နေရခြင်းများဆိုတဲ့ Content ထင်တယ်။ ဖြစ်နိုင်ရင်တော့ DNS ခဏခဏပြောင်းချင်တော့ဘူး
 summary: Domain ဝယ်ဖြစ်ခဲ့တဲ့အကြောင်းအရင်းနဲ့ နောက်ထပ် ရေးသားဖြစ်မယ့် Content လေးတစ်ပုဒ်လို့ပြောရမလားပဲ။ တကယ့်တကယ်မှာတော့ Domain တစ်ခုကို ကောင်းကောင်းပိုင်ဆိုင်ချင်ရဲ့ ... ခဏခဏပြောင်းနေရတဲ့ DNS (Domain Name System) တွေကိုလည်း မကြိုက်တော့ဘူး။
 categores:

@@ -4,6 +4,7 @@ title: Spotify Downloader
 date: 2021-08-15T14:39:23+06:30
 image: /images/spotDL_spotify-downloader.png
 thumbnail_image: /images/spotDL_spotify-downloader.png
+preview: /images/spotDL_spotify-downloader.png
 description: Download Spotify Public Playlist without Login with spotDL Python spotify Downloader.
 summary: Spotify url ရှိတာနဲ့ youtube Music အသုံးပြုလို့ရတာနဲ့ Spotify Music တွေကို Download လုပ်နိုင်တဲ့ npm package လေးပါပဲ။ တကယ် တော်တော်လေးကို အဆင်ပြေပြီး အခုအချိန်အထိလည်း အဆင်ပြေနေတာလေးနည်း နောက်ထပ် udpate တွေမှာ comment ထဲမှာ Youtube URL လေးတွေကို ပြန်ပြန်ထည့်ပေးထားလို့ ပိုလို့တောင် အဆင်ပြေလာပါသေးတယ်။ နောက်တစ်နည်းလည်းရှိပေမယ့် နောက်တစ်နည်းကိုတော့ အဆင်ပြေတဲ့အချိန်မှပဲ ရေးပေးပါတော့မယ်။
 categories:
