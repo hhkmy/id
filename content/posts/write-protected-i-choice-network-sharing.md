@@ -4,6 +4,7 @@ title: Write Protected? I Choice Network Sharing
 date: 2021-04-19T22:47:24+06:30
 image: /images/network-sharing.png
 thumbnail_image: /images/network-sharing.png
+preview: /images/network-sharing.png
 description: USB Stick တွေကို Write Protected ဖြစ်နေတာလေးတွေကို Network Sharing ကနေတစ်ဆင့် copy  လုပ်ဖြစ်ဖို့အတွက်လိုက်ရှာရင်းရေးဖြစ်ခဲ့တဲ့ contet လေးတစ်ပုဒ်ပါ။
 summary: Internet တွေ အပိတ်ခံရတုန်းက Fiber မဟုတ်တဲ့အတွက် သုံးလို့မရခဲ့တုန်းက အသိတွေကို Download ဆွဲခိုင်းခဲ့တာဆိုပေမယ့် ကိုယ်လည်း ပြန်သုံးကော USB အသုံးပြုခွင့်ရပေမယ့် Write Protected ဖြစ်နေတာနဲ့ပဲ Network ကိုအသုံးပြုပြီး File sharing လုပ်ဖြစ်ခဲ့တာလေးပေါ့။ USB write protected ကိုတော့ BIOS ထဲလည်းလုပ်လို့ရသလို Windows Registery တွေကကော Software တွေ Company Management Software တွေကတစ်ဆင့်လည်း ပိတ်ထားလို့ရပါတယ်။ အဲ့ဒါတွေကို ဘယ်လိုမျိုး overflow လုပ်ခဲ့သလည်းဆိုတဲ့အကြောင်းအရာလေးပေါ့။
 categories:

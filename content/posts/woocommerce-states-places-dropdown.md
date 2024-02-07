@@ -4,6 +4,7 @@ title: Woocommerce States Places Dropdown
 date: 2021-02-03T20:05:29+06:30
 image: /images/woocommerce-states-places-dropdown.gif
 thumbnail_image: /images/woocommerce-states-places-dropdown.gif
+preview: /images/woocommerce-states-places-dropdown.gif
 description: Wordpress ရဲ့ Woocommerce မှာ States Places တွေ ကို Dropdown လုပ်ဖို့ ရှာနေတဲ့လူတွေအတွက် Github repo လေး ဝင်ပြီး Edit ပေးဖြစ်ခဲ့တဲ့ Content
 summary: Wordpress ရဲ့ Woocommerce ကို Testing လုပ်ခဲ့တုန်းကပေါ့။ Myanmar နိုင်ငံက States တွေ နေရာတွေက အရမ်းများပေမယ့် ဘယ်တိုင်း ဘယ်မြို့နယ်ဆိုတာလေးကို အခြား နိုင်ငံတွေလိုပဲ Dropdown လေးနဲ့ ပြချင်ခဲ့တာ ကြာခဲ့ပြီ။ ရှာရင်းနဲ့ Github repo လေးတွေ့တာနဲ့ ဝင်ပြီး Contributions လုပ်ပြီး ကိုယ်တိုင် အနည်းငယ်လေး Modify လုပ်ဖြစ်ခဲ့တဲ့ Wordpress Plugin အကြောင်း
 categories:

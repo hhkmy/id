@@ -4,6 +4,7 @@ title: Personal Website is UP Again!
 date: 2021-02-01T21:41:16+06:30
 image: /images/og.jpg
 thumbnail_image: /images/og.jpg
+preview: /images/og.jpg
 description: Personal Website တွေအများကြီးရှိခဲ့ဖူးပေမယ့် အဖတ်မတင်ခဲ့ဘူး။ Data တွေအကုန်လုံးက Database မှာ ထားထားရတာဆိုတော့ သိပ်အဆင်မပြေခဲ့ပေမယ့် Hugo နဲ့အဆင်ပြေတော့တယ်။
 summary: Personal Website တွေအများကြီးရှိခဲ့ဖူးပေမယ့် အဖတ်မတင်ခဲ့ဘူး။ Data တွေအကုန်လုံးက Database မှာ ထားထားရတာဆိုတော့ သိပ်အဆင်မပြေခဲ့တာတွေလို့ပြောလို့ရအောင် Data တွေ အမြဲဆုံးရှုံးရပေမယ့် Github ပေါ်မှာ markdown language နဲ့ Hugo website ရေးပြီးမှပဲ အဆင်ပြေသွားရတော့တယ်။ နောက်ပိုင်းကြရင်တော့ Personal Website ပြန်ရေးချင်တဲ့လူတွေအတွက် အဆင်ပြေမယ့် နည်းလေးကို ပြောပြပေးသွားပါ့အုံးမယ်
 categories:

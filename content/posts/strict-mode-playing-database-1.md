@@ -4,6 +4,7 @@ title: Strict Mode - Playing With Database - 1
 date: 2021-11-26T03:44:49+06:30
 image: /images/runcloud_running_services.png
 thumbnail_image: /images/runcloud_running_services.png
+preview: /images/runcloud_running_services.png
 description: တွေ့ရကြုံရ ဖြေရှင်းရင်းနဲ့ ဖြစ်ခဲ့တဲ့ Database အတွေ့အကြုံများအကြောင်းထဲကမှ Strict Mode ဖြစ်တဲ့ Database အကြောင်း
 summary: Mybb သုံးဖြစ်ခဲ့တုန်းက Database Table တွေထဲမှာ Stict Mode အတွက် ဖြေရှင်းခဲ့တုန်းက ရှာရင်းဖွေရင်း အဆင်ပြေသွားခဲ့တာလေးပေါ့။ Table တော်တော်များများက Strict Mode လိုအပ်ခဲ့တဲ့အတွက် Default Database setting တွေ နည်းနည်းလေး patch လုပ်ပြီးမှ သုံးလို့ရတာဖြစ်လို့ ဆက်ရှာဖွေခဲမိတာလေးပေါ့။ အခြားလူတွေအတွက် အသုံးမဝင်တောင် ကိုယ့်အတွက် ခဏခဏ ပြန်ပြန်မရှာနေရအောင် Note လေးအဖြစ်သိမ်းမှတ်ရင်းနဲ့
 categories:

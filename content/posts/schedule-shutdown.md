@@ -4,6 +4,7 @@ title: Schedule Shutdown Windows 10
 date: 2021-08-20T20:05:01+06:30
 image: /images/schedule-shutdown_run.png
 thumbnail_image: /images/schedule-shutdown_run.png
+preview: /images/schedule-shutdown_run.png
 description: အသုံးဝင်တဲ့ Schedule Windows Shutdown အကြောင်း ဖောရှောပေါ့။ ဖတ်ရင်းလည်ရင်း လည်ရင်းဖတ်ရင်း ဖြစ်နိုင်ကြပါစေ၊ အယ်လေ အဆင်ပြေကြပါစေပေါ့။
 summary: Schedule Shutdown လေးလုပ်ချင်တဲ့လူတွေအတွက် အဆင်ပြေအောင်လို့ပေါ့။ ဒီ Function ကတော့ တော်တော်များများအတွက် မလိုအပ်ဘူးဆိုပေမယ့် လိုအပ်တဲ့လူတွေ ဖတ်လို့ရအောင် ရေးထားတဲ့ အကြောင်းအရာလေးပါ။ လုပ်တဲ့နည်းကတော့ ၃ နည်းရှိတာဆိုတော့ ဖတ်ကြည့်ရင်း အဆင်ပြေနိုင်အောင် ရေးသားပေးလိုက်ပါတော့တယ်။
 categories:

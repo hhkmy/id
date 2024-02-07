@@ -4,6 +4,7 @@ title: Removing Desktop Shortcut Arrow
 date: 2023-08-21T01:15:41+07:00
 image: /images/BlankShortcut.png
 thumbnail_image: /images/BlankShortcut.png
+preview: /images/BlankShortcut.png
 description: ကွန်ပျူတာမှာမြင်မြင်ကြ Shortcut Arrow လေးတွေက ကြည့်ပါများတော့ မျက်စိနောက်လာတာနဲ့ regedit နဲ့ ဖျောက်တဲ့နည်း
 summary: ကွန်ပျူတာမှာ မြင်နေကြ Desktop Shortcut Arrow လေးက တော်တော်လေးတော့ မျက်စိနောက်ဖို့ကောင်းတာအမှန်ပဲ။ အဲ့ဒါနဲ့ ရှာကြည့်လိုက်တော့ အခြား Software တွေနဲ့ ဖျောက်လို့ရပေမယ့် regedit ကိုအသုံးပြုပြီး ဖျောက်လို့ရတာနဲ့ အဆင်ပြေတာလေး သိမ်းဖြစ်ခဲ့တာလေးပေါ့။
 categories:

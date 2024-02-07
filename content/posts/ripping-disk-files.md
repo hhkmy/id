@@ -4,6 +4,7 @@ title: Ripping Disk Files
 date: 2021-02-07T04:19:50+06:30
 image: /images/rip_1_KB.png
 thumbnail_image: /images/rip_1_KB.png
+preview: /images/rip_1_KB.png
 description: Ripping encrypted music files in the Audio CD Disk
 summary: CD တွေထဲမှာ Encrypted music files တွေကို ဘယ်လိုမျိုး Ripping လုပ်ဖြစ်ခဲ့သလဲဆိုတဲ့အကြောင်းအရာလေးပါပဲ။ တော်တော်များများသော အခွေတွေက encrypted လုပ်ပြီးတော့ရောင်းကြတာဆိုတော့ သီချင်းတွေကို သိမ်းလို့မရဖြစ်ကြပါတယ်။ သီချင်းတွေကို ပြန်ပြီး Audio device တွေဖြစ်တဲ့ ဖုန်းတွေ player တွေထဲ ထည့်ချင်ရင် mp3 or audio format ဖြစ်မှဆိုတော့ ripping ဘယ်လိုလုပ်ရမလဲဆိုတာရှာရင်းနဲ့ တွေ့ရှိဖြစ်ခဲ့တဲ့အကြောင်းလေးရေးဖြစ်တဲ့ Content~
 categories:
