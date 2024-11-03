@@ -1,0 +1,20 @@
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#" lang="{{ .Language }}">
+  <head itemscope itemtype="https://schema.org/WebPage">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>{{- if .IsHome -}}Home | {{ .Site.Title }}{{- else if .Params.hide_site_title -}}{{ .Page.Title }}{{- else if .Page.Title -}}{{ .Page.Title }} | {{ .Site.Title }}{{- else -}}{{ .Site.Title }}{{- end -}}</title>
+    {{ partial "header/head" . }}
+  </head>
+  <body class="container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white dark:bg-gray-900 dark:text-white">
+    {{ if $.Site.Params.gtm }}
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $.Site.Params.gtm }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {{ end }}
+    {{- partial "header/header" . -}}
+    <section class="my-10" id="content">{{- block "main" . }}{{- end }}</section>
+    {{ partial "footer/footer" . }}
+  </body>
+</html>

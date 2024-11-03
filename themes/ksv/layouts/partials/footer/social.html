@@ -1,0 +1,9 @@
+<ul class="flex justify-center my-2 space-x-2">
+  {{ range .Site.Data.seo.social }}
+    <li>
+      <a href="{{ .url }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400" target="_blank" rel="nofollow noopener noreferrer" aria-label="{{ .title }}">
+        <i class="{{ .icon }} w-12 h-5"></i>
+      </a>
+    </li>
+  {{ end }}
+</ul>

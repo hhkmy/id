@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <section class="py-8 lg:py-16" id="books">
+    <div class="grid gap-5 lg:grid-cols-3">
+      {{ .Content }}
+      {{ range .Pages }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

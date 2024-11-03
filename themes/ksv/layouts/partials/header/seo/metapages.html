@@ -1,0 +1,95 @@
+<meta property="og:type" content="website" />
+<meta name="author" content="{{ .Site.Params.author }}" />
+<script type='application/ld+json'>
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "{{ .Permalink }}",
+    "mainEntity": {
+        "founder": "{{ .Site.Params.founder }}",
+        "foundingDate": "{{ .Site.Params.foundingdate }}",
+        "foundingLocation": "{{ .Site.Params.foundinglocation }}",
+        "slogan": "{{ .Site.Params.slogan}}",
+        "url": "{{ .Site.BaseURL }}",
+        "image": {
+            "@type": "imageObject",
+            "url": "{{ .Site.BaseURL}}{{ .Params.image }}"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{.Site.Params.ratingValue }}",
+            "reviewCount": "{{.Site.Params.reviewCount}}"
+        },
+        "telephone": "{{ .Site.Params.mobile }}",
+        "currenciesAccepted": "{{.Site.Params.currency}}",
+        "paymentAccepted": "{{ .Site.Params.paymentsAccepted | jsonify }}",
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "{{ .Site.Params.mobile }}",
+                "contactType": "customer service",
+                "areaServed": "{{ .Site.Params.areaserved | jsonify }}",
+                "availableLanguage": "{{ .Site.Params.availableLanguage | jsonify }}",
+                "hoursAvailable": "{{ .Site.Params.hoursAvailable }}"
+            }
+        ],
+        "sameAs": [
+            "{{ .Site.Params.facebook }}",
+            "{{ .Site.Params.github }}",
+            "{{ .Site.Params.linkedin }}",
+            "{{ .Site.Params.SuperLawyers }}",
+            "{{ .Site.Params.justia }}",
+            "{{ .Site.Params.avvo }}"
+        ],
+        "name": "{{ .Title }}",
+        "logo": "https://ksvblog.site/favicon.png",
+        "description": "{{ .Site.Params.description }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ .Site.Params.streetaddress }}",
+            "addressLocality": "{{ .Site.Params.addresslocality }}",
+            "addressRegion": "{{ .Site.Params.addressregion }}",
+            "postalCode": "{{ .Site.Params.postalcode }}",
+            "addressCountry": "{{.Site.Params.addresscountry}}"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "{{ .Site.Params.latitude }}",
+            "longitude": "{{ .Site.Params.longitude }}"
+        },
+        "hasMap": "{{ .Site.Params.link }}",
+        "openingHours": "{{ .Site.Params.hoursAvailable }}",
+        "priceRange": "{{ .Site.Params.price }}",
+        "areaServed": [
+            {
+                "@type": "Place",
+                "name": "{{ .Site.Params.foundinglocation }}",
+                "sameAs": "{{ .Site.Params.wikipediacity }}"
+            },
+            {
+                "@type": "Place",
+                "name": "{{ .Site.Params.areaserved }}",
+                "sameAs": "{{ .Site.Params.wikipediacity }}"
+            }
+        ],
+        "memberOf": [
+            {
+                "@type": "Organization",
+                "name": "{{ .Site.Params.org1name }}",
+                "description": "{{ .Site.Params.org1description }}",
+                "url": "{{ .Site.Params.org1url }}"
+            },
+            {
+                "@type": "Organization",
+                "name": "{{ .Site.Params.org2name }}",
+                "description": "{{ .Site.Params.org2description }}",
+                "url": "{{ .Site.Params.org2url }}"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal services"
+        }
+    }
+}
+</script>

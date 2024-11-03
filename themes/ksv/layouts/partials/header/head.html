@@ -1,0 +1,6 @@
+{{- partial "header/seo" . -}}
+{{- partial "header/gtm" . -}}
+{{- partial "header/tags" . -}}
+{{ template "_internal/google_analytics.html" . }}
+{{- partial "search-index" . -}}
+{{ partialCached  "header/css" . }}

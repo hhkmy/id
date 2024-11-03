@@ -1,0 +1,21 @@
+<footer class="flex flex-col justify-center items-center my-3">
+  <div class="inline-flex items-center justify-center w-full">
+    <hr class="w-96 h-px my-8 bg-gray-200 border-0 rounded dark:bg-gray-700" />
+    <div class="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
+      <i class="fa-light fa-shield-heart fa-beat"></i>
+    </div>
+  </div>
+  <div class="text-center mb-2">
+    <p class="credits copyright flex items-center justify-center">
+      {{ index .Site.Data.seo.year }}-
+      {{ now.Format "2006" }}
+      <span class="mx-2 text-xl">↭</span>
+      <a href="{{ .Site.BaseURL }}" class="font-semibold hover:text-gray-500" aria-label="{{ .Site.Title }}">{{ .Site.Title }}</a>
+    </p>
+    <p class="credits">Powered By <a href="https://gohugo.io" class="text-semibold shover:text-gray-500">Hugo</a> ↭ <a href="https://stats.ksvblog.site" target="_blank">Site Stats</a></p>
+    <div class="credits copyright">{{ index .Site.Data.seo.license }} <a class="text-semibold hover:text-gray-500" href="{{ .Site.BaseURL }}previously" title="Previously on...">{{ index .Site.Data.seo.year }}</a> – <a class="text-semibold hover:text-gray-500" href="{{ .Site.BaseURL }}update" title="Current Updates">{{ now.Year }}</a>.</div>
+  </div>
+  <speedlify-score speedlify-url="https://ksvspeedlify.netlify.app/" hash="d2468236"></speedlify-score>
+</footer>
+{{ partial "search-modal" (dict "Context" . "Class" "search-modal") }}
+{{- partial "footer/scripts" . -}}

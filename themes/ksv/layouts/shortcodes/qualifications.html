@@ -1,0 +1,14 @@
+<section class="flex items-center justify-between px-4 py-2" id="qualifications">
+  <div class="antialiased">
+    {{ range .Site.Data.about.qualifications }}
+      <ul class="list-outside list-disc">
+        <li class="py-1"><h1>{{ .year }} — {{ .name }}</h1></li>
+      </ul>
+      <div class="font-light text-gray-500 py-1">
+        <i class="fa-light fa-certificate mr-1"></i>
+        {{ .location }} ➻
+        {{ .training }}
+      </div>
+    {{ end }}
+  </div>
+</section>

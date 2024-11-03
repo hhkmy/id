@@ -1,0 +1,19 @@
+<article class="post gorw">
+  <header class="mb-2">
+    {{ $author := index .Site.Data.authors (.Params.author | default "default") }}
+    <h1 class="font-sans text-lg leading-tight font-bold text-gray-800 dark:text-white"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <p class="text-gray-500 text-sm mt-1">
+      <strong>Published:</strong>
+      <time datetime="{{ .Date.Format "Mon, Jan 2, 2006" }}"><i class="fa-sharp fa-light fa-binary"></i> {{ .PublishDate.Format "Jan 2, 2006" }}</time>
+      •
+      <strong>Lastmod:</strong>
+      {{ .Lastmod.Format "Jan 2, 2006" }}
+      • {{ .ReadingTime }} <i class="fa-sharp fa-light fa-timer"></i> {{ if eq .ReadingTime 1 }}min{{ else }}mins{{ end }} read • {{ .FuzzyWordCount }} Words
+    </p>
+  </header>
+  <div class="mb-2 font-light text-gray-500 dark:text-gray-400">{{ with .Param "description" }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</div>
+  {{/* {{ .Summary }} */}}
+  <footer>
+    <a href="{{ .Permalink }}"><nobr>Read more →</nobr></a>
+  </footer>
+</article>

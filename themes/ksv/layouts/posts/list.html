@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <div class="grid gap-4 lg:grid-cols-1">
+    {{ .Content }}
+    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+      {{ $author
+        := index .Site.Data.authors (.Params.author | default "default")
+      }}
+      <article class="pb-4 border-dashed border-b border-blue-400">
+        <div class="flex justify-between items-center mb-1 text-gray-500">
+          <div class="tags">
+            {{ with .Params.tags }}
+              {{ range . }}
+                {{ $href := print (absURL "tags/")
+                  (urlize .)
+                }}
+                <a href="{{ $href }}" class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-300 dark:text-primary-800"># {{ . }}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <span class="text-sm"> <i class="fa-light fa-clock"></i><time>{{ .PublishDate.Format "January 2, 2006" }}</time> </span>
+        </div>
+        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="mb-5 font-light text-gray-500 dark:text-gray-400">
+          {{ .Summary }}
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <img class="w-7 h-7 rounded-full" src="{{ $author.avatar }}" alt="{{ $author.name }}" />
+            <span class="font-medium dark:text-white">{{ $author.name }}</span>
+          </div>
+          <a href="{{ .Permalink }}" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-400 dark:text-primary-500"> Read more →</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+  {{ partial "misc/pagination" . }}
+{{ end }}

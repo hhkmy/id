@@ -1,0 +1,36 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+description = "Discover the art of mindful living through our blog theme. Dive into a world of practical tips, inspiring stories, and insightful wisdom that will help you lead a more balanced, purposeful, and joyful life."
+features = [
+  "Responsive Design: Ensures your blog looks great on all devices, from smartphones to desktops.",
+  "Customization Options: Easily personalize your blog's layout, colors, and fonts to match your style.",
+  "SEO Optimized: Boost your blog's visibility with built-in search engine optimization features.",
+  "Content Categories: Organize your posts into categories for easy navigation and browsing.",
+  "Commenting System: Foster community engagement and discussions with a user-friendly commenting system.",
+  "Analytics Integration: Track your blog's performance and audience engagement with integrated analytics tools.",
+  "Speed and Performance: Ensure fast loading times to keep visitors engaged and satisfied.",
+  "Author Profiles: Showcase your team or contributors with stylish author profiles.",
+  "Search Functionality: Help readers find specific content quickly with a robust search feature.",
+  "Related Posts: Encourage further exploration by displaying related articles at the end of each post.",
+  "Accessibility Features: Ensure your blog is inclusive with accessibility features for all users.",
+  "Support and Updates: Access ongoing support and regular theme updates for optimal performance.",
+  "Documentation and Tutorials: Learn how to make the most of your blog theme with comprehensive documentation and tutorials.",
+  "GDPR Compliance: Ensure compliance with data protection regulations for user privacy.",
+]
+homepage = "https://ksvblog.in"
+license = "MIT"
+licenselink = "https://github.com/ksvblog/theme/blob/master/LICENSE"
+min_version = "0.117.0"
+name = "Ksv"
+tags = ["tailwind", "blog", "technology", "Minimalism"]
+
+[author]
+homepage = "https://ksvblog.in"
+name = "Hein Htet Kyaw"
+
+# If porting an existing theme
+[original]
+homepage = "https://ksvblog.in"
+name = "Hein Htet Kyaw"
+repo = "https://github.com/ksvblog/theme"
