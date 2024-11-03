@@ -1,0 +1,9 @@
+<section class="my-3 mx-auto" id="contact">
+  {{ range .Site.Data.about.contact }}
+    <div class="flex items-center px-4 py-2 antialiased">
+      <div class="w-7"><i class="{{ .icon }}"></i></div>
+      <div class="w-7 font-thin">—</div>
+      <a href="{{ .link }}">{{ .value }}</a>
+    </div>
+  {{ end }}
+</section>

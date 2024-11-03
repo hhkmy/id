@@ -1,0 +1,59 @@
+{{ define "main" }}
+  <section id="post">
+    <header class="mb-10">
+      {{ $author := index .Site.Data.authors (.Params.author | default "default") }}
+      <h1 class="font-sans text-2xl leading-tight font-bold text-gray-400">{{ .Title }}</h1>
+      <aside id="meta">
+        <p class="text-gray-500 mt-2">
+          <strong>Published:</strong>
+          <time datetime="{{ .PublishDate.Format "2006-01-02 " }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+          <span class="select-none">
+            •
+            <strong>Lastmod:</strong>
+            {{ .Lastmod.Format "Jan 2, 2006" }}
+            •
+            <strong>Author:</strong> {{ $author.name }}
+          </span>
+          • {{ .ReadingTime }} {{ if eq .ReadingTime 1 }}min{{ else }}mins{{ end }} read • {{ .WordCount }} Words
+        </p>
+        {{ with .GetTerms "tags" }}
+          <p class="text-gray-500 mt-1">
+            <strong>Tags:</strong>
+            {{ range . }}
+              <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+              •
+            {{ else }}
+            {{ end }}
+          </p>
+        {{ end }}
+        {{ with .GetTerms "topics" }}
+          <p class="text-gray-500 mt-1">
+            <strong>Topics:</strong>
+            {{ range . }}
+              <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+              •
+            {{ else }}
+            {{ end }}
+          </p>
+        {{ end }}
+      </aside>
+    </header>
+    <article class="leading-loose text-gray-700 break-words my-10" id="content">{{ .Content }}</article>
+    <aside class="m-4 md:mx-0 md:my-2 border-t border-gray-300 break-words">
+      <div class="flex">
+        {{ with .PrevInSection }}
+          <div class="w-1/2 text-left py-4 pr-8 border-r border-gray-300">
+            <p class="text-md text-gray-500">&#8592; Previous Post</p>
+            <a href="{{ .Permalink }}" class="font-sans text-xl leading-snug text-gray-800 font-bold transition duration-200 ease-in-out transform focus:text-orange-500 hover:text-orange-500">{{ .Title }}</a>
+          </div>
+        {{ end }}
+        {{ with .NextInSection }}
+          <div class="w-1/2 text-right py-4 pl-8">
+            <p class="text-md text-gray-500">Next Post &#8594;</p>
+            <a href="{{ .Permalink }}" class="font-sans text-xl leading-snug text-gray-800 font-bold transition duration-200 ease-in-out transform focus:text-orange-500 hover:text-orange-500">{{ .Title }}</a>
+          </div>
+        {{ end }}
+      </div>
+    </aside>
+  </section>
+{{ end }}

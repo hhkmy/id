@@ -1,0 +1,9 @@
+<article class="post gorw py-2 px-3 border border-blue-300 rounded-lg shadow-sm">
+  <h1 class="font-sans text-base leading-tight font-bold text-gray-800 dark:text-white">
+    <i class="fa-light fa-binary"></i> <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <div class="text-gray-500 text-sm mt-1">
+      <time datetime="{{ .Date.Format "Mon, Jan 2, 2006" }}"><i class="fa-light fa-calendar-check"></i> {{ .PublishDate.Format "Jan 2, 2006" }}</time>
+      • <i class="fa-light fa-stopwatch"></i> {{ .ReadingTime }} {{ if eq .ReadingTime 1 }}min{{ else }}mins{{ end }} read • <i class="fa-light fa-file-lines"></i> {{ .FuzzyWordCount }} Words
+    </div>
+  </h1>
+</article>

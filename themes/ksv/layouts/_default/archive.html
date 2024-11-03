@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <section class="bg-white dark:bg-gray-900" id="archive">
+    {{ .Content }}
+    {{- range (.Site.RegularPages.GroupByDate "2006") -}}
+      {{- $posts := (where .Pages "Type" "posts") -}}
+      {{- $posts_count := len $posts -}}
+      {{ if and (gt .Key 1) (gt $posts_count 0) }}
+        <h2 class="font-bold"><i class="fa-light fa-calendar-lines-pen"></i> {{ .Key }}</h2>
+        <ul class="leading-loose mb-6">
+          {{ range (where .Pages "Type" "posts") }}
+            {{ if (ne .Params.hidden true) }}
+              <li>
+                <span> <i class="fa-light fa-pen fa-xs"></i> {{ .Date.Format "Jan 02" }} </span>
+                <a href="{{ .RelPermalink }}"> <span>➻ {{ .Title }}</span> </a>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}

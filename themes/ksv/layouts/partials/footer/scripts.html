@@ -1,0 +1,18 @@
+<script>
+  if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+{{ $site := resources.Get "js/site.js" }}
+{{ $search := resources.Get "js/search.js" }}
+{{ $speedlify := resources.Get "js/speedlify-score.js" }}
+{{ $site := slice $site $search $speedlify | resources.Concat "js/site.js" | resources.Minify }}
+<script src="{{ $site.Permalink }}" defer></script>
+{{ if .Params.katex }}{{ partial "misc/katex" . }}{{ end }}
+{{ $brands := resources.Get "fontawesome/js/brands.js" }}
+{{ $light := resources.Get "fontawesome/js/light.js" }}
+{{ $fa := resources.Get "fontawesome/js/fontawesome.js" }}
+{{ $fontawesome := slice $brands $light $fa | resources.Concat "js/fa.js" | resources.Minify }}
+<script src="{{ $fontawesome.Permalink }}" defer></script>

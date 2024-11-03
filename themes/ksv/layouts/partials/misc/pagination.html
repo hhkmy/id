@@ -1,0 +1,81 @@
+{{ $paginator := $.Paginator }}
+<!-- Number of links either side of the current page. -->
+{{ $adjacent_links := 2 }}
+<!-- $max_links = ($adjacent_links * 2) + 1 -->
+{{ $max_links := (add (mul $adjacent_links 2) 1) }}
+<!-- $lower_limit = $adjacent_links + 1 -->
+{{ $lower_limit := (add $adjacent_links 1) }}
+<!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+{{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+
+{{ if gt $paginator.TotalPages 1 }}
+  <nav aria-label="Page navigation" class="flex items-center justify-center py-10 lg:px-0 sm:px-6 px-4">
+    <ul class="w-full flex items-center justify-between">
+      <!-- First page. -->
+      {{ if ne $paginator.PageNumber 1 }}
+        <li class="flex-none items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
+          <i class="fa-light fa-arrow-left-long"></i>
+          <a class="text-sm ml-3 font-medium leading-none" href="{{ $paginator.First.URL }}">First</a>
+        </li>
+      {{ end }}
+      <div class="sm:flex hidden">
+        <!-- Previous page. -->
+        {{ if $paginator.HasPrev }}
+          <li class="flex items-center pt-3 text-gray-600 dark:text-gray-200  hover:text-indigo-700 cursor-pointer">
+            <a rel="prev" class="text-sm mr-3 font-medium leading-none" href="{{ $paginator.Prev.URL }}">←</a>
+          </li>
+        {{ end }}
+        <!-- Page numbers. -->
+        {{ range $paginator.Pagers }}
+          {{ $.Scratch.Set "page_number_flag" false }}
+          <!-- Advanced page numbers. -->
+          {{ if gt $paginator.TotalPages $max_links }}
+            <!-- Lower limit pages. -->
+            <!-- If the user is on a page which is in the lower limit.  -->
+            {{ if le $paginator.PageNumber $lower_limit }}
+              <!-- If the current loop page is less than max_links. -->
+              {{ if le .PageNumber $max_links }}
+                {{ $.Scratch.Set "page_number_flag" true }}
+              {{ end }}
+              <!-- Upper limit pages. -->
+              <!-- If the user is on a page which is in the upper limit. -->
+            {{ else if ge $paginator.PageNumber $upper_limit }}
+              <!-- If the current loop page is greater than total pages minus $max_links -->
+              {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
+                {{ $.Scratch.Set "page_number_flag" true }}
+              {{ end }}
+              <!-- Middle pages. -->
+            {{ else }}
+              {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
+                {{ $.Scratch.Set "page_number_flag" true }}
+              {{ end }}
+            {{ end }}
+            <!-- Simple page numbers. -->
+          {{ else }}
+            {{ $.Scratch.Set "page_number_flag" true }}
+          {{ end }}
+          <!-- Output page numbers. -->
+          {{ if eq ($.Scratch.Get "page_number_flag") true }}
+            <li class="text-sm font-medium leading-none cursor-pointer{{ if eq . $paginator }}text-indigo-700 dark:text-indigo-400 border-t border-indigo-400{{ else }}text-gray-600 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400{{ end }} pt-3 mr-4 px-2">
+              <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+        <!-- Next page. -->
+        {{ if $paginator.HasNext }}
+          <li class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400  pt-3 mr-4 px-2">
+            <a rel="next" class="text-sm font-medium leading-none ml-3" href="{{ $paginator.Next.URL }}">→</a>
+          </li>
+        {{ end }}
+      </div>
+      <!-- Last page. -->
+      {{ if ne $paginator.PageNumber $paginator.TotalPages }}
+        <li class="flex items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
+          <a class="text-sm font-medium leading-none mr-3" href="{{ $paginator.Last.URL }}">Last</a>
+          <i class="fa-light fa-arrow-right-long"></i>
+        </li>
+      {{ end }}
+    </ul>
+    <!-- </nav> -->
+  </nav>
+{{ end }}
