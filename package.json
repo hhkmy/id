@@ -11,7 +11,7 @@
     "build": "hugo --minify",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "prepare": "husky install || true"
+    "prepare": "node_modules/.bin/husky-run install"
   },
   "keywords": [
     "hguo",
