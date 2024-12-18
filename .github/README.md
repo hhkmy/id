@@ -11,7 +11,7 @@
   <a href="https://www.apple.com/iphone/" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/Apple-%23000000.svg?style=for-the-badge&logo=apple&logoColor=white"></a>
 </p>
 
-[![Hugo](https://github.com/ksvblog/ksvblog.github.io/actions/workflows/hugo.yml/badge.svg?branch=main)](https://github.com/ksvblog/ksvblog.github.io/actions/workflows/hugo.yml)
+[![Hugo](https://github.com/hhkmy/id/actions/workflows/hugo.yml/badge.svg)](https://github.com/hhkmy/id/actions/workflows/hugo.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ksvblog_ksvblog.github.io&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ksvblog_ksvblog.github.io)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ksvblog_ksvblog.github.io&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=ksvblog_ksvblog.github.io)
 [![FOSSA Status](https://app.fossa.com/api/projects/custom%2B39619%2Fgithub.com%2Fksvblog%2Fksvblog.github.io.svg?type=small)](https://app.fossa.com/projects/custom%2B39619%2Fgithub.com%2Fksvblog%2Fksvblog.github.io?ref=badge_small)
