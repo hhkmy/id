@@ -1,20 +1,21 @@
 {{ $options := dict "inlineImports" true }}
-{{ $styles := resources.Get "css/main.css" }}
-{{ $styles = $styles | postCSS $options }}
+{{ $styles := resources.Get "css/main.css" | postCSS $options }}
+
 {{ if hugo.IsProduction }}
-  {{- with $styles -}}
-    <style>
-      {
-          {
-          - .Content | safeCSS -
-        }
+  {{ $styles = $styles | minify | fingerprint }}
+  <style>
+    {
+        {
+        $styles.Content | safeCSS
       }
-    </style>
-  {{- end -}}
+    }
+  </style>
 {{ else }}
   {{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
   <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 {{ end }}
-{{ with resources.Get "scss/style.scss" | toCSS | postCSS | resources.Minify }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" />
-{{ end }}
+
+{{ $scss := resources.Get "scss/style.scss" | toCSS | postCSS $options }}
+{{ if hugo.IsProduction }}
+  {{ $scss = $scss | minify | fingerprint }}
+{{ end }} <link rel="stylesheet" href="{{ $scss.RelPermalink }}" />
