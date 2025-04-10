@@ -27,8 +27,8 @@
 [![ResponseTime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fresponse-time.json)](https://stats.my.id)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hhkmy/id)
 [![Hits-of-Code](https://hitsofcode.com/github/hhkmy/id?branch=main&label=Hits-of-Code)](https://hitsofcode.com/github/hhkmy/id/view?branch=main&label=Hits-of-Code)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fhhk.my.id&cacheSeconds=3600&link=https%3A%2F%2Fhhk.my.id)
-![Chromium HSTS preload](https://img.shields.io/hsts/preload/hhk.my.id)
+[![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fhhk.my.id&cacheSeconds=3600)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fhhk.my.id%2F)
+[![Chromium HSTS preload](https://img.shields.io/hsts/preload/hhk.my.id)](https://hhk.my.id)
 
 ## Technology & Tools
 
