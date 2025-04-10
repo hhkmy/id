@@ -5,9 +5,18 @@ author: heinhtetkyaw
 katex: true
 image: /images/katex.png
 thumbnail_image: /images/katex.png
-preivew: /images/katex.png
-description: KaTeX and math data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ ပြန်ပြန်ပေးထားပါတယ်။
-summary: KaTeX data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ ပြန်ပြန်ပေးထားပါတယ်။ နောက်ပိုင်းမှာ KaTeX တွေ လိုက်ပြီး လေ့လာဖြစ်မလားမသိသေးပေမယ့် အခုလောလောဆယ်တော Content လေးတစ်ခုအဖြစ်နဲ့ပဲ သိမ်းထားလိုက်ပါတော့မယ်။ Example code တွေပါ ပြပေးထားလို့ ကိုယ်တိုင် Hugo Website လုပ်ပြီး ပြန်ရှင်းချင်တဲ့လူတွေအတွက်လည်း အတော်ကို အဆင်ပြေမှာပါ။
+preview: /images/katex.png
+description:
+  KaTeX and math data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို
+  ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ
+  ပြန်ပြန်ပေးထားပါတယ်။
+summary:
+  KaTeX data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို ပြန်ပြီး
+  Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ ပြန်ပြန်ပေးထားပါတယ်။
+  နောက်ပိုင်းမှာ KaTeX တွေ လိုက်ပြီး လေ့လာဖြစ်မလားမသိသေးပေမယ့် အခုလောလောဆယ်တော
+  Content လေးတစ်ခုအဖြစ်နဲ့ပဲ သိမ်းထားလိုက်ပါတော့မယ်။ Example code တွေပါ
+  ပြပေးထားလို့ ကိုယ်တိုင် Hugo Website လုပ်ပြီး ပြန်ရှင်းချင်တဲ့လူတွေအတွက်လည်း
+  အတော်ကို အဆင်ပြေမှာပါ။
 categories:
   - KaTeX
 tags:
@@ -21,15 +30,13 @@ keywords:
 slug: katex-math
 ---
 
-**$$** ဆိုရင် အလည်မှာဖြစ်သွားမှာဖြစ်ပြီး ရိုးရိုး **$** ဆိုရင်တော့ ရှေ့မှာပဲရှိနေမှာပါ။
+**$$** ဆိုရင် အလည်မှာဖြစ်သွားမှာဖြစ်ပြီး ရိုးရိုး **$** ဆိုရင်တော့
+ရှေ့မှာပဲရှိနေမှာပါ။
 
-{{< katex >}}
-\begin{array}{l}
-E*{o 1}=\frac{1}{2}\left( { target }*{o 1}- { out }_{o 1}\right)^{2}=\frac{1}{2}(0.01-0.75136507)^{2}=0.274811083 \\
-E_{o 2}=0.023560026 \\
-E*{ {total }}=E*{o 1}+E\_{o 2}=0.274811083+0.023560026=0.298371109
-\end{array}
-{{< /katex >}}
+{{< katex >}} \begin{array}{l} E*{o 1}=\frac{1}{2}\left( { target }*{o 1}- { out
+}_{o 1}\right)^{2}=\frac{1}{2}(0.01-0.75136507)^{2}=0.274811083 \\ E_{o
+2}=0.023560026 \\ E*{ {total }}=E*{o 1}+E\_{o
+2}=0.274811083+0.023560026=0.298371109 \end{array} {{< /katex >}}
 
 _Precipitation of barium sulfate:_ \\({SO4^2- + Ba^2+ -> BaSO4 v}\\)
 
@@ -38,7 +45,10 @@ _Precipitation of barium sulfate:_ \\({SO4^2- + Ba^2+ -> BaSO4 v}\\)
 ```
 
 When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
+
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+$$
 
 ```
 When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
