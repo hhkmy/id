@@ -1,8 +1,9 @@
-@import 'search';
+@import "search";
 
 speedlify-score {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 /* The Lighthouse scoring circles */
 .speedlify-score {
@@ -27,7 +28,7 @@ speedlify-score {
   border-color: currentColor;
 }
 .speedlify-rank:before {
-  content: 'Rank #';
+  content: "Rank #";
 }
 .speedlify-rank-change {
   font-size: 0.8125em; /* 13px /16 */
@@ -39,13 +40,13 @@ speedlify-score {
   color: green;
 }
 .speedlify-rank-change.up:before {
-  content: '⬆';
+  content: "⬆";
 }
 .speedlify-rank-change.down {
   color: red;
 }
 .speedlify-rank-change.down:before {
-  content: '⬇';
+  content: "⬇";
 }
 speedlify-score > :not(.speedlify-score) {
   margin-left: 0.625em; /* 10px /16 */
