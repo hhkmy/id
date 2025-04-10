@@ -81,7 +81,7 @@
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}{{- printf " %s=%q" $k $v | safeHTMLAttr }}{{- end }}
-        {{- end -}}
+        {{- end }}
         aria-label="{{ or (T .Identifier) .Name | safeHTML }}"
       >
         {{ $text }}
