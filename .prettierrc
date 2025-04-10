@@ -4,6 +4,7 @@
   "printWidth": 80,
   "tabWidth": 2,
   "goTemplateBracketSpacing": true,
+  "proseWrap": "always",
   "plugins": [
     "prettier-plugin-go-template",
     "@awmottaz/prettier-plugin-void-html"
