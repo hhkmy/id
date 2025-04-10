@@ -25,7 +25,11 @@
           </div>
           <span class="text-sm">
             <i class="fa-light fa-clock"></i>
-            <time>{{ .PublishDate.Format "January 2, 2006" }}</time>
+            <time
+              datetime="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}"
+            >
+              {{ .PublishDate.Format "January 2, 2006" }}
+            </time>
           </span>
         </div>
         <h2
