@@ -18,7 +18,7 @@
         <a href="{{ .Permalink }}">{{ .Title }}</a>
       </h2>
       <span class="text-slate-500 text-sm font-thin dark:text-slate-400">
-        <time datetime="{{ .Date.Format " Mon, Jan 2, 2006" }}">
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
           <i class="fa-light fa-calendar-check"></i>
           {{ .PublishDate.Format "Jan 2, 2006" }}
         </time>
