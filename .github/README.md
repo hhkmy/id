@@ -24,8 +24,8 @@
 ![Netlify](https://img.shields.io/netlify/9bebb371-d351-437c-ab5b-c64a3ef6b71c)
 [![Website](https://img.shields.io/website?up_message=online&up_color=blue&down_message=offline&down_color=lightgrey&url=https%3A%2F%2Fhhk.my.id)](https://hhk.my.id)
 [![Uptime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fuptime.json)](https://stats.hhk.my.id)
-[![ResponseTime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fresponse-time.json)](https://stats.my.id)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hhkmy/id)
+[![ResponseTime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fresponse-time.json)](https://stats.hhk.my.id)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hhkmy/id)](https://github.com/hhkmy/id)
 [![Hits-of-Code](https://hitsofcode.com/github/hhkmy/id?branch=main&label=Hits-of-Code)](https://hitsofcode.com/github/hhkmy/id/view?branch=main&label=Hits-of-Code)
 [![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fhhk.my.id&cacheSeconds=3600)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fhhk.my.id%2F)
 [![Chromium HSTS preload](https://img.shields.io/hsts/preload/hhk.my.id)](https://hhk.my.id)
@@ -58,24 +58,38 @@
 
 ## Welcome to My Digital World
 
-Hello and welcome to my personal website! I'm thrilled to have you here and share a glimpse into my world. I believe that life is a journey of constant exploration and learning, and this website is a reflection of that philosophy.
+Hello and welcome to my personal website! I'm thrilled to have you here and
+share a glimpse into my world. I believe that life is a journey of constant
+exploration and learning, and this website is a reflection of that philosophy.
 
 ### About Me
 
-I'm Hein Htet Kyaw, a Contents Writer based in Yangon, Myanmar. With a deep passion for Technology, I've embarked on a journey to 1. I believe in the power of **Focus**, and I'm dedicated to making a positive impact in both my personal and professional spheres.
+I'm Hein Htet Kyaw, a Contents Writer based in Yangon, Myanmar. With a deep
+passion for Technology, I've embarked on a journey to 1. I believe in the power
+of **Focus**, and I'm dedicated to making a positive impact in both my personal
+and professional spheres.
 
 ### Blog
 
-Curiosity drives me, and the blog is where I delve deeper into my thoughts and insights. I explore topics like [Content](https://ksvblog.site/posts/) offering a unique perspective on [Personal Website is Up](https://ksvblog.github.io/post/2023/removing-desktop-shortcut-arrow/). Whether you're seeking knowledge, inspiration, or just a good read, I invite you to join the conversation and explore these articles.
+Curiosity drives me, and the blog is where I delve deeper into my thoughts and
+insights. I explore topics like [Content](https://ksvblog.site/posts/) offering
+a unique perspective on
+[Personal Website is Up](https://ksvblog.github.io/post/2023/removing-desktop-shortcut-arrow/).
+Whether you're seeking knowledge, inspiration, or just a good read, I invite you
+to join the conversation and explore these articles.
 
 ### Connect
 
-I believe in the power of collaboration and connection. Let's embark on this journey together! Feel free to reach out to me via [@HeinHtetKyaw](//t.me/HeinHtetKyaw) Whether you want to discuss a potential project, share your thoughts, or just say hello, I'm all ears.
+I believe in the power of collaboration and connection. Let's embark on this
+journey together! Feel free to reach out to me via
+[@HeinHtetKyaw](//t.me/HeinHtetKyaw) Whether you want to discuss a potential
+project, share your thoughts, or just say hello, I'm all ears.
 
-Thank you for visiting my digital haven. As I continue to evolve and explore, this website will be a living chronicle of my experiences. Stay curious, stay inspired, and let's create something extraordinary together.
+Thank you for visiting my digital haven. As I continue to evolve and explore,
+this website will be a living chronicle of my experiences. Stay curious, stay
+inspired, and let's create something extraordinary together.
 
-Warmly,
-[Hein Htet Kyaw](https://github.com/h2kyaw)
+Warmly, [Hein Htet Kyaw](https://github.com/h2kyaw)
 
 ## Requirement
 
@@ -84,26 +98,26 @@ Warmly,
 
 ### Deploy Local
 
-```
-git clone git@github.com:ksvblog/ksvblog.github.io.git
-cd ksvblog.github.io
+```bash
+git clone git@github.com:hhkmy/id.git && cd id
 ```
 
 install packages with
 
-```
+```cmd
 npm install
 ```
 
 run hugo with cli
 
-```
+```cmd
 npm start
 ```
 
-after some configuration, don't need watch with **concurrently** npm package, just **hugo server** will serve **Tailwindcss** while updating website.
+after some configuration, don't need watch with **concurrently** npm package,
+just **hugo server** will serve **Tailwindcss** while updating website.
 
-```cli
+```cmd
 hugo server
 ```
 
