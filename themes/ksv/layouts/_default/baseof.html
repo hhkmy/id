@@ -43,6 +43,7 @@
     {{ end }}
     {{- partial "header/header" . -}}
     <section class="my-10" id="content">
+      <h2 class="sr-only">Main Contents</h2>
       {{- block "main" . }}{{- end }}
     </section>
     {{ partial "footer/footer" . }}
