@@ -1,9 +1,14 @@
 [server]
 [[server.headers]]
-    for = '/**'
-    [server.headers.values]
-      Content-Security-Policy = 'script-src localhost:1313'
-      Referrer-Policy = 'strict-origin-when-cross-origin'
-      X-Content-Type-Options = 'nosniff'
-      X-Frame-Options = 'DENY'
-      X-XSS-Protection = '1; mode=block'
+for = '/**'
+[server.headers.values]
+Content-Security-Policy = "default-src 'self'; script-src 'self' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data:; font-src 'self' https: data:"
+Cross-Origin-Embedder-Policy = 'require-corp'
+Cross-Origin-Opener-Policy = 'same-origin'
+Cross-Origin-Resource-Policy = 'same-origin'
+Permissions-Policy = "geolocation=(), camera=()"
+Referrer-Policy = 'strict-origin-when-cross-origin'
+Strict-Transport-Security = 'max-age=31536000; includeSubDomains; preload'
+X-Content-Type-Options = 'nosniff'
+X-Frame-Options = 'SAMEORIGIN'
+X-XSS-Protection = '1; mode=block'
