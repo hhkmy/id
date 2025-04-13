@@ -125,9 +125,9 @@ verminal installed successfully!
 ဆိုရင်တော့ Hyper ကောင်းကောင်းအလုပ်လုပ်သွားပြီပဲဖြစ်ပါတယ်။ ပြီးရင်တော့ Hyper
 Terminal ထဲဝင်ပြီး Tools > View > Reload // Full Reload
 ကိုလုပ်လိုက်မယ်ဆိုရင်တော့ အပေါ်က သွင်းထားတဲ့ verminal theme
-ပြောင်းလဲသွားပြီပဲဖြစ်ပါတယ်။ Shortcut အနေနဲ့ကတော့ `Ctrl` <kbd>Ctrl</kbd> +
-Shift + <kbd>R</kbd> နဲ့ ရိုးရိုး Reload လုပ်လို့ရပြီး <kbd>Ctrl</kbd> +
-<kbd>Shift</kbd> + <kbd>F5</kbd> ဆိုပြီး Full Reload လုပ်လို့ရပါပြီ။
+ပြောင်းလဲသွားပြီပဲဖြစ်ပါတယ်။ Shortcut အနေနဲ့ကတော့ `Ctrl` Ctrl +
+Shift + R နဲ့ ရိုးရိုး Reload လုပ်လို့ရပြီး Ctrl +
+Shift + F5 ဆိုပြီး Full Reload လုပ်လို့ရပါပြီ။
 ဒါဆိုရင်တော့ အောက်ကလို Theme Color လေးပြောင်းသွားရင်တော့ Success
 ဖြစ်သွားပြီပဲဖြစ်ပါတယ်။
 

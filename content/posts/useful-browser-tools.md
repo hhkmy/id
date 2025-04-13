@@ -38,7 +38,7 @@ Browser တွေဖြစ်တဲ့ Google Chrome, Mozilla Firefox, Opera န
 ပြောင်းမရအောင် ဘာလို့ကြိုက်မှန်းမသိ ကြိုက်တာကတော့ Google Chrome ပါပဲ။ အဲ့ဒီ
 Chrome မှာပဲ Screenshot ရိုက်ချင်တာ အခြားသော အရာများကို Browser
 ထဲမှာတင်လုပ်လို့ရပါတယ်။ css code တွေ ဘာတွေကို Checking လုပ်ဖို့အတွက်ကတော့
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> ဆိုတဲ့ Keyboard shortcutt နဲ့
+Ctrl + Shift + I ဆိုတဲ့ Keyboard shortcutt နဲ့
 Inspect Window ကို ဖွင့်လို့ရပါတယ်။ အဲ့ဒီမှာတော့ **Elements, Console, Sources,
 Network, Performance, Memory, Application, Security, Lighthouse** စသဖြင့်
 ပါဝင်ပါတယ်။ Elements အကွက်မှာတော့ Website နဲ့ပက်သက်ပြီး ဘာ Tag တွေကို
@@ -63,7 +63,7 @@ Script တွေကို Link လုပ်ထားသလဲ ဘာဓါတ်
 
 အဲ့ထဲမှာ မြင်နေရတဲ့ ဒီရက်ပိုင်း အတော်အသုံးပြုဖြစ်တဲ့ Tool တစ်ခုကတော့ **Run
 Command** နဲ့ Screenshot ရိုက်တာပဲဖြစ်ပါတယ်။ Run Command ကိုတော့
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> နဲ့ဖွင့်နိုင်ပြီး ကျွန်တော်
+Ctrl + Shift + P နဲ့ဖွင့်နိုင်ပြီး ကျွန်တော်
 သုံးတဲ့ Command ကတော့ Node တစ်ခုခြင်းကို Screenshot ရိုက်တာပဲဖြစ်ပါတယ်။
 
 ![Inspect Node Command](/images/Inspect_Node-cmd.png)
