@@ -7,84 +7,120 @@ themesDir = "themes"
 title = "K's V/Blog"
 
 canonifyURLs = true
+disableHugoGeneratorInject = false
 enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
-#relativeURLs = true
-disableHugoGeneratorInject = false
 
 [taxonomies]
-author = 'authors'
-category = 'categories'
-series = 'series'
-tag = 'tags'
+    author = 'authors'
+    category = 'categories'
+    series = 'series'
+    tag = 'tags'
 
 [params]
-author = "Hein Htet Kyaw"
-description = "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too."
-facebook = "https://facebook.com/callmeHeinHtetKyaw"
-github = "https://github.com/h2kyaw"
-# google tag manager, see https://developers.google.com/tag-manager/
-google_tag_manager = "G-MSGPDQ4L7R" # example: G-XXXXXXXXXX
-gtm = "GTM-TRZM5JG9" 
-image = "/images/og.png" 
-ogimage = "/images/og.png" 
-sitename = "K's V/Blog" 
-twitter = "@HeinHtetKyaw_" 
+    author = "Hein Htet Kyaw"
+    description = "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too."
+    facebook = "https://facebook.com/callmeHeinHtetKyaw"
+    github = "https://github.com/h2kyaw"
+    google_tag_manager = "G-MSGPDQQ4L7R"
+    gtm = "GTM-TRZM5JG9"
+    image = "/images/og.png"
+    ogimage = "/images/og.png"
+    sitename = "K's V/Blog"
+    twitter = "@HeinHtetKyaw_"
 
 [frontmatter]
-date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
-expiryDate = ['expirydate', 'unpublishdate']
-lastmod = [':git', 'lastmod', 'modified', 'date', 'publishdate', 'pubdate', 'published']
-publishDate = ['publishdate', 'pubdate', 'published', 'date']
-
-[[module.mounts]]
-source = "hugo_stats.json"
-target = "assets/watching/hugo_stats.json"
+    date = [
+        'date',
+        'publishdate',
+        'pubdate',
+        'published',
+        'lastmod',
+        'modified',
+    ]
+    expiryDate = [
+        'expirydate',
+        'unpublishdate',
+    ]
+    lastmod = [
+        ':git',
+        'lastmod',
+        'modified',
+        'date',
+        'publishdate',
+        'pubdate',
+        'published',
+    ]
+    publishDate = [
+        'publishdate',
+        'pubdate',
+        'published',
+        'date',
+    ]
 
 [build]
-writeStats = true
-[[build.cachebusters]]
-source = "assets/watching/hugo_stats\\.json"
-target = "main\\.css"
-[[build.cachebusters]]
-source = "(postcss|tailwind)\\.config\\.js"
-target = "css"
-[[build.cachebusters]]
-source = "assets/.*\\.(js|ts|jsx|tsx)"
-target = "js"
-[[build.cachebusters]]
-source = "assets/.*\\.(.*)$"
-target = "$1"
+    noJSConfigInAssets = true
+    writeStats = true
+
+    [[build.cachebusters]]
+        source = "hugo_stats\\.json"
+        target = "css"
+
+    [[build.cachebusters]]
+        source = "(postcss|tailwind)\\.config\\.js"
+        target = "css"
+
+[server]
+    [[server.watch]]
+        ext = "json"
+        path = "hugo_stats.json"
 
 [outputs]
-home = ['html', 'rss', 'SearchIndex']
-page = ['html']
-rss = ['rss']
-section = ['html', 'rss']
-taxonomy = ['html', 'rss']
-term = ['html', 'rss']
+    home = [
+        'html',
+        'rss',
+        'SearchIndex',
+    ]
+    page = [
+        'html',
+    ]
+    rss = [
+        'rss',
+    ]
+    section = [
+        'html',
+        'rss',
+    ]
+    taxonomy = [
+        'html',
+        'rss',
+    ]
+    term = [
+        'html',
+        'rss',
+    ]
 
 [outputFormats]
-[outputFormats.SearchIndex]
-baseName = "searchindex"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
+    [outputFormats.SearchIndex]
+        baseName = "searchindex"
+        isPlainText = true
+        mediaType = "application/json"
+        notAlternative = true
 
 [deployment]
-[[deployment.matchers]]
-cacheControl = "max-age=31536000, no-transform, public"
-gzip = true
-pattern = "^.+\\.(js|css|svg|ttf)$"
-[[deployment.matchers]]
-cacheControl = "max-age=31536000, no-transform, public"
-gzip = false
-pattern = "^.+\\.(png|jpg)$"
-[[deployment.matchers]]
-contentType = "application/xml"
-gzip = true
-pattern = "^sitemap\\.xml$"
-[[deployment.matchers]]
-gzip = true
-pattern = "^.+\\.(html|xml|json)$"
+    [[deployment.matchers]]
+        cacheControl = "max-age=31536000, no-transform, public"
+        gzip = true
+        pattern = "^.+\\.(js|css|svg|ttf)$"
+    [[deployment.matchers]]
+        cacheControl = "max-age=31536000, no-transform, public"
+        gzip = false
+        pattern = "^.+\\.(png|jpg)$"
+    [[deployment.matchers]]
+        contentType = "application/xml"
+        gzip = true
+        pattern = "^sitemap\\.xml$"
+    [[deployment.matchers]]
+        gzip = true
+        pattern = "^.+\\.(html|xml|json)$"
