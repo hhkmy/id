@@ -56,8 +56,15 @@
           {{ end }}
           <!-- Output page numbers. -->
           {{ if eq ($.Scratch.Get "page_number_flag") true }}
-            <li class="text-sm font-medium leading-none cursor-pointer{{ if eq . $paginator }}text-indigo-700 dark:text-indigo-400 border-t border-indigo-400{{ else }}text-gray-600 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400{{ end }} pt-3 mr-4 px-2">
-              <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+            <li
+              class="text-sm font-medium leading-none cursor-pointer{{ if eq . $paginator }}
+                text-indigo-700 dark:text-indigo-400 border-t border-indigo-400
+              {{ else }}
+                text-gray-600 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400
+              {{ end }} pt-3 mr-4 px-2">
+              <a class="page-link" href="{{ .URL }}">
+                {{ .PageNumber }}
+              </a>
             </li>
           {{ end }}
         {{ end }}

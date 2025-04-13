@@ -5,12 +5,7 @@
 {{ $styles := resources.Get "css/main.css" | postCSS $options }}
 {{ if hugo.IsProduction }}
   {{ $styles = $styles | minify | fingerprint }}
-  <link
-    rel="stylesheet"
-    href="{{ $styles.RelPermalink }}"
-    integrity="{{ $styles.Data.Integrity }}"
-    crossorigin="anonymous"
-  >
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
 {{ else }}
   {{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
   <link href="{{ $styles.RelPermalink }}" rel="stylesheet">

@@ -2,14 +2,14 @@
 {{- $icon = strings.TrimSuffix ".svg" $icon -}}
 
 {{- with .Page.Resources.GetMatch (printf "%s.*" $icon) -}}
-{{- $icon = . -}}
+  {{- $icon = . -}}
 {{- end -}}
 
 {{- if .IsNamedParams -}}
-{{- $s := newScratch -}}
-{{- range $k, $v := .Params -}}{{- $s.Set $k $v -}}{{- end -}}
-{{- $s.Set "icon" $icon -}}
-{{- partial "svg" $s.Values -}}
+  {{- $s := newScratch -}}
+  {{- range $k, $v := .Params -}}{{- $s.Set $k $v -}}{{- end -}}
+  {{- $s.Set "icon" $icon -}}
+  {{- partial "svg" $s.Values -}}
 {{- else -}}
-{{- partial "svg" $icon -}}
+  {{- partial "svg" $icon -}}
 {{- end -}}
