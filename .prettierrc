@@ -1,27 +1,17 @@
 {
-  "trailingComma": "none",
-  "singleQuote": false,
-  "printWidth": 80,
-  "tabWidth": 2,
-  "goTemplateBracketSpacing": true,
-  "proseWrap": "always",
   "plugins": [
     "prettier-plugin-go-template",
     "@awmottaz/prettier-plugin-void-html"
   ],
   "overrides": [
     {
-      "files": ["*.html"],
+      "files": "*.html",
       "options": {
         "parser": "go-template",
-        "htmlWhitespaceSensitivity": "ignore",
-        "bracketSameLine": false
-      }
-    },
-    {
-      "files": ["*.html", "*.css"],
-      "options": {
-        "singleQuote": false
+        "printWidth": 240,
+        "goTemplateBracketSpacing": true,
+        "bracketSameLine": true,
+        "htmlWhitespaceSensitivity": "strict"
       }
     }
   ]
