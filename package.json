@@ -17,8 +17,7 @@
     "format:toml": "node format-toml.js --write",
     "format:write": "prettier --write .",
     "precommit": "lint-staged",
-    "postinstall": "husky install",
-    "prepare": "husky"
+    "prepare": "node .husky/install.mjs"
   },
   "husky": {
     "hooks": {
@@ -36,6 +35,7 @@
     "@awmottaz/prettier-plugin-void-html": "^1.8.0",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
+    "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "postcss": "^8.5.1",
     "postcss-cli": "^10.1.0",
@@ -50,11 +50,9 @@
     "speedlify-score": "^3.0.0"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": "prettier --write",
-    "*.html": [
-      "prettier --write --parser=html",
-      "prettier --write --parser=go-template"
-    ],
-    "*.toml": "node format-toml.js"
+    "*.{js,json,css,md,html}": [
+      "prettier --write --ignore-unknown",
+      "git add"
+    ]
   }
 }

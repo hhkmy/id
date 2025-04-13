@@ -1,3 +1,9 @@
-prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --write --ignore-unknown
-npx.cmd lint-staged
-git update-index --again
+# Run lint-staged (handles Prettier, ESLint, etc.)
+if [ "$OSTYPE" = "msys" ] || [ "$OSTYPE" = "win32" ]; then
+  npx.cmd lint-staged
+else
+  npx lint-staged
+fi
+
+# Re-stage changes (if lint-staged modified files)
+git add -u
