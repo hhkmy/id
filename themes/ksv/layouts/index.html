@@ -1,7 +1,15 @@
 {{ define "main" }}
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {{ range ( where .Site.RegularPages "Type" "posts" | first 50) }}
-      {{ .Render "title" }}
+{{ $posts := where .Site.RegularPages "Type" "posts" | first 50 }}
+{{ $count := len $posts }}
+{{ $isOdd := eq (mod $count 2) 1 }}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {{ range $index, $post := $posts }}
+    {{ $postNumber := add $index 1 }}
+    {{ $isLast := eq $postNumber $count }}
+    {{ $isFifth := eq (mod $postNumber 5) 0 }}
+    <div class="{{ if or (and $isOdd $isLast) $isFifth }} col-span-1 md:col-span-2 {{ end }}">
+        {{ .Render "title" }}
+    </div>
     {{ end }}
-  </div>
+</div>
 {{ end }}
