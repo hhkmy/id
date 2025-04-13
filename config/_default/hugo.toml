@@ -33,14 +33,13 @@ enableRobotsTXT = true
 [frontmatter]
     date = [
         'date',
-        'publishdate',
+        'publishDate',
         'pubdate',
-        'published',
         'lastmod',
         'modified',
     ]
     expiryDate = [
-        'expirydate',
+        'expiryDate',
         'unpublishdate',
     ]
     lastmod = [
@@ -48,14 +47,12 @@ enableRobotsTXT = true
         'lastmod',
         'modified',
         'date',
-        'publishdate',
+        'publishDate',
         'pubdate',
-        'published',
     ]
     publishDate = [
-        'publishdate',
+        'publishDate',
         'pubdate',
-        'published',
         'date',
     ]
 
