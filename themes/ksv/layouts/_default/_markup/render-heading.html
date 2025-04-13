@@ -1,1 +1,3 @@
-<h{{ .Level }} class="flex items-center" id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }} <a href="#{{ .Anchor | safeURL }}" aria-hidden="true"> ¶</a></h{{ .Level }}>
+<h{{ .Level }} class="flex items-center" id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}
+        <a href="#{{ .Anchor | safeURL }}" aria-hidden="true"> ¶</a>
+</h{{ .Level }}>
