@@ -10,7 +10,8 @@
       <div
         class="{{ if or (and $isOdd $isLast) $isFifth }}
           col-span-1 md:col-span-2
-        {{ end }}">
+        {{ end }}"
+      >
         {{ .Render "title" }}
       </div>
     {{ end }}

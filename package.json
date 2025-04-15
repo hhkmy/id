@@ -1,57 +1,57 @@
 {
-    "name": "ksvblog",
-    "version": "1.0.0",
-    "description": "K's V/Blog Website nth more with testing my learning skills",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "concurrently npm:watch:*",
-        "dev": "npm start",
-        "watch:tw": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
-        "watch:hugo": "hugo server",
-        "build": "hugo --minify --cleanDestinationDir",
-        "clean": "hugo --gc",
-        "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
-        "format:all": "npm run format && npm run format:toml",
-        "format:check": "prettier --check \"**/*.{html,js,json,css,md}\"",
-        "format:toml": "node format-toml.js --write",
-        "format:write": "prettier --write .",
-        "precommit": "lint-staged",
-        "prepare": "node .husky/install.mjs"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm test && lint-staged"
-        }
-    },
-    "keywords": [
-        "hguo",
-        "tailwindcss",
-        "VScode"
-    ],
-    "author": "Hein Htet Kyaw",
-    "license": "ISC",
-    "devDependencies": {
-        "autoprefixer": "^10.4.20",
-        "concurrently": "^8.2.2",
-        "husky": "^9.1.7",
-        "lint-staged": "^15.5.1",
-        "postcss": "^8.5.1",
-        "postcss-cli": "^10.1.0",
-        "postcss-import": "^15.1.0",
-        "prettier": "^3.5.3",
-        "prettier-plugin-go-template": "^0.0.15",
-        "tailwindcss": "^3.4.17",
-        "toml-eslint-parser": "^0.10.0"
-    },
-    "dependencies": {
-        "@fullhuman/postcss-purgecss": "^5.0.0",
-        "speedlify-score": "^3.0.0"
-    },
-    "lint-staged": {
-        "*.{js,json,css,md,html}": [
-            "prettier --write --ignore-unknown",
-            "git add"
-        ]
+  "name": "ksvblog",
+  "version": "1.0.0",
+  "description": "K's V/Blog Website nth more with testing my learning skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently npm:watch:*",
+    "dev": "npm start",
+    "watch:tw": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
+    "watch:hugo": "hugo server",
+    "build": "hugo --minify --cleanDestinationDir",
+    "clean": "hugo --gc",
+    "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
+    "format:all": "npm run format && npm run format:toml",
+    "format:check": "prettier --check \"**/*.{html,js,json,css,md}\"",
+    "format:toml": "node format-toml.js --write",
+    "format:write": "prettier --write .",
+    "precommit": "lint-staged",
+    "prepare": "node .husky/install.mjs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged"
     }
+  },
+  "keywords": [
+    "hguo",
+    "tailwindcss",
+    "VScode"
+  ],
+  "author": "Hein Htet Kyaw",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "postcss": "^8.5.1",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-go-template": "^0.0.15",
+    "tailwindcss": "^3.4.17",
+    "toml-eslint-parser": "^0.10.0"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "speedlify-score": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,html}": [
+      "prettier --write --ignore-unknown",
+      "git add"
+    ]
+  }
 }

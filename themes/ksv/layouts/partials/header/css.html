@@ -8,7 +8,12 @@
 
 {{ if hugo.IsProduction }}
   {{ $combinedCSS = $combinedCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}" integrity="{{ $combinedCSS.Data.Integrity }}" crossorigin="anonymous" />
+  <link
+    rel="stylesheet"
+    href="{{ $combinedCSS.RelPermalink }}"
+    integrity="{{ $combinedCSS.Data.Integrity }}"
+    crossorigin="anonymous"
+  />
 {{ else }}
   {{ $combinedCSS = $combinedCSS | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
   <link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet" />

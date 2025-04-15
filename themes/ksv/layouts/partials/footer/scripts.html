@@ -4,7 +4,7 @@
 {{ $site := slice $site $search $speedlify | resources.Concat "js/site.js" | resources.Minify }}
 <script src="{{ $site.Permalink }}" defer></script>
 {{ if .Params.katex }}
-    {{ partial "misc/katex" . }}
+  {{ partial "misc/katex" . }}
 {{ end }}
 {{ $brands := resources.Get "fontawesome/js/brands.js" }}
 {{ $light := resources.Get "fontawesome/js/light.js" }}
