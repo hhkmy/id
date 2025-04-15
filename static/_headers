@@ -3,18 +3,17 @@ http://hhk.my.id/*
   Location: https://hhk.my.id$1
   status: 301
 
-# HTTPS security headers
+# HTTPS headers
 https://hhk.my.id/*
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  # Content-Security-Policy: default-src 'self'; connect-src 'self' https://speedlify.hhk.my.id; script-src 'self' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data:; font-src 'self' https: data:
-  Cross-Origin-Embedder-Policy: unsafe-none
-  Cross-Origin-Opener-Policy: same-origin-allow-popups
-  Cross-Origin-Resource-Policy: cross-origin
-  Permissions-Policy: geolocation=(), camera=()
-  Referrer-Policy: strict-origin-when-cross-origin
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
-  X-XSS-Protection: 1; mode=block
-  Access-Control-Allow-Origin: https://hhk.my.id
-  Access-Control-Allow-Methods: GET, OPTIONS
-  Vary: Origin
+  Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload"
+  Cross-Origin-Embedder-Policy: "require-corp"
+  Cross-Origin-Opener-Policy: "same-origin-allow-popups"
+  Cross-Origin-Resource-Policy: "same-origin"
+  Permissions-Policy: "geolocation=(), camera=()"
+  Referrer-Policy: "strict-origin-when-cross-origin"
+  X-Content-Type-Options: "nosniff"
+  X-Frame-Options: "SAMEORIGIN"
+  Access-Control-Allow-Origin: "https://hhk.my.id"
+  Access-Control-Allow-Methods: "GET, POST, OPTIONS"
+  Access-Control-Allow-Credentials: "true"
+  Vary: "Origin"
