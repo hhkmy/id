@@ -1,14 +1,17 @@
 {{ $options := dict "inlineImports" true }}
 
 
-<!-- Process main.css -->
-{{ $styles := resources.Get "css/main.css" | postCSS $options }}
+<!-- Process main.css and search.css -->
+{{ $mainCSS := resources.Get "css/main.css" | postCSS $options }}
+{{ $searchCSS := resources.Get "css/search.css" | postCSS $options }}
+{{ $combinedCSS := slice $mainCSS $searchCSS | resources.Concat "css/combined.css" }}
+
 {{ if hugo.IsProduction }}
-  {{ $styles = $styles | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+  {{ $combinedCSS = $combinedCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}" integrity="{{ $combinedCSS.Data.Integrity }}" crossorigin="anonymous" />
 {{ else }}
-  {{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
-  <link href="{{ $styles.RelPermalink }}" rel="stylesheet">
+  {{ $combinedCSS = $combinedCSS | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
+  <link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet" />
 {{ end }}
 
 
@@ -17,4 +20,4 @@
 {{ if hugo.IsProduction }}
   {{ $scss = $scss | minify | fingerprint }}
 {{ end }}
-<link rel="stylesheet" href="{{ $scss.RelPermalink }}">
+<link rel="stylesheet" href="{{ $scss.RelPermalink }}" />
