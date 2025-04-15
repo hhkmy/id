@@ -1,9 +1,13 @@
 <!doctype html>
 <html prefix="og: http://ogp.me/ns#" lang="{{ .Language }}">
   <head itemscope itemtype="https://schema.org/WebPage">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{ $nonce := md5 (now.Unix) }}
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https: 'nonce-{{ $nonce }}'; connect-src 'self' https://speedlify.hhk.my.id; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data:; font-src 'self' https: data:" />
     <title>
       {{- if .IsHome -}}
         Home |

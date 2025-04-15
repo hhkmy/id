@@ -1,14 +1,15 @@
 {{ if $.Site.Params.gtm }}
   <!-- Google Tag Manager -->
   <!-- create dataLayer -->
-<script>
+  {{ $nonce := md5 (now.Unix) }}
+<script nonce="{{ $nonce }}">
   <!-- OPTIONAL dataLayer -->
   var dataLayer = (window.dataLayer = window.dataLayer || []);
   dataLayer.push({
     page: "{{ .Title }}",
     categories: "Your dataLayer",
   });
-</script><script>
+</script><script nonce="{{ $nonce }}">
   (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
