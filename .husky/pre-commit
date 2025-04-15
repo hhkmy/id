@@ -4,6 +4,3 @@ if [ "$OSTYPE" = "msys" ] || [ "$OSTYPE" = "win32" ]; then
 else
   npx lint-staged
 fi
-
-# Re-stage changes (if lint-staged modified files)
-git add -u
