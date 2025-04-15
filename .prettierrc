@@ -1,11 +1,18 @@
 {
-  "plugins": ["prettier-plugin-go-template"],
-  "overrides": [
-    {
-      "files": ["*.html"],
-      "options": {
-        "parser": "go-template"
-      }
-    }
-  ]
+    "plugins": ["prettier-plugin-go-template"],
+    "overrides": [
+        {
+            "files": ["*.html"],
+            "options": {
+                "parser": "go-template"
+            }
+        },
+        {
+            "files": ".prettierrc",
+            "options": {
+                "parser": "json",
+                "tabWidth": 4
+            }
+        }
+    ]
 }
