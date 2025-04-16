@@ -3,11 +3,7 @@
 		{{ range .Site.Data.about.education }}
 			<ul class="list-outside list-disc">
 				<li class="py-1">
-					<h1>
-						{{ .year }}
-						—
-						{{ .name }}
-					</h1>
+					<h2>{{ .year }} — {{ .name }}</h2>
 				</li>
 			</ul>
 			<div class="font-light text-gray-500 py-1">
