@@ -13,6 +13,7 @@
     "build": "hugo --minify --cleanDestinationDir",
     "clean": "hugo --gc",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
+    "format:html": "prettier --write \"**/*.html\"",
     "format:all": "npm run format && npm run format:toml",
     "format:check": "prettier --check \"**/*.{html,js,json,css,md}\"",
     "format:toml": "node format-toml.js --write",

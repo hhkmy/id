@@ -7,17 +7,17 @@
 {{ $combinedCSS := slice $mainCSS $searchCSS | resources.Concat "css/combined.css" }}
 
 {{ if hugo.IsProduction }}
-  {{ $combinedCSS = $combinedCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}" integrity="{{ $combinedCSS.Data.Integrity }}" crossorigin="anonymous">
+	{{ $combinedCSS = $combinedCSS | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}" integrity="{{ $combinedCSS.Data.Integrity }}" crossorigin="anonymous">
 {{ else }}
-  {{ $combinedCSS = $combinedCSS | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
-  <link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet">
+	{{ $combinedCSS = $combinedCSS | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
+	<link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet">
 {{ end }}
 
 
 <!-- Process style.scss -->
 {{ $scss := resources.Get "scss/style.scss" | toCSS | postCSS $options }}
 {{ if hugo.IsProduction }}
-  {{ $scss = $scss | minify | fingerprint }}
+	{{ $scss = $scss | minify | fingerprint }}
 {{ end }}
 <link rel="stylesheet" href="{{ $scss.RelPermalink }}">

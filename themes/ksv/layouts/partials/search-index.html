@@ -1,13 +1,13 @@
 {{- $allSections := slice -}}
 {{- range site.Home.Sections -}}
-  {{- $allSections = $allSections | append .Section -}}
+	{{- $allSections = $allSections | append .Section -}}
 {{- end -}}
 
 {{- $include_all_sections := site.Params.search.include_all_sections -}}
 {{- $search_sections := $allSections -}}
 
 {{- if not $include_all_sections -}}
-  {{- $search_sections = site.Params.search.include_sections | default site.Params.mainSections -}}
+	{{- $search_sections = site.Params.search.include_sections | default site.Params.mainSections -}}
 {{- end -}}
 <!-- search index -->
 {{ $nonce := md5 (now.Unix) }}

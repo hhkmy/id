@@ -11,9 +11,9 @@
                 "semi": false,
                 "printWidth": 169,
                 "tabWidth": 2,
-                "useTabs": false,
+                "useTabs": true,
                 "singleQuote": true,
-                "bracketSpacing": false
+                "bracketSpacing": true
             }
         },
         {
