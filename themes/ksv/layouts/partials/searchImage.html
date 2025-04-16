@@ -33,15 +33,7 @@
 
 <!-- image static/CDN -->
 {{ if or (hasPrefix $imagePath "http") (fileExists (add `static/` (string $imagePath))) }}
-  <img
-    loading="{{ .Loading }}"
-    decoding="async"
-    src="{{ $imagePath | absURL }}"
-    alt="{{ .Alt }}"
-    class="{{ $class }} img"
-    height="{{ $height }}"
-    width="{{ $width }}"
-  >
+  <img loading="{{ .Loading }}" decoding="async" src="{{ $imagePath | absURL }}" alt="{{ .Alt }}" class="{{ $class }} img" height="{{ $height }}" width="{{ $width }}">
 {{ else }}
   <!-- /image cdn -->
 
@@ -123,8 +115,7 @@
             src="data:image/jpeg;base64,{{ $placeholderImage.Content | base64Encode }}"
             data-src={{ $imageWebp.RelPermalink }}
           {{ else }}
-            src="{{ $imageWebp.RelPermalink }}" loading="{{ $loading }}"
-            decoding="async"
+            src="{{ $imageWebp.RelPermalink }}" loading="{{ $loading }}" decoding="async"
           {{ end }}
 
           alt="{{ .Alt }}"
@@ -186,8 +177,7 @@
             data-src={{ $imageWebp.RelPermalink }}
             alt="placeholder"
           {{ else }}
-            src="{{ $imageWebp.RelPermalink }}" loading="{{ $loading }}"
-            decoding="async" alt="{{ .Alt }}"
+            src="{{ $imageWebp.RelPermalink }}" loading="{{ $loading }}" decoding="async" alt="{{ .Alt }}"
           {{ end }}
 
           class="{{ if $placeholder }}
@@ -269,8 +259,7 @@
               src="data:image/jpeg;base64,{{ $placeholderImage.Content | base64Encode }}"
               data-src={{ $imageFallback.RelPermalink }}
             {{ else }}
-              loading="{{ $loading }}" decoding="async"
-              src="{{ $imageFallback.RelPermalink }}"
+              loading="{{ $loading }}" decoding="async" src="{{ $imageFallback.RelPermalink }}"
             {{ end }}class="{{ if $placeholder }}
               lazy
             {{ end }} {{ $class }} img"

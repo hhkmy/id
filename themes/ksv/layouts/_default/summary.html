@@ -1,9 +1,7 @@
 <article class="post gorw">
   <header class="mb-2">
     {{ $author := index .Site.Data.authors (.Params.author | default "default") }}
-    <h1
-      class="font-sans text-lg leading-tight font-bold text-gray-800 dark:text-white"
-    >
+    <h1 class="font-sans text-lg leading-tight font-bold text-gray-800 dark:text-white">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h1>
     <p class="text-gray-500 text-sm mt-1">

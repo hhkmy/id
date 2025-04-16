@@ -22,40 +22,24 @@
 
 <a class="license" href="{{ $url }}">
   {{ with resources.Get "/creative-commons-icons/cc.jpg" }}
-    <img
-      src="{{ .RelPermalink }}"
-      alt="Creative Commons logo"
-      class="license-logo"
-    >
+    <img src="{{ .RelPermalink }}" alt="Creative Commons logo" class="license-logo">
   {{ end }}
 
   {{ if in $options "by" }}
     {{ with resources.Get "/creative-commons-icons/by.jpg" }}
-      <img
-        src="{{ .RelPermalink }}"
-        alt="Creative Commons logo"
-        class="license-logo"
-      >
+      <img src="{{ .RelPermalink }}" alt="Creative Commons logo" class="license-logo">
     {{ end }}
   {{ end }}
 
   {{ if in $options "nc" }}
     {{ with resources.Get "/creative-commons-icons/nc.jpg" }}
-      <img
-        src="{{ .RelPermalink }}"
-        alt="Creative Commons logo"
-        class="license-logo"
-      >
+      <img src="{{ .RelPermalink }}" alt="Creative Commons logo" class="license-logo">
     {{ end }}
   {{ end }}
 
   {{ if in $options "sa" }}
     {{ with resources.Get "/creative-commons-icons/sa.jpg" }}
-      <img
-        src="{{ .RelPermalink }}"
-        alt="Creative Commons logo"
-        class="license-logo"
-      >
+      <img src="{{ .RelPermalink }}" alt="Creative Commons logo" class="license-logo">
     {{ end }}
   {{ end }}
 

@@ -2,10 +2,7 @@
 <html prefix="og: http://ogp.me/ns#" lang="{{ .Language }}">
   <head itemscope itemtype="https://schema.org/WebPage">
     <meta charset="utf-8">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{ $nonce := md5 (now.Unix) }}
     <meta
@@ -37,9 +34,7 @@
     {{ partial "header/head" . }}
   </head>
 
-  <body
-    class="container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white dark:bg-gray-900 dark:text-white"
-  >
+  <body class="container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white dark:bg-gray-900 dark:text-white">
     {{ if $.Site.Params.gtm }}
       <!-- Google Tag Manager (noscript) -->
       <noscript>

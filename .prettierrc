@@ -9,10 +9,11 @@
             "options": {
                 "parser": "go-template",
                 "semi": false,
-                "printWidth": 80,
+                "printWidth": 169,
                 "tabWidth": 2,
                 "useTabs": false,
-                "singleQuote": true
+                "singleQuote": true,
+                "bracketSpacing": false
             }
         },
         {

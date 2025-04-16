@@ -1,51 +1,29 @@
 {{ range .Site.Data.books.book }}
   <div class="relative mx-auto w-full max-w-md pt-6">
-    <div
-      class="relative inline-block w-full transform transition-transform duration-300 ease-in-out"
-    >
+    <div class="relative inline-block w-full transform transition-transform duration-300 ease-in-out">
       <div class="rounded-lg">
-        <div
-          class="relative flex h-72 justify-center overflow-hidden rounded-lg"
-        >
-          <div
-            class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110"
-          >
-            <img
-              src="{{ .cover }}"
-              alt="{{ .title }}"
-              class="blur-sm hover:filter-none"
-            >
+        <div class="relative flex h-72 justify-center overflow-hidden rounded-lg">
+          <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
+            <img src="{{ .cover }}" alt="{{ .title }}" class="blur-sm hover:filter-none">
           </div>
         </div>
         <div class="flex flex-col mt-4">
-          <h2
-            class="line-clamp-1 text-base font-medium text-gray-800 dark:text-white md:text-lg"
-            title="{{ .title }}"
-          >
+          <h2 class="line-clamp-1 text-base font-medium text-gray-800 dark:text-white md:text-lg" title="{{ .title }}">
             {{ .title }}
           </h2>
-          <p
-            class="mt-2 line-clamp-1 text-sm text-gray-800 dark:text-white"
-            title="{{ .author }}"
-          >
+          <p class="mt-2 line-clamp-1 text-sm text-gray-800 dark:text-white" title="{{ .author }}">
             By
             {{ .author }}
           </p>
         </div>
-        <div
-          class="mt-2 grid grid-cols-2 grid-rows-2 gap-4 border-t border-gray-200 pb-3 pt-3"
-        >
-          <p
-            class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center"
-          >
+        <div class="mt-2 grid grid-cols-2 grid-rows-2 gap-4 border-t border-gray-200 pb-3 pt-3">
+          <p class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center">
             <span class="mr-3 text-gray xl:h-4 xl:w-4">
               <i class="fa-light fa-calendar"></i>
             </span>
             <span class="xl:mt-0">{{ .year }}</span>
           </p>
-          <p
-            class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center"
-          >
+          <p class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center">
             <span class="mr-3 text-gray-800 dark:text-white xl:h-4 xl:w-4">
               <i class="fa-light fa-book-open"></i>
             </span>
@@ -54,17 +32,13 @@
               Pages</span
             >
           </p>
-          <p
-            class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center"
-          >
+          <p class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center">
             <span class="mr-3 text-gray-800 dark:text-white xl:h-4 xl:w-4">
               <i class="fa-light fa-books"></i>
             </span>
             <span class="mt-0">{{ .tag }}</span>
           </p>
-          <p
-            class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center"
-          >
+          <p class="flex items-center text-gray-800 dark:text-white xl:flex-row xl:items-center">
             <span class="mr-3 text-gray xl:h-4 xl:w-4">
               <i class="fa-brands fa-creative-commons-by"></i>
             </span>
