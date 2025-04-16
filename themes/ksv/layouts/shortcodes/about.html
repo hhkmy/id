@@ -5,7 +5,7 @@
         <i class="{{ .icon }}"></i>
       </div>
       <div class="w-7 font-thin">—</div>
-      <a href="{{ .link }}">{{ .value }}</a>
+      <a href="{{ .link | safeURL }}">{{ .value }}</a>
     </div>
   {{ end }}
 </section>
