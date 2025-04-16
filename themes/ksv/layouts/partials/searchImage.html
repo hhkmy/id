@@ -41,7 +41,7 @@
     class="{{ $class }} img"
     height="{{ $height }}"
     width="{{ $width }}"
-  />
+  >
 {{ else }}
   <!-- /image cdn -->
 
@@ -80,7 +80,7 @@
         class="{{ $class }} img"
         width="{{ $width }}"
         height="{{ $height }}"
-      />
+      >
     {{ else }}
       <!-- single image -->
       {{ if $size }}
@@ -145,7 +145,7 @@
           "
           onerror="this.onerror='null';this.src='{{ $imageFallback.RelPermalink }}
           ';"
-        />
+        >
 
         <!-- if image size less then 500x and size not defined -->
       {{ else if or (lt ($image.Width) 500) (not $resize) }}
@@ -206,7 +206,7 @@
           {{- end -}}
           "
           onerror="this.onerror='null';this.src='{{ $image.RelPermalink }}';"
-        />
+        >
       {{ else }}
         <!-- /if image size less then 500x and size not defined -->
 
@@ -237,7 +237,7 @@
               srcset="{{ $imageSM.RelPermalink }}"
             {{ end }}
             media="(max-width: 575px)"
-          />
+          >
           <source
             {{ if $placeholder }}
               src="data:image/jpeg;base64,{{ $placeholderImage.Content | base64Encode }}"
@@ -246,7 +246,7 @@
               srcset="{{ $imageMD.RelPermalink }}"
             {{ end }}
             media="(max-width: 767px)"
-          />
+          >
           <source
             {{ if $placeholder }}
               src="data:image/jpeg;base64,{{ $placeholderImage.Content | base64Encode }}"
@@ -255,7 +255,7 @@
               srcset="{{ $imageLG.RelPermalink }}"
             {{ end }}
             media="(max-width: 991px)"
-          />
+          >
           <source
             {{ if $placeholder }}
               src="data:image/jpeg;base64,{{ $placeholderImage.Content | base64Encode }}"
@@ -263,7 +263,7 @@
             {{ else }}
               srcset="{{ $imageXL.RelPermalink }}"
             {{ end }}
-          />
+          >
           <img
             {{ if $placeholder }}
               src="data:image/jpeg;base64,{{ $placeholderImage.Content | base64Encode }}"
@@ -277,7 +277,7 @@
             alt="{{ .Alt }}"
             width="{{ $image.Width }}"
             height="{{ $image.Height }}"
-          />
+          >
         </picture>
       {{ end }}
       <!-- end image processing -->

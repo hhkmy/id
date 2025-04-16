@@ -8,6 +8,7 @@
     "start": "concurrently npm:watch:*",
     "dev": "npm start",
     "watch:tw": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
+    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "watch:hugo": "hugo server",
     "build": "hugo --minify --cleanDestinationDir",
     "clean": "hugo --gc",
@@ -32,6 +33,7 @@
   "author": "Hein Htet Kyaw",
   "license": "ISC",
   "devDependencies": {
+    "@awmottaz/prettier-plugin-void-html": "^1.8.0",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
     "husky": "^9.1.7",

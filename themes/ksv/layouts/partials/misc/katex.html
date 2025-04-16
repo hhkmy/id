@@ -3,7 +3,7 @@
   href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
   integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn"
   crossorigin="anonymous"
-/>
+>
 <script
   defer
   src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
@@ -32,21 +32,21 @@
   window.WebFontConfig = {
     custom: {
       families: [
-        "KaTeX_AMS",
-        "KaTeX_Caligraphic:n4,n7",
-        "KaTeX_Fraktur:n4,n7",
-        "KaTeX_Main:n4,n7,i4,i7",
-        "KaTeX_Math:i4,i7",
-        "KaTeX_Script",
-        "KaTeX_SansSerif:n4,n7,i4",
-        "KaTeX_Size1",
-        "KaTeX_Size2",
-        "KaTeX_Size3",
-        "KaTeX_Size4",
-        "KaTeX_Typewriter",
+        'KaTeX_AMS',
+        'KaTeX_Caligraphic:n4,n7',
+        'KaTeX_Fraktur:n4,n7',
+        'KaTeX_Main:n4,n7,i4,i7',
+        'KaTeX_Math:i4,i7',
+        'KaTeX_Script',
+        'KaTeX_SansSerif:n4,n7,i4',
+        'KaTeX_Size1',
+        'KaTeX_Size2',
+        'KaTeX_Size3',
+        'KaTeX_Size4',
+        'KaTeX_Typewriter',
       ],
     },
-  };
+  }
 </script>
 <script
   defer
@@ -55,35 +55,35 @@
   crossorigin="anonymous"
 ></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     renderMathInElement(document.body, {
       // customised options
       // • auto-render specific keys, e.g.:
       delimiters: [
         {
-          left: "$$",
-          right: "$$",
+          left: '$$',
+          right: '$$',
           display: true,
         },
         {
-          left: "$",
-          right: "$",
+          left: '$',
+          right: '$',
           display: false,
         },
         {
-          left: "\\(",
-          right: "\\)",
+          left: '\\(',
+          right: '\\)',
           display: false,
         },
         {
-          left: "\\[",
-          right: "\\]",
+          left: '\\[',
+          right: '\\]',
           display: true,
         },
       ],
       // • rendering keys, e.g.:
       throwOnError: false,
-    });
-  });
+    })
+  })
 </script>
 <script src="https://unpkg.com/asciimath2tex@1.2.1/dist/asciimath2tex.umd.js"></script>

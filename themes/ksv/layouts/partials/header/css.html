@@ -13,10 +13,10 @@
     href="{{ $combinedCSS.RelPermalink }}"
     integrity="{{ $combinedCSS.Data.Integrity }}"
     crossorigin="anonymous"
-  />
+  >
 {{ else }}
   {{ $combinedCSS = $combinedCSS | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
-  <link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet" />
+  <link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet">
 {{ end }}
 
 
@@ -25,4 +25,4 @@
 {{ if hugo.IsProduction }}
   {{ $scss = $scss | minify | fingerprint }}
 {{ end }}
-<link rel="stylesheet" href="{{ $scss.RelPermalink }}" />
+<link rel="stylesheet" href="{{ $scss.RelPermalink }}">
