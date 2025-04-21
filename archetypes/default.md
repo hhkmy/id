@@ -6,7 +6,7 @@ image:
 thumbnail_image:
 description:
 summary:
-categores:
+categories:
 tags:
 series:
 keywords:
