@@ -1,23 +1,13 @@
-{{ $options := dict "inlineImports" true }}
+{{ $cssFiles := slice
+	(resources.Get "css/main.css")
+	(resources.Get "css/search.css")
+	(resources.Get "scss/style.scss" | toCSS)
+}}
 
-
-<!-- Process main.css and search.css -->
-{{ $mainCSS := resources.Get "css/main.css" | postCSS $options }}
-{{ $searchCSS := resources.Get "css/search.css" | postCSS $options }}
-{{ $combinedCSS := slice $mainCSS $searchCSS | resources.Concat "css/combined.css" }}
-
+{{ $css := resources.Get "css/bundle.css" | postCSS (dict "config" "postcss.config.js") }}
 {{ if hugo.IsProduction }}
-	{{ $combinedCSS = $combinedCSS | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}" integrity="{{ $combinedCSS.Data.Integrity }}" crossorigin="anonymous">
-{{ else }}
-	{{ $combinedCSS = $combinedCSS | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
-	<link href="{{ $combinedCSS.RelPermalink }}" rel="stylesheet">
-{{ end }}
-
-
-<!-- Process style.scss -->
-{{ $scss := resources.Get "scss/style.scss" | toCSS | postCSS $options }}
+	{{ $css = $css | minify | fingerprint }}
+{{ end }} <link rel="stylesheet" href="{{ $css.RelPermalink }}">{{ $css := resources.Get "css/bundle.css" | postCSS (dict "config" "postcss.config.js") }}
 {{ if hugo.IsProduction }}
-	{{ $scss = $scss | minify | fingerprint }}
-{{ end }}
-<link rel="stylesheet" href="{{ $scss.RelPermalink }}">
+	{{ $css = $css | minify | fingerprint }}
+{{ end }} <link rel="stylesheet" href="{{ $css.RelPermalink }}">
