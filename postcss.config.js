@@ -5,7 +5,9 @@ const autoprefixer = require("autoprefixer");
 
 module.exports = {
   plugins: [
-    tailwind,
-    ...(process.env.HUGO_ENVIRONMENT === "production" ? [autoprefixer] : []),
+    require("tailwindcss"),
+    ...(process.env.HUGO_ENVIRONMENT === "production"
+      ? [require("autoprefixer")]
+      : []),
   ],
 };

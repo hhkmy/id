@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./hugo_stats.json", "./**/*.html", "./content/**/*.md"],
+  content: [
+    "./hugo_stats.json",
+    "./layouts/**/*.html",
+    "./content/**/*.{html,md}",
+    "./assets/js/**/*.js",
+  ],
   theme: {
     extend: {
       screens: {
