@@ -10,8 +10,8 @@ out
 /public/
 /resources/
 /node_modules/
-themes/ksv/layouts/_default/_markup/
-themes/ksv/layouts/_default/list.searchindex.json
+layouts/_default/_markup/
+layouts/_default/list.searchindex.json
 
 
 # Ignore all HTML files:
