@@ -121,3 +121,13 @@ enableRobotsTXT = true
     [[deployment.matchers]]
         gzip = true
         pattern = "^.+\\.(html|xml|json)$"
+
+[imaging]
+  quality = 80
+  avifQuality = 60  # AVIF can maintain quality at lower numbers
+  resampleFilter = "Lanczos"
+  hint = "photo"
+  
+[services]
+  [services.imgproc]
+    enabled = true

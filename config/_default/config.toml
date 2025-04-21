@@ -1,0 +1,4 @@
+[caches]
+  [caches.assets]
+    dir = ":cacheDir/assets"
+    maxAge = -1  # Never expire

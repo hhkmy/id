@@ -18,20 +18,6 @@ description = "You can read Kiddo's Blogs again, Extra you can watch Video Tutor
     show_image = true 
     show_tags = true 
 
-########################### Default parameters ######################
-attorney_photo = "/images/Samantha-Greene-2.jpg"
-backgroundint = "/images/backgrounds/page-title.webp"
-disableHugoGeneratorInject = "false"
-favicon = "/images/favicon.svg"
-founder = "Samantha Greene"
-foundinglocation = "San Diego, California"
-googleAnalytics = "UA-285731265-1"
-lawFirmName = "Sevens Legal, APC"
-logo = "/images/sevens-legal-logo.svg"
-logo_footer = "/images/sevens-legal-logo.svg"
-logo_png = "/images/sevens-legal-logo.png"
-logo_width = "180px"
-slogan = "San Diego Criminal Lawyer"
 # Schema
 avvo = "https://www.avvo.com/attorneys/92103-ca-samantha-greene-297353.html"
 # top header
