@@ -3,6 +3,8 @@ desktop.ini
 **/desktop.ini
 *.ini
 
+.vs
+.vscode
 node_modules
 resources
 public
