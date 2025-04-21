@@ -2,7 +2,7 @@
 	<nav class="w-full mx-auto flex items-center justify-between">
 		<div class="flex items-center justify-between">
 			<a class="flex-none text-xl font-semibold focus:ring-0 focus:outline-none" href="{{ .Site.BaseURL }}" aria-label="Brand">
-				{{ $logo := resources.Get "images/logo.svg" }}
+				{{ $logo := resources.Get "ui/logo.svg" }}
 				<img src="{{ $logo.Permalink }}" width="48" height="48" alt="{{ .Site.Title }}">
 			</a>
 		</div>
