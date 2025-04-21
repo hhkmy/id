@@ -35,8 +35,11 @@
   "license": "ISC",
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.8.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
+    "cssnano": "^7.0.6",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "postcss": "^8.5.1",
