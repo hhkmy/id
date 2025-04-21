@@ -1,6 +1,15 @@
-{{- partial "header/seo" . -}}
-{{- partial "header/gtm" . -}}
-{{- partial "header/tags" . -}}
-{{ template "_internal/google_analytics.html" . }}
-{{- partial "search-index" . -}}
-{{ partialCached "header/css" . }}
+{{- /* Cache SEO/GTM/tags since they rarely change */ -}}
+{{ partialCached "header/seo" . .RelPermalink }}
+{{- partialCached "header/gtm" . .RelPermalink -}}
+{{- partialCached "header/tags" . .RelPermalink -}}
+
+{{- /* Move Google Analytics to footer if possible */ -}}
+{{- template "_internal/google_analytics.html" . -}}
+
+{{- /* Only generate search-index in production */ -}}
+{{ if hugo.IsProduction }}
+	{{- partial "search-index" . -}}
+{{ end }}
+
+{{- /* CSS is now optimized above */ -}}
+{{ partialCached "header/css" . .RelPermalink }}
