@@ -2,9 +2,7 @@
 title: Office 365 with Developer Account
 date: 2023-12-21T21:52:06.768Z
 author: heinhtetkyaw
-image: /images/microsoft_dns.png
-thumbnail_image: /images/microsoft_dns.png
-preview: /images/microsoft_dns.png
+image: images/microsoft_dns.png
 description:
   Microsoft ရဲ့ Office 365 ကြီးကိုတော့ မဝယ်နိုင်ဘူး ဒါပေမယ့် သုံးချင်တယ်ဆိုတဲ့
   ကိုယ့်လိုလူတွေအတွက်တော့ အသုံးဝင်မယ့် Note လေးတစ်ခုမှတ်ထားဖို့။

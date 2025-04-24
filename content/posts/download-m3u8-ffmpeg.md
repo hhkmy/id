@@ -2,9 +2,7 @@
 title: Download m3u8 with ffmpeg
 date: 2023-09-28T18:12:51+06:30
 author: heinhtetkyaw
-image: /images/m3u8-data.png
-thumbnail_image: /images/m3u8-data.png
-preview: /images/m3u8-data.png
+image: images/m3u8-data.png
 description:
   m3u8 url တွေကို ffmpeg နဲ့ ဘယ်လို Download လုပ်ရမလဲဆိုတာကို လာမှတ်ထားတာပါ။
   ဒီနည်းကတော့ တော်တော်များများသော key တွေနဲ့ ပိတ်ထားတာကိုတောင် download
@@ -43,7 +41,7 @@ direction ကိုသွားပြီးတော့ ရွေးပေးထ
 **C:\bins** ဆိုပြီးတော့ သီးသန့် Folder လေးတစ်ခုလုပ်ထားပါတယ်။ အဲ့ဒီထဲမှာ
 **ffmpeg**, **hugo** နဲ့ အခြားသောအရာတွေအကုန်ထည့်ထားလိုက်ပါတယ်။
 
-![Bins Folder](/images/bins-folder.png)
+![Bins Folder](images/bins-folder.png)
 
 အခုလိုမျိုး bins folder ထဲမှာ သီးသန့်ထားပြီးသွားရင်တော့
 
@@ -51,13 +49,13 @@ direction ကိုသွားပြီးတော့ ရွေးပေးထ
 အောက်ထဲမှာ bin folder ကို ထည့်ပေးရမှာပါ။ ကျွန်တော်ကတော့ **C:\bins** ဖြစ်လို့
 **C:\bins** လေးကိုထည့်ပေးထားလိုက်ပါတယ်။
 
-![Edit Environment Variable](/images/edit-environment-variable.png)
+![Edit Environment Variable](images/edit-environment-variable.png)
 
 ထည့်ပြီးသွားရင်တော့ ffmpeg ကို အလုပ်လားမလုပ်လား စမ်းဖို့အတွက်တော့ Command Prompt
 ဖြစ်ဖြစ် bash ဖြစ်ဖြစ် Terminal တစ်ခုခုဖွင့်ပြီး **ffmpeg** လို့
 ရိုက်ကြည့်လိုက်ပါ။အောက်ကလိုပေါ်လာရင်တော့ အဆင်ပြေပါပြီ။
 
-![ffmpeg](/images/ffmpeg.png)
+![ffmpeg](images/ffmpeg.png)
 
 ရှေ့ဆက်ရရင်တော့ဖြင့် ffmpeg လည်းရပြီ အဆင်ပြေပြီဆိုတော့ ကျွန်တော်တို့ m3u8 file
 ကို ဘယ်လိုရှာမလဲဆိုတာကို ဆက်ပြီး ပြောပြပေးသွားရရင် ကျွန်တော်တို့ download
@@ -68,7 +66,7 @@ box မှာ ရိုက်ရှာပေးလိုက်ပါ။ ရိ�
 ကိုရိုက်ရှာလိုက်ပါ။ တွေ့လာတဲ့ m3u8 file လေးကို ထောက်လိုက်ရင်တော့ သက်ဆိုင်ရာ
 Information လေးတွေ ကျလာမှာပြဖြစ်ပါတယ်။
 
-![m3u8 URL Data](/images/m3u8-data.png)
+![m3u8 URL Data](images/m3u8-data.png)
 
 အဲ့ဒါပြီးသွားရင်တော့ Request URL: ဘေးက url link တွေအကုန်လုံးကို copy
 ကူးပေးလိုက်ပြီး notepad or some text editor တစ်ခုခုမှာ မှတ်ထားလိုက်ပါ။ download
@@ -88,7 +86,7 @@ link ပါ ပြီးရင်တော့ နောက်ဆုံးက nam
 ffmpeg -multiple_requests 1 -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5 -i https://dash.realurl.link/videos/651501e91688661414df2978/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJ2aWV3IiwiaWF0IjoxNjk1OTIzMjU0LCJleHAiOjE2OTU5MjMzNTR9.g6GaM9H29Q7IxmKtE3jy2r8jhtV0h71EshP0D-n464U -c copy -bsf:a aac_adtstoasc hi.mp4
 ```
 
-![m3u8 Downloader](/images/m3u8-download.png)
+![m3u8 Downloader](images/m3u8-download.png)
 
 အခုလိုမျိုး ပုံပါအတိုင်းတွေ့ရပြီဆိုရင်တော့ဖြင့် m3u8 file ကို hi.mp4 အဖြစ်နဲ့
 download လုပ်နေပြီပဲဖြစ်ပါတယ်။ installation ကတော့

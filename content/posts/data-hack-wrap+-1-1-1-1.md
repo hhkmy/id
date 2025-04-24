@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Data Hack Warp+ 1-1-1-1
 date: 2021-02-02T16:35:04+06:30
-image: /images/Warp.jpg
-thumbnail_image: /images/Warp.jpg
-preview: /images/Warp.jpg
+image: images/Warp.png
 description:
   မြန်မာနိုင်ငံမှာ Website တော်တော်များများက Blacklist ဖြစ်သွားပြီး Banned
   ခံထားရတဲ့အချိန်သုံးဖြစ်တဲ့ Warp+ VPN ကို GB တိုးနည်း
@@ -38,7 +36,7 @@ slug: data-hack-warp-1-1-1-1
 1.1.1.1 ဆိုတဲ့ကောင်လေးကို Data တွေကို Share မလုပ်ပါပဲ ဘယ်လို
 တိုးလို့ရမလဲဆိုတာကို မျှဝေပေးသွားမှာပဲဖြစ်ပါတယ်။
 
-![Data Hack Warp+ 1.1.1.1](/images/Warp.jpg)
+![Data Hack Warp+ 1.1.1.1](images/Warp.png)
 
 ဒီနည်းလေးကိုတော့ Vietnam Website တစ်ခုမှာ တွေ့တာနဲ့ ပြန်ပြီး မှတ်စုအဖြစ်သိမ်းရင်
 အခြားမသိသေးတဲ့လူတွေကို မျှဝေချင်စိတ်ဖြစ်တာရယ်။ Blog ရေးချင်တာရယ်ကြောင့်
@@ -60,7 +58,7 @@ Settings (Three dashes icon) > Advanced > Diagnostics
 ကိုအဆင့်ဆင့်သွားလိုက်ပြီးရင်တော့ Client (ကလီးယန့်) Configuration အောက်က ID ကို
 ဖိထားလိုက်ရင်တော့ Copy ဆိုတာလေး ပေါ်လာပါလိမ့်မယ်။ Copy ကူးယူခဲ့ပါ။
 
-![Data Hack Warp+ 1.1.1.1](/images/Warp-plus.png)
+![Data Hack Warp+ 1.1.1.1](images/Warp-plus.png)
 
 [x] တတိယအဆင့် ခုဏက ကူးယူခဲ့တဲ့ ID လေးကို အောက်က Server တစ်ခုခုမှာ
 ကူးထည့်ပေးရမှာပဲဖြစ်ပါတယ်။
@@ -75,13 +73,13 @@ Sever ကိုဖွင့်လိုက်ပြီး စောင့်လ�
 အဲ့ဒီမှာကတော့ ခုဏက ကူးယူခဲ့တဲ့ 1.1.1.1 ID လေးကို ကူးထည့်ပြီး Enter
 ကိုခေါက်လိုက်ရင်တော့ သူ့အလုပ်ကို သူလုပ်နေပါလိမ့်မယ်။
 
-![Data Hack Warp+ 1.1.1.1](/images/Warp-script.png)
+![Data Hack Warp+ 1.1.1.1](images/Warp-script.png)
 
 Browser Tab ကို ဖွင့်ထားပြီး ကိုယ်လုပ်စရာရှိတာကို
 ပြန်ပြီးလုပ်နိုင်ပြီပဲဖြစ်ပါတယ်။ ဖုန်းနဲ့တော့ မစမ်းဖူးသေးပါဘူး။ Python Terminal
 တစ်ခုခုကို Install ပြီးလုပ်မယ်ဆိုရင်တော့ အဆင်ပြေကောင်းပြေနိုင်မှာပဲဖြစ်ပါတယ်။
 
-![Data Hack Warp+ 1.1.1.1](/images/Warp-works.png)
+![Data Hack Warp+ 1.1.1.1](images/Warp-works.png)
 
 ပုံထဲမှာပါတဲ့ [#] Total: 6 Good 6 Bad ဆိုတာကတော့ 6 Good ဆိုတာ Server
 နဲ့ချိတ်ဆက်မိတဲ့အတွက် 6 GB တိုးပြီးကြောင်းဖြစ်ပြီး 6 Bad ဆိုတာကတော့ Server

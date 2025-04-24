@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Write Protected? I Choice Network Sharing
 date: 2021-04-19T22:47:24+06:30
-image: /images/network-sharing.png
-thumbnail_image: /images/network-sharing.png
-preview: /images/network-sharing.png
+image: images/network-sharing.png
 description:
   USB Stick တွေကို Write Protected ဖြစ်နေတာလေးတွေကို Network Sharing ကနေတစ်ဆင့်
   copy  လုပ်ဖြစ်ဖို့အတွက်လိုက်ရှာရင်းရေးဖြစ်ခဲ့တဲ့ contet လေးတစ်ပုဒ်ပါ။

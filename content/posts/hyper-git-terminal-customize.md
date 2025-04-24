@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Hyper + Git Terminal Customize
 date: 2023-08-23T07:01:30+07:00
-image: /images/hyper-terminal-windows-10.png
-thumbnail_image: /images/hyper-terminal-windows-10.png
-preview: /images/hyper-terminal-windows-10.png
+image: images/hyper-terminal-windows-10.png
 description:
     Terminal တွေအများကြီး သုံးဖူးတာမဟုတ်ပေမယ့် Terminal
     တော်တော်များများလိုက်သုံးရင်း ဒီတစ်ခါကတော့ Hyper + terminal လေးကို Git
@@ -42,9 +40,9 @@ Fresh installed ဖြစ်တဲ့အညီအကုန်လုံးကိ�
 ပြောပြပေးသွားပါတော့မယ်။ ပထမဦးဆုံး app ကို Download လုပ်ဖို့ဖြစ်တဲ့အတွက်ကြောင့်
 မူရင်း Website မှာပဲ Download သွားလုပ်လိုက်ပါ။
 
--   [hyper.is](https://hyper.is/)
--   [nodejs](https://nodejs.org/en/download/)
--   [git bash](https://git-scm.com/downloads)
+- [hyper.is](https://hyper.is/)
+- [nodejs](https://nodejs.org/en/download/)
+- [git bash](https://git-scm.com/downloads)
 
 Download လုပ်ပြီးတော့ Installation တွေပြီးသွားရင်တော့ command line တွေကို
 မသိတဲ့အခါမျိုးရှိတတ်ပါတယ်၊ အဲ့ဒါအတွက်ကတော့
@@ -131,7 +129,7 @@ Shift + F5 ဆိုပြီး Full Reload လုပ်လို့ရပါ�
 ဒါဆိုရင်တော့ အောက်ကလို Theme Color လေးပြောင်းသွားရင်တော့ Success
 ဖြစ်သွားပြီပဲဖြစ်ပါတယ်။
 
-![Hyper Verminal Theme](/images/hyper-verminal.png)
+![Hyper Verminal Theme](images/hyper-terminal.png)
 
 နောက်ထပ် Customize လုပ်ဖို့အတွက်ကတော့ Hyper Terminal ထဲမှာပဲ ဆက်ပြီး၊ ။
 
@@ -160,7 +158,7 @@ hyper install hyperpower
 ပိတ်ပြီးဖွင့်လိုက်ရင်တော့ လှတယ်လို့ ထင်ရတဲ့ ကျွန်တော် သဘောကျတဲ့ Terminal
 ကိုရသွားပြီပဲဖြစ်ပါတယ်။
 
-![Hyper Terminal ><](/images/hyper-terminal-windows-10.png "Hyper Terminal")
+![Hyper Terminal](images/hyper-terminal-windows-10.png "Hyper Terminal")
 
 အားလုံးအဆင်ပြေသွားတဲ့အတွက် — enjoy your new terminal and Wait other Content for
 Customize ~ :clapping_hands:

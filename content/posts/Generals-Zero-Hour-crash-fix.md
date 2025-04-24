@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Generals Zero Hour Crash Fix
 date: 2021-02-06T19:22:51+06:30
-image: /images/CCGeneralsRemasteredDemo32022Update.png
-thumbnail_image: /images/CCGeneralsRemasteredDemo32022Update.png
-preview: /images/CCGeneralsRemasteredDemo32022Update.png
+image: images/CCGeneralsRemasteredDemo32022Update.png
 description:
   Fixing Command & Conquer Generals Zero Hour Crach Error at High Windows like
   windows 10 and above.
@@ -42,7 +40,7 @@ Generals Zero Hour ဆိုတာလေးပါပဲ။ အင်တာနက
 လုံးဝအဆင်မပြေခဲ့ဘူး။ ဆော့လို့ကောင်းနေပြီ ဂိမ်းထဲဝင်ပြီဆိုရင် ဇာတ်လမ်းက
 စပြီလို့တောင် ပြောရမယ်။ ဆိုတော့ ကြာတော့ ခွီးလာတာအမှန်ပဲ။
 
-![Command & Conquer Generals Zero Hour Crash Error ><](/images/general_zh.png)
+![Command & Conquer Generals Zero Hour Crash Error ><](images/general_zh.png)
 
 ဒါနဲ့ပဲ Google မှာ ရှာရင်းဖွေရင်းနဲ့ တွေ့ခဲ့တာလေးကတော့ အမျိုးမျိုးပါပဲ။
 
@@ -120,7 +118,7 @@ program in compatibility mode for:** ကိုအမှန်ခြစ်ပြ�
 
 ဆိုပြီးအဆင့်ဆင့် လုပ်ဆောင်သွားရမှာပဲဖြစ်ပါတယ်။
 
-![Change compatibility Mode ><](/images/general_zh_compatibility.png)
+![Change compatibility Mode ><](images/general_zh_compatibility.png)
 
 ဒီနည်းလမ်းတွေနဲ့ အဆင်ပြေသွားလားဆိုရင်တော့ အဆင်ပြေသွားတာမျိုးမရှိပါဘူး။
 နောက်တစ်နည်းအနေနဲ့ကတော့ Graphic Card Control Panel ထဲကိုဝင်ပြီး **Antialiasing**

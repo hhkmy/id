@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Spotify Downloader
 date: 2021-08-15T14:39:23+06:30
-image: /images/spotDL_spotify-downloader.png
-thumbnail_image: /images/spotDL_spotify-downloader.png
-preview: /images/spotDL_spotify-downloader.png
+image: images/spotDL_spotify-downloader.png
 description:
   Download Spotify Public Playlist without Login with spotDL Python spotify
   Downloader.

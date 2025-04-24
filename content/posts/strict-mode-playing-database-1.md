@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Strict Mode - Playing With Database - 1
 date: 2021-11-26T03:44:49+06:30
-image: /images/runcloud_running_services.png
-thumbnail_image: /images/runcloud_running_services.png
-preview: /images/runcloud_running_services.png
+image: images/runcloud_running_services.png
 description:
   တွေ့ရကြုံရ ဖြေရှင်းရင်းနဲ့ ဖြစ်ခဲ့တဲ့ Database အတွေ့အကြုံများအကြောင်းထဲကမှ
   Strict Mode ဖြစ်တဲ့ Database အကြောင်း
@@ -83,11 +81,11 @@ Line ကို Remove လုပ်လိုက်ရင် ရတာဖြစ်
 sql_mode               : ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 ```
 
-![Nano Search Result of sql_mode ><](/images/nano_sql_mode_search_result.png)
+![Nano Search Result of sql_mode](images/nano_sql_mode_search_result.png)
 
 ဘာကြောင့်လဲဆိုတော့ ကျွန်တော့ mysql ထဲမှာရှိတဲ့ db_queries ကတော့
 
-```
+```cmd
 STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 ```
 
@@ -99,7 +97,7 @@ Save ပြီး ပိတ်လိုက်ပါတော့တယ်။ အ�
 ရိုက်ပြီးလုပ်မယ်ဟဲ့ဆိုပြီး လုပ်လိုက်ပေမယ့်လို့ အဆင်မပြေတဲ့အတွက်ကြောင့်
 **Runcloud** ရဲ့ GUI ကနေပဲ click click လေး လုပ်လိုက်ပါတော့တယ်။
 
-![Runcloud Running Services ><](/images/runcloud_running_services.png)
+![Runcloud Running Services](images/runcloud_running_services.png)
 
 MariaDB သုံးထားတာဖြစ်ပြီး **Runcloud** Doc ထဲမှာလဲ MariaDB
 အကြောင်းသိပ်မပါတာနဲ့ပဲ **Runcloud** GUI ရဲ့ Dashboard ထဲမှ Services ကိုသွားပြီး
@@ -113,7 +111,7 @@ ssh ထဲကပဲဖြစ်ဖြစ် phpmyadmin ကဖြစ်ဖြစ�
 mysql -e "SELECT @@sql_mode;"
 ```
 
-![Terminal mysql sql_mode ><](/images/terminal_mysql_sql_mode.png)
+![Terminal mysql sql_mode](images/terminal_mysql_sql_mode.png)
 
 လို့ရိုက်ပြီး စစ်နိုင်မှာဖြစ်ပါတယ်။ အကယ်လို့သာ phpmyadmin ထဲမှ
 စစ်ချင်တယ်ဆိုရင်တော့။
@@ -123,6 +121,6 @@ SHOW GLOBAL VARIABLES LIKE 'sql_mode';
 SHOW SESSION VARIABLES LIKE 'sql_mode';
 ```
 
-![phpmyadmin sql_mode ><](/images/phpmyadmin_sql_mode.png)
+![phpmyadmin sql_mode](images/phpmyadmin_sql_mode.png)
 
 တို့ဖြင့် ကြိုက်နှစ်သက်သလို စစ်လို့ရမှာပါ။ **BOOM!**

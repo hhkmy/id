@@ -3,9 +3,7 @@ title: Diagrams
 date: 2023-09-18T05:19:51+06:30
 author: heinhtetkyaw
 draft: false
-image: /images/diagrams.png
-thumbnail_image: /images/diagrams.png
-preview: /images/diagrams.png
+image: images/diagrams.png
 description:
   Hugo Diagrams or Diagrams system in website. For testing purpose to
   Development.

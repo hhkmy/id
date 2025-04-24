@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Unlock Ooredoo Broadband B310s-22
 date: 2021-05-18T22:45:31+06:30
-image: /images/Multicast_Upgrade_Tool.png
-thumbnail_image: /images/Multicast_Upgrade_Tool.png
-preview: /images/Multicast_Upgrade_Tool.png
+image: images/Multicast_Upgrade_Tool.png
 description:
   B310s-22 Ooredoo Device လေး Unlock လုပ်ဖြစ်တဲ့အကြောင်း ရေးထားတာလေးပေါ့
   Broadband တွေကို Unlock လုပ်ပြီး Sim Card တွေ
@@ -39,7 +37,7 @@ slug: unlock-ooredoo-broadband-b310s-22
 ပြေးမြင်နေကြပါလိမ့်မယ်။ တကယ်တော့ Spoil တာမဟုတ်ပါဘူး ကျွန်တော် စမ်းခဲ့လို့
 အဆင်ပြေတာလေးအကြောင်း မှတ်စုလေးတစ်ပုဒ်အဖြစ် ချရေးချင်လို့ပါ။
 
-![Huawei B310 B310s-22 150Mbps 4G LTE CPE WIFI ROUTER Modem with antennas](/images/Huawei-B310-B310s-22-4G-LTE-CPE-WIFI-ROUTER-Modem-with-antennas.jpg)
+![Huawei B310 B310s-22 150Mbps 4G LTE CPE WIFI ROUTER Modem with antennas](images/Huawei-B310-B310s-22-4G-LTE-CPE-WIFI-ROUTER-Modem-with-antennas.png)
 
 LTE Router ရှိပေမယ့် Supernet ရောင်းတုန်းက ISP တွေက Huawei Router တွေကို SIM
 Lock နဲ့ထုတ်ကြပါတယ်။ Supernet ကတော့ Huawei Logo ဖြုတ်ပြီး Ooredoo လေးနဲ့
@@ -88,7 +86,7 @@ Download ထားတဲ့အထဲမှာ **MYANMAR OOERDOO B310S-22** Folde
 **FIRMWARE WRITER** ထဲမှာလဲရှိသလို Multicast ထဲမှာလဲ ရှိပါတယ် အဆင်ပြေတာနဲ့
 လုပ်လို့ရပါတယ်။
 
-![Multicast Upgrade Tool](/images/Multicast_Upgrade_Tool.png)
+![Multicast Upgrade Tool](images/Multicast_Upgrade_Tool.png)
 
 1. Wireless Router ကိုပိတ်ပြီး Multicast Upgrade Tool ကိုဖွင့်လိုက်ပါ ပြီးရင်
    Router ကို ပြန်ဖွင့်လိုက်ပါ၊ Restart လုပ်တဲ့သဘောပေါ့ 😁။
@@ -107,20 +105,19 @@ Download ထားတဲ့အထဲမှာ **MYANMAR OOERDOO B310S-22** Folde
 
 အရင် ဦးဆုံး Install လုပ်ထားတဲ့ Putty ကိုဖွင့်လိုက်ပါ၊
 
-![Huawei Router Unlock > Putty Session](/images/Huawei_RouterUnlock_Putty_Session.png)
+![Huawei Router Unlock > Putty Session](images/Huawei_RouterUnlock_Putty_Session.png)
 
 1. Host Name မှာ **192.168.8.1** နှင့် Port မှာ **23** လို့ ပြင်လိုက်ပါ။
    ပြီးရင်တော့ Connection Type မှာ **Telent** ကိုရွေးလိုက်ပါ။
 
-![Huawei Router Unlock > Putty Terminal](/images/Huawei_RouterUnlock_Putty_Terminal.png)
+![Huawei Router Unlock > Putty Terminal](images/Huawei_RouterUnlock_Putty_Terminal.png)
 
 2. Line discipline options ထဲမှာရှိတဲ့ Local echo နှင့် Local Line editing ကို
    **Force on** အဖြစ်ရွေးလိုက်ပါ။
 
-![Huawei Router Unlock > Putty Console](/images/Huawei_RouterUnlock_Putty_Console.png)
+![Huawei Router Unlock > Putty Console](images/Huawei_RouterUnlock_Putty_Console.png)
 
-3. Open ဆိုတဲ့ ခလုတ်ကိုနှိပ်လိုက်ရင်တော့ Putty Console လေးကျလာမှာပဲဖြစ်ပါတယ်။
-   ကျလာတဲ့ Console ထဲမှာ
+3.Open ဆိုတဲ့ ခလုတ်ကိုနှိပ်လိုက်ရင်တော့ Putty Console လေးကျလာမှာပဲဖြစ်ပါတယ်။ ကျလာတဲ့ Console ထဲမှာ
 
 ```cmd
 ATC ATI

@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Removing Desktop Shortcut Arrow
 date: 2023-08-21T01:15:41+07:00
-image: /images/BlankShortcut.png
-thumbnail_image: /images/BlankShortcut.png
-preview: /images/BlankShortcut.png
+image: images/BlankShortcut.png
 description:
   ကွန်ပျူတာမှာမြင်မြင်ကြ Shortcut Arrow လေးတွေက ကြည့်ပါများတော့
   မျက်စိနောက်လာတာနဲ့ regedit နဲ့ ဖျောက်တဲ့နည်း
@@ -35,7 +33,7 @@ Permission တောင်းရင်တော့ Yes ကိုရွေးပ�
 
 ပွင့်လာတဲ့ Regedit Window ကနေပြီးတော့။
 
-```
+```cmd
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 ```
 
@@ -45,18 +43,18 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 **New > String Value** ကိုနှိပ်လိုက်ပါ။ **New Value #1 အစား 29** လို့ပေးလိုက်ပါ။
 ပြီးရင်တော့ 29 ကို Double Click နှိပ်ပြီးတော့။
 
-```
+```cmd
 %windir%\System32\shell32.dll,-50
 ```
 
-![Edit String ><](/images/Edit-String.png)
+![Edit String](images/Edit-String.png)
 
 ပုံပါအတိုင်းလေးကူးထည့်ပြီး Ok ကိုနှိပ်လိုက်ပြီး။ **Task Manager > File Explore >
 Right Click > Restart** ဆိုရင်တော့ Shortcut Arrow လေးတွေ
 ပျောက်သွားပြီပဲဖြစ်ပါတယ်။ အကယ်လို့သာ ဒီနည်းလမ်းက Error တက်ခဲ့မယ်ဆိုရင်တော့
 နောက်ထပ် တစ်နည်းကတော့
 
-```
+```cmd
 %windir%\System32\shell32.dll,-50
 ```
 
@@ -74,14 +72,14 @@ Download လုပ်ပြီးသွားရင်တော့။ Extract �
 သွားထားထားလိုက်ပါ။ ကျွန်တော်ကတော့ Document ထဲက Pictures ထဲမှာပဲ
 ထည့်ထားလိုက်တာဆိုတော့။ ကျွန်တော့ Location က
 
-```
+```cmd
 C:\Users\h2kyaw\OneDrive\Pictures\Blank.ico
 ```
 
 ဆိုပြီးဖြစ်နေပါလိမ့်မယ်။ အဲ့ဒီ ရလာတဲ့ Location လေးကို ခုဏက အပေါ်က 29 ဆိုတဲ့
 Value မှာပြန်ပြီး Double Click လုပ်ပြီး Edit လုပ်ပေးရပါ့မယ်။
 
-![Edit String ><](/images/Edit-String-Blank.png)
+![Edit String](images/Edit-String-Blank.png)
 
 Edit လုပ်ထားတဲ့အတိုင်းရပြီဆိုရင်တော့ အပေါ်ကလိုပဲ Task Manager ထဲကနေပြီး Restart
 လုပ်ပေးတာဖြစ်ဖြစ် Computer Restart ချပြီးတော့ ပြန်ပွင့်လာရင်ပဲဖြစ်ဖြစ်

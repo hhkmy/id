@@ -2,9 +2,7 @@
 author: heinhtetkyaw
 title: Apply Hugo Module Twemoji
 date: 2021-08-01T16:52:52+06:30
-image: /images/Twemoji-Hugo.png
-thumbnail_image: /images/Twemoji-Hugo.png
-preview: /images/Twemoji-Hugo.png
+image: images/Twemoji-Hugo.png
 description:
   Hugo Website မှာ Twitter Emoji အတွက်ရှာရင်း ဖွေရင်း Error တွေ တက်ရင်း
   အဆင်ပြေသွားတာလေးကို Blog အဖြစ်နဲ့ Note လာသိမ်းရင်း Share ပေးလိုက်ပါတယ်။
@@ -47,7 +45,7 @@ Share ပေးထားတာတွေ့တာကြောင့် အခု�
 
 - [twitter/twemoji](https://github.com/twitter/twemoji)
 
-![Twemoji Hugo](/images/Twemoji-Hugo.png)
+![Twemoji Hugo](images/Twemoji-Hugo.png)
 
 မှာသွားရောက်ရယူနိုင်ပြီး Template ထဲ ထည့်သုံးရင်အဆင်ပြေပါတယ်။ ဒါပေမယ့်
 ပိုပြေသွားအောင်ကတော့ ကျွန်တော် Module နဲ့ ဘယ်လိုအဆင်ပြေခဲ့တယ်ဆိုတာကို

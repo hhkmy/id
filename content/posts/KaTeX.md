@@ -3,9 +3,7 @@ title: KaTeX - Math
 date: 2023-09-25T05:19:51+06:30
 author: heinhtetkyaw
 katex: true
-image: /images/katex.png
-thumbnail_image: /images/katex.png
-preview: /images/katex.png
+image: images/katex.png
 description:
   KaTeX and math data တွေအတွက်လိုက်ရှာရင်းဖွေရင်းနဲ့ပဲ ရလာတဲ့ Data တွေကို
   ပြန်ပြီး Sharing လုပ်ရရင်တော့ဖြင့်။ အားလုံးကို Source Code တွေ
