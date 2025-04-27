@@ -1,15 +1,83 @@
-<ul class="flex justify-center my-2 space-x-2">
+<div class="flex flex-wrap justify-center items-center my-2 gap-2">
 	{{ range .Site.Data.seo.social }}
-		<li>
-			<a
-				href="{{ .url }}"
-				class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
-				target="_blank"
-				rel="nofollow noopener noreferrer"
-				aria-label="{{ .title }}"
-			>
-				<i class="{{ .icon }} w-12 h-5"></i>
-			</a>
-		</li>
+		<a
+			href="{{ .url }}"
+			class="
+                {{ if eq .title "Twitter" -}}
+				text-[#1DA1F2]
+			{{- else if eq .title "Facebook" -}}
+				text-[#1877F2]
+			{{- else if eq .title "Instagram" -}}
+				text-[#E4405F]
+			{{- else if eq .title "LinkedIn" -}}
+				text-[#0A66C2]
+			{{- else if eq .title "YouTube" -}}
+				text-[#FF0000]
+			{{- else if eq .title "GitHub" -}}
+				text-[#181717] dark:text-[#FFFFFF]
+			{{- else if eq .title "TikTok" -}}
+				text-[#000000] dark:text-[#FFFFFF]
+			{{- else if eq .title "Pinterest" -}}
+				text-[#BD081C]
+			{{- else if eq .title "Discord" -}}
+				text-[#5865F2]
+			{{- else if eq .title "Reddit" -}}
+				text-[#FF4500]
+			{{- else if eq .title "WhatsApp" -}}
+				text-[#25D366]
+			{{- else if eq .title "WeChat" -}}
+				text-[#07C160]
+			{{- else if eq .title "Telegram" -}}
+				text-[#26A5E4]
+			{{- else if eq .title "Medium" -}}
+				text-[#000000] dark:text-[#FFFFFF]
+			{{- else -}}
+				text-gray-500 dark:text-gray-400
+			{{- end }}
+                inline-flex items-center justify-center w-7 h-7 rounded-full relative group"
+			target="_blank"
+			rel="nofollow noopener noreferrer"
+			aria-label="{{ .title }}"
+		>
+			<!-- Background glow effect -->
+			<span
+				class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 
+                {{ if eq .title "Twitter" -}}
+					bg-[#1DA1F2]/20
+				{{- else if eq .title "Facebook" -}}
+					bg-[#1877F2]/20
+				{{- else if eq .title "Instagram" -}}
+					bg-[#E4405F]/20
+				{{- else if eq .title "LinkedIn" -}}
+					bg-[#0A66C2]/20
+				{{- else if eq .title "YouTube" -}}
+					bg-[#FF0000]/20
+				{{- else if eq .title "GitHub" -}}
+					bg-[#181717]/20 dark:bg-[#FFFFFF]/20
+				{{- else if eq .title "TikTok" -}}
+					bg-[#000000]/20 dark:bg-[#FFFFFF]/20
+				{{- else if eq .title "Pinterest" -}}
+					bg-[#BD081C]/20
+				{{- else if eq .title "Discord" -}}
+					bg-[#5865F2]/20
+				{{- else if eq .title "Reddit" -}}
+					bg-[#FF4500]/20
+				{{- else if eq .title "WhatsApp" -}}
+					bg-[#25D366]/20
+				{{- else if eq .title "WeChat" -}}
+					bg-[#07C160]/20
+				{{- else if eq .title "Telegram" -}}
+					bg-[#26A5E4]/20
+				{{- else if eq .title "Medium" -}}
+					bg-[#000000]/20 dark:bg-[#FFFFFF]/20
+				{{- else -}}
+					bg-gray-500/20 dark:bg-gray-400/20
+				{{- end }}
+                transform transition-all duration-300 scale-0 group-hover:scale-125"
+			></span>
+
+			<!-- Icon -->
+			<i class="{{ .icon }} text-xl z-9 transform transition-transform duration-300 group-hover:scale-110"></i>
+		</a>
 	{{ end }}
-</ul>
+</div>
