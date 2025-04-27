@@ -1,0 +1,4 @@
+[imaging]
+      quality = 80
+      anchor = "smart"
+      resampleFilter = "catmullrom"

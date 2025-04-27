@@ -1,4 +1,37 @@
-description = "You can read Kiddo's Blogs again, Extra you can watch Video Tutorials later too."
+founder = "Hein Htet Kyaw"
+foundingdate = "Feb 1, 2021"
+slogan = "HHK Blogs and Vidoes"
+currency = "USD"
+paymentAccepted = ["Online Money", "Credit Card", "PayPal"]
+price = "$$ - $$$ - $$$$"  # Recommended schema.org format
+priceLow = 12
+priceHigh = 29
+
+github = "https://github.com/h2kyaw"
+telegram = "https://t.me/HeinHtetKyaw"
+linkedin = "https://www.linkedin.com/in/h2kyaw/"
+facebook = "https://facebook.com/callmeHeinHtetKyaw"
+
+areaserved = "Online"
+mobile = "959695811161"
+
+image = "/images/og.png"
+ogimage = "/images/og.png"
+availableLanguage = "my"
+hoursAvailable = "Mon - Sat: 9am - 5pm"
+description = "You can read Hein Htet Kyaw s Blogs again, Extra you can watch Video Tutorials later too."
+
+# address
+postalcode = "11361"
+addressregion = "YGN"
+addresscountry = "Myanmar"
+addresslocality = "Yangon"
+address = "Yangon, Myanmar"
+streetaddress = "3555 Fourth Ave, Yangon MY 11361"
+
+orgname = "Myanmar Kali Linux Organization"
+orgdescription = "Myanmar Kali Linux Organization is a community of Kali Linux users in Myanmar. We provide support, resources, and training for Kali Linux users in Myanmar."
+orgurl = "https://www.facebook.com/groups/mmKaliLinuxOrg"
 
 # site verifications
 [site_verification]

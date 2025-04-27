@@ -1,6 +1,6 @@
 [module]
     [module.hugoVersion]
-        extended = false
+        extended = true
         min = "v0.95.0"
 [[imports]]
     path = "github.com/hugomods/shortcodes"

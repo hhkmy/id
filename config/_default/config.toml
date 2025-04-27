@@ -1,4 +1,27 @@
+[build]
+    writeStats = true  # This is absolutely critical
+    noJSConfigInAssets = true
+
+    [build.buildStats]
+      disableClasses = false
+      disableIDs = true
+      disableTags = false
+      enable = true
+
+    [[build.cachebusters]]
+        target = "css"
+        source = "hugo_stats\\.json"
+
+    [[build.cacheBusters]]
+      source = '(postcss|tailwind)\.config\.js'
+      target = '(css|styles|scss|sass)'
+
 [caches]
   [caches.assets]
-    dir = ":cacheDir/assets"
-    maxAge = -1  # Never expire
+      dir = ":cacheDir/assets"
+      maxAge = -1
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
