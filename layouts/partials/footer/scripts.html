@@ -6,8 +6,3 @@
 {{ if .Params.katex }}
 	{{ partial "misc/katex" . }}
 {{ end }}
-{{ $brands := resources.Get "fontawesome/js/brands.js" }}
-{{ $light := resources.Get "fontawesome/js/light.js" }}
-{{ $fa := resources.Get "fontawesome/js/fontawesome.js" }}
-{{ $fontawesome := slice $brands $light $fa | resources.Concat "js/fa.js" | resources.Minify }}
-<script src="{{ $fontawesome.Permalink }}" defer></script>
