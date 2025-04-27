@@ -44,3 +44,33 @@ themeToggleBtn.addEventListener("click", function () {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const posts = document.querySelectorAll(".post");
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Add delay based on index for staggered animation
+        entry.target.style.transitionDelay = `${index * 100}ms`;
+        entry.target.classList.remove("opacity-0", "translate-y-5");
+        entry.target.classList.add("opacity-100", "translate-y-0");
+      } else {
+        // Reset delay when exiting
+        entry.target.style.transitionDelay = "0ms";
+        entry.target.classList.add("opacity-0", "translate-y-5");
+        entry.target.classList.remove("opacity-100", "translate-y-0");
+      }
+    });
+  }, observerOptions);
+
+  // Observe each post
+  posts.forEach((post) => {
+    observer.observe(post);
+  });
+});
