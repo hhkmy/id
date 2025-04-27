@@ -102,7 +102,9 @@ if (hasSearchWrapper) {
       window.history.replaceState(
         {},
         "",
-        `${window.location.origin}${window.location.pathname}?s=${searchString.replace(/ /g, "+")}`,
+        `${window.location.origin}${
+          window.location.pathname
+        }?s=${searchString.replace(/ /g, "+")}`,
       );
 
       doSearch(searchString);
@@ -455,9 +457,20 @@ const disableBodyScroll = () => {
   body.style.paddingRight = scrollbarWidth + "px";
 };
 
-// Show/Hide Search Modal
+// Replace aria-hidden with inert for better accessibility
 const showModal = () => {
   searchModal.classList.add("show");
+  searchModal.removeAttribute("aria-hidden");
+  searchModal.setAttribute("aria-modal", "true");
+  searchModal.removeAttribute("inert"); // Remove inert instead of aria-hidden
+
+  // Add role and label for better semantics
+  searchModal.setAttribute("role", "dialog");
+  searchModal.setAttribute("aria-labelledby", "search-modal-title");
+
+  // Focus trap - prevent background content from being accessed
+  document.addEventListener("focusin", trapFocus);
+
   window.setTimeout(
     () => document.querySelector("[data-search-input]").focus(),
     100,
@@ -467,14 +480,34 @@ const showModal = () => {
     searchModalVisible = true;
   }
 };
+
 const closeModal = () => {
   searchModal.classList.remove("show");
+  searchModal.setAttribute("inert", ""); // Add inert to prevent interaction
+  searchModal.removeAttribute("aria-modal");
+  searchModal.removeAttribute("role");
+
+  // Remove focus trap
+  document.removeEventListener("focusin", trapFocus);
+
+  // Move focus back to trigger or another logical element
+  const triggerElement = openSearchModal[0] || document.body;
+  triggerElement.focus();
+
   resetSearch();
   if (hasSearchModal) {
     enableBodyScroll();
     searchModalVisible = false;
   }
 };
+
+// Focus trap function
+function trapFocus(e) {
+  if (searchModalVisible && !searchModal.contains(e.target)) {
+    e.stopPropagation();
+    document.querySelector("[data-search-input]").focus();
+  }
+}
 
 // Trigger Search Modal Show/Hide Events
 if (hasSearchWrapper) {
