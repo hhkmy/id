@@ -1,62 +1,24 @@
-{{/* layouts/_default/_markup/render-image.html */}}
-{{- $img := .Page.Resources.GetMatch .Destination -}}
-{{- $alt := .PlainText | safeHTML -}}
-{{- $title := .Title | safeHTML -}}
+{{- $img := resources.GetMatch .Destination -}}
+{{- if not $img -}}{{- $img = resources.Get .Destination -}}{{- end -}}
 
 {{- if $img -}}
-  {{/* Define responsive breakpoints */}}
-  {{- $widths := slice 480 768 1024 1280 1600 -}}
-  {{- $srcsetAvif := slice -}}
-  {{- $srcsetWebp := slice -}}
-  {{- $srcsetOriginal := slice -}}
-  
-  {{/* Generate responsive formats */}}
-  {{- range $widths -}}
-    {{- if le . $img.Width -}}
-      {{- $avif := ($img.Resize (printf "%dx avif" .)) -}}
-      {{- $webp := ($img.Resize (printf "%dx webp" .)) -}}
-      {{- $original := ($img.Resize (printf "%dx" .)) -}}
-      {{- $srcsetAvif = $srcsetAvif | append (printf "%s %dw" $avif.RelPermalink .) -}}
-      {{- $srcsetWebp = $srcsetWebp | append (printf "%s %dw" $webp.RelPermalink .) -}}
-      {{- $srcsetOriginal = $srcsetOriginal | append (printf "%s %dw" $original.RelPermalink .) -}}
-    {{- end -}}
+  {{- $avif := false -}}
+  {{- $webp := false -}}
+
+  {{- /* Test AVIF support */ -}}
+  {{- if (findRE `\.(png|jpe?g)$` $img.RelPermalink) -}}
+    {{- $avif_test := $img.Resize "1x1 avif" -}}
+    {{- if $avif_test -}}{{- $avif = $img.Resize (printf "%dx%d avif" $img.Width $img.Height) -}}{{- end -}}
   {{- end -}}
 
-  {{/* Fallback if image is smaller than smallest width */}}
-  {{- if not $srcsetAvif -}}
-    {{- $avif := ($img.Resize "avif") -}}
-    {{- $webp := ($img.Resize "webp") -}}
-    {{- $srcsetAvif = slice (printf "%s" $avif.RelPermalink) -}}
-    {{- $srcsetWebp = slice (printf "%s" $webp.RelPermalink) -}}
-    {{- $srcsetOriginal = slice (printf "%s" $img.RelPermalink) -}}
-  {{- end -}}
+  {{- /* Generate WebP */ -}}
+  {{- $webp = $img.Resize (printf "%dx%d webp" $img.Width $img.Height) -}}
 
-  <picture>
-    <!-- AVIF sources -->
-    <source 
-      type="image/avif" 
-      srcset="{{ delimit $srcsetAvif ", " }}"
-      sizes="(max-width: 768px) 100vw, 50vw">
-    
-    <!-- WebP sources -->
-    <source 
-      type="image/webp" 
-      srcset="{{ delimit $srcsetWebp ", " }}"
-      sizes="(max-width: 768px) 100vw, 50vw">
-    
-    <!-- Fallback image -->
-    <img 
-      src="{{ $img.RelPermalink }}" 
-      srcset="{{ delimit $srcsetOriginal ", " }}"
-      sizes="(max-width: 768px) 100vw, 50vw"
-      alt="{{ $alt }}"
-      {{ with $title }}title="{{ . }}"{{ end }}
-      loading="lazy"
-      decoding="async"
-      width="{{ $img.Width }}"
-      height="{{ $img.Height }}">
+  <picture class="flex justify-center items-center my-8">
+    {{- with $avif -}}<source srcset="{{ .RelPermalink }}" type="image/avif">{{- end -}}
+    <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+    <img src="{{ $img.RelPermalink }}" alt="{{ .PlainText | safeHTML }}" {{ with .Title }}title="{{ . | safeHTML }}"{{ end }} loading="lazy" width="{{ $img.Width }}" height="{{ $img.Height }}">
   </picture>
 {{- else -}}
-  <!-- External image or non-processable image -->
-  <img src="{{ .Destination | safeURL }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  <img src="{{ .Destination | safeURL }}" alt="{{ .PlainText | safeHTML }}" {{ with .Title }}title="{{ . | safeHTML }}"{{ end }} loading="lazy">
 {{- end -}}
