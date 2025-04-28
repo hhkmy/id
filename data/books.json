@@ -3,7 +3,7 @@
     {
       "title": "Step by Step Blogger",
       "author": "Hein Htet Kyaw",
-      "cover": "/images/books/Blogger.png",
+      "cover": "/books/Blogger.png",
       "download": "/ebooks/Blogger.pdf",
       "tag": "Web",
       "pages": 25,
@@ -12,7 +12,7 @@
     {
       "title": "Install Kali Linux",
       "author": "Hein Htet Kyaw",
-      "cover": "/images/books/Kali.png",
+      "cover": "/books/Kali.png",
       "download": "/ebooks/Kali.pdf",
       "tag": "Linux",
       "pages": 20,
@@ -21,7 +21,7 @@
     {
       "title": "Unlock and Root H30-U100",
       "author": "Hein Htet Kyaw",
-      "cover": "/images/books/Unlock_&_Root_Honor_3c.png",
+      "cover": "/books/Unlock_&_Root_Honor_3c.png",
       "download": "/ebooks/Unlock_&_Root_Honor_3c.pdf",
       "tag": "Mobile",
       "pages": 12,
