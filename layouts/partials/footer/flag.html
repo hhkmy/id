@@ -1,0 +1,50 @@
+{{ if .Site.Params.showVisitorLocation }}
+	<div class="visitor-location">
+		<div id="js-geolocation">
+			<span class="flag-icon flag-icon-unknown"></span>
+			<span class="location-text">Loading location...</span>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const geoElement = document.getElementById("js-geolocation");
+				if (!geoElement) return;
+
+				// Method 1: Direct Cloudflare header detection
+				fetch(window.location.href, {
+					method: "HEAD",
+					cache: "no-store",
+				})
+					.then((response) => {
+						const country = response.headers.get("cf-ipcountry");
+						const city = response.headers.get("cf-ipcity");
+
+						if (country) {
+							updateLocation(country, city);
+							return;
+						}
+
+						// Method 2: Fallback API if Cloudflare headers not accessible
+						return fetch("https://ipapi.co/json/")
+							.then((r) => r.json())
+							.then((data) => {
+								updateLocation(data.country_code, data.city);
+							});
+					})
+					.catch(() => {
+						geoElement.innerHTML = `
+        <span class="flag-icon flag-icon-unknown"></span>
+        <span class="location-text">Location unavailable</span>
+      `;
+					});
+
+				function updateLocation(country, city) {
+					geoElement.innerHTML = `Connected via        
+        <span class="location-text">${city ? city + ", " : ""}${country}</span>
+        <span class="flag-icon flag-icon-${country.toLowerCase()}"></span>
+      `;
+				}
+			});
+		</script>
+	</div>
+{{ end }}
