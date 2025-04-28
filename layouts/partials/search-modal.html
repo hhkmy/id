@@ -4,7 +4,7 @@
 
 {{ with site.Params.search }}
 	{{ if .enable }}
-		<div class="search-modal {{ $class }}" aria-hidden="true" style="--color-primary: {{ site.Params.search.primary_color | default `#7f0ec6` }}">
+		<div class="search-modal {{ $class }}" aria-hidden="true" aria-modal="false" style="--color-primary: {{ site.Params.search.primary_color | default `#7f0ec6` }}">
 			<div data-target="close-search-modal" class="search-modal-overlay"></div>
 			<div
 				class="search-wrapper"
@@ -48,16 +48,12 @@
 					<span>
 						<kbd>
 							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-								<path
-									d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"
-								/>
+								<path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
 							</svg>
 						</kbd>
 						<kbd>
 							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" style="margin-top:1px;" viewBox="0 0 16 16">
-								<path
-									d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"
-								/>
+								<path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
 							</svg>
 						</kbd>
 						{{ i18n `search_navigate` | default "to navigate" }}
