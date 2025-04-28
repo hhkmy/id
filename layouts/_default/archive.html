@@ -1,5 +1,5 @@
 {{ define "main" }}
-	<section class="bg-white dark:bg-gray-900" id="archive">
+	<section id="archive">
 		{{ .Content }}
 		{{- range (.Site.RegularPages.GroupByDate "2006") -}}
 			{{- $posts := (where .Pages "Type" "posts") -}}
