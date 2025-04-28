@@ -33,15 +33,17 @@ enableRobotsTXT = true
     sitename = "K's V/Blog"
     twitter = "@HeinHtetKyaw_"
 
+    showVisitorLocation = true
+
     [params.ratingValue]
         value = 4.7
         count = 51
 
 [frontmatter]
-  date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
-  expiryDate = ['expirydate', 'unpublishdate']
-  lastmod = [':git', 'lastmod', 'modified', 'date', 'publishdate', 'pubdate', 'published']
-  publishDate = ['publishdate', 'pubdate', 'published', 'date']
+    date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
+    expiryDate = ['expirydate', 'unpublishdate']
+    lastmod = [':git', 'lastmod', 'modified', 'date', 'publishdate', 'pubdate', 'published']
+    publishDate = ['publishdate', 'pubdate', 'published', 'date']
 
 [outputs]
     home = ["html", "rss", "SearchIndex"]
