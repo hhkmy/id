@@ -39,6 +39,9 @@ enableRobotsTXT = true
         value = 4.7
         count = 51
 
+[params.fontawesome]
+    v4shims = true 
+
 [frontmatter]
     date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
     expiryDate = ['expirydate', 'unpublishdate']

@@ -1,4 +1,9 @@
+[services]
+  [services.render]
+    timeout = "60s"
+
 [build]
+    timeout = 120 
     writeStats = true  # This is absolutely critical
     noJSConfigInAssets = true
 

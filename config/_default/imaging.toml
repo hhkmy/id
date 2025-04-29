@@ -1,4 +1,5 @@
 [imaging]
       quality = 80
       anchor = "smart"
-      resampleFilter = "catmullrom"
+      resampleFilter = "lanczos3"
+      avifQuality = 80
