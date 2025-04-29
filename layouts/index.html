@@ -1,25 +1,14 @@
 {{ define "main" }}
 	{{ $posts := where .Site.RegularPages "Type" "posts" | first 50 }}
-	{{ $count := len $posts }}
-	{{ $isOdd := eq (mod $count 2) 1 }}
 
 
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		{{ range $index, $post := $posts }}
-			{{ $postNumber := add $index 1 }}
-			{{ $isLast := eq $postNumber $count }}
-			{{ $isFifth := eq (mod $postNumber 5) 0 }}
-
-			{{ $spanFull := or (and $isOdd $isLast) $isFifth }}
-			{{ if $spanFull }}
-				<div class="col-span-1 md:col-span-2">
-					{{ .Render "title" }}
-				</div>
-			{{ else }}
-				{{ .Render "title" }}
-			{{ end }}
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="posts-container">
+		{{ range $posts }}
+			{{ .Render "title" }}
 		{{ end }}
 	</div>
+
+	<!-- Load JS only if needed -->
 	{{ $js := resources.Get "js/view-counter.js" | minify | fingerprint }}
 	<script src="{{ $js.RelPermalink }}" defer></script>
 {{ end }}
