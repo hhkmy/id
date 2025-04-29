@@ -4,19 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		{{ $nonce := md5 (now.Unix) }}
-		<meta
-			http-equiv="Content-Security-Policy"
-			content="default-src 'self';
-    script-src 'self' https: 'nonce-{{ $nonce }}' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net;
-    connect-src 'self' https://speedlify.hhk.my.id https://www.google-analytics.com;
-    img-src 'self' https: data: https://www.googletagmanager.com https://stats.g.doubleclick.net;
-    frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://youtube.com https://*.youtube-nocookie.com;
-    style-src 'self' 'unsafe-inline' https:;
-    font-src 'self' https: data:;
-    object-src 'none';
-    base-uri 'self'"
-		>
+
 		<title>
 			{{- if .IsHome -}}
 				Home |
@@ -31,10 +19,9 @@
 				{{ .Site.Title }}
 			{{- end -}}
 		</title>
-		{{ partial "header/head" . }}
+		{{ partialCached "header/head" . }}
 	</head>
-
-	<body class="container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white dark:bg-gray-900 dark:text-white">
+	<body class="container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50">
 		{{ if $.Site.Params.gtm }}
 			<!-- Google Tag Manager (noscript) -->
 			<noscript>
