@@ -6,3 +6,13 @@
 {{ if .Params.katex }}
 	{{ partial "misc/katex" . }}
 {{ end }}
+{{/* fontawesome */}}
+{{- /* Load only the Font Awesome files you need */ -}}
+<script defer src="{{ "js/fontawesome.min.js" | relURL }}"></script>
+<script defer src="{{ "js/light.min.js" | relURL }}"></script>
+<script defer src="{{ "js/brands.min.js" | relURL }}"></script>
+
+{{- /* Include v4 shims if needed */ -}}
+{{ if .Site.Params.fontawesome.v4shims }}
+	<script defer src="{{ "js/v4-shims.min.js" | relURL }}"></script>
+{{ end }}
