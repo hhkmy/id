@@ -4,7 +4,10 @@
 			<div class="rounded-lg">
 				<div class="relative flex h-72 justify-center overflow-hidden rounded-lg">
 					<div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-						<img src="{{ .cover }}" alt="{{ .title }}" class="blur-sm hover:filter-none">
+						{{ $image := resources.Get (printf "images/%s" .cover) }}
+						{{ if $image }}
+							<img src="{{ $image.RelPermalink }}" alt="{{ .title }}" class="blur-sm hover:filter-none">
+						{{ end }}
 					</div>
 				</div>
 				<div class="flex flex-col mt-4">
@@ -45,7 +48,7 @@
 						<span class="xl:mt-0">CC BY-NC-ND 4.0</span>
 					</p>
 				</div>
-				<div class="w-full">
+				<div class="w-full py-3">
 					<a
 						href="{{ .download }}"
 						class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 w-full inline-block text-center"

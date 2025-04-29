@@ -34,7 +34,10 @@
 				<div class="flex justify-between items-center">
 					<!-- Using inline version (Option B) -->
 					<div class="flex items-center space-x-2">
-						<img class="w-7 h-7 rounded-full" src="{{ $author.avatar }}" alt="{{ $author.name }}" loading="lazy">
+						{{ with $author.avatar }}
+							{{ $avatar := resources.Get . }}
+							<img class="w-7 h-7 rounded-full" src="{{ $avatar.RelPermalink }}" alt="{{ $author.name }}" loading="lazy">
+						{{ end }}
 						<span class="font-medium dark:text-white">{{ $author.name }}</span>
 					</div>
 					<a href="{{ .Permalink }}" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-400 dark:text-primary-500"> Read more → </a>
