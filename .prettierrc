@@ -8,12 +8,16 @@
             "files": ["*.html"],
             "options": {
                 "parser": "go-template",
-                "semi": false,
                 "printWidth": 169,
-                "tabWidth": 2,
+                "tabWidth": 4,
                 "useTabs": true,
-                "singleQuote": true,
-                "bracketSpacing": true
+                "bracketSpacing": false
+            }
+        },
+        {
+            "files": ["*.toml"],
+            "options": {
+                "tabWidth": 4
             }
         },
         {
