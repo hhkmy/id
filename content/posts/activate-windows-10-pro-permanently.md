@@ -110,7 +110,7 @@ Product activated successfully. ဆိုပြီးပေါ်လာရင်
 ပျောက်သွားရင်တော့ Activation Step လေးကို အဆင်ပြေပြေလုပ်ပြီးသွားပြီပဲဖြစ်ပါတယ်။
 မရှင်းတဲ့လူတွေအတွက်ကတော့ အောက်မှာ ပုံလေး ပြပေးထားပါတယ်။
 
-![Activate Windows 10 Pro Permanently](images/activate-windows-10-pro-permanently.png)
+![Activate Windows 10 Pro Permanently](images/activate-windows-10-pro-permanently.png "Activate Windows 10 Pro Permanently")
 
 **Source:**
 [techtutorialsarena.blogspot.com](https://techtutorialsarena.blogspot.com)

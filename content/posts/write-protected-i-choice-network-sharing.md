@@ -84,7 +84,7 @@ Connect လုပ်ဖို့အတွက်ကတော့ Run Box (Window K
 Public ဆိုတဲ့အထဲကမှ Login Box ထဲကို ထည့်ပေးရမယ့် Username ကတော့ ကိုယ်ပေးထားတဲ့
 နာမည်ပဲဖြစ်ပါတယ်။
 
-![File Share via Network](/images/network-sharing.png)
+![File Share via Network](images/network-sharing.png "File Share via Network")
 
 Network File Sharing အတွက် လိုအပ်တာတွေကိုတော့ နောက် စိတ်ပါမှ ထရေးပေးပါအုံးမယ်။
 အခု ဒီ Content မှာတော့ ဘယ်လိုလုပ်ခဲ့တာလဲဆိုတာကို အကြမ်းဖျင်း

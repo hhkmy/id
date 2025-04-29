@@ -77,7 +77,7 @@ Windows Key ကိုနှိပ်ပြီး cmd လို့ရိုက်
 Administorator** လုပ်လို့အဆင်ပြေသလို ဒီတိုင်း Right Click မနှိပ်ပါပဲလဲ
 ဖွင့်လို့ရပါတယ်။
 
-![Open command prompt in administrator mode](images/open-cmd.png)
+![Open command prompt in administrator mode](images/open-cmd.png "Open command prompt in administrator mode")
 
 2. PC ထဲမှာရှိတဲ့ Office ရဲ့ Location ကို ဖွင့်ပေးရမှာပဲဖြစ်ပါတယ်။
 
@@ -86,7 +86,7 @@ Administorator** လုပ်လို့အဆင်ပြေသလို ဒ�
 တစ်ကြောင်းစမ်းကြည့်လို့ရပါတယ်။ 64bit ကို အသုံးပြုထားတဲ့ OS ဆိုရင်တော့ အောက်က
 အကြောင်းနဲ့အဆင်ပြေပါတယ်။
 
-![Direction to Office in PC](images/driection-to-office.png)
+![Direction to Office in PC](images/driection-to-office.png "Direction to Office in PC")
 
 ```cmd
 cd /d %ProgramFiles%\Microsoft Office\Office16
@@ -103,7 +103,7 @@ process ကို ဆက်လက် လုပ်ဆောင်သွားရ�
 for /f %x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%x"
 ```
 
-![Convert your retail license to volume one](images/convert-retail-license-to-volume-one.png)
+![Convert your retail license to volume one](images/convert-retail-license-to-volume-one.png "Convert your retail license to volume one")
 
 4. KMS client key ကိုအသုံးပြုပြီး Office ကို Activate လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။
 
@@ -117,12 +117,12 @@ cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
 cscript ospp.vbs /act
 ```
 
-![Activate your Office using KMS client key](images/office-activation-successful.png)
+![Activate your Office using KMS client key](images/office-activation-successful.png "Activate your Office using KMS client key")
 
 ဒီလောက်ဆိုရင်တော့ Office ကို ဖွင့်ကြည့်လိုက်ရင် Activated
 ဖြစ်သွားပြီပဲဖြစ်ပါတယ်။
 
-![Office Activated](images/office-activated.png)
+![Office Activated](images/office-activated.png "Office Activated")
 
 **Method-2**
 
@@ -134,7 +134,7 @@ Run လိုက်ရင် အပေါ်က အတိုင်းပဲဖ�
 သူက Virus ဆိုပြီး ပေါ်နေတတ်ပါတယ်။ အောက်မှာတော့ ဘယ်လို Alert ပြတတ်လဲဆိုတာကို
 ပြထားတာပါ။
 
-![Office.cmd File Virus Alert](images/office-activation-virus-alert.png)
+![Office.cmd File Virus Alert](images/office-activation-virus-alert.png "Office.cmd File Virus Alert")
 
 Notepad ကိုဖွင့်လိုက်ပါ ပြီးရင်အောက်က code တွေကို အကုန်ကူးယူလိုက်ပါ။
 
@@ -168,17 +168,17 @@ pause >nul
 မြန်မာစာပဲဖြစ်ဖြစ် unicode symbol တစ်ခုခုပါသွားရင် လေးထောင့်တုံးလေးနဲ့ ?
 လေးတွေဖြစ်နေတတတ်လို့ပါ။
 
-![Save Office.cmd File](images/save-office-cmd.png)
+![Save Office.cmd File](images/save-office-cmd.png "Save Office.cmd File")
 
 သိမ်းပြီးသားဖိုင်နေရာကိုသွားပြီး **Right Click** > **Run as Administrator**
 ကိုနှိပ်ပေးရပါမယ်။ အားလုံးပြီးသွားအောင်စောင့်ပြီးတော့ အောက်က Result အတိုင်း
 ရလာမှာပဲဖြစ်ပါတယ်။
 
-![CMD Method Activated](images/cmd-method-activated.png)
+![CMD Method Activated](images/cmd-method-activated.png "CMD Method Activated")
 
 ဒီလောက်ဆိုရင်တော့ Windows မှာ ဘာ Activation Software ကိုမှ မသုံးပါပဲ Activation
 နည်းလမ်းတွေကို သိရပြီပဲဖြစ်ပါတယ်။ မနေ့က ရေးသားခဲ့တာကတော့ Windows ကို Activate
 လုပ်နည်းပါ အခုတော့ Office ပါ။ အဆင်မပြေတာများရှိရင် မေးမြန်းခဲ့နိုင်ပါတယ်။ 😘
 
 Main Website:
-[Install and activate Office 2019 for FREE legally using Volume license](https://msguides.com/microsoft-software-products/office-2019.html)
+[Install and activate Office 2019 for FREE legally using Volume license](https://msguides.com/microsoft-software-products/office-2019.html "Install and activate Office 2019 for FREE legally using Volume license")

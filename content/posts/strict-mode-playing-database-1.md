@@ -81,7 +81,7 @@ Line ကို Remove လုပ်လိုက်ရင် ရတာဖြစ်
 sql_mode               : ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 ```
 
-![Nano Search Result of sql_mode](images/nano_sql_mode_search_result.png)
+![Nano Search Result of sql_mode](images/nano_sql_mode_search_result.png "Nano Search Result of sql_mode")
 
 ဘာကြောင့်လဲဆိုတော့ ကျွန်တော့ mysql ထဲမှာရှိတဲ့ db_queries ကတော့
 
@@ -97,7 +97,7 @@ Save ပြီး ပိတ်လိုက်ပါတော့တယ်။ အ�
 ရိုက်ပြီးလုပ်မယ်ဟဲ့ဆိုပြီး လုပ်လိုက်ပေမယ့်လို့ အဆင်မပြေတဲ့အတွက်ကြောင့်
 **Runcloud** ရဲ့ GUI ကနေပဲ click click လေး လုပ်လိုက်ပါတော့တယ်။
 
-![Runcloud Running Services](images/runcloud_running_services.png)
+![Runcloud Running Services](images/runcloud_running_services.png "Runcloud Running Services")
 
 MariaDB သုံးထားတာဖြစ်ပြီး **Runcloud** Doc ထဲမှာလဲ MariaDB
 အကြောင်းသိပ်မပါတာနဲ့ပဲ **Runcloud** GUI ရဲ့ Dashboard ထဲမှ Services ကိုသွားပြီး
@@ -111,7 +111,7 @@ ssh ထဲကပဲဖြစ်ဖြစ် phpmyadmin ကဖြစ်ဖြစ�
 mysql -e "SELECT @@sql_mode;"
 ```
 
-![Terminal mysql sql_mode](images/terminal_mysql_sql_mode.png)
+![Terminal mysql sql_mode](images/terminal_mysql_sql_mode.png "Terminal mysql sql_mode")
 
 လို့ရိုက်ပြီး စစ်နိုင်မှာဖြစ်ပါတယ်။ အကယ်လို့သာ phpmyadmin ထဲမှ
 စစ်ချင်တယ်ဆိုရင်တော့။
@@ -121,6 +121,6 @@ SHOW GLOBAL VARIABLES LIKE 'sql_mode';
 SHOW SESSION VARIABLES LIKE 'sql_mode';
 ```
 
-![phpmyadmin sql_mode](images/phpmyadmin_sql_mode.png)
+![phpmyadmin sql_mode](images/phpmyadmin_sql_mode.png "phpmyadmin sql_mode")
 
 တို့ဖြင့် ကြိုက်နှစ်သက်သလို စစ်လို့ရမှာပါ။ **BOOM!**

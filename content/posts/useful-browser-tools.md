@@ -45,7 +45,7 @@ Network, Performance, Memory, Application, Security, Lighthouse** စသဖြ�
 လုပ်ရင် ပြင်ထားတာတွေကတော့ ပျက်သွားမှာပေါ့ 😁) အောက်မှာကတော့ Inspect Windows
 ထဲကမှ Elements Tab တွင် မြင်ရတာမျိုးကို ပြထားတာပါ။
 
-![Inspect Elements](images/Inspect_Elements.png)
+![Inspect Elements](images/Inspect_Elements.png "Inspect Elements")
 
 Console အကွက်မှာတော့ Javascript ကို run လို့ရမှာဖြစ်ပြီး အခြားသော code တွေကို
 အစမ်းသဘောမျိုးလုပ်ချင်ရင်လဲ လုပ်လို့ရပါသေးတယ်။ ဟိုအရင်အချိန်တွေတုန်းကတော့
@@ -57,21 +57,21 @@ Sources အတွက် အသုံးဝင်ပုံကတော့ Website
 Script တွေကို Link လုပ်ထားသလဲ ဘာဓါတ်ပုံတွေ သုံးထားသလဲဆိုတာကို
 ကြည့်လို့ရမှာမျိုးပဲဖြစ်ပါတယ်။
 
-![Inspect Sources](images/Inspect_Sources.png)
+![Inspect Sources](images/Inspect_Sources.png "Inspect Sources")
 
 အဲ့ထဲမှာ မြင်နေရတဲ့ ဒီရက်ပိုင်း အတော်အသုံးပြုဖြစ်တဲ့ Tool တစ်ခုကတော့ **Run
 Command** နဲ့ Screenshot ရိုက်တာပဲဖြစ်ပါတယ်။ Run Command ကိုတော့
 Ctrl + Shift + P နဲ့ဖွင့်နိုင်ပြီး ကျွန်တော်
 သုံးတဲ့ Command ကတော့ Node တစ်ခုခြင်းကို Screenshot ရိုက်တာပဲဖြစ်ပါတယ်။
 
-![Inspect Node Command](images/Inspect_Node-cmd.png)
+![Inspect Node Command](images/Inspect_Node-cmd.png "Inspect Node Command")
 
 ပုံထဲမှာဆိုရင်တော့ ကျွန်တော်တို့ Screenshot ရိုက်ချင်တဲ့ Node(Tag) ဖြစ်တဲ့
 **class="blog-tags"** လေးကို select လုပ်ပြီး Command ကိုခေါ်ပြီး **node**
 လို့ရိုက်ထည့်လိုက်တာနဲ့ Download ထဲကို screenshot
 သိမ်းပြီးသားဖြစ်သွားပါလိမ့်မယ်။
 
-![Screenshot](images/localhost_1313_2021_useful-browser-tools_.png)
+![Screenshot](images/localhost_1313_2021_useful-browser-tools_.png "Screenshot")
 
 သိမ်းထားတဲ့ File ကိုတော့ Download Folder ထဲမှာ link url*Website Title*
 ဆိုပြီးတော့မြင်တွေ့နိုင်ပါတယ်။ ဒီလို အသုံးဝင်တဲ့ Tools အပြင်အခြားသော အရာများလဲ

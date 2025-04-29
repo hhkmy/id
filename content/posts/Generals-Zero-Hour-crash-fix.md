@@ -40,7 +40,7 @@ Generals Zero Hour ဆိုတာလေးပါပဲ။ အင်တာနက
 လုံးဝအဆင်မပြေခဲ့ဘူး။ ဆော့လို့ကောင်းနေပြီ ဂိမ်းထဲဝင်ပြီဆိုရင် ဇာတ်လမ်းက
 စပြီလို့တောင် ပြောရမယ်။ ဆိုတော့ ကြာတော့ ခွီးလာတာအမှန်ပဲ။
 
-![Command & Conquer Generals Zero Hour Crash Error ><](images/general_zh.png)
+![Command & Conquer Generals Zero Hour Crash Error](images/general_zh.png "Command & Conquer Generals Zero Hour Crash Error")
 
 ဒါနဲ့ပဲ Google မှာ ရှာရင်းဖွေရင်းနဲ့ တွေ့ခဲ့တာလေးကတော့ အမျိုးမျိုးပါပဲ။
 
@@ -118,7 +118,7 @@ program in compatibility mode for:** ကိုအမှန်ခြစ်ပြ�
 
 ဆိုပြီးအဆင့်ဆင့် လုပ်ဆောင်သွားရမှာပဲဖြစ်ပါတယ်။
 
-![Change compatibility Mode ><](images/general_zh_compatibility.png)
+![Change compatibility Mode](images/general_zh_compatibility.png "Change compatibility Mode")
 
 ဒီနည်းလမ်းတွေနဲ့ အဆင်ပြေသွားလားဆိုရင်တော့ အဆင်ပြေသွားတာမျိုးမရှိပါဘူး။
 နောက်တစ်နည်းအနေနဲ့ကတော့ Graphic Card Control Panel ထဲကိုဝင်ပြီး **Antialiasing**

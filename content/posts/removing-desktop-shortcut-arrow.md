@@ -47,7 +47,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 %windir%\System32\shell32.dll,-50
 ```
 
-![Edit String](images/Edit-String.png)
+![Edit String](images/Edit-String.png "Edit String")
 
 ပုံပါအတိုင်းလေးကူးထည့်ပြီး Ok ကိုနှိပ်လိုက်ပြီး။ **Task Manager > File Explore >
 Right Click > Restart** ဆိုရင်တော့ Shortcut Arrow လေးတွေ
@@ -79,7 +79,7 @@ C:\Users\h2kyaw\OneDrive\Pictures\Blank.ico
 ဆိုပြီးဖြစ်နေပါလိမ့်မယ်။ အဲ့ဒီ ရလာတဲ့ Location လေးကို ခုဏက အပေါ်က 29 ဆိုတဲ့
 Value မှာပြန်ပြီး Double Click လုပ်ပြီး Edit လုပ်ပေးရပါ့မယ်။
 
-![Edit String](images/Edit-String-Blank.png)
+![Edit String](images/Edit-String-Blank.png "Edit String")
 
 Edit လုပ်ထားတဲ့အတိုင်းရပြီဆိုရင်တော့ အပေါ်ကလိုပဲ Task Manager ထဲကနေပြီး Restart
 လုပ်ပေးတာဖြစ်ဖြစ် Computer Restart ချပြီးတော့ ပြန်ပွင့်လာရင်ပဲဖြစ်ဖြစ်

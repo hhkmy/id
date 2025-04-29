@@ -38,6 +38,6 @@ $\underset{\mathrm{red}}{\ce{[Hg^{II}I4]^2-}}$}$
 $\ce{Hg^2+ ->[I-]  $\underset{\mathrm{red}}{\ce{HgI2}}$ ->[I-] $\underset{\mathrm{red}}{\ce{[Hg^{II}I4]^2-}}$}$
 ```
 
-![Chemical formula](images/chemical.png)
+![Chemical formula](images/chemical.png "Chemical formula")
 
 chemical forumla တွေကတော့ ပုံပါအတိုင်းပါပဲ xD

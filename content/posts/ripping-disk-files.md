@@ -37,7 +37,7 @@ slug: ripping-disk-files
 Disk ကို Drive ထဲကိုထည့်လိုက်ပြီဆိုတာနဲ့ အောက်ကပုံစံမျိုးကို
 တွေ့ရမှာပဲဖြစ်ပါတယ်။
 
-![Ripping Disk show as 1 KB File Sizes](images/rip_1_KB.png)
+![Ripping Disk show as 1 KB File Sizes](images/rip_1_KB.png "Ripping Disk show as 1 KB File Sizes")
 
 **Windows Media Player** ကိုအသုံးပြုမှာဖြစ်တဲ့အတွက် **Windows Key** ကိုနှိပ်ပြီး
 **Media Player** လို့ရိုက်လိုက်ရင် ထွက်လာနိုင်ပေမယ့် **Windows Media Player**
@@ -46,7 +46,7 @@ Disk ကို Drive ထဲကိုထည့်လိုက်ပြီဆိ�
 ပြီးရင်တော့ ကျွန်တော်တို့ **Windows Media Player** အတွင်းမှာပဲ CD Drive
 ကိုရွေးပေးရပါမယ်။ အောက်ကအတိုင်းပေါလာပါလိမ့်မယ်။
 
-![Rip CD](images/rip_To_Rip.png)
+![Rip CD](images/rip_To_Rip.png "Rip CD")
 
 အဲ့ဒါဆိုရင်တော့ ကျွန်တော်တို့ **Create playlist** နဲ့ **Rip Settings**
 ကြားမှာရှိတဲ့ Disk icon လေးနဲ့ Rip CD ဆိုတာကို နှိပ်ပေးလိုက်မယ်ဆိုရင်တော့
@@ -54,7 +54,7 @@ Disk ကို Drive ထဲကိုထည့်လိုက်ပြီဆိ�
 Folder ထဲမှာ Ripping လုပ်ပြီးသား File တွေကို Folder
 အလိုက်ပြန်လည်တွေ့ရှိမှာပဲဖြစ်ပါတယ်။
 
-![Ripping files in CD Disk](images/rip_Ripping.png)
+![Ripping files in CD Disk](images/rip_Ripping.png "Ripping files in CD Disk")
 
 ဒါဆိုရင်တော့ ကျွန်တော်တို့လိုချင်တဲ့ Audio File တွေကို ရရှိလာမှာဖြစ်တဲ့အတွက်
 ကြိုက်တဲ့ ဖုန်း ဒါမှမဟုတ် Memory Stick ထဲကိုထည့်ပြီး နားစဉ်လို့ရပြီပဲဖြစ်ပါတယ်။

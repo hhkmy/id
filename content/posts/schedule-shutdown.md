@@ -58,7 +58,7 @@ shutdown -s -t 900
 ကိုယ်ပိတ်ချင်တဲ့ မိနစ် ကို ၆၀ နဲ့ မြှောက်ပြီး ရလာတဲ့အဖြေကိုထည့်ပေးတာပါ။ မဟုတ်လဲ
 Calculator တွေရှိနေတာပဲလေ။ Calculator လေးနဲ့တွက်ပြီး ထည့်လို့ရပါတယ်။
 
-![Schedule Shutdown #Method 1 with Run Box ><](/images/schedule-shutdown_run.png)
+![Schedule Shutdown #Method 1 with Run Box](images/schedule-shutdown_run.png "Schedule Shutdown #Method 1 with Run Box")
 
 အကယ်လို့ run box မှာမရိုက်ချင်ဘူး cmd ထဲမှာပဲရိုက်ချင်တယ်ဆိုရင်တော့ Start Menu
 မှာ **"cmd"** လို့ရိုက်ထည့်ပေးလိုက်ပါ။ မဟုတ်ရင်လဲ Command Prompt
@@ -77,7 +77,7 @@ shutdown -s -t 900 {15 Minutes}
 
 ဆိုပြီး ပိတ်လိုက်လို့ရပါတယ်။
 
-![Schedule Shutdown #Method 1 with CMD](/images/schedule-shutdown_cmd.png)
+![Schedule Shutdown #Method 1 with CMD](images/schedule-shutdown_cmd.png "Schedule Shutdown #Method 1 with CMD")
 
 ### နည်းလမ်း - ၂ [Task Scheduler - Auto Shutdown]
 

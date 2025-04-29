@@ -45,7 +45,7 @@ Share ပေးထားတာတွေ့တာကြောင့် အခု�
 
 - [twitter/twemoji](https://github.com/twitter/twemoji)
 
-![Twemoji Hugo](images/Twemoji-Hugo.png)
+![Twemoji Hugo](images/Twemoji-Hugo.png "Twemoji Hugo")
 
 မှာသွားရောက်ရယူနိုင်ပြီး Template ထဲ ထည့်သုံးရင်အဆင်ပြေပါတယ်။ ဒါပေမယ့်
 ပိုပြေသွားအောင်ကတော့ ကျွန်တော် Module နဲ့ ဘယ်လိုအဆင်ပြေခဲ့တယ်ဆိုတာကို

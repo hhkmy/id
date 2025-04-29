@@ -132,7 +132,7 @@ Editor** ရဲ့ အောက်ဆုံးအကြောင်းမှာ 
 ပြောခဲ့တဲ့ Step အားလုံးကို လုပ်ခဲ့ပြီးပြီဆိုရင်တော့ ကျွန်တော်တို့အောက်ကအတိုင်း
 မြင်တွေ့ရမှာပဲဖြစ်ပါတယ်။
 
-![tates, Cities, and Places Dropdown for WooCommerce](/images/woocommerce-states-places-dropdown.gif)
+![States, Cities, and Places Dropdown for WooCommerce](images/woocommerce-states-places-dropdown.gif "States, Cities, and Places Dropdown for WooCommerce")
 
 နောက်တစ်အဆင့်အနေနဲ့ကတော့ သက်ဆိုင်ရာ တိုင်းဒေသကြီးအလိုက် ပို့ဆောင်ခတွေကို
 တွက်ချက်တဲ့ နည်းလမ်းပဲဖြစ်ပါတယ်။ အဲ့ဒါကိုတော့ အခုလောလောဆယ်

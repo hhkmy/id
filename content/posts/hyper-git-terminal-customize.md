@@ -129,7 +129,7 @@ Shift + F5 ဆိုပြီး Full Reload လုပ်လို့ရပါ�
 ဒါဆိုရင်တော့ အောက်ကလို Theme Color လေးပြောင်းသွားရင်တော့ Success
 ဖြစ်သွားပြီပဲဖြစ်ပါတယ်။
 
-![Hyper Verminal Theme](images/hyper-terminal.png)
+![Hyper Terminal Theme](images/hyper-terminal.png "Hyper Terminal Theme")
 
 နောက်ထပ် Customize လုပ်ဖို့အတွက်ကတော့ Hyper Terminal ထဲမှာပဲ ဆက်ပြီး၊ ။
 
@@ -141,12 +141,12 @@ hyper install hyper-search
 hyper install hyperpower
 ```
 
--   hyperborder - Hyper Terminal ကို ဘောင်လေးအတွက်ပါ
--   hyper-opacity - နောက်ခံကြီးကိုဖျောက်လိုက်ဖို့အတွက်ပါ Terminal ကို opacity
+- hyperborder - Hyper Terminal ကို ဘောင်လေးအတွက်ပါ
+- hyper-opacity - နောက်ခံကြီးကိုဖျောက်လိုက်ဖို့အတွက်ပါ Terminal ကို opacity
     ထားလိုက်တဲ့သဘောမျိုးပေါ့။
--   hyper-tab-icons - Hyper Terminal မှာ Tab တွေအတွက် Icon လေးတွေပေါ်နေအောင်ပါ။
--   hyper-search - ကတော့ Terminal အတွက် Search Function အတွက်ပါ။
--   hyperpower - Style/ Design အတွက် အဆင်ပြေအောင်ပါ။
+- hyper-tab-icons - Hyper Terminal မှာ Tab တွေအတွက် Icon လေးတွေပေါ်နေအောင်ပါ။
+- hyper-search - ကတော့ Terminal အတွက် Search Function အတွက်ပါ။
+- hyperpower - Style/ Design အတွက် အဆင်ပြေအောင်ပါ။
 
 ပြီးသွားရင်တော့ C:\Users\Username အောက်က .bashrc ကို အဆင်ပြေတဲ့ Text Editor
 နဲ့ဖွင့်လိုက်ပါ။ အခုလောလောဆယ် ကျွန်တော်က VS Code သုံးထားတဲ့အတွက်ကြောင့် VS Code
