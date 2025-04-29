@@ -1,0 +1,117 @@
+{{ $whois := site.Data.whois.WhoisRecord }}
+
+{{/* Calculate domain age dynamically */}}
+{{ $createdDate := time.AsTime $whois.registryData.createdDate }}
+{{ $now := now }}
+{{ $domainAgeDays := div ($now.Sub $createdDate).Hours 24 | math.Floor }}
+{{ $domainAgeYears := div $domainAgeDays 365 | math.Floor }}
+{{ $remainingDays := mod $domainAgeDays 365 }}
+
+{{/* Helper function to extract registrar URL */}}
+{{ $registrarURL := "" }}
+{{ $urlMatch := findRE `Sponsoring Registrar URL: (https?://[^\s]+)` $whois.registryData.rawText }}
+{{ if $urlMatch }}
+	{{ $registrarURL = index $urlMatch 0 | replaceRE `Sponsoring Registrar URL: ` "" }}
+{{ end }}
+
+
+<div class="whois-container">
+	<h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">WHOIS Record for {{ $whois.domainName }}</h3>
+
+	<!-- Basic Domain Info -->
+	<div class="mb-6">
+		<h4 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">Domain Information</h4>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			<div class="bg-white dark:bg-gray-700 p-3 rounded">
+				<p class="font-medium text-gray-600 dark:text-gray-400">Domain Name</p>
+				<p class="text-gray-800 dark:text-gray-200">{{ $whois.domainName }}</p>
+			</div>
+			<div class="bg-white dark:bg-gray-700 p-3 rounded">
+				<p class="font-medium text-gray-600 dark:text-gray-400">Domain Status</p>
+				<p class="text-gray-800 dark:text-gray-200">{{ replace $whois.registryData.status "\n" ", " }}</p>
+			</div>
+			<div class="bg-white dark:bg-gray-700 p-3 rounded">
+				<p class="font-medium text-gray-600 dark:text-gray-400">Created Date</p>
+				<p class="text-gray-800 dark:text-gray-200">{{ time.Format "January 2, 2006 15:04:05 MST" (time.AsTime $whois.registryData.createdDate) }}</p>
+			</div>
+			<div class="bg-white dark:bg-gray-700 p-3 rounded">
+				<p class="font-medium text-gray-600 dark:text-gray-400">Expires Date</p>
+				<p class="text-gray-800 dark:text-gray-200">{{ time.Format "January 2, 2006 15:04:05 MST" (time.AsTime $whois.registryData.expiresDate) }}</p>
+			</div>
+			<div class="bg-white dark:bg-gray-700 p-3 rounded">
+				<p class="font-medium text-gray-600 dark:text-gray-400">Last Updated</p>
+				<p class="text-gray-800 dark:text-gray-200">{{ time.Format "January 2, 2006 15:04:05 MST" (time.AsTime $whois.registryData.updatedDate) }}</p>
+			</div>
+			<div class="bg-white dark:bg-gray-700 p-3 rounded">
+				<p class="font-medium text-gray-600 dark:text-gray-400">Domain Age</p>
+				<p class="text-gray-800 dark:text-gray-200">
+					{{ $domainAgeYears }}
+					year{{ if ne $domainAgeYears 1 }}s{{ end }}
+					{{ if gt $remainingDays 0 }}
+						and
+						{{ $remainingDays }}
+						day{{ if ne $remainingDays 1 }}s{{ end }}
+					{{ end }}
+					(since {{ time.Format "January 2, 2006" $createdDate }})
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Registrar Information -->
+	<div class="mb-6">
+		<h4 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">Registrar Information</h4>
+		<div class="bg-white dark:bg-gray-700 p-4 rounded">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div>
+					<p class="font-medium text-gray-600 dark:text-gray-400">Registrar Name</p>
+					<p class="text-gray-800 dark:text-gray-200">{{ $whois.registrarName }}</p>
+				</div>
+				<div>
+					<p class="font-medium text-gray-600 dark:text-gray-400">IANA ID</p>
+					<p class="text-gray-800 dark:text-gray-200">{{ $whois.registrarIANAID }}</p>
+				</div>
+				<div>
+					<p class="font-medium text-gray-600 dark:text-gray-400">Contact Email</p>
+					<p class="text-gray-800 dark:text-gray-200">{{ $whois.contactEmail }}</p>
+				</div>
+				{{ with $registrarURL }}
+					<div>
+						<p class="font-medium text-gray-600 dark:text-gray-400">Registrar URL</p>
+						<p class="text-gray-800 dark:text-gray-200">
+							<a href="{{ . }}" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+								{{ . }}
+							</a>
+						</p>
+					</div>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+
+	<!-- Name Servers -->
+	<div class="mb-6">
+		<h4 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">Name Servers</h4>
+		<div class="bg-white dark:bg-gray-700 p-4 rounded">
+			<ul class="space-y-2">
+				{{ range $whois.registryData.nameServers.hostNames }}
+					<li class="text-gray-800 dark:text-gray-200">{{ . }}</li>
+				{{ end }}
+			</ul>
+		</div>
+	</div>
+
+	<!-- Raw WHOIS Data -->
+	<div class="mb-6">
+		<h4 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">Complete WHOIS Record</h4>
+		<div class="bg-gray-800 text-gray-100 p-4 rounded font-mono text-sm overflow-x-auto">
+			<pre>{{ $whois.registryData.rawText }}</pre>
+		</div>
+	</div>
+
+	<!-- Additional Information -->
+	<div class="text-sm text-gray-500 dark:text-gray-400">
+		<p>WHOIS Server: {{ $whois.registryData.whoisServer }}</p>
+		<p>Last WHOIS Update: {{ time.Format "January 2, 2006 15:04:05 MST" (time.AsTime $whois.audit.updatedDate) }}</p>
+	</div>
+</div>
