@@ -1,24 +1,41 @@
 {{- $img := resources.GetMatch .Destination -}}
 {{- if not $img -}}{{- $img = resources.Get .Destination -}}{{- end -}}
 
-{{- if $img -}}
-  {{- $avif := false -}}
-  {{- $webp := false -}}
+{{- $avif := $img.Resize (printf "%dx%d avif q80" $img.Width $img.Height) -}}
+<!-- Debug Output -->
+<div style="display: none;">
+  AVIF Status: {{ if $avif }}Generated{{ else }}Failed{{ end }}<br>
+  AVIF Path: {{ $avif.RelPermalink }}<br>
+  AVIF Exists: {{ if $avif }}Yes{{ else }}No{{ end }}
+</div>
 
-  {{- /* Test AVIF support */ -}}
+{{- if $img -}}
+  {{- $webp := $img.Resize (printf "%dx%d webp q85" $img.Width $img.Height) -}}
+  {{- $avif := false -}}
+
+  {{- /* Generate AVIF if supported */ -}}
   {{- if (findRE `\.(png|jpe?g)$` $img.RelPermalink) -}}
     {{- $avif_test := $img.Resize "1x1 avif" -}}
-    {{- if $avif_test -}}{{- $avif = $img.Resize (printf "%dx%d avif" $img.Width $img.Height) -}}{{- end -}}
+    {{- if $avif_test -}}
+      {{- $avif = $img.Resize (printf "%dx%d avif q75" $img.Width $img.Height) -}}
+    {{- end -}}
   {{- end -}}
-
-  {{- /* Generate WebP */ -}}
-  {{- $webp = $img.Resize (printf "%dx%d webp" $img.Width $img.Height) -}}
 
   <picture class="flex justify-center items-center my-8">
     {{- with $avif -}}<source srcset="{{ .RelPermalink }}" type="image/avif">{{- end -}}
     <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
-    <img src="{{ $img.RelPermalink }}" alt="{{ .PlainText | safeHTML }}" {{ with .Title }}title="{{ . | safeHTML }}"{{ end }} loading="lazy" width="{{ $img.Width }}" height="{{ $img.Height }}">
+    <img src="{{ $img.RelPermalink }}" 
+         alt="{{ .PlainText | safeHTML }}" 
+         loading="lazy"
+         decoding="async"
+         width="{{ $img.Width }}"
+         height="{{ $img.Height }}"
+         {{ with .Title }}title="{{ . | safeHTML }}"{{ end }}>
   </picture>
 {{- else -}}
-  <img src="{{ .Destination | safeURL }}" alt="{{ .PlainText | safeHTML }}" {{ with .Title }}title="{{ . | safeHTML }}"{{ end }} loading="lazy">
+  <img src="{{ .Destination | safeURL }}" 
+       alt="{{ .PlainText | safeHTML }}"
+       {{ with .Title }}title="{{ . | safeHTML }}"{{ end }}
+       loading="lazy"
+       decoding="async">
 {{- end -}}
