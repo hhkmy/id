@@ -2,7 +2,7 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-	<ul class="flex flex-row items-center sm:justify-end sm:gap-y-0 gap-x-5">
+	<ul class="flex flex-row items-center gap-x-5 sm:justify-end">
 		{{- partial "inline/menu/items.html" (dict "page" $page "menuEntries" .) }}
 		<li>
 			{{ if site.Params.search.enable }}
@@ -40,12 +40,10 @@
 	{{- range .menuEntries }}
 		{{- $attrs := dict "href" .URL }}
 		{{- if $page.IsMenuCurrent .Menu . }}
-			{{- $attrs = merge $attrs (dict "class" "text-cyan-900" "aria-current" "page") }}
+			{{- $attrs = merge $attrs (dict "class" "text-blue-700" "aria-current" "page") }}
 		{{- else if $page.HasMenuCurrent .Menu . }}
 			{{- $attrs = merge $attrs (dict "class" "ancestor text-blue-800" "aria-current" "true") }}
 		{{- end }}
-		{{- $icon := printf "<i class=\"%s w-4 h-4\"></i>" .Pre -}}
-		{{- $text := printf "%s <span class=\"hidden md:inline-flex\">%s</span>" $icon .Name | safeHTML -}}
 		<li class="font-medium sm:py-4">
 			<a
 				{{- range $k, $v :=$attrs }}
@@ -54,8 +52,10 @@
 					{{- end }}
 				{{- end }}
 				aria-label="{{ or (T .Identifier) .Name | safeHTML }}"
+				class="flex items-center space-x-2"
 			>
-				{{ $text }}
+				<i class="{{ .Pre }} w-4 h-4"></i>
+				<span class="hidden md:inline">{{ .Name }}</span>
 			</a>
 			{{- with .Children }}
 				<ul>
