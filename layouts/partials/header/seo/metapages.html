@@ -6,44 +6,43 @@
     "@type": "WebPage",
     "url": "{{ .Permalink }}",
     "mainEntity": {
+        "name": "{{ .Title }}",
         "founder": "{{ .Site.Params.founder }}",
         "foundingDate": "{{ .Site.Params.foundingdate }}",
-        "foundingLocation": "{{ .Site.Params.foundinglocation }}",
+        "logo": {{ "favicon.png" | absURL }},
         "slogan": "{{ .Site.Params.slogan}}",
-        "url": "{{ .Site.BaseURL }}",
+        "description": "{{ .Site.Params.description }}",
+        "url": {{ .Site.BaseURL | jsonify }},
         "image": {
             "@type": "imageObject",
             "url": "{{ .Site.BaseURL}}{{ .Params.image }}"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "{{.Site.Params.ratingValue }}",
-            "reviewCount": "{{.Site.Params.reviewCount}}"
+            "ratingValue": {{ .Site.Params.ratingValue.value }},
+            "reviewCount": {{ .Site.Params.ratingValue.count }}
         },
-        "telephone": "{{ .Site.Params.mobile }}",
+        "telephone": "+{{ .Site.Params.mobile }}",
         "currenciesAccepted": "{{.Site.Params.currency}}",
-        "paymentAccepted": "{{ .Site.Params.paymentsAccepted | jsonify }}",
+        "paymentAccepted": {{ .Site.Params.paymentAccepted | jsonify }},
+        "priceRange": "{{ .Site.Params.price }}",
+        "openingHours": "{{ .Site.Params.hoursAvailable }}",
         "contactPoint": [
             {
                 "@type": "ContactPoint",
                 "telephone": "{{ .Site.Params.mobile }}",
                 "contactType": "customer service",
-                "areaServed": "{{ .Site.Params.areaserved | jsonify }}",
-                "availableLanguage": "{{ .Site.Params.availableLanguage | jsonify }}",
+                "areaServed": "{{ .Site.Params.areaserved }}",
+                "availableLanguage": "{{ .Site.Params.availableLanguage }}",
                 "hoursAvailable": "{{ .Site.Params.hoursAvailable }}"
             }
         ],
         "sameAs": [
             "{{ .Site.Params.facebook }}",
             "{{ .Site.Params.github }}",
+            "{{ .Site.Params.telegram }}",
             "{{ .Site.Params.linkedin }}",
-            "{{ .Site.Params.SuperLawyers }}",
-            "{{ .Site.Params.justia }}",
-            "{{ .Site.Params.avvo }}"
         ],
-        "name": "{{ .Title }}",
-        "logo": "https://ksvblog.site/favicon.png",
-        "description": "{{ .Site.Params.description }}",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "{{ .Site.Params.streetaddress }}",
@@ -52,38 +51,12 @@
             "postalCode": "{{ .Site.Params.postalcode }}",
             "addressCountry": "{{.Site.Params.addresscountry}}"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "{{ .Site.Params.latitude }}",
-            "longitude": "{{ .Site.Params.longitude }}"
-        },
-        "hasMap": "{{ .Site.Params.link }}",
-        "openingHours": "{{ .Site.Params.hoursAvailable }}",
-        "priceRange": "{{ .Site.Params.price }}",
-        "areaServed": [
-            {
-                "@type": "Place",
-                "name": "{{ .Site.Params.foundinglocation }}",
-                "sameAs": "{{ .Site.Params.wikipediacity }}"
-            },
-            {
-                "@type": "Place",
-                "name": "{{ .Site.Params.areaserved }}",
-                "sameAs": "{{ .Site.Params.wikipediacity }}"
-            }
-        ],
         "memberOf": [
             {
                 "@type": "Organization",
-                "name": "{{ .Site.Params.org1name }}",
-                "description": "{{ .Site.Params.org1description }}",
-                "url": "{{ .Site.Params.org1url }}"
-            },
-            {
-                "@type": "Organization",
-                "name": "{{ .Site.Params.org2name }}",
-                "description": "{{ .Site.Params.org2description }}",
-                "url": "{{ .Site.Params.org2url }}"
+                "name": "{{ .Site.Params.orgname }}",
+                "description": "{{ .Site.Params.orgdescription }}",
+                "url": "{{ .Site.Params.orgurl }}"
             }
         ],
         "hasOfferCatalog": {
