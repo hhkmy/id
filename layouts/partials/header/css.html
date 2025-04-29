@@ -1,13 +1,24 @@
-{{ $cssFiles := slice
-	(resources.Get "css/main.css")
-	(resources.Get "css/search.css")
-	(resources.Get "scss/style.scss" | toCSS)
-}}
+{{- /* _partials/header/css.html */ -}}
+{{- $postcssOpts := dict "config" "postcss.config.js" -}}
 
-{{ $css := resources.Get "css/bundle.css" | postCSS (dict "config" "postcss.config.js") }}
-{{ if hugo.IsProduction }}
-	{{ $css = $css | minify | fingerprint }}
-{{ end }} <link rel="stylesheet" href="{{ $css.RelPermalink }}">{{ $css := resources.Get "css/bundle.css" | postCSS (dict "config" "postcss.config.js") }}
-{{ if hugo.IsProduction }}
-	{{ $css = $css | minify | fingerprint }}
-{{ end }} <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- /* Process CSS files directly without partials */ -}}
+{{- $tailwind := resources.Get "css/tailwind.css" | postCSS $postcssOpts -}}
+{{- $main := resources.Get "css/main.css" | postCSS $postcssOpts -}}
+{{- $search := resources.Get "css/search.css" | postCSS $postcssOpts -}}
+
+{{- /* Bundle if all files exist */ -}}
+{{- if and $tailwind $main $search -}}
+	{{- $bundle := slice $tailwind $main $search | resources.Concat "css/bundle.css" -}}
+	{{- if hugo.IsProduction -}}
+		{{- $bundle = $bundle | minify | fingerprint -}}
+	{{- else -}}
+		{{- $bundle = $bundle | minify -}}
+	{{- end -}}
+	<link rel="preload" href="{{ $bundle.RelPermalink }}" as="style">
+	<link rel="stylesheet" href="{{ $bundle.RelPermalink }}">
+{{- else -}}
+	{{- /* Fallback to individual files */ -}}
+	{{- with $tailwind }}<link rel="stylesheet" href="{{ .RelPermalink }}?v={{ now.Unix }}">{{ end -}}
+	{{- with $main }}<link rel="stylesheet" href="{{ .RelPermalink }}?v={{ now.Unix }}">{{ end -}}
+	{{- with $search }}<link rel="stylesheet" href="{{ .RelPermalink }}?v={{ now.Unix }}">{{ end -}}
+{{- end -}}
