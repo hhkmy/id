@@ -1,15 +1,17 @@
-{{- /* Cache SEO/GTM/tags since they rarely change */ -}}
-{{ partialCached "header/seo" . .RelPermalink }}
-{{- partialCached "header/gtm" . .RelPermalink -}}
-{{- partialCached "header/tags" . .RelPermalink -}}
+{{- /* _partials/header/head.html */ -}}
+{{- $cacheKey := print .RelPermalink (site.LanguageCode | default "") -}}
+{{- $css := partialCached "header/css.html" . "css-static" -}}
+{{- $seo := partialCached "header/seo" . $cacheKey -}}
+{{- $tags := partialCached "header/tags" . "tags-static" -}}
+{{- $search := partialCached "search-index" . $cacheKey -}}
 
-{{- /* Move Google Analytics to footer if possible */ -}}
+{{- $seo -}}
+{{- $tags -}}
+{{- $search -}}
+{{- $css -}}
+
+
+<!-- Move analytics to end of head -->
 {{- template "_internal/google_analytics.html" . -}}
-
-{{- /* Only generate search-index in production */ -}}
-{{ if hugo.IsProduction }}
-	{{- partial "search-index" . -}}
-{{ end }}
-
-{{- /* CSS is now optimized above */ -}}
-{{ partialCached "header/css" . .RelPermalink }}
+{{- $gtm := partialCached "header/gtm" . "gtm-static" -}}
+{{- $gtm -}}
