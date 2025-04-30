@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const workerUrl = "https://hhkmyid.heinhtetkyaw.workers.dev";
+  const workerUrl = "https://hhk.my.id/views/";
 
   // Function to update counter display
   const updateCounter = (element, count) => {
