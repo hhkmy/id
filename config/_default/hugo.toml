@@ -14,6 +14,7 @@ disableHugoGeneratorInject = false
 enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
+timeout = 120 
 
 [taxonomies]
     tag = "tags"
