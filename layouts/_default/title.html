@@ -3,70 +3,18 @@
               opacity-0 translate-y-5 transition-all duration-500 ease-out"
 >
 	{{ with .Params.image }}
-		{{/* Try multiple possible image locations */}}
-		{{ $img := or (resources.Get .) (resources.Get (printf "images/%s" .)) }}
-
+		{{ $img := resources.Get . }}
 		{{ if $img }}
-			<!-- Create multiple image sizes for different screen sizes -->
-			{{ $imgSmall := $img.Process "resize 80x80" }}
-			{{ $imgMedium := $img.Process "resize 120x120" }}
-			{{ $imgLarge := $img.Process "resize 160x160" }}
-
-
-			<!-- Format detection for original images -->
-			{{ $originalFormat := $img.MediaType.SubType }}
-			{{ $needsConversion := and (ne $originalFormat "webp") (ne $originalFormat "avif") }}
-
-
-			<!-- Declare WebP version variables first -->
-			{{ $imgSmallWebP := $imgSmall }}
-			{{ $imgMediumWebP := $imgMedium }}
-			{{ $imgLargeWebP := $imgLarge }}
-
-
-			<!-- Then conditionally assign values to them -->
-			{{ if or $needsConversion (eq $originalFormat "jpeg") (eq $originalFormat "jpg") (eq $originalFormat "png") }}
-				{{ $imgSmallWebP = $imgSmall.Process "webp q80" }}
-				{{ $imgMediumWebP = $imgMedium.Process "webp q80" }}
-				{{ $imgLargeWebP = $imgLarge.Process "webp q80" }}
-			{{ end }}
-
-
-			<picture>
-				{{ if (hugo.IsExtended) }}
-					<!-- AVIF versions with different sizes -->
-					{{ $imgSmallAVIF := $imgSmall.Process "avif q75" }}
-					{{ $imgMediumAVIF := $imgMedium.Process "avif q75" }}
-					{{ $imgLargeAVIF := $imgLarge.Process "avif q75" }}
-					<source
-						srcset="{{ $imgSmallAVIF.RelPermalink }} 80w, {{ $imgMediumAVIF.RelPermalink }} 120w, {{ $imgLargeAVIF.RelPermalink }} 160w"
-						sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 160px"
-						type="image/avif"
-					>
-				{{ end }}
-				<!-- WebP versions with different sizes -->
-				<source
-					srcset="{{ $imgSmallWebP.RelPermalink }} 80w, {{ $imgMediumWebP.RelPermalink }} 120w, {{ $imgLargeWebP.RelPermalink }} 160w"
-					sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 160px"
-					type="image/webp"
-				>
-				<!-- Original format with different sizes -->
-				<img
-					srcset="{{ $imgSmall.RelPermalink }} 80w, {{ $imgMedium.RelPermalink }} 120w, {{ $imgLarge.RelPermalink }} 160w"
-					sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 160px"
-					src="{{ $imgSmall.RelPermalink }}"
-					alt="{{ . }}"
-					class="relative -left-5 w-20 h-20 rounded-full shadow-lg transition-all opacity-75 duration-300 hover:scale-110 hover:shadow-xl hover:opacity-100 bg-cover bg-center select-none"
-					loading="eager"
-					fetchpriority="high"
-					width="80"
-					height="80"
-					decoding="async"
-				>
-			</picture>
+			<img
+				src="{{ ($img.Resize "80x80").RelPermalink }}"
+				alt="{{ . }}"
+				class="relative -left-5 w-20 h-20 rounded-full shadow-lg transition-all opacity-75 duration-300 hover:scale-110 hover:shadow-xl hover:opacity-100 bg-cover bg-center select-none"
+			>
 		{{ end }}
 	{{ end }}
-	<div class="flex-grow flex flex-col py-3 pl-3">
+
+
+	<div class="flex-grow flex flex-col py-3 pl-2">
 		<h2 class="text-slate-900 mb-3 text-sm font-medium dark:text-white">
 			<a href="{{ .Permalink }}">{{ .Title }}</a>
 		</h2>
