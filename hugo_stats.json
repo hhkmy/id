@@ -40,6 +40,7 @@
       "picture",
       "polygon",
       "pre",
+      "scrip",
       "script",
       "section",
       "source",
@@ -184,6 +185,7 @@
       "fa-youtube",
       "fas",
       "flag-icon",
+      "flag-icon-${country.toLowerCase()}",
       "flag-icon-unknown",
       "flex",
       "flex-col",
@@ -261,6 +263,7 @@
       "line-clamp-1",
       "list-disc",
       "list-outside",
+      "location",
       "location-text",
       "m-4",
       "max-w-md",
@@ -458,6 +461,7 @@
       "theme-toggle-light-icon",
       "unlock-လပနည-ဒတယနည",
       "unlock-လပနည-ပထမနည",
+      "visitor",
       "နညလမ---၁-run-box--cmd-auto-shutdown",
       "နညလမ---၂-task-scheduler---auto-shutdown"
     ]
