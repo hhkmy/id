@@ -3,8 +3,6 @@
         extended = true
         min = "v0.95.0"
 [[imports]]
-    path = "github.com/hugomods/shortcodes"
-[[imports]]
     path = "github.com/hugomods/mermaid"
 [[imports]]
     path = "github.com/hugomods/katex"
@@ -12,5 +10,3 @@
     path = "github.com/gethugothemes/hugo-modules/seo-tools/site-verifications"
 [[imports]]
     path = "github.com/gethugothemes/hugo-modules/pwa"
-[[imports]]
-    path = "github.com/gethugothemes/hugo-modules/gzip-caching"
