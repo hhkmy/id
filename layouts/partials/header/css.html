@@ -1,35 +1,24 @@
-{{ with resources.Get "css/tailwind.css" }}
-	{{ $opts := dict
-		"minify" hugo.IsProduction
-		"inlineImports" true
-	}}
-	{{ with . | css.TailwindCSS $opts }}
-		{{ if hugo.IsProduction }}
-			{{ with . | fingerprint }}
-				<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-			{{ end }}
-		{{ else }}
-			<link rel="stylesheet" href="{{ .RelPermalink }}">
-		{{ end }}
-	{{ end }}
+{{ $tailwind := resources.Get "css/tailwind.css" | css.TailwindCSS (dict
+	"minify" hugo.IsProduction
+	"inlineImports" true
+	)
+}}
+
+{{/* Other CSS - Combined */}}
+{{ $mainCSS := resources.Get "css/main.css" }}
+{{ $searchCSS := resources.Get "css/search.css" }}
+{{ $combined := slice $mainCSS $searchCSS | resources.Concat "css/bundle.css" }}
+{{ if hugo.IsProduction }}
+	{{ $combined = $combined | minify }}
 {{ end }}
 
-{{ with resources.Get "css/main.css" }}
-	{{ $mainCSS := . }}
-	{{ if hugo.IsProduction }}
-		{{ $mainCSS = $mainCSS | minify | fingerprint }}
-		<link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}" integrity="{{ $mainCSS.Data.Integrity }}" crossorigin="anonymous">
-	{{ else }}
-		<link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}">
-	{{ end }}
-{{ end }}
-
-{{ with resources.Get "css/search.css" }}
-	{{ $searchCSS := . }}
-	{{ if hugo.IsProduction }}
-		{{ $searchCSS = $searchCSS | minify | fingerprint }}
-		<link rel="stylesheet" href="{{ $searchCSS.RelPermalink }}" integrity="{{ $searchCSS.Data.Integrity }}" crossorigin="anonymous">
-	{{ else }}
-		<link rel="stylesheet" href="{{ $searchCSS.RelPermalink }}">
-	{{ end }}
+{{/* Output */}}
+{{ if hugo.IsProduction }}
+	{{ $tailwind = $tailwind | fingerprint }}
+	{{ $combined = $combined | fingerprint }}
+	<link rel="stylesheet" href="{{ $tailwind.RelPermalink }}" integrity="{{ $tailwind.Data.Integrity }}" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ $combined.RelPermalink }}" integrity="{{ $combined.Data.Integrity }}" crossorigin="anonymous">
+{{ else }}
+	<link rel="stylesheet" href="{{ $tailwind.RelPermalink }}">
+	<link rel="stylesheet" href="{{ $combined.RelPermalink }}">
 {{ end }}
