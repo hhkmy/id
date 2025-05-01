@@ -1,0 +1,10 @@
+[development]
+  [development.build]
+    noJSConfigInAssets = true
+    useResourceCacheWhen = "never"
+  
+  [development.disableKinds]
+    taxonomy = true
+    term = true
+    robotsTXT = true
+    sitemap = true
