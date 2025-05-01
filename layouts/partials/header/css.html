@@ -13,3 +13,23 @@
 		{{ end }}
 	{{ end }}
 {{ end }}
+
+{{ with resources.Get "css/main.css" }}
+	{{ $mainCSS := . }}
+	{{ if hugo.IsProduction }}
+		{{ $mainCSS = $mainCSS | minify | fingerprint }}
+		<link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}" integrity="{{ $mainCSS.Data.Integrity }}" crossorigin="anonymous">
+	{{ else }}
+		<link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}">
+	{{ end }}
+{{ end }}
+
+{{ with resources.Get "css/search.css" }}
+	{{ $searchCSS := . }}
+	{{ if hugo.IsProduction }}
+		{{ $searchCSS = $searchCSS | minify | fingerprint }}
+		<link rel="stylesheet" href="{{ $searchCSS.RelPermalink }}" integrity="{{ $searchCSS.Data.Integrity }}" crossorigin="anonymous">
+	{{ else }}
+		<link rel="stylesheet" href="{{ $searchCSS.RelPermalink }}">
+	{{ end }}
+{{ end }}
