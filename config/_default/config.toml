@@ -1,5 +1,5 @@
 [build]
-    timeout = 120 
+    timeout = 1200
     writeStats = true  # This is absolutely critical
     noJSConfigInAssets = true
 

@@ -1,3 +1,5 @@
+@import url("main.css");
+@import url("search.css");
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -28,6 +30,3 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
-
-@import url("main.css");
-@import url("search.css");

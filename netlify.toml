@@ -1,7 +1,7 @@
 [build]
     command = "hugo --gc --minify"
     publish = "public"
-    timeout = 120
+    timeout = 1200
 
 [build.environment]
     HUGO_VERSION = "0.118.2"
