@@ -1,21 +1,30 @@
 {{ define "main" }}
+	{{ $pages := .Pages.ByDate.Reverse }}
+	{{ $paginator := .Paginate $pages 20 }}
+	{{ $dateFormat := "2006-01-02" }}
+
+
 	<main>
 		<article>
-			<header><h1>{{ .Title }}</h1></header>
+			<header><h1>{{ .Title }} ss</h1></header>
 			{{ .Content }}
 		</article>
+
 		<ul>
-			<!-- Add pagination and limit to 20 items/page -->
-			{{ $paginator := .Paginate (.Pages.ByDate.Reverse) 20 }}
 			{{ range $paginator.Pages }}
 				<li>
-					<a href="{{ .Permalink }}">
-						<!-- Pre-compute date format -->
-						{{ .Date.Format "2006-01-02" }} |
+					<a href="{{ .RelPermalink }}">
+						{{ .Date.Format $dateFormat }} |
 						{{ .Title }}
 					</a>
 				</li>
 			{{ end }}
 		</ul>
+
+		{{ if gt $paginator.TotalPages 1 }}
+			<nav>
+				{{ template "_internal/pagination.html" . }}
+			</nav>
+		{{ end }}
 	</main>
 {{ end }}
