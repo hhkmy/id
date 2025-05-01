@@ -6,16 +6,16 @@
     [build.buildStats]
       disableClasses = false
       disableIDs = true
-      disableTags = false
+      disableTags = true
       enable = true
 
     [[build.cachebusters]]
-        target = "css"
-        source = "hugo_stats\\.json"
+        source = 'assets/notwatching/hugo_stats\.json'
+        target = 'css'
 
-    [[build.cacheBusters]]
+    [[build.cachebusters]]
       source = '(postcss|tailwind)\.config\.js'
-      target = '(css|styles|scss|sass)'
+      target = 'css'
 
 [caches]
   [caches.assets]

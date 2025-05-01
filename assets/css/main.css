@@ -19,9 +19,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #002fff;
 }
-#passwarden {
-  display: none !important;
-}
 
 speedlify-score {
   display: flex;

@@ -20,6 +20,7 @@
 			{{- end -}}
 		</title>
 		{{ partialCached "header/head" . }}
+		{{ partialCached "header/css.html" . }}
 	</head>
 	<body class="container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50">
 		{{ if $.Site.Params.gtm }}

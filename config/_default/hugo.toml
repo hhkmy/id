@@ -31,10 +31,9 @@ timeout = 120
     google_tag_manager = "G-MSGPDQQ4L7R"
     gtm = "GTM-TRZM5JG9"
     
-    sitename = "K's V/Blog"
-    twitter = "@HeinHtetKyaw_"
-
+    sitename = "HHK V/Blog"
     showVisitorLocation = true
+    twitter = "@HeinHtetKyaw_"
 
     [params.ratingValue]
         value = 4.7
