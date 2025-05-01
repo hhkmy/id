@@ -16,3 +16,5 @@
 {{ if .Site.Params.fontawesome.v4shims }}
 	<script defer src="{{ "js/v4-shims.min.js" | relURL }}"></script>
 {{ end }}
+
+{{ partial "twemoji" . }}

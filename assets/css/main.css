@@ -113,6 +113,10 @@ speedlify-score > :first-child {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-.location-text {
-  font-family: sans-serif;
+img.emoji {
+  display: inline;
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: middle;
 }

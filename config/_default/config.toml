@@ -26,3 +26,7 @@
     [[module.mounts]]
         source = "assets"
         target = "assets"
+
+    [[module.mounts]]
+        source = "assets/svg/twemoji"
+        target = "static/twemoji/svg"
