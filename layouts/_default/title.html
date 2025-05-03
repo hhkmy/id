@@ -8,13 +8,13 @@
 			<img
 				src="{{ ($img.Resize "80x80").RelPermalink }}"
 				alt="{{ . }}"
-				class="relative -left-5 w-20 h-20 rounded-full shadow-lg transition-all opacity-75 duration-300 hover:scale-110 hover:shadow-xl hover:opacity-100 bg-cover bg-center select-none"
+				class="relative -left-5 w-20 h-18 rounded-full shadow-lg transition-all opacity-75 duration-300 hover:scale-110 hover:shadow-xl hover:opacity-100 bg-cover bg-center select-none"
 			>
 		{{ end }}
 	{{ end }}
 
 
-	<div class="grow flex flex-col py-3 pl-2">
+	<div class="grow flex flex-col py-2 pl-2">
 		<h2 class="text-slate-900 mb-3 text-sm font-medium dark:text-white">
 			<a href="{{ .Permalink }}">{{ .Title }}</a>
 		</h2>
