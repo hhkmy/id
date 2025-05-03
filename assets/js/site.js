@@ -8,8 +8,8 @@ if (
   document.documentElement.classList.remove("dark");
 }
 
-var themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
-var themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
 
 if (
   localStorage.getItem("color-theme") === "dark" ||
@@ -21,27 +21,25 @@ if (
   themeToggleDarkIcon.classList.remove("hidden");
 }
 
-var themeToggleBtn = document.getElementById("theme-toggle");
+const themeToggleBtn = document.getElementById("theme-toggle");
 
 themeToggleBtn.addEventListener("click", function () {
   themeToggleDarkIcon.classList.toggle("hidden");
   themeToggleLightIcon.classList.toggle("hidden");
-  if (localStorage.getItem("color-theme")) {
-    if (localStorage.getItem("color-theme") === "light") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-    }
+
+  const colorTheme = localStorage.getItem("color-theme");
+  const isDark = document.documentElement.classList.contains("dark");
+
+  if (colorTheme) {
+    // We have a theme stored
+    const newTheme = colorTheme === "light" ? "dark" : "light";
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem("color-theme", newTheme);
   } else {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-    }
+    // No stored theme, toggle based on current state
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem("color-theme", newTheme);
   }
 });
 
