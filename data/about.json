@@ -137,6 +137,11 @@
       "percentage": "35"
     },
     {
+      "icon": "fa-brands fa-telegram",
+      "dev": "Telegram Bots",
+      "percentage": "55"
+    },
+    {
       "icon": "fa-light fa-code",
       "dev": "Hugo",
       "percentage": "65"
@@ -147,9 +152,19 @@
       "percentage": "70"
     },
     {
+      "icon": "fa-brands fa-css",
+      "dev": "Tailwind CSS",
+      "percentage": "83"
+    },
+    {
       "icon": "fa-brands fa-html5",
       "dev": "HTML",
       "percentage": "85"
+    },
+    {
+      "icon": "fa-brands fa-git-alt",
+      "dev": "Git",
+      "percentage": "90"
     },
     {
       "icon": "fa-brands fa-github",
