@@ -1,28 +1,10 @@
 {{- $img := resources.GetMatch .Destination -}}
 {{- if not $img -}}{{- $img = resources.Get .Destination -}}{{- end -}}
 
-{{- $avif := $img.Resize (printf "%dx%d avif q80" $img.Width $img.Height) -}}
-<!-- Debug Output -->
-<div style="display: none;">
-  AVIF Status: {{ if $avif }}Generated{{ else }}Failed{{ end }}<br>
-  AVIF Path: {{ $avif.RelPermalink }}<br>
-  AVIF Exists: {{ if $avif }}Yes{{ else }}No{{ end }}
-</div>
-
 {{- if $img -}}
   {{- $webp := $img.Resize (printf "%dx%d webp q85" $img.Width $img.Height) -}}
-  {{- $avif := false -}}
-
-  {{- /* Generate AVIF if supported */ -}}
-  {{- if (findRE `\.(png|jpe?g)$` $img.RelPermalink) -}}
-    {{- $avif_test := $img.Resize "1x1 avif" -}}
-    {{- if $avif_test -}}
-      {{- $avif = $img.Resize (printf "%dx%d avif q75" $img.Width $img.Height) -}}
-    {{- end -}}
-  {{- end -}}
 
   <picture class="flex justify-center items-center my-8">
-    {{- with $avif -}}<source srcset="{{ .RelPermalink }}" type="image/avif">{{- end -}}
     <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
     <img src="{{ $img.RelPermalink }}" 
          alt="{{ .PlainText | safeHTML }}" 
