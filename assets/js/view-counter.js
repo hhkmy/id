@@ -64,7 +64,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       const allViews = await response.json();
 
       postListCounters.forEach((counter) => {
-        const path = counter.dataset.path.replace(/\/+$/, "") || "/";
+        const rawPath = counter.dataset.path || "/";
+        // Safer approach that avoids regex backtracking
+        const path = rawPath.endsWith("/")
+          ? rawPath.slice(0, -1) || "/"
+          : rawPath;
         const views = allViews[path] || 0;
         updateCounter(counter, views);
       });
