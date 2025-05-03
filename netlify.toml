@@ -11,7 +11,7 @@
     HUGO_ENV = "production"
 
 [context.split1]
-    command = "hugo --gc --minify --enableGitInfo"
+    command = "hugo --gc --minify -b $URL --enableGitInfo"
 
 [context.split1.environment]
     HUGO_ENV = "production"
@@ -31,6 +31,32 @@
     to = "/npmjs/"
 
 [[headers]]
+  for = "/*"
+  [headers.values]
+    Cross-Origin-Embedder-Policy = 'require-corp'
+    Cross-Origin-Opener-Policy = 'same-origin'
+    Cross-Origin-Resource-Policy = 'same-origin'
+    Permissions-Policy = "geolocation=(), camera=()"
+    Referrer-Policy = 'strict-origin-when-cross-origin'
+    Strict-Transport-Security = 'max-age=31536000; includeSubDomains; preload'
+    X-Content-Type-Options = 'nosniff'
+    X-Frame-Options = 'SAMEORIGIN'
+    X-XSS-Protection = '1; mode=block'
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.clarity.ms;
+      connect-src 'self' https://speedlify.hhk.my.id https://www.google-analytics.com https://hhkmyid.heinhtetkyaw.workers.dev https://ipapi.co/json/ https://e.clarity.ms/collect https://ep1.adtrafficquality.google https://www.clarity.ms https://n.clarity.ms/collect;
+      img-src 'self' data: https://www.googletagmanager.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://c.clarity.ms/c.gif https://ep1.adtrafficquality.google https://pagead2.googlesyndication.com https://cdnjs.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+      frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://youtube.com https://*.youtube-nocookie.com https://ep2.adtrafficquality.google https://www.google.com https://googleads.g.doubleclick.net;
+      frame-ancestors 'self' https://www.google.com;
+      font-src 'self' data:;
+      media-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      upgrade-insecure-requests;
+    """
     for = "/assets/*"
     [headers.values]
         Cache-Control = "public, max-age=31536000, immutable"
