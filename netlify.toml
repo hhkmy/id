@@ -33,6 +33,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
     Cross-Origin-Embedder-Policy = 'require-corp'
     Cross-Origin-Opener-Policy = 'same-origin'
     Cross-Origin-Resource-Policy = 'same-origin'
@@ -57,6 +58,3 @@
       form-action 'self';
       upgrade-insecure-requests;
     """
-    for = "/assets/*"
-    [headers.values]
-        Cache-Control = "public, max-age=31536000, immutable"
