@@ -1,24 +1,17 @@
-{{ $tailwind := resources.Get "css/tailwind.css" | css.TailwindCSS (dict
-	"minify" hugo.IsProduction
-	"inlineImports" true
-	)
-}}
-
-{{/* Other CSS - Combined */}}
-{{ $mainCSS := resources.Get "css/main.css" }}
-{{ $searchCSS := resources.Get "css/search.css" }}
-{{ $combined := slice $mainCSS $searchCSS | resources.Concat "css/bundle.css" }}
-{{ if hugo.IsProduction }}
-	{{ $combined = $combined | minify }}
-{{ end }}
-
-{{/* Output */}}
-{{ if hugo.IsProduction }}
-	{{ $tailwind = $tailwind | fingerprint }}
-	{{ $combined = $combined | fingerprint }}
-	<link rel="stylesheet" href="{{ $tailwind.RelPermalink }}" integrity="{{ $tailwind.Data.Integrity }}" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ $combined.RelPermalink }}" integrity="{{ $combined.Data.Integrity }}" crossorigin="anonymous">
-{{ else }}
-	<link rel="stylesheet" href="{{ $tailwind.RelPermalink }}">
-	<link rel="stylesheet" href="{{ $combined.RelPermalink }}">
+{{ with (templates.Defer (dict "key" "global")) }}
+	{{ with resources.Get "css/tailwind.css" }}
+		{{ $opts := dict
+			"minify" (not hugo.IsDevelopment)
+			"inlineImports" true
+		}}
+		{{ with . | css.TailwindCSS $opts }}
+			{{ if hugo.IsDevelopment }}
+				<link rel="stylesheet" href="{{ .RelPermalink }}">
+			{{ else }}
+				{{ with . | fingerprint }}
+					<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	{{ end }}
 {{ end }}
