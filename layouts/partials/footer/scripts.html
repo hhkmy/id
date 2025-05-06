@@ -1,20 +1,24 @@
 {{ $site := resources.Get "js/site.js" }}
 {{ $search := resources.Get "js/search.js" }}
 {{ $speedlify := resources.Get "js/speedlify-score.js" }}
-{{ $site := slice $site $search $speedlify | resources.Concat "js/site.js" | resources.Minify }}
-<script src="{{ $site.Permalink }}" defer></script>
+{{ $fa := resources.Get "js/fontawesome.js" }}
+{{ $faLight := resources.Get "js/light.js" }}
+{{ $faBrands := resources.Get "js/brands.js" }}
+
+{{ $allJs := slice $fa $faLight $faBrands $site $search $speedlify }}
+
+{{ if .Site.Params.fontawesome.v4shims }}
+	{{ $faV4 := resources.Get "js/v4-shims.js" }}
+	{{ $allJs = $allJs | append $faV4 }}
+{{ end }}
+
+{{ $bundle := $allJs | resources.Concat "js/bundle.js" | resources.Minify }}
+
+
+<script src="{{ $bundle.Permalink }}" defer></script>
+
 {{ if .Params.katex }}
 	{{ partial "misc/katex" . }}
-{{ end }}
-{{/* fontawesome */}}
-{{- /* Load only the Font Awesome files you need */ -}}
-<script defer src="{{ "js/fontawesome.min.js" | relURL }}"></script>
-<script defer src="{{ "js/light.min.js" | relURL }}"></script>
-<script defer src="{{ "js/brands.min.js" | relURL }}"></script>
-
-{{- /* Include v4 shims if needed */ -}}
-{{ if .Site.Params.fontawesome.v4shims }}
-	<script defer src="{{ "js/v4-shims.min.js" | relURL }}"></script>
 {{ end }}
 
 {{ partial "twemoji" . }}
