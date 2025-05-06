@@ -24,7 +24,7 @@ const searchIconReset = document.querySelector(
 );
 const searchResultInfo = document.querySelector(".search-result-info");
 let searchModalVisible =
-  hasSearchModal && searchModal.classList.contains("show") ? true : false;
+  hasSearchModal && searchModal.classList.contains("visible") ? true : false;
 let jsonData = [];
 
 const loadJsonData = async () => {
@@ -268,19 +268,18 @@ if (hasSearchWrapper) {
         searchResultItemTemplate != null
           ? searchResultItemTemplate.innerHTML
           : `
-          <div class="search-result-item">
-          #{ isset image }<div class="search-result-item-image">#{image}</div>#{ end }
-          <div class="search-result-item-body">
-            <a href="#{slug}" class="search-result-item-title">#{title}</a>
-            #{ isset description }<p class="search-result-item-description">#{description}</p>#{ end }
-            <p class="search-result-item-content">#{content}</p>
-            <div class="search-result-item-taxonomies">
-              #{ isset categories }<div><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="margin-top:-2px"><path d="M11 0H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2 2 2 0 0 0 2-2V4a2 2 0 0 0-2-2 2 2 0 0 0-2-2zm2 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1V3zM2 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2z"/></svg>#{categories}</div>#{ end }
-              
-              #{ isset tags }<div><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/><path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/></svg>#{tags}</div>#{ end }
+          <div class="p-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer flex gap-3 items-start">
+            #{ isset image }<div class="w-12 h-12 flex-shrink-0 overflow-hidden rounded bg-gray-200 dark:bg-gray-700">#{image}</div>#{ end }
+            <div class="flex-1">
+              <a href="#{slug}" class="font-semibold text-sm text-gray-900 dark:text-white hover:underline block search-result-item-title">#{title}</a>
+              #{ isset description }<p class="text-xs text-gray-600 dark:text-gray-400 mt-1">#{description}</p>#{ end }
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">#{content}</p>
+              <div class="flex gap-2 mt-2 text-xs text-gray-400">
+                #{ isset categories }<div class="flex items-center gap-1"><svg ...></svg>#{categories}</div>#{ end }
+                #{ isset tags }<div class="flex items-center gap-1"><svg ...></svg>#{tags}</div>#{ end }
+              </div>
             </div>
-          </div>
-        </div>`;
+          </div>`;
 
       const renderedItems = filteredItems
         .map((innerItem) => {
@@ -457,7 +456,7 @@ const disableBodyScroll = () => {
 
 // Replace aria-hidden with inert for better accessibility
 const showModal = () => {
-  searchModal.classList.add("show");
+  searchModal.classList.add("opacity-100", "visible");
   searchModal.removeAttribute("aria-hidden");
   searchModal.setAttribute("aria-modal", "true");
   searchModal.removeAttribute("inert"); // Remove inert instead of aria-hidden
@@ -480,7 +479,8 @@ const showModal = () => {
 };
 
 const closeModal = () => {
-  searchModal.classList.remove("show");
+  searchModal.classList.remove("opacity-100", "visible");
+  searchModal.classList.add("opacity-0", "invisible");
   searchModal.setAttribute("inert", ""); // Add inert to prevent interaction
   searchModal.removeAttribute("aria-modal");
   searchModal.removeAttribute("role");
@@ -535,8 +535,8 @@ if (hasSearchWrapper) {
   });
 
   // Close modal on click outside modal-body
-  searchWrapper.addEventListener("click", function (e) {
-    if (e.target.classList.contains("search-wrapper")) {
+  searchModal.addEventListener("click", function (e) {
+    if (e.target === searchModal) {
       closeModal();
     }
   });
