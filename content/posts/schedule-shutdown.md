@@ -16,8 +16,6 @@ categories:
 tags:
   - Tweak
   - Windows
-series:
-  - Windows
 keywords:
   - Windows
 slug: schedule-shutdown-windows-10

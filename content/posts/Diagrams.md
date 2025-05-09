@@ -17,8 +17,6 @@ categories:
   - diagrams
 tags:
   - diagrams
-series:
-  - Diagrams
 keywords:
   - hugo
   - diagrams

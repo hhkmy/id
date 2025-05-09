@@ -15,8 +15,6 @@ categories:
   - Software
 tags:
   - Software
-series:
-  - Software
 keywords:
   - ripping
 slug: ripping-disk-files

@@ -21,8 +21,6 @@ tags:
   - Broadband
   - LTE Router
   - Unlocking
-series:
-  - Router
 keywords:
   - ooredoo
   - unlock

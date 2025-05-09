@@ -21,8 +21,6 @@ tags:
   - Office
   - Microsoft
   - Windows
-series:
-  - Microsoft
 keywords:
   - microsoft
   - office

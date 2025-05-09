@@ -17,8 +17,6 @@ categories:
   - Database
 tags:
   - Database
-series:
-  - Database
 keywords:
   - Database
   - Strict Mode

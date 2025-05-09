@@ -18,8 +18,6 @@ categories:
   - Personal
 tags:
   - Personal
-series:
-  - Personal
 keywords:
   - personal
   - website

@@ -19,8 +19,6 @@ categories:
 tags:
   - Python
   - Spotify
-series:
-  - Python
 slug: spotify-downloader
 ---
 

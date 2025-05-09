@@ -11,9 +11,6 @@ categores:
 tags:
   - Office365
   - Microsoft
-series:
-  - Office365
-  - Microsoft
 keywords:
   - Office365
   - Microsoft

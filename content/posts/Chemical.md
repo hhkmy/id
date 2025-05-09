@@ -18,8 +18,6 @@ tags:
   - chemical
 categories:
   - chemical
-series:
-  - chemical
 keywords:
   - chemical
 slug: chemical

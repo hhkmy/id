@@ -19,9 +19,6 @@ categories:
 tags:
     - Terminal
     - Windows
-series:
-    - Terminal
-    - Windows
 keywords:
     - git
     - hyper

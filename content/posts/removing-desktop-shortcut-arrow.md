@@ -17,8 +17,6 @@ categories:
 tags:
   - Windows
   - Tips & Tricks
-series:
-  - Windows
 slug: removing-desktop-shortcut-arrow
 ---
 

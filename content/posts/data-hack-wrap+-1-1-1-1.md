@@ -18,8 +18,6 @@ categories:
   - VPN
 tags:
   - VPN
-series:
-  - VPN
 keywords:
   - 1.1.1.1
   - data hack

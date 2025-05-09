@@ -17,8 +17,6 @@ categories:
 tags:
   - hugo
   - Emoji
-series:
-  - Hugo
 keywords:
   - hugo
 slug: apply-hugo-module-twemoji

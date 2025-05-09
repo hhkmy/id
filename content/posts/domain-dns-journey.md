@@ -17,7 +17,6 @@ categores:
 tags:
   - dns
   - domain
-series: DNS
 keywords:
   - dns
   - domain

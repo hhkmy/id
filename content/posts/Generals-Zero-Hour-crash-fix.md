@@ -17,7 +17,6 @@ categories:
   - Games
 tags:
   - Games
-series: Games
 keywords:
   - Generals
   - zero hour

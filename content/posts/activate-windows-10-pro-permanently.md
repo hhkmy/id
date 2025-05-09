@@ -21,8 +21,6 @@ categories:
   - Windows
   - Office
   - Microsoft
-series:
-  - Windows
 keywords:
   - activation
   - windows

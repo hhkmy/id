@@ -18,7 +18,6 @@ categores:
 tags:
   - m3u8
   - ffmpeg
-series: m3u8
 keywords:
   - ffmpeg
   - m3u8

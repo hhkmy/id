@@ -18,8 +18,6 @@ categories:
   - Networking
 tags:
   - Networking
-series:
-  - Networking
 keywords:
   - network
   - sharing

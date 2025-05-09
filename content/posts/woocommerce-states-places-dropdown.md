@@ -18,8 +18,6 @@ categories:
 tags:
   - wordpress
   - woocommerce
-series:
-  - Woocommerce
 keywords:
   - places
   - states

@@ -16,8 +16,6 @@ categories:
   - Tools
 tags:
   - Tools
-series:
-  - Tools
 keywords:
   - browser
   - useful
