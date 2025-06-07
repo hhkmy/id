@@ -1,0 +1,37 @@
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#" lang="{{ .Lang }}" {{ with .Language.LanguageDirection }}dir="{{ . }}"{{ end }}>
+	<head itemscope itemtype="https://schema.org/WebPage">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>
+			{{- if .IsHome -}}
+				Home -
+				{{ .Site.Title }}
+			{{- else if .Params.hide_site_title -}}
+				{{ .Page.Title }}
+			{{- else if .Page.Title -}}
+				{{ .Page.Title }}
+				-
+				{{ .Site.Title }}
+			{{- else -}}
+				{{ .Site.Title }}
+			{{- end -}}
+		</title>
+		{{ partialCached "header/head" . "head" }}
+		{{ partialCached "header/search-css" . }}
+		{{ with (templates.Defer (dict "key" "global")) }}
+			{{ partialCached "header/css" . }}
+		{{ end }}
+	</head>
+	<body>
+		{{- partialCached "header/header" . "header" -}}
+		<section class="my-10" id="content">
+			<h2 class="sr-only">Main Contents</h2>
+			{{- block "main" . }}
+			{{- end }}
+		</section>
+		{{ partialCached "footer/footer" . "footer" }}
+	</body>
+</html>
