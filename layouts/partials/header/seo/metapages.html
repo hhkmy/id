@@ -1,0 +1,68 @@
+<meta property="og:type" content="website">
+<meta name="author" content="{{ .Site.Params.author }}">
+<script type='application/ld+json'>
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "{{ .Permalink }}",
+    "mainEntity": {
+        "name": "{{ .Title }}",
+        "founder": "{{ .Site.Params.founder }}",
+        "foundingDate": "{{ .Site.Params.foundingdate }}",
+        "logo": {{ "favicon.png" | absURL }},
+        "slogan": "{{ .Site.Params.slogan}}",
+        "description": "{{ .Site.Params.description }}",
+        "url": {{ .Site.BaseURL | jsonify }},
+        "image": {
+            "@type": "imageObject",
+            "url": "{{ .Site.BaseURL}}{{ .Params.image }}"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": {{ .Site.Params.ratingValue.value }},
+            "reviewCount": {{ .Site.Params.ratingValue.count }}
+        },
+        "telephone": "+{{ .Site.Params.mobile }}",
+        "currenciesAccepted": "{{.Site.Params.currency}}",
+        "paymentAccepted": {{ .Site.Params.paymentAccepted | jsonify }},
+        "priceRange": "{{ .Site.Params.price }}",
+        "openingHours": "{{ .Site.Params.hoursAvailable }}",
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "{{ .Site.Params.mobile }}",
+                "contactType": "customer service",
+                "areaServed": "{{ .Site.Params.areaserved }}",
+                "availableLanguage": "{{ .Site.Params.availableLanguage }}",
+                "hoursAvailable": "{{ .Site.Params.hoursAvailable }}"
+            }
+        ],
+        "sameAs": [
+            "{{ .Site.Params.facebook }}",
+            "{{ .Site.Params.github }}",
+            "{{ .Site.Params.telegram }}",
+            "{{ .Site.Params.linkedin }}",
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ .Site.Params.streetaddress }}",
+            "addressLocality": "{{ .Site.Params.addresslocality }}",
+            "addressRegion": "{{ .Site.Params.addressregion }}",
+            "postalCode": "{{ .Site.Params.postalcode }}",
+            "addressCountry": "{{.Site.Params.addresscountry}}"
+        },
+        "memberOf": [
+            {
+                "@type": "Organization",
+                "name": "{{ .Site.Params.orgname }}",
+                "description": "{{ .Site.Params.orgdescription }}",
+                "url": "{{ .Site.Params.orgurl }}"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal services"
+        }
+    }
+}
+</script>

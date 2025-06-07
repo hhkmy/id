@@ -1,0 +1,18 @@
+{{/* favicon */}}
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+{{/* image */}}
+{{ with .Params.image }}
+	<meta itemprop="image" content="{{ . | absURL }}">
+	<meta property="og:image" content="{{ . | absURL }}">
+	<meta name="twitter:image" content="{{ . | absURL }}">
+	<meta name="twitter:image:src" content="{{ . | absURL }}">
+{{ else }}
+	<meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}">
+	<meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}">
+	<meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}">
+	<meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}">
+{{ end }}
+{{/* style */}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">

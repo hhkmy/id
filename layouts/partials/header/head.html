@@ -1,0 +1,11 @@
+{{- $cacheKey := print .RelPermalink (site.LanguageCode | default "") -}}
+{{- $seo := partialCached "header/seo" . $cacheKey -}}
+{{- $tags := partialCached "header/tags" . "tags-static" -}}
+{{- $seo -}}
+{{- $tags -}}
+<!-- Move analytics to end of head -->
+{{- template "_internal/google_analytics.html" . -}}
+{{- $gtm := partialCached "header/gtm" . "gtm-static" -}}
+{{ if $.Site.Params.gtm }}
+	{{- $gtm -}}
+{{ end }}
