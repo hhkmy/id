@@ -1,32 +1,27 @@
 [build]
-    timeout = 1200
-    writeStats = true  # This is absolutely critical
-    noJSConfigInAssets = true
-
-    [build.buildStats]
-      disableClasses = false
-      disableIDs = true
-      disableTags = true
-      enable = true
-
-    [[build.cachebusters]]
-        source = 'assets/notwatching/hugo_stats\.json'
-        target = 'css'
-
-    [[build.cachebusters]]
-      source = '(postcss|tailwind)\.config\.js'
-      target = 'css'
-
-[caches]
-  [caches.assets]
-      dir = ":cacheDir/assets"
-      maxAge = -1
-
+  [build.buildStats]
+    disableClasses = false
+    disableIDs = true
+    disableTags = true
+    enable = false
+  [[build.cachebusters]]
+    source = 'assets/watching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+  [[build.cachebusters]]
+    source = 'assets/.*\.(js|ts|jsx|tsx)'
+    target = 'js'
+  [[build.cachebusters]]
+    source = 'assets/.*\.(.*)$'
+    target = '$1'
+    
 [module]
-    [[module.mounts]]
-        source = "assets"
-        target = "assets"
-
-    [[module.mounts]]
-        source = "assets/svg/twemoji"
-        target = "static/twemoji/svg"
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'assets/watching/hugo_stats\.json'
+    target = 'hugo_stats.json'

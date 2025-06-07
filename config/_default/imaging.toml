@@ -1,6 +1,13 @@
 [imaging]
-      quality = 80
-      anchor = "smart"
-      resampleFilter = "lanczos3"
-      vipsPath = "/usr/lib/x86_64-linux-gnu"
-      avifQuality = 75
+      quality = 80           # Good for web (lower = faster, but test visually)
+      anchor = "smart"       # Smart cropping (keep important areas)
+      resampleFilter = "box" # Faster than "lanczos3" (slightly less sharp)
+      skipProcess = true     # Skip processing if images are pre-optimized
+      hint = "photo"         # Better compression for photos (optional)
+
+ignoreFiles = [
+  "\\.psd$",       # Ignore Photoshop files
+  "/node_modules/", # Exclude npm packages
+  "/temp/",         # Ignore temp folders
+  "\\.unused$"      # Custom unused files
+]
