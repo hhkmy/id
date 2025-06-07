@@ -1,0 +1,38 @@
+{{ if .Site.Params.showVisitorLocation }}
+	<div class="location" id="visitor">
+		<span class="flag-icon flag-icon-unknown"></span>
+		<span class="location-text">Loading location...</span>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const geoElement = document.getElementById("visitor");
+				if (!geoElement) return;
+
+				// Production - Cloudflare header detection
+				fetch(window.location.href, {
+					method: "HEAD",
+					cache: "no-store",
+					headers: {Accept: "text/html"},
+				})
+					.then((response) => {
+						const country = response.headers.get("cf-ipcountry");
+						if (!country) throw new Error("No Cloudflare geo headers");
+
+						const city = response.headers.get("cf-ipcity");
+						updateLocation(country, city);
+					})
+					.catch(() => {
+						geoElement.style.display = "none";
+					});
+
+				function updateLocation(country, city) {
+					geoElement.innerHTML = `
+            Connected via
+            <span class="location-text">${city ? city + ", " : ""}${country}</span>
+            <span class="flag-icon flag-icon-${country.toLowerCase()}"></span>
+          `;
+				}
+			});
+		</script>
+	</div>
+{{ end }}
