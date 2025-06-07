@@ -1,0 +1,5 @@
+<h{{ .Level }} class="flex items-center" id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}
+        <a href="#{{ .Anchor | safeURL }}" class="heading-anchor" tabindex="-1" aria-label="Link to this heading">
+            <span aria-hidden="true">¶</span>
+        </a>
+</h{{ .Level }}>

@@ -1,0 +1,23 @@
+{{- $img := resources.GetMatch .Destination -}}
+{{- if not $img -}}{{- $img = resources.Get .Destination -}}{{- end -}}
+
+{{- if $img -}}
+  {{- $webp := $img.Resize (printf "%dx%d webp q85" $img.Width $img.Height) -}}
+
+  <picture class="flex justify-center items-center my-8">
+    <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+    <img src="{{ $img.RelPermalink }}" 
+         alt="{{ .PlainText | safeHTML }}" 
+         loading="lazy"
+         decoding="async"
+         width="{{ $img.Width }}"
+         height="{{ $img.Height }}"
+         {{ with .Title }}title="{{ . | safeHTML }}"{{ end }}>
+  </picture>
+{{- else -}}
+  <img src="{{ .Destination | safeURL }}" 
+       alt="{{ .PlainText | safeHTML }}"
+       {{ with .Title }}title="{{ . | safeHTML }}"{{ end }}
+       loading="lazy"
+       decoding="async">
+{{- end -}}
