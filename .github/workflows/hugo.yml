@@ -44,7 +44,8 @@ jobs:
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Dart Sass
         run: |
-          curl -L https://github.com/sass/dart-sass/releases/latest/download/dart-sass-linux-x64.tar.gz -o dart-sass.tar.gz
+          DART_SASS_VERSION=$(curl -s https://api.github.com/repos/sass/dart-sass/releases/latest | grep '"tag_name":' | cut -d'"' -f4)
+          curl -L "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION#v}-linux-x64.tar.gz" -o dart-sass.tar.gz
           tar -xzf dart-sass.tar.gz
           sudo mv dart-sass/* /usr/local/bin/
       - name: Checkout
