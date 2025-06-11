@@ -30,17 +30,9 @@ jobs:
           hugo-version: "latest"
           extended: true
 
-      # Install Latest Dart Sass
-      - name: Install Dart Sass
-        run: |
-          echo "Installing latest Dart Sass..."
-          LATEST_SASS=$(curl -s https://api.github.com/repos/sass/dart-sass/releases/latest | grep "tag_name" | cut -d'"' -f4)
-          echo "Latest version: $LATEST_SASS"
-          wget https://github.com/sass/dart-sass/releases/download/${LATEST_SASS}/dart-sass-${LATEST_SASS#v}-linux-x64.tar.gz
-          tar -xzf dart-sass-*.tar.gz
-          sudo mv dart-sass/sass /usr/local/bin/
-          sudo chmod +x /usr/local/bin/sass
-          sass --version
+      # Install Latest Sass
+      - name: Install Sass
+        run: npm install -g sass
 
       # Install Latest Node.js LTS
       - name: Setup Node.js
@@ -56,7 +48,7 @@ jobs:
           echo "Hugo version: $(hugo version)"
           echo "Node version: $(node --version)"
           echo "Sass version: $(sass --version)"
-          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --gc --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -68,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      # url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
