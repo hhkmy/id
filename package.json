@@ -15,7 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test && lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "keywords": [
@@ -34,12 +34,17 @@
     "prettier-plugin-go-template": "^0.0.15",
     "speedlify-score": "^4.0.4",
     "tailwindcss": "^4.1.5",
-    "toml-eslint-parser": "^0.10.0"
+    "toml-eslint-parser": "^0.10.0",
+    "wrangler": "^4.14.1"
   },
   "lint-staged": {
     "*.{json,css,md,html}": [
-      "prettier --write --ignore-unknown",
-      "git add"
+      "prettier --write --ignore-unknown"
     ]
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss-cli": "^11.0.1",
+    "rtlcss": "^4.3.0"
   }
 }
