@@ -1,0 +1,4 @@
+<span class="view-counter" data-path="{{ .RelPermalink }}"> <span class="count">Loading...</span> Views </span>
+
+{{ $js := resources.Get "js/view-counter.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
