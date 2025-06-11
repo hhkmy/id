@@ -27,14 +27,14 @@
   "license": "ISC",
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.8.0",
-    "@tailwindcss/cli": "^4.1.5",
+    "@tailwindcss/cli": "^4.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "prettier": "^3.5.3",
     "prettier-plugin-go-template": "^0.0.15",
     "sass": "^1.89.2",
     "speedlify-score": "^4.0.4",
-    "tailwindcss": "^4.1.5",
+    "tailwindcss": "^4.1.8",
     "toml-eslint-parser": "^0.10.0",
     "wrangler": "^4.14.1"
   },
