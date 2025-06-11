@@ -12,7 +12,7 @@ out
 /node_modules/
 layouts/_default/_markup/
 layouts/_default/list.searchindex.json
-
+layouts/_default/index.searchindex.json
 
 # Ignore all HTML files:
 *.md
