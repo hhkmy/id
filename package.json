@@ -8,7 +8,7 @@
     "build": "hugo --minify --cleanDestinationDir",
     "watch:tw": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch",
     "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
-    "prebuild": "npm run build:css",
+    "prebuild": "npm install sass",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
     "precommit": "lint-staged",
     "prepare": "node .husky/install.mjs"
