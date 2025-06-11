@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch:hugo": "hugo server --disableFastRender",
-    "build": "hugo --minify --cleanDestinationDir",
+    "build": "chmod u+rx ./node_modules/.bin/sass && hugo",
     "watch:tw": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch",
     "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
     "prebuild": "npm install sass",
