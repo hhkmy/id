@@ -36,7 +36,10 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          HUGO_URL=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "browser_download_url.*hugo_extended_.*_linux-amd64.deb" | cut -d '"' -f 4)
+          HUGO_URL=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest \
+            | grep "browser_download_url.*hugo_extended_.*_linux-amd64.deb" \
+            | grep -v withdeploy \
+            | cut -d '"' -f 4)
           wget -O ${{ runner.temp }}/hugo.deb "$HUGO_URL"
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Dart Sass
