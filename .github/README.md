@@ -80,8 +80,13 @@ install packages with
 npm install
 ```
 
-after some configuration, don't need watch with **concurrently** npm package,
-just **hugo server** will serve **Tailwindcss** while updating website.
+after configuring Hugo with Tailwind CSS integration, the **concurrently** npm package is no longer required. The built-in **hugo server** command now handles **Tailwindcss** compilation automatically during development, providing live reloading for both content and styling changes.
+
+```cmd
+chmod +x hugo_installer.py && ./hugo_installer.py
+```
+
+This script automatically downloads, installs, and updates Hugo on Linux systems. Once Hugo is ready, you can launch your development server:
 
 ```cmd
 hugo server
