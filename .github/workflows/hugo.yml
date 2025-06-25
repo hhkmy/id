@@ -30,12 +30,24 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      # Install Latest Node.js LTS
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+
+      # Install TailwindCSS CLI
+      - name: Install TailwindCSS
+        run: npm install -g tailwindcss
+
       # Build with latest versions
       - name: Build Hugo
         env:
           HUGO_ENV: production
         run: |
           echo "Hugo version: $(hugo version)"
+          echo "Node version: $(node --version)"
+          echo "TailwindCSS version: $(tailwindcss --version)"
           hugo --gc --minify
 
       - name: Upload artifact
