@@ -53,7 +53,7 @@ timeout = 1200
     publishDate = ['publishdate', 'pubdate', 'published', 'date']
 
 [outputs]
-    home = ["html", "rss", "SearchIndex"]
+    home = ["html", "rss"]
     page = ["html"]
     rss = ["rss"]
     section = ["html", "rss"]
