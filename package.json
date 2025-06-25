@@ -6,9 +6,8 @@
   "scripts": {
     "watch:hugo": "hugo server --disableFastRender",
     "build": "chmod u+rx ./node_modules/.bin/sass && hugo",
-    "watch:tw": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch",
-    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
-    "prebuild": "npm install sass",
+    "watch:tw": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/style.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
     "precommit": "lint-staged",
     "prepare": "node .husky/install.mjs"
