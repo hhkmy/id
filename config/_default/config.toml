@@ -1,27 +1,19 @@
 [build]
   [build.buildStats]
-    disableClasses = false
     disableIDs = true
     disableTags = true
-    enable = false
+    enable = true
   [[build.cachebusters]]
-    source = 'assets/watching/hugo_stats\.json'
+    source = 'assets/notwatching/hugo_stats\.json'
     target = 'css'
   [[build.cachebusters]]
     source = '(postcss|tailwind)\.config\.js'
     target = 'css'
-  [[build.cachebusters]]
-    source = 'assets/.*\.(js|ts|jsx|tsx)'
-    target = 'js'
-  [[build.cachebusters]]
-    source = 'assets/.*\.(.*)$'
-    target = '$1'
-    
 [module]
   [[module.mounts]]
     source = 'assets'
     target = 'assets'
   [[module.mounts]]
     disableWatch = true
-    source = 'assets/watching/hugo_stats\.json'
-    target = 'hugo_stats.json'
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json' 

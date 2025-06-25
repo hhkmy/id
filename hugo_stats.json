@@ -1,53 +1,13 @@
 {
   "htmlElements": {
-    "tags": [
-      "a",
-      "body",
-      "br",
-      "circle",
-      "code",
-      "div",
-      "em",
-      "footer",
-      "g",
-      "h1",
-      "h2",
-      "h3",
-      "head",
-      "header",
-      "html",
-      "iframe",
-      "img",
-      "li",
-      "link",
-      "main",
-      "meta",
-      "ol",
-      "p",
-      "path",
-      "polygon",
-      "pre",
-      "script",
-      "strong",
-      "svg",
-      "text",
-      "time",
-      "title",
-      "ul"
-    ],
+    "tags": null,
     "classes": [
+      "active",
+      "ancestor",
       "goat",
       "highlight",
       "svg-container"
     ],
-    "ids": [
-      "_-system-requirements",
-      "download-requirements",
-      "putty-unlock-လပနည",
-      "unlock-လပနည-ဒတယနည",
-      "unlock-လပနည-ပထမနည",
-      "နညလမ---၁-run-box--cmd-auto-shutdown",
-      "နညလမ---၂-task-scheduler---auto-shutdown"
-    ]
+    "ids": null
   }
 }
