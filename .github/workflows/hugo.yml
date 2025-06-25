@@ -38,7 +38,7 @@ jobs:
 
       # Install TailwindCSS CLI
       - name: Install TailwindCSS
-        run: npm install -g tailwindcss
+        run: npm install --save-dev tailwindcss @tailwindcss/cli
 
       # Build with latest versions
       - name: Build Hugo
