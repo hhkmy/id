@@ -4,9 +4,19 @@
     "classes": [
       "active",
       "ancestor",
+      "archive-item",
+      "archive-list",
+      "content",
       "goat",
       "highlight",
-      "svg-container"
+      "page",
+      "post-item",
+      "posts-list",
+      "svg-container",
+      "taxonomy-item",
+      "taxonomy-list",
+      "term-item",
+      "term-list"
     ],
     "ids": null
   }
