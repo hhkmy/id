@@ -1,10 +1,22 @@
 {{ define "main" }}
-	<h1>{{ .Title }}</h1>
+	<article class="page">
+		<header>
+			<h1>{{ .Title }}</h1>
+			{{ if .Date }}
+				{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+				{{ $dateHuman := .Date | time.Format ":date_long" }}
+				<time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+			{{ end }}
+		</header>
 
-	{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-	{{ $dateHuman := .Date | time.Format ":date_long" }}
-	<time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+		<div class="content">
+			{{ .Content }}
+		</div>
 
-	{{ .Content }}
-	{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+		{{ if .GetTerms "tags" }}
+			<footer>
+				{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+			</footer>
+		{{ end }}
+	</article>
 {{ end }}

@@ -1,7 +1,22 @@
 {{ define "main" }}
 	<h1>{{ .Title }}</h1>
-	{{ .Content }}
-	{{ range .Pages }}
-		<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+	{{ with .Content }}
+		{{ . }}
+	{{ end }}
+
+	{{ if .Pages }}
+		<div class="taxonomy-list">
+			{{ range .Pages }}
+				<article class="taxonomy-item">
+					<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+					{{ if .Date }}
+						<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+					{{ end }}
+					{{ with .Summary }}
+						<p>{{ . }}</p>
+					{{ end }}
+				</article>
+			{{ end }}
+		</div>
 	{{ end }}
 {{ end }}
