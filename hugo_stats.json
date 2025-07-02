@@ -40,6 +40,7 @@
       "hover:bg-transparent",
       "hover:opacity-80",
       "items-center",
+      "items-centertext-slate-900",
       "justify-between",
       "left-1/2",
       "lg:block",
