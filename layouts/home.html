@@ -1,9 +1,12 @@
 {{ define "main" }}
 	{{ .Content }}
+
+
 	<div id="post-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center mt-6">
 		{{ range $i, $p := where site.RegularPages "Section" "posts" }}
 			<div
 				class="post-card relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-3 flex flex-col mb-2 border border-gray-100 dark:border-slate-800 group overflow-hidden scale-100 hover:scale-100 hover:-translate-y-1 hover:border-blue-300 hover:ring-2 hover:ring-blue-100/40 dark:hover:ring-blue-700/20"
+				data-wobble
 			>
 				<div class="relative z-10 p-0 flex flex-col h-full">
 					<span
