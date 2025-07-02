@@ -5,6 +5,7 @@ desktop.ini
 
 .vs
 .vscode
+.venv
 node_modules
 resources
 public
