@@ -1,12 +1,13 @@
 <nav class="block w-full max-w-screen-lg py-2 mx-auto bg-white">
 	<div class="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
-		<div class="flex items-center ">
+		<div class="flex items-center">
 			<img
-				id="qr-image"
 				src="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
+				id="qr-image"
 				alt="{{ site.Title }}"
 				title="{{ site.Title }}"
-				class="h-8 w-8 mr-2 cursor-pointer hover:opacity-80 transition-opacity"
+				class="h-8 w-8 mr-2"
+				onmousedown="return false"
 			>
 			<a href="{{ .Site.Home.RelPermalink }}" class="py-1.5 text-base text-slate-800 font-semibold">
 				{{ site.Title }}
@@ -36,17 +37,3 @@
 		{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 	</div>
 </nav>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-		const mobileMenu = document.getElementById("mobile-menu");
-
-		// Mobile menu toggle
-		if (mobileMenuToggle && mobileMenu) {
-			mobileMenuToggle.addEventListener("click", function () {
-				mobileMenu.classList.toggle("hidden");
-			});
-		}
-	});
-</script>
