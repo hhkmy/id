@@ -1,20 +1,19 @@
-title = "HHK B/Vlog"
+title = "HHK BVlog"
 baseURL = "https://hhk.my.id/"
 
 languageCode = "my-mm"
 defaultContentLanguage = "my-mm"
 
 [Languages]
-[Languages.my-mm]
-languageName = "မြန်မာ"
-weight = 1
+    [Languages.my-mm]
+        languageName = "မြန်မာ"
+        weight = 1
 
-# [Languages.en]
-# languageName = "English"
-# weight = 2
+    [Languages.en]
+        languageName = "English"
+        weight = 2
 
 canonifyURLs = true
-disableHugoGeneratorInject = false
 enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
