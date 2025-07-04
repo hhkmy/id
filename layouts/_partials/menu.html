@@ -11,19 +11,21 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-	<ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+	<ul class="flex items-center gap-4 mb-0 mt-0">
 		{{- range . }}
-			<li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-				{{- if .Pre }}
-					{{ partial "icons/icon" (dict "vendor" "default" "name" .Pre "width" "1.25rem" "height" "1.25rem") }}
-				{{- end }}
+			<li class="p-1 text-sm text-slate-600">
 				<a
 					href="{{ .URL }}"
-					class="flex items-center{{ if $page.IsMenuCurrent "main" . }}text-slate-900 font-medium{{ end }}{{ if $page.HasMenuCurrent "main" . }}
-						text-slate-700
-					{{ end }}"
+					class="flex flex-col lg:flex-row items-center gap-x-2 group{{ if $page.IsMenuCurrent "main" . }}
+						text-slate-900 font-medium
+					{{ end }}{{ if $page.HasMenuCurrent "main" . }}text-slate-700{{ end }}"
 				>
-					{{ .Name }}
+					{{- if .Pre }}
+						<span class="mr-1 group-hover:scale-110 transition-transform">
+							{{ partial "icons/icon" (dict "vendor" "default" "name" .Pre "width" "1.25rem" "height" "1.25rem") }}
+						</span>
+					{{- end }}
+					<span>{{ .Name }}</span>
 				</a>
 			</li>
 		{{- end }}
