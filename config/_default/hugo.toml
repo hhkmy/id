@@ -1,17 +1,9 @@
 title = "HHK BVlog"
 baseURL = "https://hhk.my.id/"
 
+languageName = "မြန်မာ"
 languageCode = "my-mm"
 defaultContentLanguage = "my-mm"
-
-[Languages]
-    [Languages.my-mm]
-        languageName = "မြန်မာ"
-        weight = 1
-
-    [Languages.en]
-        languageName = "English"
-        weight = 2
 
 canonifyURLs = true
 enableEmoji = true
@@ -20,14 +12,16 @@ enableRobotsTXT = true
 
 [params]
     author = "Hein Htet Kyaw"    
-    authorbio = "Hein Htet Kyaw is a software engineer and blogger. He is passionate about technology, programming, and sharing knowledge with others. He enjoys writing about various topics, including web development, software engineering, and personal experiences."
     authoremail = "mr.kiddomonster@gmail.com"
-    
+    keywords = "Hein Htet Kyaw, Hein Htet Kyaw blog, Hein Htet Kyaw vlog, software engineer, web developer, programming, technology, personal blog, Myanmar blogger"
+    authorbio = "Hein Htet Kyaw is a software engineer and blogger. He is passionate about technology, programming, and sharing knowledge with others. He enjoys writing about various topics, including web development, software engineering, and personal experiences."
+
     google_tag_manager = "G-MSGPDQQ4L7R"
     gtm = "GTM-TRZM5JG9"
     
-    sitename = "HHK B/Vlog"
-    showVisitorLocation = true    
+    sitename = "HHK BVlog"
+    showVisitorLocation = true
+    debug = true
 
 [frontmatter]
     date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
