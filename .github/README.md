@@ -16,7 +16,7 @@
 ## Website Stats
 
 ![Netlify](https://img.shields.io/netlify/9bebb371-d351-437c-ab5b-c64a3ef6b71c)
-[![Website](https://img.shields.io/website?up_message=online&up_color=blue&down_message=offline&down_color=lightgrey&url=https%3A%2F%2Fhhk.my.id)](https://hhk.my.id)
+[![Website](https://img.shields.io/website?up_message=online&up_color=green&down_message=offline&down_color=lightgrey&url=https%3A%2F%2Fhhk.my.id)](https://hhk.my.id)
 [![Uptime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fuptime.json)](https://stats.hhk.my.id)
 [![ResponseTime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fresponse-time.json)](https://stats.hhk.my.id)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hhkmy/id)](https://github.com/hhkmy/id)
