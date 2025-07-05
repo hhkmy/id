@@ -12,11 +12,17 @@
 
 {{- with $page.GetTerms $taxonomy }}
 	{{- $label := (index . 0).Parent.LinkTitle }}
-	<div>
-		<div>{{ $label }}:</div>
-		<ul>
+	<div class="flex items-center gap-2 flex-wrap">
+		<span class="text-xs font-semibold text-blue-700 dark:text-blue-200 uppercase tracking-wide">{{ $label }}:</span>
+		<ul class="flex gap-1 flex-wrap">
 			{{- range . }}
-				<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+				<li>
+					<a
+						href="{{ .RelPermalink }}"
+						class="inline-block px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 text-xs font-medium border border-blue-100 dark:border-blue-800 hover:bg-blue-200 hover:text-blue-900 transition-all duration-150"
+						>#{{ .LinkTitle }}</a
+					>
+				</li>
 			{{- end }}
 		</ul>
 	</div>
