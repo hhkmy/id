@@ -1,17 +1,17 @@
 {
   "contact": [
     {
-      "icon": "light phone",
+      "icon": "phone",
       "value": "+959695811161",
       "link": "tel:+959695811161"
     },
     {
-      "icon": "light at",
+      "icon": "mail",
       "value": "mr.kiddomonster@gmail.com",
       "link": "mailto:mr.kiddomonster@gmail.com"
     },
     {
-      "icon": "light map-marked-alt",
+      "icon": "map",
       "value": "Htaukkyant, Yangon, Myanmar (Burma), 11022",
       "link": "https://goo.gl/maps/KsnuQmQkzf5UF7hZ9"
     }
@@ -61,7 +61,7 @@
       "company": "Kiddo Monster",
       "role": "V/Blogger",
       "year": "Dec 2012 - Present",
-      "link": "fb.me/heinhtetkyaw.blog"
+      "link": "fb.me/hhk.my.id"
     },
     {
       "company": "Department of Agricultural Research (Government Organizations)",
@@ -103,7 +103,7 @@
   "activities": [
     {
       "team": "ထေရဝါဒ ဓမ္မပြန့်ပွားရေး နှင့် နာရေးကူညီမှုအသင်း “လူငယ်”",
-      "role": "Volenteer",
+      "role": "Vdolunteer",
       "year": "Jan 2013 - Dec 2022",
       "status": "(I had to move to Yangon)",
       "location": "နေပြည်တော်၊ ပျဉ်းမနားမြို့နယ်၊ လည်တီကျောင်း",
@@ -152,6 +152,11 @@
       "percentage": "70"
     },
     {
+      "icon": "cloudflare",
+      "dev": "Cloudflare",
+      "percentage": "75"
+    },
+    {
       "icon": "tailwindcss",
       "dev": "Tailwind CSS",
       "percentage": "83"
@@ -170,6 +175,11 @@
       "icon": "github",
       "dev": "Github",
       "percentage": "90"
+    },
+    {
+      "icon": "mybb",
+      "dev": "Mybb",
+      "percentage": "92"
     },
     {
       "icon": "elementor",
@@ -195,6 +205,16 @@
       "icon": "linux",
       "dev": "Linux / Server Administration",
       "percentage": "97"
+    },
+    {
+      "icon": "debian",
+      "dev": "Debian",
+      "percentage": "98.9"
+    },
+    {
+      "icon": "vibe",
+      "dev": "Vibe",
+      "percentage": "100"
     }
   ]
 }

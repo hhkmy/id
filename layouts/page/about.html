@@ -1,0 +1,128 @@
+{{ define "main" }}
+	<section class="w-full py-10">
+		<div class="p-0 sm:p-0 w-full">
+			<p class="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">{{ .Params.summary }}</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+				<!-- Contact Info -->
+				<div>
+					<h2 class="flex content-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} Contact
+					</h2>
+					{{ $contact := site.Data.about.contact }}
+					<ul class="space-y-2">
+						{{ range $contact }}
+							<li class="flex items-center gap-2 text-gray-700 dark:text-gray-200 text-base">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" .icon "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+								<a href="{{ .link | safeURL }}" class="hover:underline">{{ .value }}</a>
+							</li>
+						{{ end }}
+					</ul>
+				</div>
+				<!-- Education -->
+				<div>
+					<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+						Education
+					</h2>
+					{{ $edu := site.Data.about.education }}
+					<ul class="space-y-2">
+						{{ range $edu }}
+							<li>
+								<span class="inline-flex font-semibold text-blue-800 dark:text-blue-200 text-base"
+									>{{ partial "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}{{ .name }}</span
+								>
+								<span class="inline-flex text-gray-500 text-base"
+									>{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+									&mdash; <a href="{{ .link }}" class="hover:underline">{{ .location }}</a></span
+								>
+							</li>
+						{{ end }}
+					</ul>
+				</div>
+			</div>
+
+			<!-- Qualifications -->
+			<div class="mb-8">
+				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Qualifications</h2>
+				{{ $qual := site.Data.about.qualifications }}
+				<ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+					{{ range $qual }}
+						<li class="p-0">
+							<div class="flex items-center font-semibold text-blue-800 dark:text-blue-200 text-base">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "certificate" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+								{{ .name }}
+							</div>
+							<div class="flex text-gray-500 text-base">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+								&mdash; {{ .training }}, {{ .location }}
+							</div>
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+
+			<!-- Employment History -->
+			<div class="mb-8">
+				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Employment History</h2>
+				{{ $emp := site.Data.about.employment }}
+				<ul class="space-y-2">
+					{{ range $emp }}
+						<li class="text-base">
+							<div class="flex font-semibold text-blue-800 dark:text-blue-200">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "worker" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .company }}
+								— <span class="text-gray-700 dark:text-gray-200">{{ .role }}</span>
+							</div>
+							<div class="flex text-gray-500">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+								&mdash; <a href="https://{{ .link }}" class="hover:underline">{{ .link }}</a>
+							</div>
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+
+			<!-- Social Activities -->
+			<div class="mb-8">
+				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Social Activities</h2>
+				{{ $act := site.Data.about.activities }}
+				<ul class="space-y-2">
+					{{ range $act }}
+						<li class="text-base">
+							<div class="flex font-semibold text-blue-800 dark:text-blue-200">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "charity" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .team }} —
+								{{ .role }}
+							</div>
+							<div class="flex text-gray-500 leading-loose">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+								{{ .status }} &mdash; <a href="{{ .link }}" class="hover:underline">{{ .location }}</a>
+							</div>
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+
+			<!-- Skills -->
+			<div>
+				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Skills</h2>
+				{{ $skills := site.Data.about.skills }}
+				<div class="flex flex-col gap-4">
+					{{ range $skills }}
+						<div>
+							<div class="flex justify-between mb-1 items-center">
+								<span class="flex items-center gap-2 text-base font-medium text-blue-700 dark:text-white">
+									{{ partial "icons/icon" (dict "vendor" "skills" "name" .icon "width" "1.2rem" "height" "1.2rem") }}
+									{{ .dev }}
+								</span>
+								<span class="text-sm font-medium text-blue-700 dark:text-white">{{ .percentage }}%</span>
+							</div>
+							<div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
+								<div class="bg-blue-600 h-1.5 rounded-full" style="width: {{ .percentage }}%"></div>
+							</div>
+						</div>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+	</section>
+{{ end }}
