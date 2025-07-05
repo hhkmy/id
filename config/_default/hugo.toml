@@ -23,6 +23,9 @@ enableRobotsTXT = true
     showVisitorLocation = true
     debug = true
 
+    [params.icons]
+        throw_on_error = false
+
 [frontmatter]
     date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
     expiryDate = ['expirydate', 'unpublishdate']
