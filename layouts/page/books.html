@@ -1,0 +1,48 @@
+{{ define "main" }}
+	<section class="w-full py-10">
+		<div class="p-0 sm:p-0 w-full">
+			<div class="flex flex-col items-center justify-center mb-8">
+				<h1 class="text-4xl sm:text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
+					<span class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-200 rounded-full p-2">📚</span>
+					My Bookshelf
+				</h1>
+				<p class="mt-2 text-base sm:text-lg text-gray-600 dark:text-gray-300 text-center max-w-xl border-l-4 border-blue-400 dark:border-blue-700 pl-4 italic">
+					Browse and download my favorite books. Happy reading!
+				</p>
+			</div>
+
+			{{ $books := sort site.Data.books.book "year" "desc" }}
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{{ range $books }}
+					<div
+						class="flex flex-col items-center bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border border-blue-200 dark:border-gray-700 rounded-2xl shadow-lg p-0 overflow-hidden"
+					>
+						<div class="relative w-full h-56 group">
+							<img src="{{ .cover }}" alt="{{ .title }} cover" class="w-full h-full object-cover filter blur-sm transition-all duration-300 ease-in-out">
+							<img
+								src="{{ .cover }}"
+								alt="{{ .title }} cover"
+								class="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-in-out"
+							>
+							<span class="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow">NEW</span>
+						</div>
+						<div class="p-5 w-full flex flex-col items-center">
+							<h2 class="text-lg font-extrabold text-blue-800 dark:text-blue-200 mb-1 text-center">{{ .title }}</h2>
+							<p class="text-blue-600 dark:text-blue-300 text-sm mb-1">👤 <span class="font-semibold">{{ .author }}</span></p>
+							<p class="text-xs text-gray-500 dark:text-gray-400 mb-2 text-center">
+								🗓️ {{ .year }} &bull; 📄 {{ .pages }} pages &bull;
+								<span class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-0.5 rounded">🏷️ {{ .tag }}</span>
+							</p>
+							<a
+								href="{{ .download }}"
+								class="mt-2 w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition-colors duration-200 text-center z-10 relative"
+								download
+								>⬇️ Download PDF</a
+							>
+						</div>
+					</div>
+				{{ end }}
+			</div>
+		</div>
+	</section>
+{{ end }}
