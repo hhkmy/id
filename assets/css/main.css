@@ -10,6 +10,7 @@
   --breakpoint-xl: 1440px;
   --radius-4xl: 2rem;
   --font-sans: "Myanmar", "sans-serif";
+  --font-mono: "3270NF", "monospace";
 }
 
 @font-face {
@@ -18,6 +19,14 @@
   font-weight: 200 700;
   font-display: swap;
   src: url("/fonts/Pyidaungsu.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 3270NF;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/3270NF.woff2") format("woff2");
 }
 
 @layer base {
