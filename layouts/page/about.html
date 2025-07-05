@@ -6,7 +6,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
 				<!-- Contact Info -->
 				<div>
-					<h2 class="flex content-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+					<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
 						{{ partial "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} Contact
 					</h2>
 					{{ $contact := site.Data.about.contact }}
@@ -22,8 +22,7 @@
 				<!-- Education -->
 				<div>
 					<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
-						Education
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} Education
 					</h2>
 					{{ $edu := site.Data.about.education }}
 					<ul class="space-y-2">
@@ -33,7 +32,8 @@
 									>{{ partial "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}{{ .name }}</span
 								>
 								<span class="inline-flex text-gray-500 text-base"
-									>{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+									>{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+									{{ .year }}
 									&mdash; <a href="{{ .link }}" class="hover:underline">{{ .location }}</a></span
 								>
 							</li>
@@ -44,7 +44,9 @@
 
 			<!-- Qualifications -->
 			<div class="mb-8">
-				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Qualifications</h2>
+				<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+					{{ partial "icons/icon" (dict "vendor" "default" "name" "qualification" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} Qualifications
+				</h2>
 				{{ $qual := site.Data.about.qualifications }}
 				<ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 					{{ range $qual }}
@@ -54,8 +56,10 @@
 								{{ .name }}
 							</div>
 							<div class="flex text-gray-500 text-base">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
-								&mdash; {{ .training }}, {{ .location }}
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+								{{ .year }}
+								&mdash; {{ .training }},
+								{{ .location }}
 							</div>
 						</li>
 					{{ end }}
@@ -64,17 +68,22 @@
 
 			<!-- Employment History -->
 			<div class="mb-8">
-				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Employment History</h2>
+				<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+					{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+					Employment History
+				</h2>
 				{{ $emp := site.Data.about.employment }}
 				<ul class="space-y-2">
 					{{ range $emp }}
 						<li class="text-base">
 							<div class="flex font-semibold text-blue-800 dark:text-blue-200">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "worker" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .company }}
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "worker" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+								{{ .company }}
 								— <span class="text-gray-700 dark:text-gray-200">{{ .role }}</span>
 							</div>
 							<div class="flex text-gray-500">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+								{{ .year }}
 								&mdash; <a href="https://{{ .link }}" class="hover:underline">{{ .link }}</a>
 							</div>
 						</li>
@@ -84,7 +93,10 @@
 
 			<!-- Social Activities -->
 			<div class="mb-8">
-				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Social Activities</h2>
+				<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+					{{ partial "icons/icon" (dict "vendor" "default" "name" "social" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+					Social Activities
+				</h2>
 				{{ $act := site.Data.about.activities }}
 				<ul class="space-y-2">
 					{{ range $act }}
@@ -94,7 +106,8 @@
 								{{ .role }}
 							</div>
 							<div class="flex text-gray-500 leading-loose">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} {{ .year }}
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "date" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }}
+								{{ .year }}
 								{{ .status }} &mdash; <a href="{{ .link }}" class="hover:underline">{{ .location }}</a>
 							</div>
 						</li>
@@ -104,7 +117,9 @@
 
 			<!-- Skills -->
 			<div>
-				<h2 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">Skills</h2>
+				<h2 class="flex items-center text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+					{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem" "className" "mr-2") }} Skills
+				</h2>
 				{{ $skills := site.Data.about.skills }}
 				<div class="flex flex-col gap-4">
 					{{ range $skills }}
