@@ -2,11 +2,10 @@
 	{{ .Content }}
 
 
-	<div id="post-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center mt-6">
+	<div id="post-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center mt-6">
 		{{ range $i, $p := where site.RegularPages "Section" "posts" }}
 			<div
 				class="post-card relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-3 flex flex-col mb-2 border border-gray-100 dark:border-slate-800 group overflow-hidden scale-100 hover:scale-100 hover:-translate-y-1 hover:border-blue-300 hover:ring-2 hover:ring-blue-100/40 dark:hover:ring-blue-700/20"
-				data-wobble
 			>
 				<div class="relative z-10 p-0 flex flex-col h-full">
 					<span
@@ -17,7 +16,7 @@
 						<span class="text-[10px] text-gray-400 dark:text-gray-500 font-mono tracking-wide">{{ (time $p.Date).Format "Jan 2, 2006" }}</span>
 					</div>
 					<h2
-						class="text-base font-extrabold mb-1 tracking-tight text-blue-800 dark:text-blue-200 drop-shadow-sm hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200"
+						class="text-base font-bold mb-1 tracking-tight text-blue-800 dark:text-blue-200 drop-shadow-sm hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200"
 					>
 						<a href="{{ $p.RelPermalink }}">{{ $p.LinkTitle }}</a>
 					</h2>
