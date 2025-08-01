@@ -1,30 +1,25 @@
 {{ define "main" }}
-	<section class="max-w-5xl mx-auto px-2 py-12">
-		<header class="mb-10 flex flex-col items-center">
-			<h1 class="text-5xl font-black tracking-tight bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 bg-clip-text text-transparent mb-2">
-				{{ .Title }}
-			</h1>
+	<section class="px-2">
+		<header class="mb-8 flex flex-col items-center">
+			<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">{{ .Title }}</h1>
 			{{ with .Content }}
-				<div class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl">{{ . }}</div>
+				<div class="text-base text-gray-600 dark:text-gray-300 text-center max-w-2xl">{{ . }}</div>
 			{{ end }}
 		</header>
 
 		{{ if .Pages }}
-			<ul class="flex flex-wrap gap-4 justify-center">
+			<ul class="flex flex-col gap-0.5">
 				{{ range .Pages }}
-					<li>
-						<a
-							href="{{ .RelPermalink }}"
-							class="group block px-8 py-5 rounded-full border-2 border-indigo-200 dark:border-sky-700 bg-gradient-to-br from-white/80 via-indigo-50 to-sky-100 dark:from-gray-900 dark:via-sky-900 dark:to-gray-800 shadow-md hover:scale-105 hover:border-emerald-400 hover:shadow-lg transition-all duration-200"
-						>
-							<span class="text-xl font-bold text-indigo-700 dark:text-sky-300 group-hover:text-emerald-500">{{ .LinkTitle }}</span>
-							{{ if .Date }}
-								<span class="block text-xs text-gray-400 mt-1">{{ .Date.Format "Jan 2, 2006" }}</span>
-							{{ end }}
-							{{ with .Summary }}
-								<span class="block text-gray-500 dark:text-gray-400 text-sm mt-2">{{ . }}</span>
-							{{ end }}
+					<li class="py-3 border-b border-gray-100 dark:border-slate-800">
+						<a href="{{ .RelPermalink }}" class="text-lg font-semibold text-blue-700 dark:text-blue-300">
+							{{ .LinkTitle }}
 						</a>
+						{{ if .Date }}
+							<span class="text-xs text-gray-400 ml-2">{{ .Date.Format "Jan 2, 2006" }}</span>
+						{{ end }}
+						{{ with .Summary }}
+							<div class="text-gray-500 dark:text-gray-400 text-sm mt-1">{{ . }}</div>
+						{{ end }}
 					</li>
 				{{ end }}
 			</ul>

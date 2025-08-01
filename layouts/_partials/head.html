@@ -1,5 +1,13 @@
 <meta charset="utf-8">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s - %s" .Title site.Title }}{{ end }}</title>
 {{ partial "head/meta.html" . }}
+<script>
+	// Immediately check for dark mode preference
+	if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+		document.documentElement.classList.add("dark");
+	} else {
+		document.documentElement.classList.remove("dark");
+	}
+</script>
 {{ partial "head/css.html" . }}
 {{ partial "head/js.html" . }}

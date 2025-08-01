@@ -1,53 +1,41 @@
 {{ define "main" }}
-	<section class="max-w-4xl mx-auto py-10 px-4">
-		<div class="flex flex-col items-center mb-8">
-			<h1 class="text-5xl font-extrabold text-blue-800 dark:text-blue-200 mb-2 drop-shadow-lg animate-fade-in">{{ .Title }}</h1>
-			<div class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl animate-fade-in-slow">{{ .Content }}</div>
-		</div>
-
-		<div class="archive-list space-y-14">
-			{{ range (where site.RegularPages "Type" "posts").GroupByDate "2006" }}
-				<div class="group">
-					<h2
-						class="text-3xl font-bold text-blue-700 dark:text-blue-300 border-b-4 border-blue-200 dark:border-blue-700 mb-6 pb-2 flex items-center gap-3 animate-fade-in"
-					>
-						<svg class="w-7 h-7 text-pink-400 dark:text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-							/>
-						</svg>
-						<span>{{ .Key }}</span>
-					</h2>
-					<div class="grid gap-6 sm:grid-cols-2">
-						{{ range .Pages }}
-							<article
-								class="archive-item bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-gray-100 dark:border-slate-800 group-hover:border-pink-300 hover:ring-2 hover:ring-pink-100/40 dark:hover:ring-blue-700/20 relative overflow-hidden animate-fade-in"
-							>
-								<span
-									class="absolute right-4 top-4 w-10 h-10 bg-pink-200 dark:bg-blue-900 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-all duration-300"
-								></span>
-								<div class="flex items-center gap-2 mb-2">
-									<time class="text-xs text-pink-500 dark:text-blue-300 font-mono bg-pink-50 dark:bg-blue-900 px-2 py-0.5 rounded-full">
-										{{ .Date.Format "Jan 2, 2006" }}
-									</time>
-									<span class="w-1 h-1 rounded-full bg-pink-300 dark:bg-blue-700"></span>
-									<span class="text-xs text-gray-400 dark:text-gray-500">{{ .Date.Format "Monday" }}</span>
-								</div>
-								<h3
-									class="text-xl font-bold text-blue-800 dark:text-blue-100 mb-1 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors duration-200"
-								>
-									<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-								</h3>
-								{{ if .Summary }}
-									<p class="text-gray-700 dark:text-gray-300 text-base line-clamp-2">{{ .Summary }}</p>
-								{{ end }}
-							</article>
-						{{ end }}
-					</div>
-				</div>
+	<section>
+		{{ $posts := (where site.RegularPages "Type" "posts") }}
+		{{ $.Scratch.Set "years" (slice) }}
+		{{ range $posts }}
+			{{ $year := (time .Date).Year }}
+			{{ if not (in ($.Scratch.Get "years") $year) }}
+				{{ $.Scratch.Add "years" (slice $year) }}
 			{{ end }}
-		</div>
+		{{ end }}
+		{{ $years := sort ($.Scratch.Get "years") }}
+		{{ $n := sub (len $years) 1 }}
+		{{ range $i, $dummy := $years }}
+			{{ $year := index $years (sub $n $i) }}
+			<h2 class="text-2xl font-bold text-slate-900 dark:text-white">{{ $year }}</h2>
+			<ul>
+				{{ range $post := where $posts "Date" ">=" (time (printf "%d-01-01" $year)) }}
+					{{ if lt (time $post.Date).Year (add $year 1) }}
+						<li class="flex items-center mb-2">
+							<span class="w-16 text-gray-400 dark:text-gray-500 tabular-nums">{{ (time $post.Date).Format "Jan 2" }}</span>
+							<a href="{{ $post.RelPermalink }}" class="flex-1 text-base text-blue-600 dark:text-blue-300 hover:underline font-medium"
+								>{{ $post.Title }}</a
+							>
+							{{ with $post.Params.views }}
+								<span
+									class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-gray-700/20 dark:bg-gray-200/10 text-xs text-gray-700 dark:text-gray-200 font-semibold"
+								>
+									<svg class="w-4 h-4 mr-1 opacity-70 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+										<path d="M1.5 12s4-7.5 10.5-7.5S22.5 12 22.5 12s-4 7.5-10.5 7.5S1.5 12 1.5 12Z" />
+										<circle cx="12" cy="12" r="3.5" />
+									</svg>
+									{{ . | humanize }}
+								</span>
+							{{ end }}
+						</li>
+					{{ end }}
+				{{ end }}
+			</ul>
+		{{ end }}
 	</section>
 {{ end }}

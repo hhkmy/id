@@ -1,16 +1,25 @@
-{{- with resources.Get "js/main.js" }}
-	{{- $opts := dict
-		"minify" (not hugo.IsDevelopment)
-		"sourceMap" (cond hugo.IsDevelopment "external" "")
-		"targetPath" "js/main.js"
-	}}
-	{{- with . | js.Build $opts }}
-		{{- if hugo.IsDevelopment }}
-			<script src="{{ .RelPermalink }}"></script>
-		{{- else }}
-			{{- with . | fingerprint }}
-				<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-			{{- end }}
+{{- $main := resources.Get "js/main.js" }}
+{{- $speedlify := resources.Get "js/speedlify-score.js" }}
+{{- $opts := dict
+	"minify" (not hugo.IsDevelopment)
+	"sourceMap" (cond hugo.IsDevelopment "external" "")
+	"targetPath" "js/main.js"
+}}
+{{- with $main | js.Build $opts }}
+	{{- if hugo.IsDevelopment }}
+		<script src="{{ .RelPermalink }}"></script>
+	{{- else }}
+		{{- with . | fingerprint }}
+			<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+		{{- end }}
+	{{- end }}
+{{- end }}
+{{- with $speedlify | js.Build (dict "minify" (not hugo.IsDevelopment) "targetPath" "js/speedlify-score.js") }}
+	{{- if hugo.IsDevelopment }}
+		<script src="{{ .RelPermalink }}"></script>
+	{{- else }}
+		{{- with . | fingerprint }}
+			<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
 		{{- end }}
 	{{- end }}
 {{- end }}

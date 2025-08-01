@@ -1,49 +1,43 @@
 {{ define "main" }}
-	<article
-		class="relative w-full mx-auto bg-white dark:bg-slate-900 rounded-xl shadow-md transition-all duration-300 p-6 flex flex-col mb-8 border border-gray-100 dark:border-slate-800 group overflow-hidden mt-10"
-	>
-		<header class="relative z-10 p-0 flex flex-col h-full border-b border-gray-100 dark:border-slate-800 mb-4 pb-2">
-			<div class="flex items-center gap-2 mb-1 flex-wrap">
-				<span class="inline-block w-2 h-2 rounded-full bg-blue-400"></span>
-				{{ if .Date }}
-					{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-					{{ $dateHuman := .Date | time.Format ":date_long" }}
-					<time datetime="{{ $dateMachine }}" class="text-xs text-gray-400 dark:text-gray-500 font-mono tracking-wide">{{ $dateHuman }}</time>
-				{{ end }}
-				{{ with .Params.author }}
-					<span class="text-xs text-gray-500 dark:text-gray-400 font-mono ml-2">by {{ . }}</span>
-				{{ end }}
-				{{ with .ReadingTime }}
-					<span class="text-xs text-gray-400 dark:text-gray-500 font-mono ml-2">• {{ . }} min read</span>
-				{{ end }}
-				{{ with .WordCount }}
-					<span class="text-xs text-gray-400 dark:text-gray-500 font-mono ml-2">• {{ . }} words</span>
-				{{ end }}
-				{{ with .Params.categories }}
-					<span class="text-xs text-blue-600 dark:text-blue-300 font-mono ml-2"
-						>•
-						{{ range $i, $cat := . }}{{ if $i }},{{ end }}{{ $cat }}{{ end }}
-					</span>
-				{{ end }}
-				{{ with .Params.series }}
-					<span class="text-xs text-green-600 dark:text-green-300 font-mono ml-2">• Series: {{ . }}</span>
-				{{ end }}
-				{{ with .Params.draft }}
-					{{ if . }}<span class="text-xs text-red-500 font-mono ml-2">• Draft</span>{{ end }}
-				{{ end }}
-			</div>
-			<h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">{{ .Title }}</h1>
-			{{ with .Params.featured_image }}
-				<img src="{{ . }}" alt="Featured image" class="w-full h-64 object-cover rounded-lg shadow mb-4 mt-2 border border-gray-100 dark:border-slate-800">
+	<div>
+		<div class="flex items-center gap-2 mb-2 flex-wrap">
+			{{ if .Date }}
+				{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+				{{ $dateHuman := .Date | time.Format ":date_long" }}
+				<time datetime="{{ $dateMachine }}" class="text-xs text-gray-500 dark:text-gray-400">{{ $dateHuman }}</time>
 			{{ end }}
-		</header>
-		<div class="prose prose-lg dark:prose-invert text-gray-700 dark:text-gray-200 leading-relaxed font-normal transition-all duration-200 mt-2 mb-4">
+			{{ with .Params.author }}
+				<span class="text-xs text-gray-500 dark:text-gray-400 ml-2">by {{ . }}</span>
+			{{ end }}
+			{{ with .ReadingTime }}
+				<span class="text-xs text-gray-400 dark:text-gray-500 ml-2">• {{ . }} min read</span>
+			{{ end }}
+			{{ with .WordCount }}
+				<span class="text-xs text-gray-400 dark:text-gray-500 ml-2">• {{ . }} words</span>
+			{{ end }}
+			{{ with .Params.categories }}
+				<span class="text-xs text-blue-600 dark:text-blue-300 ml-2">• {{ range $i, $cat := . }}{{ if $i }},{{ end }}{{ $cat }}{{ end }}</span>
+			{{ end }}
+			{{ with .Params.series }}
+				<span class="text-xs text-green-600 dark:text-green-300 ml-2">• Series: {{ . }}</span>
+			{{ end }}
+			{{ with .Params.draft }}
+				{{ if . }}<span class="text-xs text-red-500 ml-2">• Draft</span>{{ end }}
+			{{ end }}
+		</div>
+		<h1 class="text-3xl font-bold mt-2 mb-4 text-slate-900 dark:text-white leading-tight">{{ .Title }}</h1>
+		{{ with .Params.featured_image }}
+			<img src="{{ . }}" alt="Featured image" class="w-full h-64 object-cover rounded-lg mb-4 mt-2">
+		{{ end }}
+		<div class="prose prose-lg dark:prose-invert text-gray-700 dark:text-gray-200 leading-relaxed font-normal mt-2 mb-4">
 			{{ .Content }}
 		</div>
 		{{ if .GetTerms "tags" }}
-			<footer class="mt-4 flex flex-wrap gap-1 justify-end border-t border-gray-100 dark:border-slate-800 pt-4">
-				{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-			</footer>
+			<div class="flex flex-wrap items-center gap-2 mt-4 justify-end">
+				{{ range .GetTerms "tags" }}
+					<a href="{{ .Permalink }}" class="text-xs text-gray-600 dark:text-gray-300">#{{ .LinkTitle }}</a>
+				{{ end }}
+			</div>
 		{{ end }}
-	</article>
+	</div>
 {{ end }}

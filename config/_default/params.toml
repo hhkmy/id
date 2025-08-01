@@ -3,7 +3,7 @@ foundingdate = "Feb 1, 2021"
 slogan = "HHK Blogs and Vidoes"
 currency = "USD"
 paymentAccepted = ["Online Money", "Credit Card", "PayPal"]
-price = "$$ - $$$ - $$$$"  # Recommended schema.org format
+price = "$$ - $$$ - $$$$"
 priceLow = 12
 priceHigh = 29
 

@@ -10,7 +10,7 @@
   --breakpoint-xl: 1440px;
   --radius-4xl: 2rem;
   --font-sans: "Myanmar", "sans-serif";
-  --font-mono: "3270NF", "monospace";
+  /* --font-mono: "3270NF", "monospace"; */
 }
 
 @font-face {
@@ -20,13 +20,19 @@
   font-display: swap;
   src: url("/fonts/Pyidaungsu.woff2") format("woff2");
 }
-
 @font-face {
-  font-family: 3270NF;
+  font-family: "3270NF";
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
   src: url("/fonts/3270NF.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DejaVuSansMNF";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/DejaVuSansMNF.woff2") format("woff2");
 }
 
 @layer base {
@@ -38,12 +44,8 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 
-  a {
-    @apply hover:text-gray-500 no-underline;
-  }
-
   body {
-    @apply container mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50;
+    @apply max-w-3xl mx-auto py-3 sm:py-0 px-2 md:px-0 bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50;
   }
 
   footer {
@@ -54,10 +56,6 @@
 @layer components {
   .site-header {
     @apply flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm;
-  }
-  .post {
-    @apply relative bg-gray-200 rounded-xl dark:bg-slate-800 overflow-hidden w-full mx-auto flex items-center 
-              opacity-0 translate-y-5 transition-all duration-500 ease-out;
   }
 }
 ::-webkit-scrollbar {
@@ -173,4 +171,78 @@ img.emoji {
   width: 1.2em;
   margin: 0 0.05em 0 0.1em;
   vertical-align: middle;
+}
+
+/* Tailwind prose/content styles using @apply */
+.prose h1 {
+  @apply text-4xl font-bold text-gray-800 mt-8 mb-2 border-b-2 border-gray-200 pb-2;
+  @apply dark:text-gray-100 dark:border-gray-700;
+}
+.prose h2 {
+  @apply text-2xl font-bold text-blue-600 mt-8 mb-2 border-l-4 border-blue-400 pl-3;
+  @apply dark:text-blue-300 dark:border-blue-700;
+}
+.prose h3 {
+  @apply text-xl font-semibold text-blue-900 mt-6 mb-2;
+  @apply dark:text-blue-200;
+}
+.prose a {
+  @apply text-blue-600 hover:underline;
+  @apply dark:text-blue-400;
+}
+.prose code,
+.prose pre {
+  @apply bg-gray-100 rounded px-1 py-0.5 text-sm;
+  @apply dark:bg-gray-800 dark:text-gray-100;
+}
+.prose pre {
+  @apply p-4 overflow-x-auto border-l-4 border-blue-400 my-4;
+  @apply dark:border-blue-700;
+}
+.prose ul,
+.prose ol {
+  @apply pl-6 my-4;
+}
+.prose li {
+  @apply mb-2;
+}
+.prose table {
+  @apply w-full border-collapse my-6 shadow-sm;
+  @apply dark:shadow-none;
+}
+.prose th,
+.prose td {
+  @apply px-3 py-2 text-left border-b border-gray-200;
+  @apply dark:border-gray-700;
+}
+.prose th {
+  @apply bg-blue-500 text-white font-medium;
+  @apply dark:bg-blue-700;
+}
+.prose tr:nth-child(even) {
+  @apply bg-blue-50;
+  @apply dark:bg-gray-800;
+}
+.prose hr {
+  @apply border-0 h-px my-8 bg-gradient-to-r from-blue-300 via-blue-600 to-blue-300;
+  @apply dark:from-blue-900 dark:via-blue-700 dark:to-blue-900;
+}
+.prose blockquote {
+  @apply border-l-4 border-blue-400 pl-4 my-6 text-gray-600 italic;
+  @apply dark:border-blue-700 dark:text-gray-300;
+}
+.prose .note {
+  @apply bg-blue-100 border-l-4 border-blue-400 p-4 my-6 rounded-r;
+  @apply dark:bg-blue-900 dark:border-blue-700 dark:text-blue-100;
+}
+.prose .checklist {
+  @apply list-none pl-0;
+}
+.prose .checklist li {
+  @apply relative pl-7;
+}
+.prose .checklist li:before {
+  content: "✓";
+  @apply absolute left-0 text-blue-500;
+  @apply dark:text-blue-300;
 }
