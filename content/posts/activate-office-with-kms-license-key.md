@@ -13,10 +13,6 @@ summary:
   Microsoft ဘက်က ပြန်ပြီး Repatch လုပ်ခဲ့တော့တယ်ထင်တယ်။ နောက်ပိုင်း Office 365
   ဘက်ကို စမ်းခဲ့တာ အဆင်ပြေတာနဲ့ပဲ ပြန်မသုံးဖြစ်ခဲ့တော့ဘူး၊ ဆိုပေမယ့်
   အဆင်ပြေခဲ့တဲ့ အမှတ်တရ Content လေးအကြောင်း
-categories:
-  - Office
-  - Microsoft
-  - Windows
 tags:
   - Office
   - Microsoft

@@ -13,9 +13,6 @@ summary:
     Testing လုပ်ပြီး Windows နောက်တစ်ခါ တင်လိုက်တော့ မထည့်ဖြစ်တော့တာလေး
     ဆိုပေမယ့် Test လည်းလုပ်ခဲ့သလို Customize လည်း ကောင်းကောင်းလုပ်ခဲ့တာလေးကို
     Note အဖြစ်နဲ့ မှတ်ရင်း
-categories:
-    - Terminal
-    - Windows
 tags:
     - Terminal
     - Windows

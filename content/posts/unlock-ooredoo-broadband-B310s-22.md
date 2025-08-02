@@ -14,8 +14,6 @@ summary:
   အခြား Device တော်တော်များများကတော့ Unlock လုပ်လို့မရပဲ Hardware Method နဲ့
   ကျော်ရင် အဆင်ပြေတယ်ဆိုပေမယ့် Hardware ပိုင်း အဲ့လောက်မရတာနဲ့ပဲ Software နဲ့
   ကျော်လို့အဆင်ပြေသွားတဲ့ Device လေးအကြောင်း အဆင့်ဆင့် ရေးထားတာလေးပါ။
-categories:
-  - Unlocking Router
 tags:
   - Wireless
   - Broadband

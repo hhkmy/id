@@ -5,9 +5,6 @@ author: heinhtetkyaw
 image: images/MS_Activation_Scripts_3.png
 description: Office 365 with Developer Account မရတော့တဲ့နောက်မှာ Office Activation က သိပ်မလုပ်ဖြစ်တော့ဘူး။ Office ကလည်း သိပ်မသုံးဖြစ်တော့တာလည်းပါမယ်။ ...
 summary: Office 365 with Developer Account မရတော့တဲ့နောက်မှာ Office Activation က သိပ်မလုပ်ဖြစ်တော့ဘူး။ ဒီလိုနဲ့ ဟိုကြည့် ဒီကြည့်နဲ့ မရေးဖြစ်တာကြာတဲ့ Website လေးမှာ Content တပုဒ်ပြန်ရေးဖြစ်တော့တယ်။ 
-categores:
-  - Office365
-  - Microsoft
 tags:
   - Office365
   - Microsoft

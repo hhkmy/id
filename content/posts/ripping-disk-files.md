@@ -11,8 +11,6 @@ summary:
   သီချင်းတွေကို ပြန်ပြီး Audio device တွေဖြစ်တဲ့ ဖုန်းတွေ player တွေထဲ
   ထည့်ချင်ရင် mp3 or audio format ဖြစ်မှဆိုတော့ ripping
   ဘယ်လိုလုပ်ရမလဲဆိုတာရှာရင်းနဲ့ တွေ့ရှိဖြစ်ခဲ့တဲ့အကြောင်းလေးရေးဖြစ်တဲ့ Content~
-categories:
-  - Software
 tags:
   - Software
 keywords:

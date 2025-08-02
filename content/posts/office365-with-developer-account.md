@@ -10,9 +10,6 @@ summary:
   Microsoft ရဲ့ Office 365 ကို ဝယ်သုံးဖို့က ဈေးနည်းနည်းများသလို တစ်နှစ်တစ်ခါကြီး
   ဝယ်ဝယ်နေရတော့ အဆင်မပြေဖြစ်တာရယ် Microsoft ရဲ့ Devloper program ကိုတွေ့ထားတာနဲ့
   ရေးဖြစ်တဲ့ Note လေး
-categores:
-  - Office365
-  - Microsoft
 tags:
   - Office365
   - Microsoft

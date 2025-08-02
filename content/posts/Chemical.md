@@ -16,8 +16,6 @@ summary:
   သိမ်းထားလိုက်တော့မယ်။
 tags:
   - chemical
-categories:
-  - chemical
 keywords:
   - chemical
 slug: chemical

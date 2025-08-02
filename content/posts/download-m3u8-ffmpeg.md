@@ -12,9 +12,6 @@ summary:
   တွေကို ffmpeg software နဲ့ဘယ်လို Download လုပ်လို့ရသလဲဆိုတာလေးကို
   လာမှတ်ထားတာပါ။ IDM paid version နဲ့တောင် Download လုပ်လို့မရဘူး (ကြွားတာ)
   ဆိုတော့ အခြားနည်းရှာကြည့်တဲ့အခါ ffmpeg က တော်တော်လေးကိုအဆင်ပြေလှပေတော့တယ်။
-categores:
-  - m3u8
-  - ffmpeg
 tags:
   - m3u8
   - ffmpeg

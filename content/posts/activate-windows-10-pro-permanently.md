@@ -17,10 +17,6 @@ tags:
   - Windows
   - Activation
   - Office
-categories:
-  - Windows
-  - Office
-  - Microsoft
 keywords:
   - activation
   - windows

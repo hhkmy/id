@@ -14,8 +14,6 @@ summary:
   ပေါ်မှာ markdown language နဲ့ Hugo website ရေးပြီးမှပဲ အဆင်ပြေသွားရတော့တယ်။
   နောက်ပိုင်းကြရင်တော့ Personal Website ပြန်ရေးချင်တဲ့လူတွေအတွက် အဆင်ပြေမယ့်
   နည်းလေးကို ပြောပြပေးသွားပါ့အုံးမယ်
-categories:
-  - Personal
 tags:
   - Personal
 keywords:

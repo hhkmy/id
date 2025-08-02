@@ -12,9 +12,6 @@ summary:
   နိုင်ငံတွေလိုပဲ Dropdown လေးနဲ့ ပြချင်ခဲ့တာ ကြာခဲ့ပြီ။ ရှာရင်းနဲ့ Github repo
   လေးတွေ့တာနဲ့ ဝင်ပြီး Contributions လုပ်ပြီး ကိုယ်တိုင် အနည်းငယ်လေး Modify
   လုပ်ဖြစ်ခဲ့တဲ့ Wordpress Plugin အကြောင်း
-categories:
-  - Wordpress
-  - Woocommerce
 tags:
   - wordpress
   - woocommerce

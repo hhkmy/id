@@ -14,8 +14,6 @@ summary:
   ထဲလည်းလုပ်လို့ရသလို Windows Registery တွေကကော Software တွေ Company Management
   Software တွေကတစ်ဆင့်လည်း ပိတ်ထားလို့ရပါတယ်။ အဲ့ဒါတွေကို ဘယ်လိုမျိုး overflow
   လုပ်ခဲ့သလည်းဆိုတဲ့အကြောင်းအရာလေးပေါ့။
-categories:
-  - Networking
 tags:
   - Networking
 keywords:
