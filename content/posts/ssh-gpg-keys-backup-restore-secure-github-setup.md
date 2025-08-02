@@ -58,7 +58,7 @@ This guide covers:
 ## **2. Creating SSH Keys**  
 
 ### **A. Generate SSH Key**  
-```bash
+```bash {title="bash"}
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 - Press `Enter` for default location (`~/.ssh/id_ed25519`)  
@@ -66,7 +66,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 ### **B. Add SSH Key to GitHub**  
 1. Copy public key:  
-   ```bash
+   ```bash {title="bash"}
    cat ~/.ssh/id_ed25519.pub
    ```
 2. Go to **[GitHub → Settings → SSH Keys](https://github.com/settings/keys)** → "New SSH Key"  
