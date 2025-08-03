@@ -1,15 +1,5 @@
 <footer class="flex flex-col items-center justify-center py-8 text-sm text-gray-400 dark:text-gray-400">
 	<speedlify-score class="mb-4" speedlify-url="https://speedlify.hhk.my.id" hash="2476f489"> </speedlify-score>
-	<nav class="mb-4">
-		<ul class="flex flex-wrap justify-center gap-8">
-			<li><a href="/about" class="hover:text-gray-200">About</a></li>
-			<li><a href="/blog" class="hover:text-gray-200">Blog</a></li>
-			<li><a href="/jobs" class="hover:text-gray-200">Jobs</a></li>
-			<li><a href="/press" class="hover:text-gray-200">Press</a></li>
-			<li><a href="/accessibility" class="hover:text-gray-200">Accessibility</a></li>
-			<li><a href="/partners" class="hover:text-gray-200">Partners</a></li>
-		</ul>
-	</nav>
 	<div class="flex gap-6 mb-4">
 		{{ range .Site.Data.seo.social }}
 			<a href="{{ .url }}" aria-label="{{ .title }}" class="hover:opacity-80">
@@ -18,7 +8,7 @@
 		{{ end }}
 	</div>
 	<div class="flex items-center gap-2 mb-2">
-		Currently using
+		<span class="font-semibold text-gray-800 dark:text-gray-100">Currently using</span>
 		{{ partial "icons/icon" (dict "vendor" "social" "name" "debian" "width" "1.1rem" "height" "1.1rem" "color" "#A81D33") }}
 		{{ partial "icons/icon" (dict "vendor" "social" "name" "raspberrypi" "width" "1.1rem" "height" "1.1rem" "color" "#A22846") }}
 		{{ partial "icons/icon" (dict "vendor" "social" "name" "vscodium" "width" "1.1rem" "height" "1.1rem" "color" "#2F80ED") }}
@@ -27,5 +17,7 @@
 		{{ partial "icons/icon" (dict "vendor" "social" "name" "hugo" "width" "1.1rem" "height" "1.1rem" "color" "#FF4088") }}
 		{{ partial "icons/icon" (dict "vendor" "social" "name" "tailwindcss" "width" "1.1rem" "height" "1.1rem" "color" "#06B6D4") }}
 	</div>
-	<p class="text-center text-gray-400 dark:text-gray-500">&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+	<p class="text-center text-gray-500 dark:text-gray-400 font-medium tracking-wide leading-relaxed">
+		&copy; {{ now.Year }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights reserved.
+	</p>
 </footer>
