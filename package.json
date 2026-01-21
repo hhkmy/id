@@ -35,7 +35,7 @@
     "speedlify-score": "^4.0.4",
     "tailwindcss": "^4.1.10",
     "toml-eslint-parser": "^0.10.0",
-    "wrangler": "^4.14.1"
+    "wrangler": "^4.59.1"
   },
   "lint-staged": {
     "*.{json,css,md,html}": [
