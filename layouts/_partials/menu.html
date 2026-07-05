@@ -11,22 +11,23 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-	<ul class="flex flex-row items-center gap-2 mb-0 mt-0">
+	<ul class="mb-0 mt-0 flex flex-row items-center gap-1 sm:gap-2">
 		{{- range . }}
 			<li>
 				{{- $isActive := $page.IsMenuCurrent $menuID . }}
 				<a
 					href="{{ .URL }}"
-					class="flex flex-col items-center px-2 py-2 rounded-lg text-sm font-medium transition-colors duration-150
-			text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800
+					class="flex flex-col items-center rounded-md px-2 py-2 text-sm font-medium transition-colors duration-150
+			text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white
 			focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
-			{{ if $isActive }}bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white{{ end }}
-			sm:flex-row sm:items-center sm:gap-2 sm:py-1 sm:px-3 sm:rounded-lg"
+			{{ if $isActive }}bg-slate-900 text-white dark:bg-white dark:text-slate-950{{ end }}
+			sm:flex-row sm:items-center sm:gap-2 sm:px-3 sm:py-1.5"
 					{{ if $isActive }}aria-current="page"{{ end }}
 				>
 					{{- if .Pre }}
 						<span class="mb-1 sm:mb-0 sm:mr-1 flex items-center justify-center">
-							{{ partial "icons/icon" (dict "vendor" "default" "name" .Pre "width" "1.5rem" "height" "1.5rem") }}
+							{{ $icon := dict "vendor" "default" "name" .Pre "width" "1.2rem" "height" "1.2rem" }}
+							{{ partialCached "icons/icon" $icon $icon }}
 						</span>
 					{{- end }}
 					<span>{{ .Name }}</span>

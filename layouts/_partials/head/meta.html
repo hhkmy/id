@@ -1,49 +1,77 @@
+{{- $title := cond .IsHome .Site.Title (printf "%s - %s" .Title .Site.Title) -}}
+{{- $description := (or .Description .Summary .Site.Params.description) | plainify | htmlUnescape | truncate 160 -}}
+{{- $keywords := .Site.Params.keywords -}}
+{{- with .Params.keywords -}}
+	{{- $keywords = cond (reflect.IsSlice .) (delimit . ", ") . -}}
+{{- end -}}
+{{- $image := .Site.Params.ogimage | default "/images/og.png" -}}
+{{- with .Params.image -}}{{- $image = . -}}{{- end -}}
+{{- with .Params.featured_image -}}{{- $image = . -}}{{- end -}}
+{{- $ogType := cond (eq .Section "posts") "article" "website" -}}
+{{- $author := .Site.Params.author -}}
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="description" content="{{ $description }}">
+{{ with $keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
+<meta name="author" content="{{ $author }}">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="{{ (resources.Get "ui/favicon.ico").RelPermalink }}" type="image/x-icon">
 <link rel="apple-touch-icon" href="{{ (resources.Get "ui/apple-touch-icon.png").RelPermalink }}" sizes="180x180">
 <link rel="icon" type="image/png" href="{{ (resources.Get "ui/favicon-32x32.png").RelPermalink }}" sizes="32x32">
 <link rel="icon" type="image/png" href="{{ (resources.Get "ui/favicon-16x16.png").RelPermalink }}" sizes="16x16">
 <link rel="manifest" href="{{ (resources.Get "ui/site.webmanifest").RelPermalink }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ .Site.BaseURL }}index.xml">
-<link rel="alternate" type="application/atom+xml" title="{{ .Site.Title }} Atom Feed" href="{{ .Site.BaseURL }}index.xml">
-<link rel="alternate" type="application/json" title="{{ .Site.Title }} JSON Feed" href="{{ .Site.BaseURL }}index.json">
-<link rel="alternate" type="application/ld+json" href="{{ .Site.BaseURL }}index.json">
-<meta name="description" content="{{ .Site.Params.description }}">
-<meta name="keywords" content="{{ .Site.Params.keywords }}">
-<meta name="author" content="{{ .Site.Params.author }}">
-<meta name="theme-color" content="#ffffff">
-<meta property="og:image" content="{{ (resources.Get "ui/og-image.png").RelPermalink }}">
-<meta property="og:image:alt" content="{{ .Site.Title }} - {{ .Site.Params.description }}">
+<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ "index.xml" | absURL }}">
+<link rel="alternate" type="application/json" title="{{ .Site.Title }} JSON Feed" href="{{ "index.json" | absURL }}">
+<meta property="og:locale" content="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $image | absURL }}">
+<meta property="og:image:secure_url" content="{{ $image | absURL }}">
+<meta property="og:image:alt" content="{{ $title }}">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
-<meta property="og:description" content="{{ .Site.Params.description }}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}">
-<meta name="twitter:description" content="{{ .Site.Params.description }}">
+{{ if eq $ogType "article" }}
+	{{ with .Date }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">{{ end }}
+	{{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">{{ end }}
+	{{ range .GetTerms "tags" }}<meta property="article:tag" content="{{ .LinkTitle }}">{{ end }}
+{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $image | absURL }}">
 <script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Hein Htet Kyaw",
-		"url": "https://hhk.my.id",
-		"sameAs": [
-			"https://linkedin.com/in/h2kyaw",
-			"https://github.com/h2kyaw",
-			"https://twitter.com/HeinHtetKyaw_",
-			"https://www.facebook.com/callmeHeinHtetKyaw",
-			"https://www.facebook.com/100008954538831"
-		],
-		"jobTitle": "Founder",
-		"worksFor": {
-			"@type": "Organization",
-			"name": "Myanmar Kali Linux Organization"
-		}
-	}
+	{{- if eq $ogType "article" -}}
+		{{- dict
+			"@context" "https://schema.org"
+			"@type" "BlogPosting"
+			"headline" .Title
+			"description" $description
+			"url" .Permalink
+			"image" ($image | absURL)
+			"datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
+			"dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+			"author" (dict "@type" "Person" "name" $author "url" .Site.BaseURL)
+			"publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" ((resources.Get "ui/logo.png").Permalink | absURL)))
+			| jsonify (dict "indent" "\t")
+			| safeJS
+		-}}
+	{{- else -}}
+		{{- dict
+			"@context" "https://schema.org"
+			"@type" "Person"
+			"name" $author
+			"url" .Site.BaseURL
+			"image" ($image | absURL)
+			"jobTitle" "Founder"
+			"worksFor" (dict "@type" "Organization" "name" .Site.Params.orgname "url" .Site.Params.orgurl)
+			"sameAs" (slice .Site.Params.linkedin .Site.Params.github .Site.Params.twitter .Site.Params.facebook)
+			| jsonify (dict "indent" "\t")
+			| safeJS
+		-}}
+	{{- end -}}
 </script>

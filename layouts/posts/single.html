@@ -1,43 +1,48 @@
 {{ define "main" }}
-	<div>
-		<div class="flex items-center gap-2 mb-2 flex-wrap">
+	<article class="mx-auto max-w-3xl">
+		<div class="mb-3 flex flex-wrap items-center gap-2 text-sm">
 			{{ if .Date }}
 				{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 				{{ $dateHuman := .Date | time.Format ":date_long" }}
-				<time datetime="{{ $dateMachine }}" class="text-xs text-gray-500 dark:text-gray-400">{{ $dateHuman }}</time>
+				<time datetime="{{ $dateMachine }}" class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+					{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+					{{ $dateHuman }}
+				</time>
 			{{ end }}
 			{{ with .Params.author }}
-				<span class="text-xs text-gray-500 dark:text-gray-400 ml-2">by {{ . }}</span>
+				<span class="text-slate-500 dark:text-slate-400">by {{ . }}</span>
 			{{ end }}
 			{{ with .ReadingTime }}
-				<span class="text-xs text-gray-400 dark:text-gray-500 ml-2">• {{ . }} min read</span>
+				<span class="text-slate-400 dark:text-slate-500">• {{ . }} min read</span>
 			{{ end }}
 			{{ with .WordCount }}
-				<span class="text-xs text-gray-400 dark:text-gray-500 ml-2">• {{ . }} words</span>
+				<span class="text-slate-400 dark:text-slate-500">• {{ . }} words</span>
 			{{ end }}
 			{{ with .Params.categories }}
-				<span class="text-xs text-blue-600 dark:text-blue-300 ml-2">• {{ range $i, $cat := . }}{{ if $i }},{{ end }}{{ $cat }}{{ end }}</span>
+				<span class="text-slate-500 dark:text-slate-400">• {{ range $i, $cat := . }}{{ if $i }},{{ end }}{{ $cat }}{{ end }}</span>
 			{{ end }}
 			{{ with .Params.series }}
-				<span class="text-xs text-green-600 dark:text-green-300 ml-2">• Series: {{ . }}</span>
+				<span class="text-emerald-700 dark:text-emerald-300">• Series: {{ . }}</span>
 			{{ end }}
 			{{ with .Params.draft }}
-				{{ if . }}<span class="text-xs text-red-500 ml-2">• Draft</span>{{ end }}
+				{{ if . }}<span class="text-red-500">• Draft</span>{{ end }}
 			{{ end }}
 		</div>
-		<h1 class="text-3xl font-bold mt-2 mb-4 text-slate-900 dark:text-white leading-tight">{{ .Title }}</h1>
+		<h1 class="mb-6 text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white">{{ .Title }}</h1>
 		{{ with .Params.featured_image }}
-			<img src="{{ . }}" alt="Featured image" class="w-full h-64 object-cover rounded-lg mb-4 mt-2">
+			<img src="{{ . }}" alt="Featured image" class="mb-6 mt-2 h-72 w-full rounded-lg object-cover ring-1 ring-slate-200 dark:ring-slate-800">
 		{{ end }}
-		<div class="prose prose-lg dark:prose-invert text-gray-700 dark:text-gray-200 leading-relaxed font-normal mt-2 mb-4">
+		<div class="prose prose-lg mb-6 mt-2 max-w-none font-normal leading-relaxed text-slate-700 dark:prose-invert dark:text-slate-200">
 			{{ .Content }}
 		</div>
 		{{ if .GetTerms "tags" }}
-			<div class="flex flex-wrap items-center gap-2 mt-4 justify-end">
+			<div class="mt-6 flex flex-wrap items-center justify-end gap-2 border-t border-slate-200 pt-5 dark:border-slate-800">
 				{{ range .GetTerms "tags" }}
-					<a href="{{ .Permalink }}" class="text-xs text-gray-600 dark:text-gray-300">#{{ .LinkTitle }}</a>
+					<a href="{{ .Permalink }}" class="text-xs font-medium text-slate-500 hover:text-slate-950 hover:underline dark:text-slate-400 dark:hover:text-white"
+						>#{{ .LinkTitle }}</a
+					>
 				{{ end }}
 			</div>
 		{{ end }}
-	</div>
+	</article>
 {{ end }}

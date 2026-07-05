@@ -12,7 +12,6 @@ keywords:
   - Office365
   - Microsoft
 ---
-
 Office 365 with Developer Account ဆိုတဲ့ Microsoft Program ပိတ်သွားတဲ့နောက်မှာတော့ Mail account တွေလည်း သုံးမရတော့သလို အခြားသော Development purpose ပေးထားတဲ့ အခြားအရာတွေပါ သုံးလို့မရဖြစ်ကုန်တော့တယ် T_T
 
 ဒီလိုနဲ့ပဲ ဟိုကြည့်ဒီကြည့်နဲ့အတော်အဆင်ပြေတဲ့ Microsoft Activation Scripts လေးကိုတွေ့ပြီး လိုက်စမ်းကြည့်တော့ အတော်အဆင်ပြေသွားတော့တယ် xD

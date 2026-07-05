@@ -19,13 +19,13 @@
   "education": [
     {
       "year": "2001 - 2011",
-      "name": "No.4: Basic Education High School",
+      "name": "No.4: BEHS",
       "location": "Yezin, Zayartheri, Naypyitaw Union Territory",
       "link": "https://goo.gl/maps/gwWDJBXpsKnUBvCb9"
     },
     {
       "year": "2011 - 2013",
-      "name": "English Major (Second Year)",
+      "name": "English Major",
       "location": "University of Distance Education, Mandalay",
       "link": "https://goo.gl/maps/cjkC3M7Tew5mp2q4A"
     }
@@ -215,6 +215,11 @@
       "icon": "vibe",
       "dev": "Vibe",
       "percentage": "100"
+    },
+    {
+      "icon": "vibe",
+      "dev": "Vibe Code",
+      "percentage": "101"
     }
   ]
 }

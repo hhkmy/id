@@ -1,25 +1,89 @@
 {{ define "main" }}
-	{{ .Content }}
-
-
-	<div>
-		{{ range $i, $p := first 4 (where site.RegularPages "Section" "posts") }}
-			<div class="mb-8">
-				<h2 class="text-xl font-bold mt-2 mb-1">
-					<a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.LinkTitle }}</a>
-				</h2>
-				<div class="mb-2">
-					<span class="text-xs text-gray-500 dark:text-gray-400">{{ (time $p.Date).Format "Jan 2, 2006" }}</span>
-				</div>
-				<div class="text-gray-700 dark:text-gray-300 text-base mb-3 font-normal" style="line-height:1.7;">
-					{{ $p.Summary }}
+	{{ $posts := where site.RegularPages "Section" "posts" }}
+	{{ $profile := resources.Get "images/ProfilePhoto.jpg" }}
+	{{ $profileSmall := $profile.Fill "128x128 webp q70" }}
+	{{ $profileLarge := $profile.Fill "160x160 webp q70" }}
+	<section class="space-y-10">
+		<header class="grid gap-8 pb-10 md:grid-cols-[1fr_160px] md:items-start">
+			<div>
+				<p class="section-title mb-4">Web administrator and technical writer</p>
+				<h1 class="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl">Hein Htet Kyaw</h1>
+				<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+					I maintain web systems, document technical workflows, and publish practical notes on servers, software, and troubleshooting.
+				</p>
+				<div class="mt-7 flex flex-wrap gap-3">
+					<a href="/about/" class="link-button">About</a>
+					<a href="/posts/" class="quiet-button">Articles</a>
 				</div>
 			</div>
-		{{ end }}
-		<div class="flex justify-center mt-8">
-			<a href="/posts/" class="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 transition"
-				>Read more posts</a
+			<img
+				src="{{ $profileSmall.RelPermalink }}"
+				srcset="{{ $profileSmall.RelPermalink }} 128w, {{ $profileLarge.RelPermalink }} 160w"
+				sizes="(min-width: 768px) 160px, 128px"
+				width="160"
+				height="160"
+				alt="Hein Htet Kyaw"
+				class="h-32 w-32 rounded-md object-cover ring-1 ring-slate-200 dark:ring-slate-800 md:ml-auto md:h-40 md:w-40"
+				decoding="async"
+				fetchpriority="high"
 			>
-		</div>
-	</div>
+		</header>
+
+		<section class="panel">
+			<p class="section-title mb-4">Focus</p>
+			<div class="grid gap-4 text-base leading-7 text-slate-700 dark:text-slate-300 sm:grid-cols-3">
+				<div>
+					<h2 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.1rem" "height" "1.1rem") }} Web operations
+					</h2>
+					<p class="mt-1">Administration, deployment, DNS, Cloudflare, WordPress, and hosting workflows.</p>
+				</div>
+				<div>
+					<h2 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "blog" "width" "1.1rem" "height" "1.1rem") }} Technical writing
+					</h2>
+					<p class="mt-1">Step-by-step notes for fixes, tools, server setup, and software configuration.</p>
+				</div>
+				<div>
+					<h2 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.1rem" "height" "1.1rem") }} Systems
+					</h2>
+					<p class="mt-1">Linux, Debian, Git, automation, and day-to-day troubleshooting.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="panel">
+			<div class="mb-2 flex items-end justify-between gap-4">
+				<div>
+					<p class="section-title">Latest writing</p>
+					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Technical notes and guides</h2>
+				</div>
+				<a href="/posts/" class="hidden text-sm font-semibold text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white sm:inline"
+					>All posts</a
+				>
+			</div>
+			<div>
+				{{ range $i, $p := first 5 $posts }}
+					<article class="post-card">
+						<div class="mb-2 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
+							<span class="flex items-center gap-1.5"
+								>{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+								{{ (time $p.Date).Format "Jan 2, 2006" }}</span
+							>
+							{{ with $p.Params.tags }}
+								<span>{{ index . 0 }}</span>
+							{{ end }}
+						</div>
+						<h3 class="text-xl font-bold leading-snug text-slate-950 dark:text-white">
+							<a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.LinkTitle }}</a>
+						</h3>
+						<div class="mt-2 line-clamp-2 text-base leading-7 text-slate-600 dark:text-slate-300">
+							{{ $p.Summary }}
+						</div>
+					</article>
+				{{ end }}
+			</div>
+		</section>
+	</section>
 {{ end }}

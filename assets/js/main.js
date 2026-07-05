@@ -5,6 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const root = document.documentElement;
   const qrImg = document.getElementById('qr-image');
 
+  function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    root.classList.toggle('dark', isDark);
+    root.toggleAttribute('data-pf-theme', isDark);
+    if (isDark) {
+      root.setAttribute('data-pf-theme', 'dark');
+    }
+    if (darkBtn) darkBtn.style.display = isDark ? 'none' : '';
+    if (lightBtn) lightBtn.style.display = isDark ? '' : 'none';
+    setQrImageByTheme(theme);
+  }
+
   function setQrImageByTheme(theme) {
     if (!qrImg) return;
     if (theme === 'dark') {
@@ -19,34 +31,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   let theme;
   if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
-    root.classList.add('dark');
     localStorage.setItem('theme', 'dark');
     theme = 'dark';
-    if (darkBtn) darkBtn.style.display = 'none';
-    if (lightBtn) lightBtn.style.display = '';
   } else {
-    root.classList.remove('dark');
     localStorage.setItem('theme', 'light');
     theme = 'light';
-    if (darkBtn) darkBtn.style.display = '';
-    if (lightBtn) lightBtn.style.display = 'none';
   }
-  setQrImageByTheme(theme);
+  applyTheme(theme);
 
   if (darkBtn && lightBtn) {
     darkBtn.addEventListener('click', () => {
-      root.classList.add('dark');
       localStorage.setItem('theme', 'dark');
-      if (darkBtn) darkBtn.style.display = 'none';
-      if (lightBtn) lightBtn.style.display = '';
-      setQrImageByTheme('dark');
+      applyTheme('dark');
     });
     lightBtn.addEventListener('click', () => {
-      root.classList.remove('dark');
       localStorage.setItem('theme', 'light');
-      if (darkBtn) darkBtn.style.display = '';
-      if (lightBtn) lightBtn.style.display = 'none';
-      setQrImageByTheme('light');
+      applyTheme('light');
     });
   }
 
@@ -54,16 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     const systemTheme = e.matches ? 'dark' : 'light';
     if (!localStorage.getItem('theme')) {
-      if (systemTheme === 'dark') {
-        root.classList.add('dark');
-        setQrImageByTheme('dark');
-      } else {
-        root.classList.remove('dark');
-        setQrImageByTheme('light');
-      }
+      applyTheme(systemTheme);
     } else {
-      setQrImageByTheme(localStorage.getItem('theme'));
+      applyTheme(localStorage.getItem('theme'));
     }
   });
 });
-

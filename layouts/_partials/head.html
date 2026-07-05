@@ -5,9 +5,13 @@
 	// Immediately check for dark mode preference
 	if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
 		document.documentElement.classList.add("dark");
+		document.documentElement.setAttribute("data-pf-theme", "dark");
 	} else {
 		document.documentElement.classList.remove("dark");
+		document.documentElement.removeAttribute("data-pf-theme");
 	}
 </script>
-{{ partial "head/css.html" . }}
+{{ partialCached "head/css.html" . hugo.IsDevelopment }}
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script>
 {{ partialCached "head/js.html" . }}
