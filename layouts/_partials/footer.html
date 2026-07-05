@@ -11,24 +11,21 @@
 		</div>
 		<div class="flex items-center gap-2 mb-2">
 			<span class="font-semibold text-slate-800 dark:text-slate-100">Currently using</span>
-			{{ range slice
-				(dict "vendor" "social" "name" "debian" "width" "1.1rem" "height" "1.1rem" "color" "#A81D33")
-				(dict "vendor" "social" "name" "raspberrypi" "width" "1.1rem" "height" "1.1rem" "color" "#A22846")
-				(dict "vendor" "social" "name" "vscodium" "width" "1.1rem" "height" "1.1rem" "color" "#2F80ED")
-				(dict "vendor" "social" "name" "oneplus" "width" "1.1rem" "height" "1.1rem" "color" "#F5010C")
-				(dict "vendor" "social" "name" "xiaomi" "width" "1.1rem" "height" "1.1rem" "color" "#FF6900")
-				(dict "vendor" "social" "name" "hugo" "width" "1.1rem" "height" "1.1rem" "color" "#FF4088")
-				(dict "vendor" "social" "name" "tailwindcss" "width" "1.1rem" "height" "1.1rem" "color" "#06B6D4")
+			{{ range slice (dict "vendor" "social" "name" "debian" "width" "1.1rem" "height" "1.1rem" "color" "#A81D33") (dict "vendor" "social" "name" "raspberrypi"
+				"width" "1.1rem" "height" "1.1rem" "color" "#A22846") (dict "vendor" "social" "name" "openai" "width" "1.1rem" "height" "1.1rem") (dict "vendor" "social"
+				"name" "docker" "width" "1.1rem" "height" "1.1rem" "color" "#2560FF") (dict "vendor" "social" "name" "zed" "width" "1.1rem" "height" "1.1rem" "color"
+				"#1348DC") (dict "vendor" "social" "name" "vscodium" "width" "1.1rem" "height" "1.1rem" "color" "#2F80ED") (dict "vendor" "social" "name" "oneplus" "width"
+				"1.1rem" "height" "1.1rem" "color" "#F5010C") (dict "vendor" "social" "name" "xiaomi" "width" "1.1rem" "height" "1.1rem" "color" "#FF6900") (dict "vendor"
+				"social" "name" "hugo" "width" "1.1rem" "height" "1.1rem" "color" "#FF4088") (dict "vendor" "social" "name" "tailwindcss" "width" "1.1rem" "height" "1.1rem"
+				"color" "#06B6D4")
 			}}
 				{{ partialCached "icons/icon" . . }}
 			{{ end }}
 		</div>
 		<div id="visitor-location" class="mb-2"></div>
 		<p class="text-center font-medium leading-relaxed tracking-wide text-slate-500 dark:text-slate-400">
-			{{ $startYear := (time site.Params.foundingdate).Year }}
-			{{ $currentYear := now.Year }}
-			&copy; {{ $startYear }}{{ if ne $startYear $currentYear }}- {{ $currentYear }}{{ end }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights
-			reserved.
+			{{ $startYear := (time site.Params.foundingdate).Year }} {{ $currentYear := now.Year }} &copy;
+			{{ $startYear }}{{ if ne $startYear $currentYear }}- {{ $currentYear }}{{ end }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights reserved.
 		</p>
 	</div>
 </footer>
