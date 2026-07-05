@@ -23,7 +23,7 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ "index.xml" | absURL }}">
 <link rel="alternate" type="application/json" title="{{ .Site.Title }} JSON Feed" href="{{ "index.json" | absURL }}">
-<meta property="og:locale" content="{{ .Site.Language.LanguageCode | default .Site.Language.Lang }}">
+<meta property="og:locale" content="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">

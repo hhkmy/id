@@ -3,7 +3,7 @@ baseURL = "https://hhk.my.id/"
 publishDir = "public"
 
 languageName = "မြန်မာ"
-languageCode = "my-mm"
+locale = "my-mm"
 defaultContentLanguage = "my-mm"
 
 canonifyURLs = true
