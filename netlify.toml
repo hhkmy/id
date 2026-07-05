@@ -1,5 +1,5 @@
 [build]
-    command = "npm run build -- --baseURL $URL && npm run pagefind"
+    command = "npm run build -- --baseURL $URL"
     publish = "public"
     timeout = 1200
 
@@ -11,16 +11,16 @@
     HUGO_ENABLEGITINFO = "false"
 
 [context.split1]
-    command = "npm run build -- --baseURL $URL --enableGitInfo && npm run pagefind"
+    command = "npm run build -- --baseURL $URL --enableGitInfo"
 
 [context.split1.environment]
     HUGO_ENV = "production"
 
 [context.deploy-preview]
-    command = "npm run build -- --buildFuture --baseURL $DEPLOY_PRIME_URL && npm run pagefind"
+    command = "npm run build -- --buildFuture --baseURL $DEPLOY_PRIME_URL"
 
 [context.branch-deploy]
-    command = "npm run build -- --baseURL $DEPLOY_PRIME_URL && npm run pagefind"
+    command = "npm run build -- --baseURL $DEPLOY_PRIME_URL"
 
 [context.next.environment]
     HUGO_ENABLEGITINFO = "false"

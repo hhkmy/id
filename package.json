@@ -6,8 +6,9 @@
   "scripts": {
     "watch:hugo": "hugo server --disableFastRender",
     "build": "hugo --gc --minify",
+    "postbuild": "pagefind --site \"public\"",
     "pagefind": "pagefind --site \"public\"",
-    "build:search": "npm run build && npm run pagefind",
+    "build:search": "npm run build",
     "watch:tw": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/style.css --watch",
     "build:css": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
