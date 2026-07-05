@@ -12,6 +12,5 @@
 	}
 </script>
 {{ partialCached "head/css.html" . hugo.IsDevelopment }}
-<link href="/assets/css/pagefind-component-ui.css" rel="stylesheet">
-<script src="/assets/js/pagefind-component-ui.js" type="module"></script>
+{{ partialCached "head/pagefind.html" . hugo.IsDevelopment }}
 {{ partialCached "head/js.html" . }}

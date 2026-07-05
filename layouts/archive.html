@@ -1,8 +1,8 @@
 {{ define "main" }}
 	<section>
-		{{ $posts := (where site.RegularPages "Type" "posts") }}
+		{{ $articles := (where site.RegularPages "Type" "articles") }}
 		{{ $.Scratch.Set "years" (slice) }}
-		{{ range $posts }}
+		{{ range $articles }}
 			{{ $year := (time .Date).Year }}
 			{{ if not (in ($.Scratch.Get "years") $year) }}
 				{{ $.Scratch.Add "years" (slice $year) }}
@@ -14,14 +14,14 @@
 			{{ $year := index $years (sub $n $i) }}
 			<h2 class="text-2xl font-bold text-slate-900 dark:text-white">{{ $year }}</h2>
 			<ul>
-				{{ range $post := where $posts "Date" ">=" (time (printf "%d-01-01" $year)) }}
-					{{ if lt (time $post.Date).Year (add $year 1) }}
+				{{ range $article := where $articles "Date" ">=" (time (printf "%d-01-01" $year)) }}
+					{{ if lt (time $article.Date).Year (add $year 1) }}
 						<li class="flex items-center mb-2">
-							<span class="w-16 text-gray-400 dark:text-gray-500 tabular-nums">{{ (time $post.Date).Format "Jan 2" }}</span>
-							<a href="{{ $post.RelPermalink }}" class="flex-1 text-base text-blue-600 dark:text-blue-300 hover:underline font-medium"
-								>{{ $post.Title }}</a
+							<span class="w-16 text-gray-400 dark:text-gray-500 tabular-nums">{{ (time $article.Date).Format "Jan 2" }}</span>
+							<a href="{{ $article.RelPermalink }}" class="flex-1 text-base text-blue-600 dark:text-blue-300 hover:underline font-medium"
+								>{{ $article.Title }}</a
 							>
-							{{ with $post.Params.views }}
+							{{ with $article.Params.views }}
 								<span
 									class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-gray-700/20 dark:bg-gray-200/10 text-xs text-gray-700 dark:text-gray-200 font-semibold"
 								>

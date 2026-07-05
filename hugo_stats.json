@@ -3,6 +3,7 @@
     "tags": null,
     "classes": [
       "animate-bounce",
+      "article-card",
       "backdrop-blur",
       "bg-blue-100",
       "bg-gray-100",
@@ -169,7 +170,6 @@
       "panel",
       "pb-10",
       "pl-4",
-      "post-card",
       "prose",
       "prose-lg",
       "pt-4",

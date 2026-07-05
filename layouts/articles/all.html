@@ -1,5 +1,5 @@
 {{ define "main" }}
-	{{ $paginator := .Paginate (where site.RegularPages "Section" "posts") 5 }}
+	{{ $paginator := .Paginate (where site.RegularPages "Section" "articles") 5 }}
 	<header class="mb-8">
 		<p class="section-title">Archive</p>
 		<h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-950 dark:text-white">{{ .Title }}</h1>
@@ -9,7 +9,7 @@
 	</header>
 	<div>
 		{{ range $paginator.Pages }}
-			<article class="post-card">
+			<article class="article-card">
 				<div class="mb-2 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
 					<span class="flex items-center gap-1.5"
 						>{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }} {{ (time .Date).Format "Jan 2, 2006" }}</span

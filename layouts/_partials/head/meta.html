@@ -7,7 +7,7 @@
 {{- $image := .Site.Params.ogimage | default "/images/og.png" -}}
 {{- with .Params.image -}}{{- $image = . -}}{{- end -}}
 {{- with .Params.featured_image -}}{{- $image = . -}}{{- end -}}
-{{- $ogType := cond (eq .Section "posts") "article" "website" -}}
+{{- $ogType := cond (eq .Section "articles") "article" "website" -}}
 {{- $author := .Site.Params.author -}}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index, follow, max-image-preview:large">

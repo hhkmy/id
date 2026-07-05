@@ -25,7 +25,10 @@
 		</div>
 		<div id="visitor-location" class="mb-2"></div>
 		<p class="text-center font-medium leading-relaxed tracking-wide text-slate-500 dark:text-slate-400">
-			&copy; {{ now.Year }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights reserved.
+			{{ $startYear := (time site.Params.foundingdate).Year }}
+			{{ $currentYear := now.Year }}
+			&copy; {{ $startYear }}{{ if ne $startYear $currentYear }}- {{ $currentYear }}{{ end }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights
+			reserved.
 		</p>
 	</div>
 </footer>

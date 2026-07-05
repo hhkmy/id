@@ -1,0 +1,11 @@
+{{- range resources.Match "pagefind/**" }}
+	{{- $resource := resources.Copy .Name . }}
+	{{- $noop := $resource.RelPermalink }}
+{{- end }}
+
+{{- with resources.Get "pagefind/pagefind-component-ui.css" }}
+	<link href="{{ .RelPermalink }}" rel="stylesheet">
+{{- end }}
+{{- with resources.Get "pagefind/pagefind-component-ui.js" }}
+	<script src="{{ .RelPermalink }}"></script>
+{{- end }}

@@ -1,0 +1,7 @@
+{
+  "version": "1.5.2",
+  "languages": {
+    "my-mm": { "hash": "my-mm_893ad87ce9878", "wasm": null, "page_count": 82 }
+  },
+  "include_characters": ["_", "‿", "⁀", "⁔", "︳", "︴", "﹍", "﹎", "﹏", "＿"]
+}

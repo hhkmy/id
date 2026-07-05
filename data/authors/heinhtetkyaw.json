@@ -4,7 +4,7 @@
   "avatar": "/images/ProfilePhoto.jpg",
   "weight": 1,
   "roles": ["Content Writer", "Scripter", "Web Designer", "Narrator"],
-  "postsrole": ["Writer"],
+  "articlesrole": ["Writer"],
   "social": {
     "facebook": "callmeHeinHtetKyaw",
     "facebook_admin": "100008954538831",

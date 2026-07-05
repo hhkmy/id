@@ -20,9 +20,9 @@
     pageRef = '/books'
     weight = 3
 [[main]]
-    Pre = 'posts'
-    Url = '/posts'
-    identifier = 'posts'
-    name = 'Posts'
-    pageRef = '/posts'
+    Pre = 'blog'
+    Url = '/articles'
+    identifier = 'articles'
+    name = 'Articles'
+    pageRef = '/articles'
     weight = 4

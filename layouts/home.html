@@ -1,5 +1,5 @@
 {{ define "main" }}
-	{{ $posts := where site.RegularPages "Section" "posts" }}
+	{{ $articles := where site.RegularPages "Section" "articles" }}
 	{{ $profile := resources.Get "images/ProfilePhoto.jpg" }}
 	{{ $profileSmall := $profile.Fill "128x128 webp q70" }}
 	{{ $profileLarge := $profile.Fill "160x160 webp q70" }}
@@ -13,7 +13,7 @@
 				</p>
 				<div class="mt-7 flex flex-wrap gap-3">
 					<a href="/about/" class="link-button">About</a>
-					<a href="/posts/" class="quiet-button">Articles</a>
+					<a href="/articles/" class="quiet-button">Articles</a>
 				</div>
 			</div>
 			<img
@@ -59,13 +59,13 @@
 					<p class="section-title">Latest writing</p>
 					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Technical notes and guides</h2>
 				</div>
-				<a href="/posts/" class="hidden text-sm font-semibold text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white sm:inline"
-					>All posts</a
+				<a href="/articles/" class="hidden text-sm font-semibold text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white sm:inline"
+					>All articles</a
 				>
 			</div>
 			<div>
-				{{ range $i, $p := first 5 $posts }}
-					<article class="post-card">
+				{{ range $i, $p := first 5 $articles }}
+					<article class="article-card">
 						<div class="mb-2 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
 							<span class="flex items-center gap-1.5"
 								>{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
