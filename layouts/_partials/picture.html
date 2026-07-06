@@ -1,0 +1,44 @@
+{{- $image := .image -}}
+{{- $alt := .alt | default "" -}}
+{{- $title := .title | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $decoding := .decoding | default "async" -}}
+{{- $maxWidth := .maxWidth | default 1600 -}}
+{{- $maxAvifSourcePixels := .maxAvifSourcePixels | default 20000000 -}}
+{{- $isProcessable := and $image (reflect.IsImageResourceProcessable $image) -}}
+{{- $isGif := and $image (eq $image.MediaType.SubType "gif") -}}
+
+{{- if and $isProcessable (not $isGif) -}}
+	{{- $fallback := $image -}}
+	{{- if gt $image.Width $maxWidth -}}
+		{{- $fallback = $image.Resize (printf "%dx" $maxWidth) -}}
+	{{- end -}}
+	{{- $webp := $fallback.Process "webp" -}}
+	{{- $sourcePixels := mul $image.Width $image.Height -}}
+	<picture>
+		{{- if le $sourcePixels $maxAvifSourcePixels -}}
+			{{- $avif := $fallback.Process "avif" -}}
+			<source srcset="{{ $avif.RelPermalink }}" type="{{ $avif.MediaType.Type }}">
+		{{- end -}}
+		<source srcset="{{ $webp.RelPermalink }}" type="{{ $webp.MediaType.Type }}">
+		<img
+			src="{{ $fallback.RelPermalink }}"
+			width="{{ $fallback.Width }}"
+			height="{{ $fallback.Height }}"
+			alt="{{ $alt }}"
+			{{ with $title }}title="{{ . }}"{{ end }}{{ with $class }}class="{{ . }}"{{ end }}
+			loading="{{ $loading }}"
+			decoding="{{ $decoding }}"
+		>
+	</picture>
+{{- else if $image -}}
+	<img
+		src="{{ $image.RelPermalink }}"
+		{{ with $image.Width }}width="{{ . }}"{{ end }}{{ with $image.Height }}height="{{ . }}"{{ end }}
+		alt="{{ $alt }}"
+		{{ with $title }}title="{{ . }}"{{ end }}{{ with $class }}class="{{ . }}"{{ end }}
+		loading="{{ $loading }}"
+		decoding="{{ $decoding }}"
+	>
+{{- end -}}

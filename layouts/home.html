@@ -1,40 +1,65 @@
 {{ define "main" }}
 	{{ $articles := where site.RegularPages "Section" "articles" }}
 	<section class="space-y-10">
-		<header class="pb-10">
-			<div>
+		<header class="home-hero">
+			<div class="home-hero-copy">
 				<p class="section-title mb-4">Web administrator and technical writer</p>
-				<h1 class="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl">Hein Htet Kyaw</h1>
-				<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+				<h1 class="home-hero-title">Hein Htet Kyaw</h1>
+				<p class="home-hero-summary">
 					I maintain web systems, document technical workflows, and publish practical notes on servers, software, and troubleshooting.
 				</p>
-				<div class="mt-7 flex flex-wrap gap-3">
+				<div class="home-hero-actions">
 					<a href="/about/" class="link-button">About</a>
 					<a href="/articles/" class="quiet-button">Articles</a>
+				</div>
+			</div>
+			<div class="home-hero-panel">
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Primary stack</p>
+					<p class="home-hero-panel-value">Hugo, Cloudflare, Linux, WordPress</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Recent topics</p>
+					<p class="home-hero-panel-value">DNS, Git security, automation, activation notes</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Writing style</p>
+					<p class="home-hero-panel-value">Practical guides, fixes, and repeatable workflows</p>
 				</div>
 			</div>
 		</header>
 
 		<section class="panel">
-			<p class="section-title mb-4">Focus</p>
-			<div class="grid gap-4 text-base leading-7 text-slate-700 dark:text-slate-300 sm:grid-cols-3">
+			<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
 				<div>
-					<h2 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.1rem" "height" "1.1rem") }} Web operations
-					</h2>
-					<p class="mt-1">Administration, deployment, DNS, Cloudflare, WordPress, and hosting workflows.</p>
+					<p class="section-title">Focus</p>
+					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Systems, publishing, and operations</h2>
 				</div>
-				<div>
-					<h2 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "blog" "width" "1.1rem" "height" "1.1rem") }} Technical writing
-					</h2>
-					<p class="mt-1">Step-by-step notes for fixes, tools, server setup, and software configuration.</p>
+				<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+					Notes are organized around work that needs to be repeatable, searchable, and easy to verify later.
+				</p>
+			</div>
+			<div class="focus-grid">
+				<div class="focus-card">
+					<div class="focus-card-icon">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.15rem" "height" "1.15rem") }}
+					</div>
+					<h3 class="focus-card-title">Web operations</h3>
+					<p class="focus-card-text">Administration, deployment, DNS, Cloudflare, WordPress, and hosting workflows.</p>
 				</div>
-				<div>
-					<h2 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.1rem" "height" "1.1rem") }} Systems
-					</h2>
-					<p class="mt-1">Linux, Debian, Git, automation, and day-to-day troubleshooting.</p>
+				<div class="focus-card">
+					<div class="focus-card-icon">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "blog" "width" "1.15rem" "height" "1.15rem") }}
+					</div>
+					<h3 class="focus-card-title">Technical writing</h3>
+					<p class="focus-card-text">Step-by-step notes for fixes, tools, server setup, and software configuration.</p>
+				</div>
+				<div class="focus-card">
+					<div class="focus-card-icon">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.15rem" "height" "1.15rem") }}
+					</div>
+					<h3 class="focus-card-title">Systems</h3>
+					<p class="focus-card-text">Linux, Debian, Git, automation, and day-to-day troubleshooting.</p>
 				</div>
 			</div>
 		</section>
@@ -49,22 +74,36 @@
 					>All articles</a
 				>
 			</div>
-			<div>
-				{{ range $i, $p := first 5 $articles }}
-					<article class="article-card">
-						<div class="mb-2 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
+			<div class="article-bento-grid">
+				{{ range $i, $p := first 7 $articles }}
+					{{ $badge := "Article" }}
+					{{ with $p.Params.tags }}{{ $badge = index . 0 }}{{ end }}
+					{{ $cardSize := "article-bento-compact" }}
+					{{ if eq $i 0 }}
+						{{ $cardSize = "article-bento-feature" }}
+					{{ else if eq $i 1 }}
+						{{ $cardSize = "article-bento-tall" }}
+					{{ else if or (eq $i 2) (eq $i 3) }}
+						{{ $cardSize = "article-bento-wide" }}
+					{{ end }}
+					<article class="article-card {{ $cardSize }} flex min-h-56 flex-col">
+						<span class="article-category-badge">{{ $badge }}</span>
+						<div class="article-card-meta">
 							<span class="flex items-center gap-1.5"
 								>{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
 								{{ (time $p.Date).Format "Jan 2, 2006" }}</span
 							>
-							{{ with $p.Params.tags }}
-								<span>{{ index . 0 }}</span>
-							{{ end }}
 						</div>
-						<h3 class="text-xl font-bold leading-snug text-slate-950 dark:text-white">
+						<h3
+							class="{{ if eq $i 0 }}
+								mt-4 text-2xl sm:text-3xl
+							{{ else }}
+								mt-3 text-xl
+							{{ end }} font-bold leading-snug tracking-tight text-slate-950 dark:text-white"
+						>
 							<a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.LinkTitle }}</a>
 						</h3>
-						<div class="mt-2 line-clamp-2 text-base leading-7 text-slate-600 dark:text-slate-300">
+						<div class="article-card-snippet {{ if eq $i 0 }}line-clamp-4 text-lg leading-8{{ else if eq $i 1 }}line-clamp-5{{ else }}line-clamp-3{{ end }}">
 							{{ $p.Summary }}
 						</div>
 					</article>

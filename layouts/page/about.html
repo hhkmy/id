@@ -1,28 +1,40 @@
 {{ define "main" }}
 	<section class="space-y-10">
-		<header class="pb-10">
-			<div>
+		<header class="home-hero">
+			<div class="home-hero-copy">
 				<p class="section-title mb-4">About</p>
-				<h1 class="text-4xl font-bold tracking-tight text-slate-950 dark:text-white">{{ .Title }}</h1>
-				<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">{{ .Params.summary }}</p>
+				<h1 class="home-hero-title">{{ .Title }}</h1>
+				<p class="home-hero-summary">{{ .Params.summary }}</p>
 				<div class="prose mt-5 max-w-3xl text-slate-700 dark:text-slate-200">
 					{{ .Content }}
+				</div>
+			</div>
+			<div class="home-hero-panel">
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Current focus</p>
+					<p class="home-hero-panel-value">Web operations and technical documentation</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Tooling</p>
+					<p class="home-hero-panel-value">Linux, Hugo, Cloudflare, WordPress, Git</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Profile</p>
+					<p class="home-hero-panel-value">{{ len hugo.Data.about.skills }} listed skills, {{ len hugo.Data.about.employment }} work entries</p>
 				</div>
 			</div>
 		</header>
 
 		<section class="panel">
-			<h2 class="mb-5 flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
-				{{ partial "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem") }} Contact
-			</h2>
-			<ul class="grid gap-3 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
+			<h2 class="about-section-heading">{{ partial "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem") }} Contact</h2>
+			<ul class="about-contact-grid">
 				{{ range hugo.Data.about.contact }}
-					<li class="flex items-start gap-3">
-						<span class="mt-0.5 text-slate-400">{{ partial "icons/icon" (dict "vendor" "default" "name" .icon "width" "1rem" "height" "1rem") }}</span>
+					<li class="about-contact-card">
+						<span class="about-contact-icon">{{ partial "icons/icon" (dict "vendor" "default" "name" .icon "width" "1.1rem" "height" "1.1rem") }}</span>
 						{{ if .link }}
-							<a href="{{ .link | safeURL }}" class="break-words hover:text-slate-950 hover:underline dark:hover:text-white">{{ .value }}</a>
+							<a href="{{ .link | safeURL }}" class="break-words font-semibold hover:text-slate-950 hover:underline dark:hover:text-white">{{ .value }}</a>
 						{{ else }}
-							<span>{{ .value }}</span>
+							<span class="font-semibold">{{ .value }}</span>
 						{{ end }}
 					</li>
 				{{ end }}
@@ -30,19 +42,17 @@
 		</section>
 
 		<section class="panel">
-			<h2 class="mb-5 flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
-				{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem") }} Employment
-			</h2>
-			<ol class="space-y-5">
+			<h2 class="about-section-heading">{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem") }} Employment</h2>
+			<ol class="about-timeline">
 				{{ range hugo.Data.about.employment }}
-					<li class="grid gap-2 border-l-2 border-slate-200 pl-4 dark:border-slate-800 sm:grid-cols-[180px_1fr] sm:border-l-0 sm:pl-0">
-						<div class="text-sm font-medium text-slate-500 dark:text-slate-400">{{ .year }}</div>
+					<li class="about-timeline-item">
+						<div class="about-timeline-year">{{ .year }}</div>
 						<div>
-							<h3 class="flex items-center gap-2 font-semibold text-slate-950 dark:text-white">
+							<h3 class="flex items-center gap-2 text-lg font-bold text-slate-950 dark:text-white">
 								{{ partial "icons/icon" (dict "vendor" "default" "name" "worker" "width" "1rem" "height" "1rem") }}
 								{{ .company }}
 							</h3>
-							<p class="text-sm text-slate-700 dark:text-slate-300">{{ .role }}</p>
+							<p class="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-300">{{ .role }}</p>
 							{{ if .link }}
 								<a
 									href="{{ .link | safeURL }}"
@@ -57,11 +67,11 @@
 		</section>
 
 		<section class="panel">
-			<h2 class="mb-5 flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
+			<h2 class="about-section-heading">
 				{{ partial "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem") }} Education and Qualifications
 			</h2>
-			<div class="grid gap-8 md:grid-cols-2">
-				<div>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div class="about-card">
 					<h3 class="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
 						{{ partial "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1rem" "height" "1rem") }} Education
 					</h3>
@@ -79,7 +89,7 @@
 						{{ end }}
 					</ul>
 				</div>
-				<div>
+				<div class="about-card">
 					<h3 class="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
 						{{ partial "icons/icon" (dict "vendor" "default" "name" "qualification" "width" "1rem" "height" "1rem") }} Qualifications
 					</h3>
@@ -99,12 +109,10 @@
 		</section>
 
 		<section class="panel">
-			<h2 class="mb-5 flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
-				{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem") }} Skills
-			</h2>
-			<div class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+			<h2 class="about-section-heading">{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem") }} Skills</h2>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				{{ range hugo.Data.about.skills }}
-					<div>
+					<div class="about-skill-card">
 						<div class="mb-1 flex items-center justify-between gap-4">
 							<span class="flex items-center gap-2 text-sm font-medium text-slate-800 dark:text-slate-200">
 								{{ partial "icons/icon" (dict "vendor" "skills" "name" .icon "width" "1.1rem" "height" "1.1rem") }}

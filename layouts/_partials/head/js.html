@@ -9,7 +9,7 @@
 	{{- if hugo.IsDevelopment }}
 		<script src="{{ .RelPermalink }}" defer></script>
 	{{- else }}
-		{{- with . | fingerprint }}
+		{{- with resources.Fingerprint . }}
 			<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
 		{{- end }}
 	{{- end }}
@@ -18,7 +18,7 @@
 	{{- if hugo.IsDevelopment }}
 		<script src="{{ .RelPermalink }}" defer></script>
 	{{- else }}
-		{{- with . | fingerprint }}
+		{{- with resources.Fingerprint . }}
 			<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
 		{{- end }}
 	{{- end }}

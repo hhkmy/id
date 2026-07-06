@@ -1,15 +1,34 @@
 title = "HHK BVlog"
 baseURL = "https://hhk.my.id/"
 publishDir = "public"
+cacheDir = "/home/hhk/websites/id/.cache/hugo"
 
 languageName = "မြန်မာ"
 locale = "my-mm"
 defaultContentLanguage = "my-mm"
 
-canonifyURLs = true
+canonifyURLs = false
 enableEmoji = true
 enableGitInfo = false
 enableRobotsTXT = true
+
+[caches]
+    [caches.images]
+        dir = ':cacheDir/images'
+
+[imaging]
+    resampleFilter = 'lanczos'
+    [imaging.avif]
+        compression = 'lossy'
+        encoderSpeed = 10
+        hint = 'photo'
+        quality = 60
+    [imaging.webp]
+        compression = 'lossy'
+        hint = 'photo'
+        method = 4
+        quality = 75
+        useSharpYuv = true
 
 [params]
     author = "Hein Htet Kyaw"

@@ -1,0 +1,29 @@
+{{- $type := .Type | default "" -}}
+{{- $title := "" -}}
+{{- with index .Attributes "title" -}}
+	{{- $title = . -}}
+{{- else -}}
+	{{- with index .Attributes "Title" -}}
+		{{- $title = . -}}
+	{{- end -}}
+{{- end -}}
+{{- if not $title -}}
+	{{- $title = $type | default "code" -}}
+{{- end -}}
+
+<div class="code-window not-prose my-6 w-full max-w-[calc(100%-20px)] mx-auto overflow-hidden rounded-lg shadow-lg bg-slate-900">
+	<div class="flex items-center justify-between gap-4 px-5 py-2 border-b bg-slate-800 border-slate-700 sm:px-6">
+		<div class="flex space-x-2" aria-hidden="true">
+			<div class="w-3 h-3 bg-red-500 rounded-full"></div>
+			<div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+			<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+		</div>
+		<span class="min-w-0 truncate text-xs font-medium text-slate-400 font-sans">{{ $title }}</span>
+		<button type="button" class="code-copy-button rounded-md border border-slate-700 px-2.5 py-1 text-xs font-medium text-slate-300 transition hover:border-slate-500 hover:bg-slate-700 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500" aria-label="Copy code to clipboard">
+			Copy
+		</button>
+	</div>
+	<div class="px-5 py-4 overflow-x-auto text-sm font-mono text-slate-200 sm:px-6 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+		<pre><code class="block whitespace-pre{{ with $type }} language-{{ . }}{{ end }}">{{ .Inner }}</code></pre>
+	</div>
+</div>

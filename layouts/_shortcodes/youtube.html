@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $title := .Get "title" | default "YouTube video" -}}
+{{- with $id -}}
+	<div
+		class="lite-youtube"
+		data-youtube-id="{{ . }}"
+		data-youtube-src="https://www.youtube-nocookie.com/embed/{{ . }}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+		data-youtube-title="{{ $title }}"
+	>
+		<button class="lite-youtube-trigger" type="button" aria-label="Play {{ $title }}">
+			<img src="https://i.ytimg.com/vi/{{ . }}/hqdefault.jpg" alt="" loading="lazy">
+			<span class="lite-youtube-play" aria-hidden="true"></span>
+		</button>
+	</div>
+{{- end -}}

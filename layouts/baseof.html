@@ -6,6 +6,7 @@
 	<body>
 		<header>{{ partial "header.html" . }}</header>
 		<main class="site-shell" data-pagefind-body>{{ block "main" . }}{{ end }}</main>
-		{{ partial "footer.html" . }}
+		{{ partialCached "footer.html" . now.Year }}
+		{{ partial "twemoji.html" . }}
 	</body>
 </html>

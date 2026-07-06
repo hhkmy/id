@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
     "watch:hugo": "hugo server --disableFastRender",
-    "build": "hugo --gc --minify",
+    "build": "HUGO_CACHEDIR=\"${HUGO_CACHEDIR:-/tmp/hugo_cache}\" hugo --gc --minify",
     "postbuild": "pagefind --site \"public\"",
     "pagefind": "pagefind --site \"public\"",
     "build:search": "npm run build",
-    "watch:tw": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/style.css --watch",
-    "build:css": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
     "precommit": "lint-staged",
     "prepare": "node .husky/install.mjs"
@@ -29,14 +27,16 @@
   "license": "ISC",
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.8.0",
+    "@lavamoat/allow-scripts": "^5.1.0",
     "@tailwindcss/cli": "^4.1.10",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
+    "pagefind": "^1.5.2",
     "prettier": "^3.5.3",
     "prettier-plugin-go-template": "^0.0.15",
-    "pagefind": "^1.5.2",
     "sass": "^1.89.2",
     "speedlify-score": "^4.0.4",
+    "svgo": "^4.0.1",
     "tailwindcss": "^4.1.10",
     "toml-eslint-parser": "^0.10.0",
     "wrangler": "^4.14.1"
@@ -48,7 +48,16 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",
+    "clipboard": "^2.0.11",
     "postcss-cli": "^11.0.1",
     "rtlcss": "^4.3.0"
+  },
+  "lavamoat": {
+    "allowScripts": {
+      "sass>@parcel/watcher#2.5.1": false,
+      "wrangler>esbuild#0.28.1": false,
+      "wrangler>miniflare>sharp#0.34.5": false,
+      "wrangler>workerd#1.20260701.1": false
+    }
   }
 }

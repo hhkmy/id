@@ -1,0 +1,12 @@
+{{- $destination := .Destination -}}
+{{- $src := $destination -}}
+{{- if not (or (hasPrefix $destination "http://") (hasPrefix $destination "https://") (hasPrefix $destination "/")) -}}
+	{{- with resources.Get $destination -}}
+		{{- partial "picture.html" (dict "image" . "alt" $.Text "title" $.Title) -}}
+	{{- else -}}
+		{{- $src = $destination | relURL -}}
+		<img src="{{ $src | safeURL }}" alt="{{ $.Text }}"{{ with $.Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+	{{- end -}}
+{{- else -}}
+	<img src="{{ $src | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- end -}}

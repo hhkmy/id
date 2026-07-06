@@ -1,0 +1,14 @@
+{{ with resources.Get "twemoji/twemoji.min.js" }}
+	{{ with resources.Fingerprint . }}
+		<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+	{{ end }}
+	<script>
+		// Twemoji graphics are licensed CC-BY 4.0 by Twitter, Inc. and other contributors.
+		window.twemoji &&
+			window.twemoji.parse(document.body, {
+				base: "/twemoji/",
+				folder: "svg",
+				ext: ".svg",
+			});
+	</script>
+{{ end }}

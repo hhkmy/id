@@ -1,48 +1,87 @@
 {{ define "main" }}
-	<article class="mx-auto max-w-3xl">
-		<div class="mb-3 flex flex-wrap items-center gap-2 text-sm">
-			{{ if .Date }}
-				{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-				{{ $dateHuman := .Date | time.Format ":date_long" }}
-				<time datetime="{{ $dateMachine }}" class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
-					{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
-					{{ $dateHuman }}
-				</time>
-			{{ end }}
-			{{ with .Params.author }}
-				<span class="text-slate-500 dark:text-slate-400">by {{ . }}</span>
-			{{ end }}
-			{{ with .ReadingTime }}
-				<span class="text-slate-400 dark:text-slate-500">• {{ . }} min read</span>
-			{{ end }}
-			{{ with .WordCount }}
-				<span class="text-slate-400 dark:text-slate-500">• {{ . }} words</span>
-			{{ end }}
-			{{ with .Params.categories }}
-				<span class="text-slate-500 dark:text-slate-400">• {{ range $i, $cat := . }}{{ if $i }},{{ end }}{{ $cat }}{{ end }}</span>
-			{{ end }}
-			{{ with .Params.series }}
-				<span class="text-emerald-700 dark:text-emerald-300">• Series: {{ . }}</span>
-			{{ end }}
-			{{ with .Params.draft }}
-				{{ if . }}<span class="text-red-500">• Draft</span>{{ end }}
-			{{ end }}
-		</div>
-		<h1 class="mb-6 text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white">{{ .Title }}</h1>
-		{{ with .Params.featured_image }}
-			<img src="{{ . }}" alt="Featured image" class="mb-6 mt-2 h-72 w-full rounded-lg object-cover ring-1 ring-slate-200 dark:ring-slate-800">
-		{{ end }}
-		<div class="prose prose-lg mb-6 mt-2 max-w-none font-normal leading-relaxed text-slate-700 dark:prose-invert dark:text-slate-200">
-			{{ .Content }}
-		</div>
-		{{ if .GetTerms "tags" }}
-			<div class="mt-6 flex flex-wrap items-center justify-end gap-2 border-t border-slate-200 pt-5 dark:border-slate-800">
-				{{ range .GetTerms "tags" }}
-					<a href="{{ .Permalink }}" class="text-xs font-medium text-slate-500 hover:text-slate-950 hover:underline dark:text-slate-400 dark:hover:text-white"
-						>#{{ .LinkTitle }}</a
-					>
+	<article class="single-article">
+		<header class="article-hero">
+			<div>
+				<a href="/articles/" class="article-kicker">Articles</a>
+				<h1 class="article-title">{{ .Title }}</h1>
+				{{ with .Description | default .Summary }}
+					<p class="article-summary">{{ . | plainify }}</p>
 				{{ end }}
 			</div>
+			<div class="article-meta" aria-label="Article details">
+				{{ if .Date }}
+					{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+					{{ $dateHuman := .Date | time.Format ":date_long" }}
+					<time datetime="{{ $dateMachine }}" class="article-meta-item">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+						{{ $dateHuman }}
+					</time>
+				{{ end }}
+				{{ with .Params.author }}
+					<span class="article-meta-item">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }} By {{ . }}
+					</span>
+				{{ end }}
+				{{ with .ReadingTime }}
+					<span class="article-meta-item">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "mins" "width" "1rem" "height" "1rem") }} {{ . }} min read
+					</span>
+				{{ end }}
+				{{ with .WordCount }}
+					<span class="article-meta-item">
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "words" "width" "1rem" "height" "1rem") }} {{ . }} words
+					</span>
+				{{ end }}
+				{{ with .Params.series }}
+					<span class="article-meta-item">Series: {{ . }}</span>
+				{{ end }}
+				{{ with .Params.draft }}{{ if . }}<span class="article-meta-item text-red-500 dark:text-red-300">Draft</span>{{ end }}{{ end }}
+			</div>
+		</header>
+
+		{{ $featured := or .Params.featured_image .Params.image }}
+		{{ with $featured }}
+			{{ with resources.Get . }}
+				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "loading" "eager") }}
+			{{ else }}
+				{{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async">
+				{{ end }}
+
+			{{ end }}
+
 		{{ end }}
+
+
+		<div class="article-content prose">{{ .Content }}</div>
+
+		{{ partial "giscus.html" . }}
+
+
+		<footer class="article-footer">
+			{{ if .GetTerms "tags" }}
+				<div class="article-tags" aria-label="Article tags">
+					{{ range .GetTerms "tags" }}
+						<a href="{{ .RelPermalink }}" class="article-tag">#{{ .LinkTitle }}</a>
+					{{ end }}
+				</div>
+			{{ end }}
+			{{ if or .PrevInSection .NextInSection }}
+				<nav class="article-adjacent" aria-label="Article navigation">
+					{{ with .PrevInSection }}
+						<a href="{{ .RelPermalink }}" class="article-adjacent-link">
+							<span class="article-adjacent-label">&larr; Previous article</span>
+							<span class="article-adjacent-title">{{ .LinkTitle }}</span>
+						</a>
+					{{ end }}
+					{{ with .NextInSection }}
+						<a href="{{ .RelPermalink }}" class="article-adjacent-link sm:text-right">
+							<span class="article-adjacent-label">Next article &rarr;</span>
+							<span class="article-adjacent-title">{{ .LinkTitle }}</span>
+						</a>
+					{{ end }}
+				</nav>
+			{{ end }}
+		</footer>
 	</article>
 {{ end }}

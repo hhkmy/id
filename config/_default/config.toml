@@ -14,6 +14,9 @@
     source = 'assets'
     target = 'assets'
   [[module.mounts]]
+    source = 'assets/twemoji/svg-used'
+    target = 'static/twemoji/svg'
+  [[module.mounts]]
     disableWatch = true
     source = 'hugo_stats.json'
-    target = 'assets/notwatching/hugo_stats.json' 
+    target = 'assets/notwatching/hugo_stats.json'
