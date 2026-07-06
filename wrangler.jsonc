@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "hhk-bvlog",
+	"name": "hhkmyid",
 	"compatibility_date": "2026-07-06",
 	"build": {
 		"command": "chmod a+x build.sh && ./build.sh"
