@@ -4,7 +4,7 @@ publishDir = "public"
 cacheDir = "/home/hhk/websites/id/.cache/hugo"
 
 languageName = "မြန်မာ"
-locale = "my-mm"
+locale = "my-MM"
 defaultContentLanguage = "my-mm"
 
 canonifyURLs = false

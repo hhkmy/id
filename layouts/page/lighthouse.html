@@ -1,0 +1,82 @@
+{{ define "main" }}
+	{{ $report := hugo.Data.lighthouse }}
+	<section class="space-y-8">
+		<header class="article-hero">
+			<div>
+				<p class="section-title mb-4">Site quality</p>
+				<h1 class="article-title">{{ .Title }}</h1>
+				<p class="article-summary">Pages with the lowest average score are listed first so weak pages are easier to find.</p>
+			</div>
+			{{ with $report.summary }}
+				<div class="home-hero-panel">
+					<div class="home-hero-panel-row">
+						<p class="home-hero-panel-label">Pages audited</p>
+						<p class="home-hero-panel-value">{{ .pagesAudited }}</p>
+					</div>
+					<div class="home-hero-panel-row">
+						<p class="home-hero-panel-label">Average scores</p>
+						<p class="home-hero-panel-value">
+							P {{ .averages.performance }} / A {{ .averages.accessibility }} / BP {{ .averages.bestPractices }} / SEO
+							{{ .averages.seo }}
+						</p>
+					</div>
+					<div class="home-hero-panel-row">
+						<p class="home-hero-panel-label">Generated</p>
+						<p class="home-hero-panel-value">{{ time.Format "Jan 2, 2006 15:04 MST" $report.generatedAt }}</p>
+					</div>
+				</div>
+			{{ end }}
+		</header>
+
+		{{ if $report.pages }}
+			<section class="panel">
+				<div class="lighthouse-table-wrap">
+					<table class="lighthouse-table">
+						<thead>
+							<tr>
+								<th>Page</th>
+								<th>Avg</th>
+								<th>Perf</th>
+								<th>A11y</th>
+								<th>BP</th>
+								<th>SEO</th>
+								<th>LCP</th>
+								<th>TBT</th>
+								<th>Top Issues</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{ range $report.pages }}
+								<tr>
+									<td><a href="{{ .path }}" class="font-semibold hover:underline">{{ .path }}</a></td>
+									<td>{{ .average | default "ERR" }}</td>
+									<td>{{ .scores.performance | default "-" }}</td>
+									<td>{{ .scores.accessibility | default "-" }}</td>
+									<td>{{ .scores.bestPractices | default "-" }}</td>
+									<td>{{ .scores.seo | default "-" }}</td>
+									<td>{{ with .metrics.largestContentfulPaint }}{{ printf "%.0fms" . }}{{ else }}-{{ end }}</td>
+									<td>{{ with .metrics.totalBlockingTime }}{{ printf "%.0fms" . }}{{ else }}-{{ end }}</td>
+									<td>
+										{{ if .error }}
+											<span class="text-red-700 dark:text-red-300">{{ .error }}</span>
+										{{ else }}
+											{{ range first 3 .failedAudits }}
+												<span class="lighthouse-issue">{{ .title }}</span>
+											{{ else }}
+												<span class="text-emerald-700 dark:text-emerald-300">No failed audits</span>
+											{{ end }}
+										{{ end }}
+									</td>
+								</tr>
+							{{ end }}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		{{ else }}
+			<section class="panel">
+				<p class="text-slate-600 dark:text-slate-300">No Lighthouse data has been generated yet.</p>
+			</section>
+		{{ end }}
+	</section>
+{{ end }}

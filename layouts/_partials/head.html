@@ -2,14 +2,21 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s - %s" .Title site.Title }}{{ end }}</title>
 {{ partialCached "head/meta.html" . .Permalink }}
 <script>
-	// Immediately check for dark mode preference
-	if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-		document.documentElement.classList.add("dark");
-		document.documentElement.setAttribute("data-pf-theme", "dark");
-	} else {
+	(function () {
+		var storedTheme = null;
+		try {
+			storedTheme = localStorage.getItem("theme");
+		} catch (error) {}
+
+		if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+			document.documentElement.classList.add("dark");
+			document.documentElement.setAttribute("data-pf-theme", "dark");
+			return;
+		}
+
 		document.documentElement.classList.remove("dark");
 		document.documentElement.removeAttribute("data-pf-theme");
-	}
+	})();
 </script>
 {{ partialCached "head/css.html" . hugo.IsDevelopment }}
 {{ partial "head/katex.html" . }}

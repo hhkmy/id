@@ -1,14 +1,30 @@
 {{ with resources.Get "twemoji/twemoji.min.js" }}
 	{{ with resources.Fingerprint . }}
-		<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-	{{ end }}
-	<script>
-		// Twemoji graphics are licensed CC-BY 4.0 by Twitter, Inc. and other contributors.
-		window.twemoji &&
-			window.twemoji.parse(document.body, {
-				base: "/twemoji/",
-				folder: "svg",
-				ext: ".svg",
-			});
+		<script>
+			(function () {
+				var loadTwemoji = function () {
+					var script = document.createElement("script");
+					script.src = "{{ .RelPermalink }}";
+					script.integrity = "{{ .Data.Integrity }}";
+					script.crossOrigin = "anonymous";
+					script.onload = function () {
+						window.twemoji &&
+							window.twemoji.parse(document.body, {
+								base: "/twemoji/",
+								folder: "svg",
+								ext: ".svg",
+							});
+					};
+					document.head.appendChild(script);
+				};
+
+				if ("requestIdleCallback" in window) {
+					requestIdleCallback(loadTwemoji, { timeout: 2500 });
+					return;
+				}
+
+				window.addEventListener("load", loadTwemoji, { once: true });
+			})();
 	</script>
+	{{ end }}
 {{ end }}

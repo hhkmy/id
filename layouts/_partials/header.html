@@ -10,7 +10,7 @@
 					height="40"
 					alt="HHK Logo"
 					title="{{ site.Title }}"
-					class="h-10 w-10 rounded-md ring-1 ring-slate-200 transition-transform duration-150 group-hover:scale-105 dark:ring-slate-800"
+					class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800"
 					onmousedown="return false"
 					data-light="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
 					data-dark="{{ (resources.Get "ui/qr-dark.svg").RelPermalink }}"
@@ -22,13 +22,17 @@
 		<!-- Navigation & Theme Switcher -->
 		<div class="flex items-center gap-2 sm:gap-3">
 			{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-			<pagefind-modal-trigger class="nav-search-trigger" compact hide-shortcut placeholder="Search"></pagefind-modal-trigger>
-			<pagefind-modal></pagefind-modal>
+			<button id="site-search-trigger" type="button" class="nav-search-trigger" aria-label="Search" title="Search">
+				<svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35m1.1-5.4a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+				</svg>
+				<span class="hidden sm:inline">Search</span>
+			</button>
 			<div class="flex gap-1">
 				<button
 					id="theme-toggle-dark"
 					aria-label="Switch to dark mode"
-					class="rounded-md p-2 transition-colors hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
+					class="rounded-md p-2 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
 					title="Dark mode"
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 dark:text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +42,7 @@
 				<button
 					id="theme-toggle-light"
 					aria-label="Switch to light mode"
-					class="rounded-md p-2 transition-colors hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
+					class="rounded-md p-2 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
 					title="Light mode"
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500 dark:text-yellow-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">

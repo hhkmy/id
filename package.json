@@ -1,5 +1,5 @@
 {
-  "name": "ksvblog",
+  "name": "hhkmyid",
   "version": "1.0.0",
   "description": "K's V/Blog Website nth more with testing my learning skills",
   "main": "index.js",
@@ -9,6 +9,12 @@
     "postbuild": "pagefind --site \"public\"",
     "pagefind": "pagefind --site \"public\"",
     "build:search": "npm run build",
+    "lighthouse:pages": "node scripts/lighthouse-pages.mjs --site https://hhk.my.id",
+    "lighthouse:pages:sample": "node scripts/lighthouse-pages.mjs --site https://hhk.my.id --limit 5",
+    "deploy:cloudflare": "wrangler deploy",
+    "deploy:cloudflare:ci": "npm ci && wrangler deploy",
+    "deploy:cloudflare:version": "wrangler versions upload && wrangler versions deploy -y && wrangler triggers deploy",
+    "deploy:cloudflare:version:ci": "npm ci && npm run deploy:cloudflare:version",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
     "precommit": "lint-staged",
     "prepare": "node .husky/install.mjs"
@@ -35,7 +41,6 @@
     "prettier": "^3.5.3",
     "prettier-plugin-go-template": "^0.0.15",
     "sass": "^1.89.2",
-    "speedlify-score": "^4.0.4",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.1.10",
     "toml-eslint-parser": "^0.10.0",
@@ -47,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "animejs": "^4.5.0",
     "autoprefixer": "^10.4.21",
     "clipboard": "^2.0.11",
     "postcss-cli": "^11.0.1",

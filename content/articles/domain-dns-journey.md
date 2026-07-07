@@ -37,30 +37,30 @@ Journey ဆိုပြီးဖြစ်သွားတော့တာပဲ xD
 - thecoolcreatures.com
 - mmprofessx.com
 - heinhtetkyaw.me
-- ksvblog.site
+- hhkmyid.site
 
-[mmcyber.info\_](https://mmcyber.info) သူ့ကိုတော့ ပထမဦးဆုံး Domain အဖြစ်နဲ့
+- [mmcyber.info\_](https://mmcyber.info) သူ့ကိုတော့ ပထမဦးဆုံး Domain အဖြစ်နဲ့
 Singapore မှာနေတဲ့အသိအကိုတစ်ယောက်ကနေပြီး လက်ဆောင်ပေးတာလေးပါ။
 ပထမဆုံးလို့ပြောလို့ရအောင်အထိကို တကယ် မှတ်မှတ်ရရလေးဖြစ်နေတာကတော့ မြန်မာနိုင်ငံမှာ
 blogspot အချိန်ကာလဆိုတော့ blog လေးတွေရေးရင်းနဲ့ပဲ အဲ့ဒီ Domain လေး Active
 ဖြစ်အောင် လုပ်ဖြစ်ခဲ့တော့တယ်။ ဒါကလည်း အမှတ်တရအဖြစ်နဲ့
 အမြဲရှိနေမယ်ဆိုတာမျိုးပေါ့။ :"D
 
-[mmcyberarmy.org](https://mmcyberarmy.org) ဒီ Domain ကတော့ ၂၀၁၀ လောက်မှာ
+- [mmcyberarmy.org](https://mmcyberarmy.org) ဒီ Domain ကတော့ ၂၀၁၀ လောက်မှာ
 Hacktivism time လို့ပြောလို့ရအောင် နည်းနည်းလေး လိုက်လုပ်ကြည့်ရင် Internet OP War
 တွေ လုပ်ကြရင်းနဲ့ mmcyberarmy ဆိုတဲံအဖွဲ့အစည်းအတွက် ဝယ်ဖြစ်သွားတာလေးပေါ့။
 ကိုယ်တိုင် ဝယ်ခဲ့လိုက်တာလား သူများဝယ်တာလား မမှတ်မိတော့ပေမယ့် သေချာတဲ့
 မှတ်ဉာဏ်လေးတစ်ခုအဖြစ်နဲ့ ကျန်ရှိနေခဲ့တဲ့ အမှတ်တရ Domain ဆိုလည်းမမှားဘူး။
 ပါတယ်မပါဘူး မသေချာပေမယ့် ထည့်ရေးထားလိုက်တော့တယ်။ xD
 
-[mm-kalilinux.org](https://mm-kalilinux.org) ဒီ Domain လေးကတော့ Myanmar Kali
+- [mm-kalilinux.org](https://mm-kalilinux.org) ဒီ Domain လေးကတော့ Myanmar Kali
 Linux Organization အတွက် ဆိုပြီးဝယ်ဖြစ်သွားတာလေးပေါ့ Forum တွေကို
 တော်တော်ရူးသွပ်ခဲ့တာဆိုတော့ Forum ကောင်းကောင်းလုပ်နိုင်ခဲ့မယ်ထင်ပြီးတော့
 လုပ်ခဲ့တာဆိုပေမယ့်လည်း Forum မှာ ဝင်ဆွေးနွေးတဲ့လူနည်းတာရယ် မြန်မာနိုင်ငံမှာက
 Forum တွေပျောက်ကွယ်သွားခဲ့တာကြာခဲ့ပြီဆိုတော့ News and Blog အတွက်လည်း
 မလုပ်ဖြစ်တော့တာနဲ့ပဲ ဆက်ပြီး ရပ်ခဲ့လိုက်ရတဲ့ Domain လေးတစ်ခုပေါ့။
 
-[kiddomonstar.com](https://kiddomonstar.com) ဒီ Domain ကတော့ ဒုတိယမြောက် Website
+- [kiddomonstar.com](https://kiddomonstar.com) ဒီ Domain ကတော့ ဒုတိယမြောက် Website
 တွေထဲကမှ ကိုယ့်ရဲ့ Personal Website အဖြစ်နဲ့လုပ်မယ်ဆိုပြီးတော့ ဝယ်ဖြစ်ပြီး
 Personal Content တွေ အခုလိုမျိုး Blog တွေရေးဖြစ်ဖို့အတွက် လုပ်ဖြစ်ခဲ့တဲ့ Domain
 လေးပေါ့။ ဒါပေမယ့်လည်း အမြဲတမ်းမရေးဖြစ်တော့တဲ့အတွက်ကြောင့်
@@ -69,7 +69,7 @@ Personal Content တွေ အခုလိုမျိုး Blog တွေရ�
 အကျင့်လို့တောင်ပြောလို့ရအောင်ကို Domain တွေ ဝယ်တယ် ပြီးရင် ဆက်ပြီးတော့
 မဝယ်ဖြစ်တော့ခဲ့တဲ့ Domain လေးဆိုလည်းမမှားဘူး။
 
-[kiddomonster.com](https://kiddomonster.com) ဒုတိယံပိ Personal Website အတွက်
+- [kiddomonster.com](https://kiddomonster.com) ဒုတိယံပိ Personal Website အတွက်
 ဝယ်ဖြစ်သွားတဲ့ Domain လေးပေါ့။ ဝယ်ဖြစ်သွားတာကလည်း ပထမ kiddomonstar Domain ကို
 ဂျပန်က ဘယ်သူတွေမှန်းမသိ ဝယ်သွားလိုက်တာနဲ့ပဲ ပြန်ဝယ်လို့အဆင်မပြေတော့တာနဲ့
 နောက်ထပ် Domain အသစ်တစ်ခုဝယ်ဖို့စဉ်းစားရင်းနဲ့ ကိုယ့်ရဲ့ Nickname အစစ်ဖြစ်တဲ့
@@ -77,13 +77,13 @@ KiddoMonster ဆိုပြီးတော့ ဝယ်ဖြစ်သွား
 ကောင်းကောင်းမရေးဖြစ်ပြန်ပါဘူး။ ဒီတိုင်း ဝယ်ထားတယ်ဆိုတာလေးပဲ ဆိုပေမယ့် ဒါကလည်း
 အမှတ်တရ Domain တွေထဲက တစ်ခုပေါ့။
 
-[thecoolcreatures.com](https://thecoolcreatures.com) The Cool Creatures ကတော့
+- [thecoolcreatures.com](https://thecoolcreatures.com) The Cool Creatures ကတော့
 Pet တွေနဲ့ဆိုင်တဲ့ Website တွေရေးပြီး IA လုပ်မယ်ဆိုပြီး စဉ်းစားခဲ့ဖူးပေမယ့်
 မလုပ်ဖြစ်တော့တာနဲ့ Woocomerce Website လေးတစ်ခုနဲ့လုပ်ရင်း Domain
 ဆက်ပြီးမတိုးဖြစ်တော့ဘူး xD အလကားနေအလကား ကုန်ရမှာဆိုတော့လည်း အကုန်မှ
 မခံနိုင်တာကိုးလို့ xD ဟိဟိ။
 
-[mmprofessx.com](https://mmprofessx.com) Myanmar Profess X (aka) MPX ... ဒါကတော့
+- [mmprofessx.com](https://mmprofessx.com) Myanmar Profess X (aka) MPX ... ဒါကတော့
 အစောပိုင်းမှာ မြန်မာနိုင်ငံမှာ Myanmar Adult Forum လေးတစ်ခုကို UI
 ကောင်းကောင်းနဲ့ လုပ်ရင် ကောင်းမယ်ဟဲ့ဆိုပြီးတော့ လုပ်ဖြစ်သွားတာလေးပေါ့။
 ခက်တာကတော့ ပြန်စဉ်းစားကြည့်တဲ့အခါမှာ သူများတွေရဲ့ Privacy တွေ သူများတွေရဲ့
@@ -92,7 +92,7 @@ Pet တွေနဲ့ဆိုင်တဲ့ Website တွေရေးပြ�
 သူ့ကိုတော့ တကယ်လုပ်မယ်ဆိုပြီး ၂ နှစ်လောက်အထိ သက်တမ်းတိုးခဲ့ပေမယ့် နောက်ထပ်တော့
 သက်တမ်းထပ်မတိုးဖြစ်ခဲ့တော့ဘူး။ :") ဒါပေမယ့်လည်း အဆင်ပြေပါတယ်လေ။
 
-[heinhtetkyaw.me](https://heinhtetkyaw.me) ဒီ Domain ကတော့ ကိုယ့်ရဲ့
+- [heinhtetkyaw.me](https://heinhtetkyaw.me) ဒီ Domain ကတော့ ကိုယ့်ရဲ့
 KiddoMonster domain ရဲ့ Content တွေကို ပြန်ပြီး Recovery လုပ်ပြီး
 သေချာလုပ်ဖြစ်မယ်အထင်နဲ့ ပြန်ဝယ်ဖြစ်ခဲ့တာလေးပေါ့။ သေချာတောင် မလုပ်ဖြစ်ပါဘူး
 ဒီတိုင်းပဲ ဝယ်လိုက်တယ် ပြီးရင် ဘာမှ ဆက်မဖြစ်ဘူးဆိုတဲ့ Domain တွေထဲက တစ်ခုပေါ့။
@@ -100,7 +100,7 @@ KiddoMonster domain ရဲ့ Content တွေကို ပြန်ပြီ�
 သေချာရေးတော့မယ်ဆိုပြီးတော့ ဝယ်ခဲ့တာလေးပါပဲ။ ဒါပေမယ့်လည်း ... ဒါပေမယ့်လည်းပေါ့လေ
 :cry:
 
-[ksvblog.site](https://ksvblog.site) ဒီတစ်ခါ Domain ဝယ်ဖြစ်တာကတော့ Under 1
+- [ksvblog.site](https://ksvblog.site) ဒီတစ်ခါ Domain ဝယ်ဖြစ်တာကတော့ Under 1
 $
 Domain တွေရှာရင်းနဲ့ ဝယ်ဖြစ်သွားတာလေးပေါ့ အဟိ xD Domain ကို 1$
 အောက်တွေရှာရင်းနဲ့ သဘောကျလို့ ဝယ်ဖြစ်သွားတဲ့ Domain လေးပေါ့။ နောက်တော့ Office

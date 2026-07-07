@@ -1,6 +1,16 @@
 <footer>
 	<div class="site-shell flex flex-col items-center justify-center py-8 text-sm text-slate-500 dark:text-slate-400">
-		<speedlify-score class="mb-4" speedlify-url="https://speedlify.hhk.my.id" hash="2476f489"> </speedlify-score>
+		{{ with hugo.Data.lighthouse.summary }}
+			<div class="lighthouse-score mb-4" aria-label="Lighthouse scores">
+				{{ range slice (dict "label" "Performance" "score" .averages.performance) (dict "label" "Accessibility" "score" .averages.accessibility) (dict "label" "Best Practices" "score" .averages.bestPractices) (dict "label" "SEO" "score" .averages.seo) }}
+					<div class="lighthouse-score-item" title="{{ .label }}: {{ .score }}">
+						<span class="lighthouse-score-circle" aria-hidden="true">{{ .score | default "-" }}</span>
+						<span class="sr-only">{{ .label }}: {{ .score | default "not generated" }}</span>
+					</div>
+				{{ end }}
+				<a href="/lighthouse/" class="lighthouse-score-link">Report</a>
+			</div>
+		{{ end }}
 		<div class="flex gap-6 mb-4">
 			{{ range hugo.Data.seo.social }}
 				<a href="{{ .url }}" aria-label="{{ .title }}" class="text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white">
@@ -10,7 +20,6 @@
 			{{ end }}
 		</div>
 		<div class="flex items-center gap-2 mb-2">
-			<span class="font-semibold text-slate-800 dark:text-slate-100">Currently using</span>
 			{{ range slice (dict "vendor" "social" "name" "debian" "width" "1.1rem" "height" "1.1rem" "color" "#A81D33") (dict "vendor" "social" "name" "raspberrypi"
 				"width" "1.1rem" "height" "1.1rem" "color" "#A22846") (dict "vendor" "social" "name" "openai" "width" "1.1rem" "height" "1.1rem") (dict "vendor" "social"
 				"name" "docker" "width" "1.1rem" "height" "1.1rem" "color" "#2560FF") (dict "vendor" "social" "name" "zed" "width" "1.1rem" "height" "1.1rem" "color"

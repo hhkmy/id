@@ -19,7 +19,8 @@
 				{{ end }}
 				{{ with .Params.author }}
 					<span class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }} By {{ . }}
+						{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }} By
+						{{ . }}
 					</span>
 				{{ end }}
 				{{ with .ReadingTime }}
@@ -42,10 +43,10 @@
 		{{ $featured := or .Params.featured_image .Params.image }}
 		{{ with $featured }}
 			{{ with resources.Get . }}
-				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "loading" "eager") }}
+				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "loading" "eager" "fetchpriority" "high") }}
 			{{ else }}
 				{{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
-					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async">
+					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async" fetchpriority="high">
 				{{ end }}
 
 			{{ end }}
