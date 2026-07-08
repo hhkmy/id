@@ -44,7 +44,7 @@
     "svgo": "^4.0.1",
     "tailwindcss": "^4.1.10",
     "toml-eslint-parser": "^0.10.0",
-    "wrangler": "^4.107.0"
+    "wrangler": "^4.108.0"
   },
   "lint-staged": {
     "*.{json,css,md,html}": [
