@@ -1,5 +1,6 @@
 import ClipboardJS from "clipboard";
-import { animate, remove } from "animejs";
+import { animate, onScroll, remove } from "animejs";
+import { morphTo, createMotionPath, createDrawable } from "animejs/svg";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Theme switcher for Tailwind dark mode
@@ -7,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const lightBtn = document.getElementById("theme-toggle-light");
   const root = document.documentElement;
   const qrImg = document.getElementById("qr-image");
+  const qrTrigger = document.getElementById("qr-image-trigger");
+  const qrModal = document.getElementById("qr-modal");
+  let qrModalPreviousFocus = null;
   const getStoredTheme = () => {
     try {
       return localStorage.getItem("theme");
@@ -34,12 +38,76 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setQrImageByTheme(theme) {
-    if (!qrImg) return;
-    if (theme === "dark") {
-      qrImg.src = qrImg.getAttribute("data-dark");
-    } else {
-      qrImg.src = qrImg.getAttribute("data-light");
+    syncQrObjectThemes(theme);
+  }
+
+  function getQrObjectSvg(qrObject) {
+    if (!(qrObject instanceof HTMLObjectElement)) return null;
+
+    return qrObject.contentDocument?.documentElement || null;
+  }
+
+  function syncQrObjectTheme(qrObject, theme) {
+    if (qrObject instanceof SVGSVGElement) {
+      qrObject.dataset.theme = theme;
+      return;
     }
+
+    if (!(qrObject instanceof HTMLObjectElement)) return;
+
+    const svg = getQrObjectSvg(qrObject);
+    if (svg) {
+      svg.dataset.theme = theme;
+      return;
+    }
+
+    qrObject.dataset.pendingTheme = theme;
+    if (qrObject.dataset.themeLoadBound === "true") return;
+
+    qrObject.dataset.themeLoadBound = "true";
+    qrObject.addEventListener("load", () => {
+      const loadedSvg = getQrObjectSvg(qrObject);
+      if (loadedSvg) {
+        loadedSvg.dataset.theme = qrObject.dataset.pendingTheme || theme;
+      }
+    });
+  }
+
+  function syncQrObjectThemes(theme) {
+    document
+      .querySelectorAll(".qr-svg-object")
+      .forEach((qrObject) => syncQrObjectTheme(qrObject, theme));
+  }
+
+  async function replaceQrObjectWithSvg(qrObject) {
+    if (!(qrObject instanceof HTMLObjectElement)) return null;
+
+    const svgUrl = qrObject.getAttribute("data");
+    if (!svgUrl) return null;
+
+    const response = await fetch(svgUrl);
+    if (!response.ok) return null;
+
+    const svgText = await response.text();
+    const svgDocument = new DOMParser().parseFromString(
+      svgText,
+      "image/svg+xml",
+    );
+    const svg = svgDocument.documentElement;
+    if (svg.nodeName.toLowerCase() !== "svg") return null;
+
+    const importedSvg = document.importNode(svg, true);
+    importedSvg.id = qrObject.id;
+    importedSvg.setAttribute(
+      "class",
+      qrObject.getAttribute("class") || "qr-svg-object",
+    );
+    importedSvg.setAttribute("aria-label", "HHK QR code");
+    importedSvg.setAttribute("focusable", "false");
+    importedSvg.dataset.theme = getActiveTheme();
+
+    qrObject.replaceWith(importedSvg);
+    return importedSvg;
   }
 
   function getActiveTheme() {
@@ -102,7 +170,9 @@ document.addEventListener("DOMContentLoaded", function () {
     giscusObserver.disconnect();
   });
 
-  giscusObserver.observe(document.body, { childList: true, subtree: true });
+  if (document.body) {
+    giscusObserver.observe(document.body, { childList: true, subtree: true });
+  }
 
   // User-requested theme logic
   const storedTheme = getStoredTheme();
@@ -127,6 +197,45 @@ document.addEventListener("DOMContentLoaded", function () {
       applyTheme("light");
     });
   }
+
+  function openQrModal() {
+    if (!qrModal) return;
+
+    qrModalPreviousFocus = document.activeElement;
+    qrModal.classList.remove("hidden");
+    qrModal.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+    qrModal.focus({ preventScroll: true });
+  }
+
+  function closeQrModal() {
+    if (!qrModal) return;
+
+    qrModal.classList.add("hidden");
+    qrModal.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+    if (qrModalPreviousFocus instanceof HTMLElement) {
+      qrModalPreviousFocus.focus({ preventScroll: true });
+    }
+    qrModalPreviousFocus = null;
+  }
+
+  qrTrigger?.addEventListener("click", (event) => {
+    event.preventDefault();
+    openQrModal();
+  });
+
+  qrModal?.addEventListener("click", (event) => {
+    if (event.target === qrModal) {
+      closeQrModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !qrModal?.classList.contains("hidden")) {
+      closeQrModal();
+    }
+  });
 
   document.querySelectorAll(".lite-youtube").forEach((embed) => {
     const trigger = embed.querySelector(".lite-youtube-trigger");
@@ -230,81 +339,121 @@ document.addEventListener("DOMContentLoaded", function () {
     ".article-footer",
   ];
 
-  const revealItems = document.querySelectorAll(revealSelectors.join(","));
-  const showRevealItem = (item) => {
-    remove(item);
-    item.classList.add("is-visible");
-    item.style.opacity = "1";
-    item.style.transform = "none";
-  };
-  const hideRevealItem = (item) => {
-    remove(item);
-    item.classList.remove("is-visible");
-    item.style.opacity = "0";
-    item.style.transform = "translateY(18px)";
-  };
-  const isNearViewport = (item) => {
-    const bounds = item.getBoundingClientRect();
-    return bounds.top < window.innerHeight * 0.92 && bounds.bottom > 0;
-  };
-  const isOutsideViewport = (item) => {
-    const bounds = item.getBoundingClientRect();
-    return bounds.bottom <= 0 || bounds.top >= window.innerHeight;
-  };
-
-  if (!canAnimate || !("IntersectionObserver" in window)) {
-    revealItems.forEach(showRevealItem);
-  } else {
-    const revealItem = (item) => {
-      if (item.classList.contains("is-visible")) return;
-
-      remove(item);
-      animate(item, {
-        opacity: [0, 1],
-        translateY: [18, 0],
-        duration: 520,
-        delay: (Number(item.dataset.revealIndex) % 4) * 60,
-        ease: "outQuad",
-        onComplete: () => showRevealItem(item),
-      });
-    };
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            revealItem(entry.target);
-            return;
-          }
-
-          if (!document.hidden && isOutsideViewport(entry.target)) {
-            hideRevealItem(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
-    );
-
+  if (canAnimate) {
+    const revealItems = document.querySelectorAll(revealSelectors.join(","));
     revealItems.forEach((item, index) => {
       item.classList.add("scroll-reveal");
       item.dataset.revealIndex = String(index);
-      revealObserver.observe(item);
+
+      animate(item, {
+        opacity: [0, 1],
+        "--reveal-y": ["18px", "0px"],
+        duration: 520,
+        delay: (index % 4) * 60,
+        ease: "outQuad",
+        persist: true,
+        autoplay: onScroll({
+          target: item,
+          sync: "restart none none none",
+          enter: "92% start",
+          leave: "start end",
+          repeat: true,
+        }),
+      });
     });
 
-    const finishVisibleRevealItems = () => {
-      revealItems.forEach((item) => {
-        if (isNearViewport(item)) showRevealItem(item);
-      });
+    const setupQrSvgMotion = (qrSvg) => {
+      if (!qrSvg) return null;
+
+      const qrPath = qrSvg.querySelector("#qr-path");
+      const drawPath = qrSvg.querySelector("#qr-draw-path");
+      const morphTarget = qrSvg.querySelector("#qr-morph-target");
+      const marker = qrSvg.querySelector("#qr-motion-dot");
+      if (!qrPath || !drawPath || !morphTarget || !marker) return null;
+      if (
+        typeof qrPath.getTotalLength !== "function" ||
+        typeof drawPath.getTotalLength !== "function" ||
+        typeof morphTarget.getTotalLength !== "function"
+      )
+        return null;
+
+      const qrPathData = qrPath.getAttribute("d");
+      if (!qrPathData) return null;
+
+      const helperIdPrefix = qrSvg.id || "qr-image";
+      qrPath.id = `${helperIdPrefix}-path`;
+      drawPath.id = `${helperIdPrefix}-draw-path`;
+      morphTarget.id = `${helperIdPrefix}-morph-target`;
+      marker.id = `${helperIdPrefix}-motion-dot`;
+
+      const qrPathSelector = `#${CSS.escape(qrPath.id)}`;
+      const drawPathSelector = `#${CSS.escape(drawPath.id)}`;
+      const morphTargetSelector = `#${CSS.escape(morphTarget.id)}`;
+      const drawable = createDrawable(drawPathSelector, 0, 0)[0];
+      const motionPath = createMotionPath(qrPathSelector, 0.12);
+      if (!drawable || !motionPath) return null;
+
+      return () => {
+        remove([drawPath, marker]);
+        drawPath.setAttribute("d", qrPathData);
+        drawPath.style.opacity = "0";
+
+        animate(drawable, {
+          draw: ["0 0", "0 1"],
+          duration: 700,
+          ease: "inOutQuad",
+        });
+
+        animate(drawPath, {
+          d: morphTo(morphTargetSelector, 0.015),
+          opacity: [0.72, 0],
+          duration: 520,
+          ease: "inOutQuad",
+          onComplete: () => {
+            drawPath.setAttribute("d", qrPathData);
+            drawPath.style.opacity = "0";
+          },
+        });
+
+        animate(marker, {
+          ...motionPath,
+          opacity: [0, 1, 0],
+          scale: [0.5, 1, 0.5],
+          duration: 900,
+          ease: "inOutQuad",
+        });
+      };
     };
 
-    window.addEventListener("pageshow", finishVisibleRevealItems);
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden)
-        window.requestAnimationFrame(finishVisibleRevealItems);
-    });
-  }
+    let playQrSvgMotion = null;
+    let qrSvgMotionInitialized = false;
+    const initQrSvgMotion = () => {
+      if (qrSvgMotionInitialized) return;
 
-  if (canAnimate) {
+      const qrSvg = document.getElementById("qr-image");
+      if (!(qrSvg instanceof SVGSVGElement)) return;
+
+      playQrSvgMotion = setupQrSvgMotion(qrSvg);
+      if (playQrSvgMotion) {
+        qrSvgMotionInitialized = true;
+        window.setTimeout(playQrSvgMotion, 350);
+      }
+    };
+
+    if (qrImg instanceof HTMLObjectElement) {
+      replaceQrObjectWithSvg(qrImg)
+        .then(() => initQrSvgMotion())
+        .catch(() => {});
+    } else {
+      initQrSvgMotion();
+    }
+
+    if (qrImg instanceof HTMLObjectElement) {
+      qrImg.addEventListener("load", () => {
+        syncQrObjectTheme(qrImg, getActiveTheme());
+      });
+    }
+
     const liftedSelectors = [
       ".article-card",
       ".focus-card",
@@ -328,9 +477,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const animateLift = (element, y) => {
-      remove(element);
+      remove(element, null, "--lift-y");
+      remove(element, null, "boxShadow");
       animate(element, {
-        translateY: y,
+        "--lift-y": `${y}px`,
         boxShadow:
           y < 0
             ? "0 14px 40px rgba(15, 23, 42, 0.10)"
@@ -424,15 +574,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const qrImage = document.getElementById("qr-image");
-    const qrLink = qrImage?.closest("a");
-    if (qrImage && qrLink) {
-      qrLink.addEventListener("mouseenter", () => {
+    const qrImageTrigger = document.getElementById("qr-image-trigger");
+    if (qrImage && qrImageTrigger) {
+      qrImageTrigger.addEventListener("mouseenter", () => {
+        playQrSvgMotion?.();
         remove(qrImage);
         animate(qrImage, { scale: 1.05, duration: 150, ease: "outQuad" });
       });
-      qrLink.addEventListener("mouseleave", () => {
+      qrImageTrigger.addEventListener("mouseleave", () => {
         remove(qrImage);
         animate(qrImage, { scale: 1, duration: 150, ease: "outQuad" });
+      });
+      qrImageTrigger.addEventListener("focus", () => {
+        playQrSvgMotion?.();
       });
     }
 
