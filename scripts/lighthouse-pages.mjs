@@ -104,6 +104,7 @@ function run(command, commandArgs, timeout) {
 async function auditUrl(url, index) {
   const reportPath = path.join(tmpRoot, `report-${index}.json`);
   const commandArgs = [
+    "--yes",
     "lighthouse",
     url,
     "--quiet",
