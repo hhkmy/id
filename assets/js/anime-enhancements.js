@@ -1,4 +1,4 @@
-import { animate, remove } from "animejs";
+import { animate, createTimeline, remove } from "animejs";
 import { createDrawable, createMotionPath, morphTo } from "animejs/svg";
 
 function ready(callback) {
@@ -112,113 +112,117 @@ function initRevealAnimations() {
     ".about-skill-card",
     ".archive-year-card",
     ".archive-item",
+    ".home-hero-panel",
+    ".article-meta",
+    ".article-adjacent-link",
     ".book-card",
     ".article-content",
     ".article-footer",
+    ".lighthouse-table-wrap",
+  ];
+  const nestedRevealSelectors = [
+    ".article-card",
+    ".focus-card",
+    ".about-card",
+    ".about-contact-card",
+    ".about-timeline-item",
+    ".about-skill-card",
+    ".archive-year-card",
+    ".archive-item",
+    ".home-hero-panel",
+    ".article-meta",
+    ".article-adjacent-link",
+    ".book-card",
+    ".lighthouse-table-wrap",
   ];
 
   const revealItems = Array.from(document.querySelectorAll(revealSelectors.join(",")));
+  const nestedRevealSelector = nestedRevealSelectors.join(",");
+  const groupedItems = new Map();
 
-  const isRevealVisible = (item) => {
-    const revealMargin = Math.min(window.innerHeight * 0.12, 96);
-    const rect = item.getBoundingClientRect();
-    return rect.bottom > revealMargin && rect.top < window.innerHeight - revealMargin;
+  document.querySelectorAll(".panel").forEach((panel) => {
+    const items = Array.from(panel.querySelectorAll(nestedRevealSelector));
+    items.forEach((item, index) => groupedItems.set(item, index));
+  });
+
+  const revealTargets = revealItems.filter(
+    (item) => !item.matches(".panel") || !item.querySelector(nestedRevealSelector),
+  );
+
+  const isBoxVisible = (target) => {
+    const rect = target.getBoundingClientRect();
+    return rect.bottom > window.innerHeight * 0.12 && rect.top < window.innerHeight * 0.88;
   };
 
-  const showItem = (item, delay = 0) => {
-    if (item.classList.contains("is-visible")) return;
+  const revealControllers = [];
 
-    item.classList.add("is-visible");
+  revealTargets.forEach((item, index) => {
+    const sequenceIndex = groupedItems.get(item) ?? index;
+
+    item.classList.add("scroll-reveal");
     remove(item, null, "opacity");
     remove(item, null, "--reveal-y");
-    animate(item, {
-      opacity: [0, 1],
-      "--reveal-y": ["18px", "0px"],
-      duration: 420,
-      delay,
-      ease: "outQuad",
-    });
-  };
+    remove(item, null, "scale");
+    remove(item, null, "rotate");
+    item.style.opacity = "0";
+    item.style.setProperty("--reveal-y", "22px");
 
-  const hideItem = (item) => {
-    if (!item.classList.contains("is-visible")) return;
+    let isRevealed = false;
+    const revealTimeline = createTimeline({ autoplay: false }).add(
+      item,
+      {
+        opacity: [0, 1],
+        "--reveal-y": ["28px", "0px"],
+        scale: [0.96, 1],
+        rotate: [-1.4, 0],
+        duration: 620,
+        delay: (sequenceIndex % 12) * 80,
+        ease: "outQuad",
+      }
+    );
 
-    item.classList.remove("is-visible");
-    remove(item, null, "opacity");
-    remove(item, null, "--reveal-y");
-    animate(item, {
-      opacity: [1, 0],
-      "--reveal-y": ["0px", "18px"],
-      duration: 180,
-      ease: "outQuad",
-    });
-  };
+    const playReveal = () => {
+      if (isRevealed) return;
+      isRevealed = true;
+      revealTimeline.restart();
+    };
 
+    const resetReveal = () => {
+      if (!isRevealed) return;
+      isRevealed = false;
+      revealTimeline.reset();
+      item.style.opacity = "0";
+      item.style.setProperty("--reveal-y", "22px");
+    };
+
+    revealControllers.push({ target: item, playReveal, resetReveal });
+  });
+
+  let revealSyncQueued = false;
   const syncRevealState = () => {
-    revealItems.forEach((item, index) => {
-      if (isRevealVisible(item)) {
-        showItem(item, (index % 4) * 45);
+    revealSyncQueued = false;
+    revealControllers.forEach(({ target, playReveal, resetReveal }) => {
+      if (isBoxVisible(target)) {
+        playReveal();
       } else {
-        hideItem(item);
+        resetReveal();
       }
     });
   };
 
-  const repairVisibleItems = () => {
-    revealItems.forEach((item) => {
-      if (!isRevealVisible(item)) return;
-
-      item.classList.add("is-visible");
-      remove(item, null, "opacity");
-      remove(item, null, "--reveal-y");
-      item.style.opacity = "1";
-      item.style.setProperty("--reveal-y", "0px");
-    });
+  const queueRevealSync = () => {
+    if (revealSyncQueued) return;
+    revealSyncQueued = true;
+    window.requestAnimationFrame(syncRevealState);
   };
 
-  revealItems.forEach((item, index) => {
-    item.classList.add("scroll-reveal");
-    item.dataset.revealIndex = String(index);
-  });
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            showItem(entry.target, (Number(entry.target.dataset.revealIndex) % 4) * 45);
-          } else {
-            hideItem(entry.target);
-          }
-        });
-      },
-      {
-        rootMargin: "-12% 0px -12% 0px",
-        threshold: 0,
-      },
-    );
-
-    revealItems.forEach((item) => observer.observe(item));
-  }
-
-  let syncQueued = false;
-  const queueSyncRevealState = () => {
-    if (syncQueued) return;
-
-    syncQueued = true;
-    window.requestAnimationFrame(() => {
-      syncQueued = false;
-      syncRevealState();
-    });
-  };
-
-  window.addEventListener("scroll", queueSyncRevealState, { passive: true });
-  window.addEventListener("resize", queueSyncRevealState);
-  window.addEventListener("pageshow", repairVisibleItems);
+  window.addEventListener("scroll", queueRevealSync, { passive: true });
+  window.addEventListener("resize", queueRevealSync);
+  window.addEventListener("pageshow", queueRevealSync);
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) repairVisibleItems();
+    if (!document.hidden) queueRevealSync();
   });
-  queueSyncRevealState();
+  queueRevealSync();
 }
 
 function initHoverAnimations() {

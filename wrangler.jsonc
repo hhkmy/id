@@ -1,12 +1,19 @@
 {
-	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "hhkmyid",
-	"compatibility_date": "2026-07-06",
-	"build": {
-		"command": "chmod a+x build.sh && ./build.sh"
-	},
-	"assets": {
-		"directory": "./public",
-		"not_found_handling": "404-page"
-	}
+  "$schema": "https://unpkg.com/wrangler@4.107.0/config-schema.json",
+  "name": "hhkmyid",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-07-06",
+  "build": {
+    "command": "chmod a+x build.sh && ./build.sh",
+  },
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page",
+  },
+  "kv_namespaces": [
+    {
+      "binding": "BLOG_VIEWS",
+      "id": "c8aa2de4409a46b29047d6e90a301072",
+    },
+  ],
 }

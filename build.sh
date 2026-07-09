@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-HUGO_VERSION=0.163.3
-NODE_VERSION=22.17.0
+NODE_VERSION=22.19.0
 TZ=Asia/Yangon
 HUGO_CACHEDIR="${PWD}/.cache/hugo"
 
@@ -15,6 +14,13 @@ cleanup() {
 
 trap cleanup EXIT SIGINT SIGTERM
 
+latest_hugo_version() {
+	local latest_release_url
+
+	latest_release_url=$(curl -fsSLI -o /dev/null -w "%{url_effective}" "https://github.com/gohugoio/hugo/releases/latest")
+	printf "%s\n" "${latest_release_url##*/v}"
+}
+
 main() {
 	export TZ
 	export HUGO_CACHEDIR
@@ -22,6 +28,7 @@ main() {
 	build_temp_dir=$(mktemp -d)
 	mkdir -p "${HOME}/.local"
 
+	HUGO_VERSION=$(latest_hugo_version)
 	echo "Installing Hugo ${HUGO_VERSION}..."
 	curl -sfL --output-dir "${build_temp_dir}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
 	mkdir -p "${HOME}/.local/hugo"

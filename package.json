@@ -11,9 +11,9 @@
     "build:search": "npm run build",
     "lighthouse:pages": "node scripts/lighthouse-pages.mjs --site https://hhk.my.id",
     "lighthouse:pages:sample": "node scripts/lighthouse-pages.mjs --site https://hhk.my.id --limit 5",
-    "deploy:cloudflare": "wrangler deploy",
-    "deploy:cloudflare:ci": "npm ci && wrangler deploy",
-    "deploy:cloudflare:version": "wrangler versions upload && wrangler versions deploy -y && wrangler triggers deploy",
+    "deploy:cloudflare": "npx -y wrangler@4.107.0 deploy",
+    "deploy:cloudflare:ci": "npm ci && npx -y wrangler@4.107.0 deploy",
+    "deploy:cloudflare:version": "npx -y wrangler@4.107.0 versions upload && npx -y wrangler@4.107.0 versions deploy -y && npx -y wrangler@4.107.0 triggers deploy",
     "deploy:cloudflare:version:ci": "npm ci && npm run deploy:cloudflare:version",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
     "precommit": "lint-staged",
@@ -43,8 +43,7 @@
     "sass": "^1.89.2",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.1.10",
-    "toml-eslint-parser": "^0.10.0",
-    "wrangler": "^4.107.0"
+    "toml-eslint-parser": "^0.10.0"
   },
   "lint-staged": {
     "*.{json,css,md,html}": [
@@ -55,15 +54,18 @@
     "animejs": "^4.5.0",
     "autoprefixer": "^10.4.21",
     "clipboard": "^2.0.11",
+    "lighthouse": "^13.4.0",
     "postcss-cli": "^11.0.1",
     "rtlcss": "^4.3.0"
   },
   "lavamoat": {
     "allowScripts": {
-      "sass>@parcel/watcher#2.5.1": false,
-      "wrangler>esbuild#0.28.1": false,
-      "wrangler>miniflare>sharp#0.34.5": false,
-      "wrangler>workerd#1.20260701.1": false
+      "sass>@parcel/watcher#2.5.1": false
+    }
+  },
+  "overrides": {
+    "lighthouse": {
+      "@sentry/node": "10.64.0"
     }
   }
 }

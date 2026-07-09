@@ -93,6 +93,10 @@
 								>{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
 								{{ (time $p.Date).Format "Jan 2, 2006" }}</span
 							>
+							<span class="post-view-count flex items-center gap-1.5" data-path="{{ $p.RelPermalink }}" aria-live="polite">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
+								<span><span class="count">0</span> views</span>
+							</span>
 						</div>
 						<h3
 							class="{{ if eq $i 0 }}
