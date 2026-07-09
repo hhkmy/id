@@ -2,20 +2,25 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This repository publishes the source for https://hhk.my.id. Security fixes are
+handled on the default branch and released with the next site deployment.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| `main`  | :white_check_mark: |
+| Other branches or forks | :x: |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please do not open a public issue for an unpatched vulnerability. Use GitHub's
+private vulnerability reporting for this repository when available, or contact
+the maintainer directly through the public contact details on https://hhk.my.id.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Include the affected URL or file, the steps needed to reproduce the issue, and
+the impact you expect. Reports about third-party services, browser extensions,
+or software described in blog posts are only actionable when the issue affects
+this website or its repository.
+
+Accepted reports are fixed on `main` and deployed after validation. If a report
+is not reproducible or does not affect this site, it may be declined with a short
+explanation.
