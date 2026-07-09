@@ -33,6 +33,10 @@
 						{{ partial "icons/icon" (dict "vendor" "default" "name" "words" "width" "1rem" "height" "1rem") }} {{ . }} words
 					</span>
 				{{ end }}
+				<span class="article-meta-item view-counter" data-path="{{ .RelPermalink }}" aria-live="polite">
+					{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
+					<span><span class="count">0</span> views</span>
+				</span>
 				{{ with .Params.series }}
 					<span class="article-meta-item">Series: {{ . }}</span>
 				{{ end }}
