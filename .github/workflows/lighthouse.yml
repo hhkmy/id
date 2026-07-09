@@ -43,5 +43,5 @@ jobs:
       - name: Commit updated Lighthouse data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update Lighthouse scores"
+          commit_message: "chore(lighthouse): refresh score data"
           file_pattern: data/lighthouse.json
