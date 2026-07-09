@@ -9,9 +9,9 @@ description:
 summary:
   Microsoft ရဲ့ Office ဆိုတာကတော့ လူတိုင်းလိုလို အသုံးပြုဖြစ်တဲ့ Software ပေါ့၊
   အဲ့ဒါကို License key တွေနဲ့ patch မလုပ်ပဲ bat script နဲ့ Patch လုပ်တဲ့ Content
-  လေးပေါ့။ ဒါကလည်း ကာလအတော်ကြာအဆင်ပြေခဲ့တဲ့ Method ဆိုပေမယ့် နောက်ပိုင်း
+  လေးပေါ့။ ဒါကလည်း ကာလအတော်ကြာအဆင်ပြေခဲ့တဲ့ Method ဆိုပေမယ့် နောက်ပိုင်း
   Microsoft ဘက်က ပြန်ပြီး Repatch လုပ်ခဲ့တော့တယ်ထင်တယ်။ နောက်ပိုင်း Office 365
-  ဘက်ကို စမ်းခဲ့တာ အဆင်ပြေတာနဲ့ပဲ ပြန်မသုံးဖြစ်ခဲ့တော့ဘူး၊ ဆိုပေမယ့်
+  ဘက်ကို စမ်းခဲ့တာ အဆင်ပြေတာနဲ့ပဲ ပြန်မသုံးဖြစ်ခဲ့တော့ဘူး၊ ဆိုပေမယ့်
   အဆင်ပြေခဲ့တဲ့ အမှတ်တရ Content လေးအကြောင်း
 tags:
   - Office
@@ -32,7 +32,7 @@ Active လုပ်ရမလဲဆိုတာပါပဲ။ ဘာ Software �
 
 Windows တွေတင်ပြီးကြပြီဆိုရင်တော့ ကျွန်တော်တို့ Office တစ်ခုခုလဲ သုံးကြမှာပါ။
 ကျွန်တော့အနေနဲ့ကတော့ Office 2019 ကို သုံးရတာ ကြိုက်သလို Office 365 သုံးရတာကိုလဲ
-သဘောကျပါတယ်။ အရင်ဆုံးလိုအပ်တာတွေ Download လုပ်ဖို့တော့လိုအပ်ပါလိမ့်မယ်။
+သဘောကျပါတယ်။ အရင်ဆုံးလိုအပ်တာတွေ Download လုပ်ဖို့တော့လိုအပ်ပါလိမ့်မယ်။
 
 **Microsoft Office Professional Plus**
 
@@ -57,27 +57,27 @@ Windows တွေတင်ပြီးကြပြီဆိုရင်တော
 [Office 365](https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365ProPlusRetail&platform=X86&language=en-US)
 (Need Internet)
 
-ကျွန်တော်စမ်းကြည့်ရသလောက်ကတော့ Office 365 နဲ့ Office 2019
+ကျွန်တော်စမ်းကြည့်ရသလောက်ကတော့ Office 365 နဲ့ Office 2019
 မှာအဆင်ပြေသလောက်ရှိပါတယ်။ microsoft ကဆွဲထားတာမှမဟုတ်ဘူးဆိုရင်တော့ Pre-Activate
 ဖြစ်ဖို့များနိုင်ပါတယ်။ အင်တာနက်အဆင်မပြေလို့မစမ်းပေးတော့ပါဘူး။ ကဲ ကျွန်တော်တို့
 Office တွေလဲရှိပြီ Installation တွေလဲ သွင်းပြီသွားပြီဆိုရင်တော့ ...
 
 **Method-1**
 
-1. command prompt ကို administrator mode ဖြင့်ဖွင့်ရပါမယ်။
+1. command prompt ကို administrator mode ဖြင့်ဖွင့်ရပါမယ်။
 
-Windows Key ကိုနှိပ်ပြီး cmd လို့ရိုက်ထည့်လိုက်ရင်တော့ **Command Prompt** ကို
+Windows Key ကိုနှိပ်ပြီး cmd လို့ရိုက်ထည့်လိုက်ရင်တော့ **Command Prompt** ကို
 ပေါ်လာမှာဖြစ်ပြီး ပေါ်လာတဲ့ **Command Prompt** ကို Right Click လုပ်ပြီး **Run as
 Administorator** လုပ်လို့အဆင်ပြေသလို ဒီတိုင်း Right Click မနှိပ်ပါပဲလဲ
-ဖွင့်လို့ရပါတယ်။
+ဖွင့်လို့ရပါတယ်။
 
 ![Open command prompt in administrator mode](images/open-cmd.png "Open command prompt in administrator mode")
 
-2. PC ထဲမှာရှိတဲ့ Office ရဲ့ Location ကို ဖွင့်ပေးရမှာပဲဖြစ်ပါတယ်။
+2. PC ထဲမှာရှိတဲ့ Office ရဲ့ Location ကို ဖွင့်ပေးရမှာပဲဖြစ်ပါတယ်။
 
 ကိုယ်သွင်းထားတဲ့ Windows OS ရဲ့ architecture အလိုက် location
 တွေပြောင်းလဲနိုင်တဲ့အတွက် အောက်က Command တွေထဲက တစ်ကြောင်းပြီး
-တစ်ကြောင်းစမ်းကြည့်လို့ရပါတယ်။ 64bit ကို အသုံးပြုထားတဲ့ OS ဆိုရင်တော့ အောက်က
+တစ်ကြောင်းစမ်းကြည့်လို့ရပါတယ်။ 64bit ကို အသုံးပြုထားတဲ့ OS ဆိုရင်တော့ အောက်က
 အကြောင်းနဲ့အဆင်ပြေပါတယ်။
 
 ![Direction to Office in PC](images/driection-to-office.png "Direction to Office in PC")
@@ -89,8 +89,8 @@ cd /d %ProgramFiles(x86)%\Microsoft Office\Office16
 
 3. retail license မှ volume one လို့ပြောင်းပေးရပါမယ်။
 
-**အကယ်၍သာ ကိုယ့်ရဲ့ Office က Office ရဲ့ Offical Website ကနေသွင်းထားတာဆိုရင်တော့
-ဒီအဆင့်က လိုအပ်ပါတယ်။** အောက်က command line ကို command prompt ထဲကို ရိုက်ပြီး
+**အကယ်၍သာ ကိုယ့်ရဲ့ Office က Office ရဲ့ Offical Website ကနေသွင်းထားတာဆိုရင်တော့
+ဒီအဆင့်က လိုအပ်ပါတယ်။** အောက်က command line ကို command prompt ထဲကို ရိုက်ပြီး
 process ကို ဆက်လက် လုပ်ဆောင်သွားရမှာပါ။
 
 ```cmd
@@ -102,7 +102,7 @@ for /f %x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp
 4. KMS client key ကိုအသုံးပြုပြီး Office ကို Activate လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။
 
 အင်တာနက် ကွန်နက်ရှင်နဲ့ ချိတ်ဆက်ထားဖို့အတွက်ကတော့ လိုအပ်ပါတယ်။ ဒါမှလဲ Client Key
-က ပြောင်းလဲတဲ့အဆင့်ကို ကောင်းကောင်းလုပ်ဆောင်နိုင်မှာပါ။
+က ပြောင်းလဲတဲ့အဆင့်ကို ကောင်းကောင်းလုပ်ဆောင်နိုင်မှာပါ။
 
 ```cmd
 ospp.vbs /setprt:1688
@@ -113,7 +113,7 @@ cscript ospp.vbs /act
 
 ![Activate your Office using KMS client key](images/office-activation-successful.png "Activate your Office using KMS client key")
 
-ဒီလောက်ဆိုရင်တော့ Office ကို ဖွင့်ကြည့်လိုက်ရင် Activated
+ဒီလောက်ဆိုရင်တော့ Office ကို ဖွင့်ကြည့်လိုက်ရင် Activated
 ဖြစ်သွားပြီပဲဖြစ်ပါတယ်။
 
 ![Office Activated](images/office-activated.png "Office Activated")
@@ -124,13 +124,13 @@ cscript ospp.vbs /act
 Run လိုက်ရင် အပေါ်က အတိုင်းပဲဖြစ်မှာပါ။ သူ့ကို လုပ်ဖို့နည်းလမ်းကတော့ ...
 
 ပထမဦးဆုံး Antivirus ကိုပိတ်ထားဖို့တော့လိုအပ်ပါတယ်။ Windows Defender
-ကိုဖွင့်ထားလဲ ခဏပိတ်ထားလိုက်ပါ။ kms server ကို ချိတ်ဆက်မှာဖြစ်တဲ့အတွက်ကြောင့်
+ကိုဖွင့်ထားလဲ ခဏပိတ်ထားလိုက်ပါ။ kms server ကို ချိတ်ဆက်မှာဖြစ်တဲ့အတွက်ကြောင့်
 သူက Virus ဆိုပြီး ပေါ်နေတတ်ပါတယ်။ အောက်မှာတော့ ဘယ်လို Alert ပြတတ်လဲဆိုတာကို
 ပြထားတာပါ။
 
 ![Office.cmd File Virus Alert](images/office-activation-virus-alert.png "Office.cmd File Virus Alert")
 
-Notepad ကိုဖွင့်လိုက်ပါ ပြီးရင်အောက်က code တွေကို အကုန်ကူးယူလိုက်ပါ။
+Notepad ကိုဖွင့်လိုက်ပါ ပြီးရင်အောက်က code တွေကို အကုန်ကူးယူလိုက်ပါ။
 
 ```batch
 @echo off
@@ -158,14 +158,14 @@ pause >nul
 
 ဆိုပြီးသိမ်းဖို့လိုအပ်ပါတယ်။ file name မှာ .cmd အဆုံးသတ်ဖို့အတွက် save as type
 မှာ all file ဖြစ်နေတာ ကောင်းပါတယ်။ အကယ်လို့သာ all file မဟုတ်ဘူးဆိုရင်တော့ file က
-.txt extenstion နဲ့ သိမ်းသွားနိုင်တာကြောင့်ပါ။ Encoding မှာတော့
-မြန်မာစာပဲဖြစ်ဖြစ် unicode symbol တစ်ခုခုပါသွားရင် လေးထောင့်တုံးလေးနဲ့ ?
+.txt extenstion နဲ့ သိမ်းသွားနိုင်တာကြောင့်ပါ။ Encoding မှာတော့
+မြန်မာစာပဲဖြစ်ဖြစ် unicode symbol တစ်ခုခုပါသွားရင် လေးထောင့်တုံးလေးနဲ့ ?
 လေးတွေဖြစ်နေတတတ်လို့ပါ။
 
 ![Save Office.cmd File](images/save-office-cmd.png "Save Office.cmd File")
 
 သိမ်းပြီးသားဖိုင်နေရာကိုသွားပြီး **Right Click** > **Run as Administrator**
-ကိုနှိပ်ပေးရပါမယ်။ အားလုံးပြီးသွားအောင်စောင့်ပြီးတော့ အောက်က Result အတိုင်း
+ကိုနှိပ်ပေးရပါမယ်။ အားလုံးပြီးသွားအောင်စောင့်ပြီးတော့ အောက်က Result အတိုင်း
 ရလာမှာပဲဖြစ်ပါတယ်။
 
 ![CMD Method Activated](images/cmd-method-activated.png "CMD Method Activated")

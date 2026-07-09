@@ -8,7 +8,7 @@ description:
   Hugo Diagrams or Diagrams system in website. For testing purpose to
   Development.
 summary:
-  Website အတွက် လိုအပ်တာတွေ ထည့်ရင်း Hugo Website ကိုလည်း Setup လုပ်ရင်းနဲ့
+  Website အတွက် လိုအပ်တာတွေ ထည့်ရင်း Hugo Website ကိုလည်း Setup လုပ်ရင်းနဲ့
   ရလာတဲ့ Content ကတော့ website မှာ selectable Diagrams တွေကို
   ဘယ်လိုဆွဲလို့ရမလဲဆိုတာပါပဲ။ ကိုယ်တိုင်လုပ်ချင်တဲ့လူတွေအတွက်လည်း
   အဆင်ပြေအောင်လို့ Content လေးတစ်ပုဒ်အဖြစ်နဲ့ ရေးသားရင်းနောက်များလိုအပ်တော့လည်း
