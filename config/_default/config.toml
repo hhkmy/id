@@ -17,6 +17,9 @@
     source = 'assets'
     target = 'assets'
   [[module.mounts]]
+    source = 'assets/pagefind'
+    target = 'static/pagefind'
+  [[module.mounts]]
     source = 'assets/twemoji/svg-used'
     target = 'static/twemoji/svg'
   [[module.mounts]]

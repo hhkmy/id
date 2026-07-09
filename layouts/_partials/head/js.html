@@ -1,4 +1,5 @@
 {{- $main := resources.Get "js/main.js" }}
+{{- $anime := resources.Get "js/anime-enhancements.js" }}
 {{- $opts := dict
 	"minify" (not hugo.IsDevelopment)
 	"sourceMap" (cond hugo.IsDevelopment "external" "")
@@ -10,6 +11,31 @@
 	{{- else }}
 		{{- with resources.Fingerprint . }}
 			<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+		{{- end }}
+	{{- end }}
+{{- end }}
+{{- with $anime | js.Build (merge $opts (dict "targetPath" "js/anime-enhancements.js")) }}
+	{{- if hugo.IsDevelopment }}
+		<script>
+			window.setTimeout(function () {
+				var script = document.createElement("script");
+				script.src = "{{ .RelPermalink }}";
+				script.defer = true;
+				document.head.appendChild(script);
+			}, 1500);
+		</script>
+	{{- else }}
+		{{- with resources.Fingerprint . }}
+			<script>
+				window.setTimeout(function () {
+					var script = document.createElement("script");
+					script.src = "{{ .RelPermalink }}";
+					script.integrity = "{{ .Data.Integrity }}";
+					script.crossOrigin = "anonymous";
+					script.defer = true;
+					document.head.appendChild(script);
+				}, 1500);
+			</script>
 		{{- end }}
 	{{- end }}
 {{- end }}

@@ -9,7 +9,7 @@
 					script.crossOrigin = "anonymous";
 					script.onload = function () {
 						window.twemoji &&
-							window.twemoji.parse(document.body, {
+							window.twemoji.parse(document.querySelector("main") || document.body, {
 								base: "/twemoji/",
 								folder: "svg",
 								ext: ".svg",
@@ -18,12 +18,7 @@
 					document.head.appendChild(script);
 				};
 
-				if ("requestIdleCallback" in window) {
-					requestIdleCallback(loadTwemoji, { timeout: 2500 });
-					return;
-				}
-
-				window.addEventListener("load", loadTwemoji, { once: true });
+				window.setTimeout(loadTwemoji, 8000);
 			})();
 	</script>
 	{{ end }}

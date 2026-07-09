@@ -10,18 +10,15 @@
 				aria-controls="qr-modal"
 				aria-label="Open QR code"
 			>
-				<object
+				<img
 					id="qr-image"
-					class="qr-svg-object pointer-events-none h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800"
-					data="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
-					type="image/svg+xml"
+					class="pointer-events-none h-10 w-10 rounded-md ring-1 ring-slate-200 dark:invert dark:ring-slate-800"
+					src="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
 					width="40"
 					height="40"
-					aria-hidden="true"
+					alt=""
 					onmousedown="return false"
 				>
-					<img src="{{ (resources.Get "ui/qr.svg").RelPermalink }}" width="40" height="40" alt="" class="h-10 w-10 rounded-md">
-				</object>
 			</button>
 			<a
 				href="{{ .Site.Home.RelPermalink }}"
@@ -80,23 +77,13 @@
 >
 	<div class="relative rounded-lg bg-white p-4 shadow-2xl ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800">
 		<h2 id="qr-modal-title" class="sr-only">QR code</h2>
-		<object
+		<img
 			id="qr-modal-image"
-			class="qr-svg-object h-auto max-h-[min(80dvh,48rem)] w-full max-w-[min(88vw,48rem)] rounded-md"
-			data="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
-			type="image/svg+xml"
+			class="h-auto max-h-[min(80dvh,48rem)] w-full max-w-[min(88vw,48rem)] rounded-md dark:invert"
+			data-src="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
 			width="1024"
 			height="1024"
-			aria-label="HHK QR code"
-			tabindex="-1"
+			alt="HHK QR code"
 		>
-			<img
-				src="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
-				width="1024"
-				height="1024"
-				alt="HHK QR code"
-				class="h-auto max-h-[min(80dvh,48rem)] w-full max-w-[min(88vw,48rem)] rounded-md"
-			>
-		</object>
 	</div>
 </div>

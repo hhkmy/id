@@ -15,10 +15,10 @@
 							{{ .LinkTitle }}
 						</a>
 						{{ if .Date }}
-							<span class="text-xs text-gray-400 ml-2">{{ .Date.Format "Jan 2, 2006" }}</span>
+							<span class="text-xs text-slate-600 ml-2 dark:text-slate-300">{{ .Date.Format "Jan 2, 2006" }}</span>
 						{{ end }}
 						{{ with .Summary }}
-							<div class="text-gray-500 dark:text-gray-400 text-sm mt-1">{{ . }}</div>
+							<div class="text-slate-600 dark:text-slate-300 text-sm mt-1">{{ . }}</div>
 						{{ end }}
 					</li>
 				{{ end }}
