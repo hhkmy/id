@@ -26,7 +26,7 @@ const chromeFlags = args.get("chrome-flags") ?? "--headless=new --no-sandbox";
 const timeoutMs = Number(args.get("timeout-ms") ?? 120000);
 const excludePattern = args.get("exclude")
   ? new RegExp(args.get("exclude"))
-  : /\/lighthouse\/?$/;
+  : /^(?:\/lighthouse\/?|\/tags(?:\/.*)?)$/;
 const tmpRoot = await mkdir(path.join(tmpdir(), "hhk-lighthouse"), {
   recursive: true,
 }).then(() => path.join(tmpdir(), "hhk-lighthouse"));

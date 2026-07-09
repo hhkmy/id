@@ -1,4 +1,4 @@
-import { animate, onScroll, remove } from "animejs";
+import { animate, remove } from "animejs";
 import { createDrawable, createMotionPath, morphTo } from "animejs/svg";
 
 function ready(callback) {
@@ -103,10 +103,6 @@ function setupQrSvgMotion(qrSvg) {
 
 function initRevealAnimations() {
   const revealSelectors = [
-    ".home-hero",
-    ".article-hero",
-    ".home-hero-panel",
-    ".article-meta",
     ".panel",
     ".article-card",
     ".focus-card",
@@ -121,26 +117,108 @@ function initRevealAnimations() {
     ".article-footer",
   ];
 
-  document.querySelectorAll(revealSelectors.join(",")).forEach((item, index) => {
-    item.classList.add("scroll-reveal");
-    item.dataset.revealIndex = String(index);
+  const revealItems = Array.from(document.querySelectorAll(revealSelectors.join(",")));
 
+  const isRevealVisible = (item) => {
+    const revealMargin = Math.min(window.innerHeight * 0.12, 96);
+    const rect = item.getBoundingClientRect();
+    return rect.bottom > revealMargin && rect.top < window.innerHeight - revealMargin;
+  };
+
+  const showItem = (item, delay = 0) => {
+    if (item.classList.contains("is-visible")) return;
+
+    item.classList.add("is-visible");
+    remove(item, null, "opacity");
+    remove(item, null, "--reveal-y");
     animate(item, {
       opacity: [0, 1],
       "--reveal-y": ["18px", "0px"],
-      duration: 520,
-      delay: (index % 4) * 60,
+      duration: 420,
+      delay,
       ease: "outQuad",
-      persist: true,
-      autoplay: onScroll({
-        target: item,
-        sync: "restart none none none",
-        enter: "92% start",
-        leave: "start end",
-        repeat: true,
-      }),
     });
+  };
+
+  const hideItem = (item) => {
+    if (!item.classList.contains("is-visible")) return;
+
+    item.classList.remove("is-visible");
+    remove(item, null, "opacity");
+    remove(item, null, "--reveal-y");
+    animate(item, {
+      opacity: [1, 0],
+      "--reveal-y": ["0px", "18px"],
+      duration: 180,
+      ease: "outQuad",
+    });
+  };
+
+  const syncRevealState = () => {
+    revealItems.forEach((item, index) => {
+      if (isRevealVisible(item)) {
+        showItem(item, (index % 4) * 45);
+      } else {
+        hideItem(item);
+      }
+    });
+  };
+
+  const repairVisibleItems = () => {
+    revealItems.forEach((item) => {
+      if (!isRevealVisible(item)) return;
+
+      item.classList.add("is-visible");
+      remove(item, null, "opacity");
+      remove(item, null, "--reveal-y");
+      item.style.opacity = "1";
+      item.style.setProperty("--reveal-y", "0px");
+    });
+  };
+
+  revealItems.forEach((item, index) => {
+    item.classList.add("scroll-reveal");
+    item.dataset.revealIndex = String(index);
   });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            showItem(entry.target, (Number(entry.target.dataset.revealIndex) % 4) * 45);
+          } else {
+            hideItem(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: "-12% 0px -12% 0px",
+        threshold: 0,
+      },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  }
+
+  let syncQueued = false;
+  const queueSyncRevealState = () => {
+    if (syncQueued) return;
+
+    syncQueued = true;
+    window.requestAnimationFrame(() => {
+      syncQueued = false;
+      syncRevealState();
+    });
+  };
+
+  window.addEventListener("scroll", queueSyncRevealState, { passive: true });
+  window.addEventListener("resize", queueSyncRevealState);
+  window.addEventListener("pageshow", repairVisibleItems);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) repairVisibleItems();
+  });
+  queueSyncRevealState();
 }
 
 function initHoverAnimations() {
