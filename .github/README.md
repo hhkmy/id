@@ -3,6 +3,7 @@
 </a>
 
 # HHK B/Vlog [![Netlify Status](https://api.netlify.com/api/v1/badges/9bebb371-d351-437c-ab5b-c64a3ef6b71c/deploy-status)](https://app.netlify.com/projects/hhkmyid/deploys)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhhkmy%2Fid.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhhkmy%2Fid?ref=badge_shield)
 
 <p align="center">
   <a href="https://github.com/hhkmy/id" rel="nofollow"><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"></a>
@@ -96,3 +97,7 @@ This script automatically downloads, installs, and updates Hugo on Linux systems
 ```cmd
 hugo server
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhhkmy%2Fid.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhhkmy%2Fid?ref=badge_large)
