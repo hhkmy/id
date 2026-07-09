@@ -1,7 +1,7 @@
 <footer>
 	<div class="site-shell flex flex-col items-center justify-center py-8 text-sm text-slate-500 dark:text-slate-400">
 		{{ with hugo.Data.lighthouse.summary }}
-			<div class="lighthouse-score mb-4" aria-label="Lighthouse scores">
+			<div class="lighthouse-score mb-4" role="group" aria-label="Lighthouse scores">
 				{{ range slice (dict "label" "Performance" "score" .averages.performance) (dict "label" "Accessibility" "score" .averages.accessibility) (dict "label" "Best Practices" "score" .averages.bestPractices) (dict "label" "SEO" "score" .averages.seo) }}
 					<div class="lighthouse-score-item" title="{{ .label }}: {{ .score }}">
 						<span class="lighthouse-score-circle" aria-hidden="true">{{ .score | default "-" }}</span>
