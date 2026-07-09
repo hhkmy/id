@@ -8,6 +8,7 @@
       "about-contact-icon",
       "about-section-heading",
       "about-skill-card",
+      "about-skills-grid",
       "about-timeline",
       "about-timeline-item",
       "about-timeline-year",
@@ -73,7 +74,6 @@
       "border-slate-200/80",
       "border-slate-700",
       "break-all",
-      "break-words",
       "code-copy-button",
       "code-window",
       "dark:bg-blue-900",
@@ -177,7 +177,6 @@
       "leading-8",
       "leading-relaxed",
       "leading-snug",
-      "lg:grid-cols-3",
       "lighthouse-issue",
       "lighthouse-score",
       "lighthouse-score-circle",
@@ -337,8 +336,9 @@
       "w-fit",
       "w-full",
       "whitespace-pre-wrap",
-      "z-50",
-      "z-[100]"
+      "wrap-break-word",
+      "z-100",
+      "z-50"
     ],
     "ids": null
   }

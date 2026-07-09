@@ -112,11 +112,6 @@
   ],
   "skills": [
     {
-      "icon": "python",
-      "dev": "Python",
-      "percentage": "1"
-    },
-    {
       "icon": "react",
       "dev": "React",
       "percentage": "1"
@@ -137,14 +132,14 @@
       "percentage": "35"
     },
     {
-      "icon": "telegram",
-      "dev": "Telegram Bots",
-      "percentage": "55"
-    },
-    {
       "icon": "hugo",
       "dev": "Hugo",
       "percentage": "65"
+    },
+    {
+      "icon": "python",
+      "dev": "Python",
+      "percentage": "69"
     },
     {
       "icon": "css3",
@@ -197,6 +192,11 @@
       "percentage": "95"
     },
     {
+      "icon": "telegram",
+      "dev": "Telegram Bots",
+      "percentage": "96"
+    },
+    {
       "icon": "microsoft",
       "dev": "Windows Troubleshooting",
       "percentage": "97"
@@ -217,7 +217,7 @@
       "percentage": "100"
     },
     {
-      "icon": "vibe",
+      "icon": "vibecode",
       "dev": "Vibe Code",
       "percentage": "101"
     }

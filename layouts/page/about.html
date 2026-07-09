@@ -32,7 +32,9 @@
 					<li class="about-contact-card">
 						<span class="about-contact-icon">{{ partial "icons/icon" (dict "vendor" "default" "name" .icon "width" "1.1rem" "height" "1.1rem") }}</span>
 						{{ if .link }}
-							<a href="{{ .link | safeURL }}" class="break-words font-semibold hover:text-slate-950 hover:underline dark:hover:text-white">{{ .value }}</a>
+							<a href="{{ .link | safeURL }}" class="wrap-break-word font-semibold hover:text-slate-950 hover:underline dark:hover:text-white"
+								>{{ .value }}</a
+							>
 						{{ else }}
 							<span class="font-semibold">{{ .value }}</span>
 						{{ end }}
@@ -110,7 +112,7 @@
 
 		<section class="panel">
 			<h2 class="about-section-heading">{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem") }} Skills</h2>
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			<div class="about-skills-grid">
 				{{ range hugo.Data.about.skills }}
 					<div class="about-skill-card">
 						<div class="mb-1 flex items-center justify-between gap-4">
