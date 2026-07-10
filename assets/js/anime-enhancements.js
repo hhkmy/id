@@ -14,29 +14,6 @@ function getActiveTheme() {
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 
-async function replaceQrImageWithSvg(qrImage) {
-  if (!(qrImage instanceof HTMLImageElement)) return null;
-
-  const response = await fetch(qrImage.currentSrc || qrImage.src);
-  if (!response.ok) return null;
-
-  const svgText = await response.text();
-  const svgDocument = new DOMParser().parseFromString(svgText, "image/svg+xml");
-  const svg = svgDocument.documentElement;
-  if (svg.nodeName.toLowerCase() !== "svg") return null;
-
-  const importedSvg = document.importNode(svg, true);
-  importedSvg.id = qrImage.id;
-  importedSvg.setAttribute("class", qrImage.getAttribute("class") || "");
-  importedSvg.classList.remove("dark:invert");
-  importedSvg.setAttribute("aria-hidden", "true");
-  importedSvg.setAttribute("focusable", "false");
-  importedSvg.dataset.theme = getActiveTheme();
-
-  qrImage.replaceWith(importedSvg);
-  return importedSvg;
-}
-
 function setupQrSvgMotion(qrSvg) {
   if (!(qrSvg instanceof SVGSVGElement)) return null;
 
@@ -316,24 +293,23 @@ function initHoverAnimations() {
   });
 }
 
-async function initQrAnimation() {
-  const qrImage = document.getElementById("qr-image");
+function initQrAnimation() {
+  const qrSvg = document.getElementById("qr-image");
   const qrImageTrigger = document.getElementById("qr-image-trigger");
-  if (!qrImage || !qrImageTrigger) return;
+  if (!(qrSvg instanceof SVGSVGElement) || !qrImageTrigger) return;
 
-  const qrSvg =
-    qrImage instanceof SVGSVGElement ? qrImage : await replaceQrImageWithSvg(qrImage);
+  qrSvg.dataset.theme = getActiveTheme();
   const playQrSvgMotion = setupQrSvgMotion(qrSvg);
 
   if (playQrSvgMotion) window.setTimeout(playQrSvgMotion, 350);
   qrImageTrigger.addEventListener("mouseenter", () => {
     playQrSvgMotion?.();
-    remove(qrSvg || qrImage);
-    animate(qrSvg || qrImage, { scale: 1.05, duration: 150, ease: "outQuad" });
+    remove(qrSvg);
+    animate(qrSvg, { scale: 1.05, duration: 150, ease: "outQuad" });
   });
   qrImageTrigger.addEventListener("mouseleave", () => {
-    remove(qrSvg || qrImage);
-    animate(qrSvg || qrImage, { scale: 1, duration: 150, ease: "outQuad" });
+    remove(qrSvg);
+    animate(qrSvg, { scale: 1, duration: 150, ease: "outQuad" });
   });
   qrImageTrigger.addEventListener("focus", () => {
     playQrSvgMotion?.();
@@ -345,7 +321,7 @@ ready(() => {
 
   initRevealAnimations();
   initHoverAnimations();
-  initQrAnimation().catch(() => {});
+  initQrAnimation();
 
   const notFoundIcon = document.querySelector(".not-found-icon");
   if (notFoundIcon) {
