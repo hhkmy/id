@@ -15,7 +15,7 @@
 ## Commit Messages
 
 - Work directly on the `main` branch for repository changes. Do not create new branches unless the user explicitly asks for a branch or pull request workflow.
-- If `git push origin main` fails with `GH006: Protected branch update failed` or `Changes must be made through a pull request`, stop and report the protection error to the user. Do not create, switch to, push, or merge a branch as a fallback unless the user explicitly asks for that branch or pull request workflow.
+- If `git push origin main` fails with `GH006: Protected branch update failed` or `Changes must be made through a pull request`, stay on `main` and fix the GitHub branch protection/ruleset that is requiring pull requests, then retry `git push origin main`. Do not create, switch to, push, merge, or open a branch/PR as a fallback unless the user explicitly asks for that workflow.
 - Prefer Conventional Commit style: `type(scope): summary`.
 - Keep the summary short, lowercase, and imperative when it reads naturally.
 - Choose a clear scope that names the area changed, such as `lighthouse`, `footer`, `header`, `deps`, or `content`.
