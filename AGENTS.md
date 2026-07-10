@@ -14,6 +14,7 @@
 
 ## Commit Messages
 
+- Work directly on the `main` branch for repository changes. Do not create new branches unless the user explicitly asks for a branch or pull request workflow.
 - Prefer Conventional Commit style: `type(scope): summary`.
 - Keep the summary short, lowercase, and imperative when it reads naturally.
 - Choose a clear scope that names the area changed, such as `lighthouse`, `footer`, `header`, `deps`, or `content`.
