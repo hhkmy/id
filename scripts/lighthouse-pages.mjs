@@ -24,6 +24,7 @@ const includePattern = args.get("include")
   : null;
 const chromeFlags = args.get("chrome-flags") ?? "--headless=new --no-sandbox";
 const timeoutMs = Number(args.get("timeout-ms") ?? 120000);
+const lighthousePackage = "lighthouse@13.4.0";
 const excludePattern = args.get("exclude")
   ? new RegExp(args.get("exclude"))
   : /^(?:\/lighthouse\/?|\/tags(?:\/.*)?)$/;
@@ -105,7 +106,7 @@ async function auditUrl(url, index) {
   const reportPath = path.join(tmpRoot, `report-${index}.json`);
   const commandArgs = [
     "--yes",
-    "lighthouse",
+    lighthousePackage,
     url,
     "--quiet",
     "--output=json",
