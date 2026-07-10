@@ -16,13 +16,7 @@
     "deploy:cloudflare:version": "npx -y wrangler@4.107.0 versions upload && npx -y wrangler@4.107.0 versions deploy -y && npx -y wrangler@4.107.0 triggers deploy",
     "deploy:cloudflare:version:ci": "npm ci && npm run deploy:cloudflare:version",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
-    "precommit": "lint-staged",
-    "prepare": "node .husky/install.mjs"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "precommit": "lint-staged"
   },
   "keywords": [
     "hguo",
@@ -35,7 +29,6 @@
     "@awmottaz/prettier-plugin-void-html": "^1.8.0",
     "@lavamoat/allow-scripts": "^5.1.0",
     "@tailwindcss/cli": "^4.1.10",
-    "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "pagefind": "^1.5.2",
     "prettier": "^3.5.3",

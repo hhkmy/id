@@ -10,6 +10,10 @@ out
 /public/
 /resources/
 /node_modules/
+/.agents/
+/.codex/
+/.frontmatter/
+/.husky/
 layouts/_default/_markup/
 layouts/_default/list.searchindex.json
 layouts/_default/index.searchindex.json
@@ -19,4 +23,5 @@ layouts/_default/index.searchindex.json
 
 
 # Ignore files
+frontmatter.json
 hugo_stats.json

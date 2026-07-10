@@ -6,6 +6,11 @@ desktop.ini
 # Local editor state
 .vs
 .vscode
+.agents
+.codex
+.frontmatter
+.husky
+frontmatter.json
 
 # Local Python environments and caches
 .venv
