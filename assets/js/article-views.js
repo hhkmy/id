@@ -1,5 +1,12 @@
 const VIEW_ENDPOINT = "/api/views";
 
+const isStaticHugoServer = () => {
+  const { hostname, port } = window.location;
+  return (
+    port === "1313" && (hostname === "localhost" || hostname === "127.0.0.1")
+  );
+};
+
 const formatViews = (views) => {
   const count = Number.isFinite(views) ? views : 0;
   return new Intl.NumberFormat(
@@ -62,6 +69,10 @@ const incrementCurrentArticle = async (counter) => {
 };
 
 export const initArticleViews = () => {
+  if (isStaticHugoServer()) {
+    return;
+  }
+
   const singleCounter = document.querySelector(".view-counter");
   const listCounters = [...document.querySelectorAll(".post-view-count")];
 
