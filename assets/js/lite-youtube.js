@@ -6,7 +6,7 @@ export function initLiteYoutube() {
     trigger.addEventListener(
       "click",
       () => {
-        const src = getYoutubeEmbedUrl(embed.getAttribute("data-youtube-src"));
+        const src = getYoutubeEmbedUrl(embed.dataset.youtubeId);
         if (!src) return;
 
         const iframe = document.createElement("iframe");
@@ -26,17 +26,14 @@ export function initLiteYoutube() {
 }
 
 function getYoutubeEmbedUrl(value) {
-  if (!value) return null;
+  if (!value || !/^[\w-]{11}$/.test(value)) return null;
 
-  try {
-    const url = new URL(value, window.location.href);
-    const isYoutubeEmbed =
-      url.protocol === "https:" &&
-      url.hostname === "www.youtube-nocookie.com" &&
-      url.pathname.startsWith("/embed/");
+  const params = new URLSearchParams({
+    autoplay: "1",
+    rel: "0",
+    modestbranding: "1",
+    playsinline: "1",
+  });
 
-    return isYoutubeEmbed ? url.href : null;
-  } catch {
-    return null;
-  }
+  return `https://www.youtube-nocookie.com/embed/${value}?${params}`;
 }

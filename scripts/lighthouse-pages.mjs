@@ -19,14 +19,14 @@ const site = args.get("site") ?? "https://hhk.my.id";
 const sitemapPath = args.get("sitemap") ?? "public/sitemap.xml";
 const outputPath = args.get("output") ?? "data/lighthouse.json";
 const limit = Number(args.get("limit") ?? 0);
-const includePattern = args.get("include")
-  ? createWildcardMatcher(args.get("include"))
-  : null;
+const includeGlobs = args.get("include");
+const includePattern = includeGlobs ? createWildcardMatcher(includeGlobs) : null;
 const chromeFlags = args.get("chrome-flags") ?? "--headless=new --no-sandbox";
 const timeoutMs = Number(args.get("timeout-ms") ?? 120000);
 const lighthousePackage = "lighthouse@13.4.0";
-const excludePattern = args.get("exclude")
-  ? createWildcardMatcher(args.get("exclude"))
+const excludeGlobs = args.get("exclude");
+const excludePattern = excludeGlobs
+  ? createWildcardMatcher(excludeGlobs)
   : (pathname) =>
       pathname === "/lighthouse" ||
       pathname === "/lighthouse/" ||
