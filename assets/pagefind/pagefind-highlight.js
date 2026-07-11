@@ -255,7 +255,8 @@ var require_mark = __commonJS({
             if (prevNode === null) {
               node = itr.nextNode();
             } else {
-              node = itr.nextNode() && itr.nextNode();
+              itr.nextNode();
+              node = itr.nextNode();
             }
             return {
               prevNode,

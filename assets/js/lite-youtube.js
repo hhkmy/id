@@ -6,8 +6,11 @@ export function initLiteYoutube() {
     trigger.addEventListener(
       "click",
       () => {
+        const src = getYoutubeEmbedUrl(embed.getAttribute("data-youtube-src"));
+        if (!src) return;
+
         const iframe = document.createElement("iframe");
-        iframe.src = embed.getAttribute("data-youtube-src");
+        iframe.src = src;
         iframe.title =
           embed.getAttribute("data-youtube-title") || "YouTube video";
         iframe.loading = "lazy";
@@ -20,4 +23,20 @@ export function initLiteYoutube() {
       { once: true },
     );
   });
+}
+
+function getYoutubeEmbedUrl(value) {
+  if (!value) return null;
+
+  try {
+    const url = new URL(value, window.location.href);
+    const isYoutubeEmbed =
+      url.protocol === "https:" &&
+      url.hostname === "www.youtube-nocookie.com" &&
+      url.pathname.startsWith("/embed/");
+
+    return isYoutubeEmbed ? url.href : null;
+  } catch {
+    return null;
+  }
 }

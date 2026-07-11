@@ -20,17 +20,62 @@ const sitemapPath = args.get("sitemap") ?? "public/sitemap.xml";
 const outputPath = args.get("output") ?? "data/lighthouse.json";
 const limit = Number(args.get("limit") ?? 0);
 const includePattern = args.get("include")
-  ? new RegExp(args.get("include"))
+  ? createWildcardMatcher(args.get("include"))
   : null;
 const chromeFlags = args.get("chrome-flags") ?? "--headless=new --no-sandbox";
 const timeoutMs = Number(args.get("timeout-ms") ?? 120000);
 const lighthousePackage = "lighthouse@13.4.0";
 const excludePattern = args.get("exclude")
-  ? new RegExp(args.get("exclude"))
-  : /^(?:\/lighthouse\/?|\/tags(?:\/.*)?)$/;
+  ? createWildcardMatcher(args.get("exclude"))
+  : (pathname) =>
+      pathname === "/lighthouse" ||
+      pathname === "/lighthouse/" ||
+      pathname === "/tags" ||
+      pathname === "/tags/" ||
+      pathname.startsWith("/tags/");
 const tmpRoot = await mkdir(path.join(tmpdir(), "hhk-lighthouse"), {
   recursive: true,
 }).then(() => path.join(tmpdir(), "hhk-lighthouse"));
+
+function createWildcardMatcher(patterns) {
+  const tokens = patterns
+    .split(",")
+    .map((pattern) => pattern.trim())
+    .filter(Boolean);
+
+  return (value) => tokens.some((pattern) => matchesWildcard(value, pattern));
+}
+
+function matchesWildcard(value, pattern) {
+  if (pattern === "*") return true;
+
+  const parts = pattern.split("*");
+  if (parts.length === 1) return value === pattern;
+
+  let cursor = 0;
+
+  if (parts[0]) {
+    const first = parts[0];
+    if (!value.startsWith(first)) return false;
+    cursor = first.length;
+  }
+
+  const lastIndex = parts.length - 1;
+  for (let index = 1; index <= lastIndex; index += 1) {
+    const part = parts[index];
+    if (!part) continue;
+
+    if (index === lastIndex && !pattern.endsWith("*")) {
+      return value.endsWith(part) && value.indexOf(part, cursor) !== -1;
+    }
+
+    const foundIndex = value.indexOf(part, cursor);
+    if (foundIndex === -1) return false;
+    cursor = foundIndex + part.length;
+  }
+
+  return true;
+}
 
 function normalizeUrl(url) {
   const target = new URL(url);
