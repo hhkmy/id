@@ -36,7 +36,7 @@
     "sass": "^1.89.2",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.1.10",
-    "toml-eslint-parser": "^0.10.0"
+    "toml-eslint-parser": "^1.0.3"
   },
   "lint-staged": {
     "*.{json,css,md,html}": [
