@@ -628,6 +628,15 @@ img.emoji {
 .article-content li > ol {
   @apply mt-3;
 }
+.article-content-picture {
+  @apply my-8 block max-w-full;
+}
+.article-content-image {
+  @apply mx-auto my-8 block h-auto max-w-full rounded-xl ring-1 ring-slate-200 dark:ring-slate-800;
+}
+.article-content-picture > .article-content-image {
+  @apply my-0;
+}
 .prose table {
   @apply my-6 w-full border-collapse rounded-lg shadow-sm;
   @apply dark:shadow-none;

@@ -32,6 +32,8 @@
       "article-category-badge",
       "article-comments",
       "article-content",
+      "article-content-image",
+      "article-content-picture",
       "article-featured-image",
       "article-footer",
       "article-hero",

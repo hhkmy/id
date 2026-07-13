@@ -2,6 +2,7 @@
 {{- $alt := .alt | default "" -}}
 {{- $title := .title | default "" -}}
 {{- $class := .class | default "" -}}
+{{- $pictureClass := .pictureClass | default "" -}}
 {{- $loading := .loading | default "lazy" -}}
 {{- $decoding := .decoding | default "async" -}}
 {{- $fetchpriority := .fetchpriority | default "" -}}
@@ -17,7 +18,7 @@
 	{{- end -}}
 	{{- $webp := $fallback.Process "webp" -}}
 	{{- $sourcePixels := mul $image.Width $image.Height -}}
-	<picture>
+	<picture{{ with $pictureClass }} class="{{ . }}"{{ end }}>
 		{{- if le $sourcePixels $maxAvifSourcePixels -}}
 			{{- $avif := $fallback.Process "avif" -}}
 			<source srcset="{{ $avif.RelPermalink }}" type="{{ $avif.MediaType.Type }}">
