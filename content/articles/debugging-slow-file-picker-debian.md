@@ -117,14 +117,41 @@ rm -rf ~/.local/share/gvfs-metadata/*
 
 Service တွေ Restart လုပ်ရုံနဲ့ Memory ထဲမှာ Run နေတဲ့ D-Bus Session နဲ့ GTK Background Service တွေ အကုန်အသစ်ပြန်မဖြစ်နိုင်သေးဘူး။ ဒါကြောင့် စောစောကရေးထားတဲ့ `portals.conf` နဲ့ GVFS Metadata ရှင်းထားတာတွေ အကုန်အသက်ဝင်အောင် Computer ကို Restart ချလိုက်တယ်။
 
+## Debugging Phase 5: Open မြန်ပေမယ့် Save လုပ်တဲ့အခါ ဆက်နှေးနေတဲ့ ပြဿနာ
+
+အပေါ်ကအဆင့်တွေ လုပ်ပြီးတဲ့နောက် File "Open" (ဒါမှမဟုတ်) Attachment လုပ်တဲ့အခါ ချက်ချင်းပွင့်လာပေမယ့် Application တွေကနေ File "Save" လုပ်မယ့်အချိန်မှာတော့ စက္ကန့် ၃၀ လောက် ဆက်ပြီးကြာနေတာကို တွေ့ရပြန်တယ်။
+
+**Open နဲ့ Save အလုပ်လုပ်ပုံ ကွာခြားချက်-**
+GTK File Picker က "Open" လုပ်ချိန်မှာ လမ်းကြောင်းတွေကို ဖတ်ရုံပဲဖတ်ပေမယ့် "Save" လုပ်မယ်ဆိုရင် File Manager ရဲ့ ဘယ်ဘက်ဘေးတန်း (Sidebar) မှာ မှတ်ထားတဲ့ Bookmark လမ်းကြောင်းအားလုံးကို "ဖိုင်ရေးခွင့် ရှိ/မရှိ" နဲ့ "Disk Space (statfs)" လိုက်စစ်တတ်တယ်။ `/home` ကို အဟောင်းအတိုင်း ပြန်သုံးထားလို့ `~/.config/gtk-3.0/bookmarks` ထဲမှာ အခုမရှိတော့တဲ့ Network Drive တွေနဲ့ လမ်းကြောင်းဟောင်းတွေ ပါနေရင် အဲ့ဒါတွေကို လိုက်စစ်ရင်း Network Timeout ဖြစ်သွားတာ။
+
+ဒါ့အပြင် `journalctl` Log အရ File Save လုပ်ချိန်မှာ `tracker-extract-3` Service က Database အဟောင်းကို လိုက်ဖတ်ရင်း CPU အများကြီး ဆွဲသုံးပြီး ငြိနေတာကို တွေ့ရတယ်။
+
+### Analysis & Fix:
+
+**၁။ Stale Bookmark တွေကို ရှင်းခြင်း-**
+File Manager (Nautilus) ကိုဖွင့်ပြီး ဘယ်ဘက်ဘေးတန်းမှာရှိနေတဲ့ မချိတ်ဆက်တော့တဲ့ Network Share တွေနဲ့ Folder အဟောင်းတွေကို Right-click ထောက်ပြီး "Remove" လုပ်လိုက်တယ်။ ဒါမှမဟုတ် Terminal ကနေ `nano ~/.config/gtk-3.0/bookmarks` နဲ့ ဝင်ဖျက်လို့လည်းရတယ်။
+
+**၂။ Tracker Service ကို ပိတ်ထားခြင်း (Masking):**
+Tracker Database အဟောင်းကြောင့် File Picker ကို ဆက်ပြီးမနှောင့်ယှက်နိုင်အောင် Service ကို အသေပိတ် (Mask) ထားလိုက်တယ်။
+
+```bash
+systemctl --user stop tracker-miner-fs-3 tracker-extract-3
+systemctl --user mask tracker-miner-fs-3 tracker-extract-3
+tracker3 daemon -k
+
+```
+
+> **ရလဒ် -** ဘေးတန်းက လမ်းကြောင်းဟောင်းတွေနဲ့ Tracker ကို ရှင်းလိုက်ပြီးတဲ့နောက် "စက္ကန့် ၃၀ Timeout" လုံးဝပျောက်သွားတယ်။ File Save Box ကလည်း လုံးဝမနှေးတော့ဘဲ ချက်ချင်းပွင့်လာတယ်။
+
 ## Conclusion & Key Takeaways
 
 Computer ပြန်တက်လာပြီး Browser နဲ့ Application တွေကနေ File Dialog ခေါ်ကြည့်တော့ ဒီတစ်ခါ လုံးဝမကြာတော့ဘဲ ချက်ချင်းပွင့်လာတယ်။ နောက်ဆုံးတော့ တရားခံက `/home` အဟောင်းထဲမှာ ကျန်ခဲ့တဲ့ GVFS Metadata ပဲ။
 
 ![HP Laptop](images/hp_laptop.jpg)
 
-နောက်တစ်ခါ ကိုယ်တိုင်ပြန်ကြုံရင်ဖြစ်ဖြစ်၊ တခြားသူတွေ ဒီလိုဖြစ်ရင်ဖြစ်ဖြစ် အလွယ်ပြန်ကြည့်လို့ရအောင် မှတ်ထားချင်တာ သုံးချက်ရှိတယ်။
+နောက်တစ်ခါ ကိုယ်တိုင်ပြန်ကြုံရင်ဖြစ်ဖြစ်၊ တခြားသူတွေ ဒီလိုဖြစ်ရင်ဖြစ်ဖြစ် အလွယ်ပြန်ကြည့်လို့ရအောင် မှတ်ထားချင်တာ လေးချက်ရှိတယ်။
 
 1. **`/home` အဟောင်းနဲ့အတူ Cache အဟောင်းတွေလည်း ပါလာနိုင်တယ်။** OS အသစ်ပြန်တင်ပြီး `/home` ကို ဆက်သုံးတဲ့အခါ GVFS Metadata အဟောင်းတွေက ပြဿနာပေးနိုင်လို့ `~/.local/share/gvfs-metadata/` ကို သတိရပြီး စစ်ကြည့်ရမယ်။
 2. **Portal တွေ ရောနေတာလည်း စစ်သင့်တယ်။** `xdg-desktop-portal` ဘက်က Timeout ဖြစ်နေလား၊ `portals.conf` မှာ Default Portal သတ်မှတ်ဖို့လိုလား ကြည့်ရမယ်။
 3. **Session-level ပြောင်းလဲမှုဆို Restart က အရေးပါတယ်။** Config အသစ်နဲ့ D-Bus / GVFS ပြောင်းထားတာတွေက `systemctl restart` တစ်ခုတည်းနဲ့ မလုံလောက်တတ်ဘူး။ Full Restart ဒါမှမဟုတ် Logout/Login ပြန်လုပ်တာက ပိုသေချာတယ်။
+4. **The Difference Between Open and Save:** GTK Dialog မှာ ဖိုင်ဖွင့်တာ အဆင်ပြေပြီး ဖိုင်သိမ်းတဲ့အခါမှ နှေးနေရင် GTK Bookmarks (`~/.config/gtk-3.0/bookmarks`) ထဲက Dead Link တွေနဲ့ GNOME ရဲ့ `tracker-extract` Service ကို မဖြစ်မနေ စစ်ပြီးရှင်းသင့်တယ်။
