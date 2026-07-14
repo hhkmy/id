@@ -303,7 +303,7 @@
   }
 
   .article-featured-image {
-    @apply mt-8 aspect-video w-full rounded-xl object-cover ring-1 ring-slate-200 dark:ring-slate-800;
+    @apply mt-8 h-auto w-full rounded-xl object-contain ring-1 ring-slate-200 dark:ring-slate-800;
   }
 
   .article-content {
