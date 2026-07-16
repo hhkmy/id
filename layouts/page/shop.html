@@ -1,0 +1,145 @@
+{{ define "main" }}
+	{{ $shop := hugo.Data.services.store }}
+	{{ $plans := hugo.Data.services.plans }}
+	{{ $paymentMethods := hugo.Data.services.payment_methods }}
+	{{ $paymentDetails := hugo.Data.services.payment_details }}
+	<section class="space-y-10">
+		<header class="home-hero">
+			<div class="home-hero-copy">
+				<p class="section-title mb-4">Shop</p>
+				<h1 class="home-hero-title">{{ .Title }}</h1>
+				<p class="home-hero-summary">{{ .Params.summary }}</p>
+				<div class="home-hero-actions">
+					<a href="#service-plans" class="link-button">View plans</a>
+					<a href="{{ $shop.url | safeURL }}" class="quiet-button" target="_blank" rel="noopener noreferrer">Open Telegram</a>
+				</div>
+			</div>
+			<div class="home-hero-panel">
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Available plans</p>
+					<p class="home-hero-panel-value">{{ len $plans }} service options</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Order through</p>
+					<p class="home-hero-panel-value">Telegram {{ $shop.handle }}</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Payment currency</p>
+					<p class="home-hero-panel-value">Myanmar Kyat (MMK)</p>
+				</div>
+			</div>
+		</header>
+
+		<section id="service-plans" class="panel scroll-mt-24">
+			<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+				<div>
+					<p class="section-title">Service plans</p>
+					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Choose your plan</h2>
+				</div>
+				<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+					Select a product, then contact {{ $shop.name }} on Telegram to complete your order.
+				</p>
+			</div>
+
+			<ul class="shop-grid">
+				{{ range $plans }}
+					{{ $planEmoji := false }}
+					{{ with .twemoji_icon }}{{ $planEmoji = resources.Get (printf "twemoji/svg/%s.svg" .) }}{{ end }}
+					{{ $cardClass := "shop-card" }}
+					{{ if .highlight }}{{ $cardClass = printf "%s shop-card-highlight" $cardClass }}{{ end }}
+					<li class="{{ $cardClass }}">
+						<div class="shop-card-content">
+							<div class="shop-card-plan">
+								{{ if .premium_emoji_id }}
+									<span
+										class="shop-card-icon telegram-premium-emoji"
+										data-telegram-emoji="/icons/premiumemojis/{{ .premium_emoji_id }}.tgs.base64"
+										role="img"
+										aria-label="{{ .emoji }}"
+									></span>
+								{{ else }}
+									<span class="shop-card-icon">
+										<img src="{{ $planEmoji.RelPermalink }}" width="20" height="20" alt="{{ .emoji }}" class="shop-plan-emoji">
+									</span>
+								{{ end }}
+								<div class="min-w-0">
+									<div class="shop-card-label-row">
+										<p class="section-title">Service plan</p>
+										{{ if .highlight }}<span class="shop-popular-badge">Popular</span>{{ end }}
+									</div>
+									<h3 class="shop-card-title">{{ .title }}</h3>
+								</div>
+							</div>
+							<div class="shop-card-pricing">
+								<p class="shop-card-price">{{ .price }}</p>
+								<p class="shop-card-note">Plan price</p>
+							</div>
+						</div>
+						<a
+							href="{{ .buy_url | safeURL }}"
+							class="shop-buy-button"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Buy the {{ .title }} plan from {{ $shop.name }} on Telegram"
+						>
+							<span>Buy on Telegram</span>
+							{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1rem" "height" "1rem") }}
+						</a>
+					</li>
+				{{ end }}
+			</ul>
+		</section>
+
+		<section class="panel">
+			<div class="shop-payment-row">
+				<div class="shop-payment-heading">
+					<p class="section-title">Payment</p>
+					<h2 class="mt-1 text-lg font-bold text-slate-950 dark:text-white">Payment methods</h2>
+					<div class="shop-payment-details">
+						<p class="shop-payment-detail">
+							<span>Pay Phone No</span>
+							<span aria-hidden="true">⟿</span>
+							<a href="tel:{{ $paymentDetails.phone }}">{{ $paymentDetails.phone }}</a>
+						</p>
+						<p class="shop-payment-detail">
+							<span>Pay Account Names</span>
+							<span aria-hidden="true">⟿</span>
+							<strong>{{ $paymentDetails.account_name }}</strong>
+							<span
+								class="shop-account-emoji telegram-premium-emoji"
+								data-telegram-emoji="/icons/premiumemojis/{{ $paymentDetails.account_name_emoji_id }}.tgs.base64"
+								role="img"
+								aria-label="Verified"
+							></span>
+						</p>
+					</div>
+				</div>
+				<ul class="shop-payment-methods" aria-label="Available payment methods">
+					{{ range $paymentMethods }}
+						<li class="shop-payment-method">
+							<span
+								class="shop-payment-emoji telegram-premium-emoji"
+								data-telegram-emoji="/icons/premiumemojis/{{ .premium_emoji_id }}.tgs.base64"
+								aria-hidden="true"
+							></span>
+							<span>{{ .name }}</span>
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+
+			<div class="shop-order-note mt-6">
+				<span class="shop-card-icon">
+					{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1.15rem" "height" "1.15rem") }}
+				</span>
+				<div>
+					<h2 class="text-lg font-bold text-slate-950 dark:text-white">Ready to order?</h2>
+					<p class="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">
+						Send {{ $shop.handle }} the plan duration you want, and continue the purchase in Telegram.
+					</p>
+				</div>
+				<a href="{{ $shop.url | safeURL }}" class="quiet-button sm:ml-auto" target="_blank" rel="noopener noreferrer">Contact {{ $shop.name }}</a>
+			</div>
+		</section>
+	</section>
+{{ end }}

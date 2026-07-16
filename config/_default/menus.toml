@@ -26,3 +26,10 @@
     name = 'Articles'
     pageRef = '/articles'
     weight = 4
+[[main]]
+    Pre = 'shop'
+    Url = '/shop'
+    identifier = 'shop'
+    name = 'Shop'
+    pageRef = '/shop'
+    weight = 5

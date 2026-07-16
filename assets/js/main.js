@@ -4,6 +4,7 @@ import { initCodeCopy } from "./code-copy.js";
 import { initLiteYoutube } from "./lite-youtube.js";
 import { initQrModal } from "./qr-modal.js";
 import { initSearch } from "./search.js";
+import { initTelegramPremiumEmoji } from "./telegram-premium-emoji.js";
 import { initTheme } from "./theme.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,5 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initArticleListIcons();
   initArticleViews();
   initSearch();
+  initTelegramPremiumEmoji();
   theme.watchSystemTheme();
 });

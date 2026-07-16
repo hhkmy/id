@@ -23,6 +23,9 @@
     source = 'assets/twemoji/svg-used'
     target = 'static/twemoji/svg'
   [[module.mounts]]
+    source = 'assets/icons/premiumemojis'
+    target = 'static/icons/premiumemojis'
+  [[module.mounts]]
     disableWatch = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'

@@ -93,6 +93,9 @@ function initRevealAnimations() {
     ".article-meta",
     ".article-adjacent-link",
     ".book-card",
+    ".shop-card",
+    ".shop-payment-method",
+    ".shop-order-note",
     ".article-content",
     ".article-footer",
     ".lighthouse-table-wrap",
@@ -110,6 +113,9 @@ function initRevealAnimations() {
     ".article-meta",
     ".article-adjacent-link",
     ".book-card",
+    ".shop-card",
+    ".shop-payment-method",
+    ".shop-order-note",
     ".lighthouse-table-wrap",
   ];
 
@@ -212,6 +218,9 @@ function initHoverAnimations() {
     ".about-skill-card",
     ".archive-year-card",
     ".book-card",
+    ".shop-card",
+    ".shop-payment-method",
+    ".shop-order-note",
     ".article-adjacent-link",
   ];
   const subtleLiftSelectors = [
@@ -222,6 +231,7 @@ function initHoverAnimations() {
     ".book-download-link",
     ".link-button",
     ".quiet-button",
+    ".shop-buy-button",
     ".code-copy-button",
   ];
 
@@ -253,8 +263,8 @@ function initHoverAnimations() {
     element.addEventListener("focusout", () => animateLift(element, 0));
   });
 
-  document.querySelectorAll(".focus-card, .about-contact-card").forEach((card) => {
-    const icon = card.querySelector(".focus-card-icon, .about-contact-icon");
+  document.querySelectorAll(".focus-card, .about-contact-card, .shop-card, .shop-order-note").forEach((card) => {
+    const icon = card.querySelector(".focus-card-icon, .about-contact-icon, .shop-card-icon");
     if (!icon) return;
 
     card.addEventListener("mouseenter", () => {
