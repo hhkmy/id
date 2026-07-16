@@ -74,6 +74,8 @@ export function initTheme() {
     }
     if (darkBtn) darkBtn.style.display = isDark ? "none" : "";
     if (lightBtn) lightBtn.style.display = isDark ? "" : "none";
+    const qrImage = document.getElementById("qr-image");
+    if (qrImage) qrImage.dataset.theme = theme;
     setGiscusTheme(theme);
   };
 

@@ -2,15 +2,28 @@
 	<div class="site-shell flex items-center justify-between py-3">
 		<!-- Logo & Site Title -->
 		<div class="flex items-center gap-3">
+			{{ $qr := resources.Get "ui/qr.svg" }}
+			<a
+				href="{{ .Site.Home.RelPermalink }}"
+				class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:hidden"
+				aria-label="Home"
+			>
+				<img
+					class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800"
+					src="{{ $qr.RelPermalink }}"
+					width="40"
+					height="40"
+					alt=""
+				>
+			</a>
 			<button
 				id="qr-image-trigger"
 				type="button"
-				class="group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+				class="group hidden rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:block"
 				aria-haspopup="dialog"
 				aria-controls="qr-modal"
 				aria-label="Open QR code"
 			>
-				{{ $qr := resources.Get "ui/qr.svg" }}
 				{{ $qr.Content
 					| replaceRE "<svg " `<svg id="qr-image" class="pointer-events-none h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800" aria-hidden="true" focusable="false" `
 					| safeHTML
