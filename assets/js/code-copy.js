@@ -12,19 +12,10 @@ const resetCopyButton = (button, originalText) => {
   }, 1600);
 };
 
-export function initCodeCopy() {
-  const clipboard = new ClipboardJS(".code-copy-button", {
-    text(trigger) {
-      return (
-        trigger.closest(".code-window")?.querySelector("code")?.textContent ||
-        ""
-      );
-    },
-  });
-
+const addCopyFeedback = (clipboard) => {
   clipboard.on("success", (event) => {
     const button = event.trigger;
-    const originalText = button.textContent;
+    const originalText = button.textContent.trim();
 
     button.textContent = "Copied";
     button.classList.add("border-emerald-500", "text-emerald-300");
@@ -34,10 +25,25 @@ export function initCodeCopy() {
 
   clipboard.on("error", (event) => {
     const button = event.trigger;
-    const originalText = button.textContent;
+    const originalText = button.textContent.trim();
 
     button.textContent = "Failed";
     button.classList.add("border-red-500", "text-red-300");
     resetCopyButton(button, originalText);
   });
+};
+
+export function initCodeCopy() {
+  const codeClipboard = new ClipboardJS(".code-copy-button", {
+    text(trigger) {
+      return (
+        trigger.closest(".code-window")?.querySelector("code")?.textContent ||
+        ""
+      );
+    },
+  });
+  const paymentClipboard = new ClipboardJS(".payment-copy-button");
+
+  addCopyFeedback(codeClipboard);
+  addCopyFeedback(paymentClipboard);
 }

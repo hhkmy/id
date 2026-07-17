@@ -43,6 +43,8 @@
 
 			<ul class="shop-grid">
 				{{ range $plans }}
+					{{ $planLabel := .title }}
+					{{ with .duration }}{{ $planLabel = printf "%s — %s" $planLabel . }}{{ end }}
 					{{ $planEmoji := false }}
 					{{ with .twemoji_icon }}{{ $planEmoji = resources.Get (printf "twemoji/svg/%s.svg" .) }}{{ end }}
 					{{ $cardClass := "shop-card" }}
@@ -68,6 +70,7 @@
 										{{ if .highlight }}<span class="shop-popular-badge">Popular</span>{{ end }}
 									</div>
 									<h3 class="shop-card-title">{{ .title }}</h3>
+									{{ with .duration }}<p class="shop-card-note">{{ . }}</p>{{ end }}
 								</div>
 							</div>
 							<div class="shop-card-pricing">
@@ -80,7 +83,7 @@
 							class="shop-buy-button"
 							target="_blank"
 							rel="noopener noreferrer"
-							aria-label="Buy the {{ .title }} plan from {{ $shop.name }} on Telegram"
+							aria-label="Buy the {{ $planLabel }} plan from {{ $shop.name }} on Telegram"
 						>
 							<span>Buy on Telegram</span>
 							{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1rem" "height" "1rem") }}
@@ -99,12 +102,21 @@
 						<p class="shop-payment-detail">
 							<span>Pay Phone No</span>
 							<span aria-hidden="true">⟿</span>
-							<a href="tel:{{ $paymentDetails.phone }}">{{ $paymentDetails.phone }}</a>
+							<button type="button" class="payment-copy-button" data-clipboard-text="{{ $paymentDetails.phone }}" aria-label="Copy pay phone number">
+								{{ $paymentDetails.phone }}
+							</button>
 						</p>
 						<p class="shop-payment-detail">
 							<span>Pay Account Names</span>
 							<span aria-hidden="true">⟿</span>
-							<strong>{{ $paymentDetails.account_name }}</strong>
+							<button
+								type="button"
+								class="payment-copy-button"
+								data-clipboard-text="{{ $paymentDetails.account_name }}"
+								aria-label="Copy pay account name"
+							>
+								{{ $paymentDetails.account_name }}
+							</button>
 							<span
 								class="shop-account-emoji telegram-premium-emoji"
 								data-telegram-emoji="/icons/premiumemojis/{{ $paymentDetails.account_name_emoji_id }}.tgs.base64"
@@ -112,17 +124,24 @@
 								aria-label="Verified"
 							></span>
 						</p>
+						<p class="shop-payment-detail">
+							<span>{{ $paymentDetails.note_label }}</span>
+							<span aria-hidden="true">⟿</span>
+							<button type="button" class="payment-copy-button" data-clipboard-text="{{ $paymentDetails.note }}" aria-label="Copy payment note">
+								{{ $paymentDetails.note }}
+							</button>
+						</p>
 					</div>
 				</div>
 				<ul class="shop-payment-methods" aria-label="Available payment methods">
-					{{ range $paymentMethods }}
-						<li class="shop-payment-method">
+					{{ range $method := $paymentMethods }}
+						<li class="shop-payment-method" tabindex="0" aria-label="Pay with {{ $method.name }}">
 							<span
 								class="shop-payment-emoji telegram-premium-emoji"
-								data-telegram-emoji="/icons/premiumemojis/{{ .premium_emoji_id }}.tgs.base64"
+								data-telegram-emoji="/icons/premiumemojis/{{ $method.premium_emoji_id }}.tgs.base64"
 								aria-hidden="true"
 							></span>
-							<span>{{ .name }}</span>
+							<span>{{ $method.name }}</span>
 						</li>
 					{{ end }}
 				</ul>
