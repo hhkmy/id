@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-NODE_VERSION=22.22.1
+NODE_VERSION=24.18.1
 TZ=Asia/Yangon
 HUGO_CACHEDIR="${PWD}/.cache/hugo"
 
