@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Schedule Shutdown Windows 10
 date: 2021-08-20T20:05:01+06:30
 image: images/schedule-shutdown_run.png

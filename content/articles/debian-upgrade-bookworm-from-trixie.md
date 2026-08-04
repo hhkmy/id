@@ -1,7 +1,6 @@
 ---
 title: "Debian 12 (Bookworm) မှ Debian 13 (Trixie) သို့ အဆင့်မြှင့်တင်ခြင်း"
 date: 2026-07-15T15:37:50+06:30
-author: heinhtetkyaw
 image: images/laptop_folders_sort.jpeg
 thumbnail_image: images/laptop_folders_sort.jpeg
 description: "Debian 12 (Bookworm) ကနေ နောက်ဆုံးထွက် Debian 13 (Trixie) ကို ဘေးကင်းစိတ်ချစွာ ဘယ်လို Upgrade လုပ်မလဲဆိုတဲ့ အသေးစိတ် လမ်းညွှန်"

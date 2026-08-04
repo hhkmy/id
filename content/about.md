@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: About
 type: page
 layout: about

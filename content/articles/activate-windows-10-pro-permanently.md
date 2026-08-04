@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Activate Windows 10 Pro Permanently
 date: 2021-02-04T22:08:58+06:30
 image: images/activate-windows-10-pro-permanently.png

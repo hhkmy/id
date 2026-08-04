@@ -17,7 +17,7 @@
 						{{ $dateHuman }}
 					</time>
 				{{ end }}
-				{{ with .Params.author }}
+				{{ with site.Params.author }}
 					<span class="article-meta-item">
 						{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }} By
 						{{ . }}

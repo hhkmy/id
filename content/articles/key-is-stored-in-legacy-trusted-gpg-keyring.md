@@ -1,7 +1,6 @@
 ---
 title: "Key ကို Legacy Trusted.gpg Keyring မှာ သိမ်းထားခြင်း"
 date: 2025-08-01T09:14:21+06:30
-author: heinhtetkyaw
 image: images/key-is-stored-in-legacy-trusted-gpg-keyring.png
 categories: ["Linux", "System Administration"]
 thumbnail_image: images/key-is-stored-in-legacy-trusted-gpg-keyring.png

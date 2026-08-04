@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Generals Zero Hour Crash Fix
 date: 2021-02-06T19:22:51+06:30
 image: images/CCGeneralsRemasteredDemo32022Update.webp

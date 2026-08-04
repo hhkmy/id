@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Write Protected? I Choice Network Sharing
 date: 2021-04-19T22:47:24+06:30
 image: images/network-sharing.png

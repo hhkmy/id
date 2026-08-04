@@ -1,7 +1,6 @@
 ---
 title: "SSH & GPG Keys: Backup, Restore & Secure GitHub Setup"
 date: 2025-07-28T20:56:23+06:30
-author: heinhtetkyaw
 image: images/ssh-gpg-keys.png
 categories: ["Security", "Developer Tools"]
 thumbnail_image: images/ssh-gpg-keys.png

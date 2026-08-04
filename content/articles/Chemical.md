@@ -1,7 +1,6 @@
 ---
 title: Chemical
 date: 2023-09-21T05:19:51+06:30
-author: heinhtetkyaw
 katex: true
 image: images/chemical.png
 categories: ["Science", "Reference"]

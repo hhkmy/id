@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Activate Office With KMS License Key
 date: 2021-02-05T21:41:16+06:30
 image: images/open-cmd.png

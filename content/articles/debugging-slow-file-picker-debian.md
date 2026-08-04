@@ -1,7 +1,6 @@
 ---
 title: "Debugging Slow File Picker (GTK Dialog) Issue on Debian Linux"
 date: 2026-07-13T22:28:42+06:30
-author: heinhtetkyaw
 image: "images/fastfetch.png"
 thumbnail_image: "images/fastfetch.png"
 description: "Debian OS အသစ်ပြန်တင်ပြီး /home partition အဟောင်းကို ဆက်သုံးလိုက်တဲ့နောက် GTK File Picker အရမ်းနှေးသွားတဲ့ ပြဿနာကို Debug လုပ်ပြီး ဖြေရှင်းခဲ့တဲ့အကြောင်း။"

@@ -1,7 +1,6 @@
 ---
 title: "Gnome Emoji Keyboard Flags and Extensions"
 date: 2026-07-16T16:19:53+06:30
-author: heinhtetkyaw
 image: images/gnome_customized.png
 thumbnail_image: images/gnome_customized.png
 description: "GNOME Desktop ရဲ့ Keyboard Indicator မှာ နိုင်ငံအလံတွေ မပေါ်တဲ့ ပြဿနာကို System Code ပြင်ပြီး ဖြေရှင်းနည်းနဲ့ အသုံးဝင်တဲ့ Extensions များ"

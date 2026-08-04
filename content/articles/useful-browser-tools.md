@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Useful Browser Tools
 date: 2021-03-01T19:36:56+06:30
 image: images/Inspect_Elements.png

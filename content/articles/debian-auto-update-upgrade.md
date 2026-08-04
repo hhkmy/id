@@ -1,7 +1,6 @@
 ---
 title: "Debian Linux မှာ အလိုအလျောက် Update လုပ်အောင် သတ်မှတ်နည်း"
 date: 2026-07-22T16:26:10+06:30
-author: heinhtetkyaw
 image: "images/debian-auto-update.webp"
 thumbnail_image: "images/debian-auto-update.webp"
 description: "Debian Linux မှာ Security Update တွေနဲ့ Package Update တွေကို အလိုအလျောက် လုပ်အောင် unattended-upgrades သုံးပြီး သတ်မှတ်နည်း။"

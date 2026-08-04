@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: 'Previously'
 # layout: previously
 slug: /previously

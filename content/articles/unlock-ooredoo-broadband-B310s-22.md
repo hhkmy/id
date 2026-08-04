@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Unlock Ooredoo Broadband B310s-22
 date: 2021-05-18T22:45:31+06:30
 image: images/Multicast_Upgrade_Tool.png

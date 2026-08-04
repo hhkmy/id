@@ -1,7 +1,6 @@
 ---
 title: "Debian Server Hardening: From OOM Killer to Production Ready"
 date: 2026-07-17T04:39:56+06:30
-author: heinhtetkyaw
 image: images/server_hardening.webp
 thumbnail_image: images/server_hardening.webp
 description: "Debian Server တစ်လုံးမှာ MySQL OOM Killer ကြောင့် ပြိုကျနေတဲ့ ပြဿနာကနေ fail2ban, UFW, SSH Hardening အထိ အဆင့်ဆင့် ပြင်ဆင်ခဲ့ပုံ"

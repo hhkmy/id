@@ -1,7 +1,6 @@
 ---
 title: Download m3u8 with ffmpeg
 date: 2023-09-28T18:12:51+06:30
-author: heinhtetkyaw
 image: images/m3u8-data.png
 categories: ["Multimedia", "Software"]
 description:

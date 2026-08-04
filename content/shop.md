@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: MPX Store
 type: page
 layout: shop

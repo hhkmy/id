@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Data Hack Warp+ 1-1-1-1
 date: 2021-02-02T16:35:04+06:30
 image: images/Warp.webp

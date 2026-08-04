@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Removing Desktop Shortcut Arrow
 date: 2023-08-21T01:15:41+07:00
 image: images/BlankShortcut.png

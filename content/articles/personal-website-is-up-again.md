@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Personal Website is UP Again!
 date: 2021-02-01T21:41:16+06:30
 image: images/og.webp

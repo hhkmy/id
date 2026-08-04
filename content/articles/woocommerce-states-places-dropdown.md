@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Woocommerce States Places Dropdown
 date: 2021-02-03T20:05:29+06:30
 image: images/woocommerce-states-places-dropdown.gif

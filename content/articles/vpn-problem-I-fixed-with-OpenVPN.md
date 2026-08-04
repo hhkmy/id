@@ -1,7 +1,6 @@
 ---
 title: "VPN Problem I Fixed With OpenVPN"
 date: 2026-07-10T17:39:31+06:30
-author: heinhtetkyaw
 image: "images/OpenVPN.png"
 thumbnail_image: ""
 description: "အစိုးရပိတ်ထားသော VPN ပြဿနာကို Raspberry Pi နှင့် OpenVPN အသုံးပြု၍ ဖြေရှင်းခဲ့သည့် ကျွန်တော့်ရဲ့ အတွေ့အကြုံ"

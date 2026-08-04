@@ -1,7 +1,6 @@
 ---
 title: Microsoft Activation Scripts
 date: 2025-04-20T23:57:36+06:30
-author: heinhtetkyaw
 image: images/MS_Activation_Scripts_3.png
 categories: ["Windows", "Software"]
 description: Office 365 with Developer Account မရတော့တဲ့နောက်မှာ Office Activation က သိပ်မလုပ်ဖြစ်တော့ဘူး။ Office ကလည်း သိပ်မသုံးဖြစ်တော့တာလည်းပါမယ်။ ...

@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Archive
 layout: archive
 slug: archive

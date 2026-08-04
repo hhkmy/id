@@ -1,7 +1,6 @@
 ---
 title: "Finally My Domain Name - hhk.my.id"
 date: 2025-07-31T20:37:26+06:30
-author: heinhtetkyaw
 image: images/domain-name.png
 categories: ["Personal", "Web Infrastructure"]
 thumbnail_image: images/domain-name.png

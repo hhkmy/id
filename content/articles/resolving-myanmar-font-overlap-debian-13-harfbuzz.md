@@ -1,7 +1,6 @@
 ---
 title: "Resolving Myanmar Font Rendering Issues on Debian 13 with HarfBuzz and Noto Fonts"
 date: 2026-07-17T02:07:59+06:30
-author: heinhtetkyaw
 image: images/HarfBuzz.png
 thumbnail_image: images/HarfBuzz.png
 description: "Debian 13 တွင် HarfBuzz နှင့် Pyidaungsu Font ပဋိပက္ခကြောင့် မြန်မာစာအက္ခရာများ ထပ်နေသည့် ပြဿနာကို Noto Sans Myanmar နှင့် Fontconfig ပြင်ဆင်မှုဖြင့် ဖြေရှင်းခဲ့ပုံ။"

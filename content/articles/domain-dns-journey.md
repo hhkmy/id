@@ -1,7 +1,6 @@
 ---
 title: Domain (DNS) Journey
 date: 2023-10-09T05:40:42+06:30
-author: heinhtetkyaw
 image: images/autumn.webp
 categories: ["Networking", "Web Infrastructure"]
 description:

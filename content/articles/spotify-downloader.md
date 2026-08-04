@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Spotify Downloader
 date: 2021-08-15T14:39:23+06:30
 image: images/spotDL_spotify-downloader.png

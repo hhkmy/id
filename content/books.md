@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Books
 type: page
 layout: books

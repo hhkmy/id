@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Hyper + Git Terminal Customize
 date: 2023-08-23T07:01:30+07:00
 image: images/hyper-terminal-windows-10.png

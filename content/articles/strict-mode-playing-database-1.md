@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Strict Mode - Playing With Database - 1
 date: 2021-11-26T03:44:49+06:30
 image: images/runcloud_running_services.png

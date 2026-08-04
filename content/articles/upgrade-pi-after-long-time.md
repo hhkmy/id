@@ -1,7 +1,6 @@
 ---
 title: "Upgrade Pi After Long Time"
 date: 2026-08-03T14:38:50+06:30
-author: heinhtetkyaw
 image: images/Pi5_Upgrade_cover.jpg
 thumbnail_image: images/Pi5_Upgrade_front.jpg
 description: "Raspberry Pi 5 ကို microSD Card ကနေ 512 GB NVMe SSD သို့ rpi-clone သုံးပြီး ပြောင်းရွှေ့ကာ NVMe Boot နဲ့ PCIe Speed ကို သတ်မှတ်ခဲ့တဲ့ အတွေ့အကြုံ။"

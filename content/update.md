@@ -1,5 +1,4 @@
 ---
-author: heinhtetkyaw
 title: Update
 slug: update
 description: Welcome to our Update Page! Here, we keep you informed about the latest changes, improvements, and exciting new features we've added to our platform.

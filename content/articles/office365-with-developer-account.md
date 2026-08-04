@@ -1,7 +1,6 @@
 ---
 title: Office 365 with Developer Account
 date: 2023-12-21T21:52:06.768Z
-author: heinhtetkyaw
 image: images/microsoft_dns.png
 categories: ["Microsoft", "Cloud Services"]
 description:
