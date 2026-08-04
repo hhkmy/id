@@ -30,14 +30,14 @@
   },
   "devDependencies": {
     "@lavamoat/allow-scripts": "^5.1.0",
-    "@tailwindcss/cli": "^4.1.10",
-    "lint-staged": "^17.2.0",
+    "@tailwindcss/cli": "^4.3.3",
+    "lint-staged": "^17.3.0",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",
     "prettier-plugin-go-template": "^0.0.15",
-    "sass": "^1.89.2",
+    "sass": "^1.102.0",
     "svgo": "^4.0.2",
-    "tailwindcss": "^4.1.10",
+    "tailwindcss": "^4.3.3",
     "toml-eslint-parser": "^1.0.3"
   },
   "lint-staged": {
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "animejs": "^4.5.0",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.5.4",
     "clipboard": "^2.0.11",
     "lottie-web": "^5.13.0",
     "postcss-cli": "^11.0.1",
