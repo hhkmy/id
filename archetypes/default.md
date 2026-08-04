@@ -1,7 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-author: heinhtetkyaw
 image:
 thumbnail_image:
 description:
