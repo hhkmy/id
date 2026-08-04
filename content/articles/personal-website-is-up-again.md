@@ -2,7 +2,8 @@
 author: heinhtetkyaw
 title: Personal Website is UP Again!
 date: 2021-02-01T21:41:16+06:30
-image: images/og.png
+image: images/og.webp
+categories: ["Personal", "Web Development"]
 description:
   Personal Website တွေအများကြီးရှိခဲ့ဖူးပေမယ့် အဖတ်မတင်ခဲ့ဘူး။ Data
   တွေအကုန်လုံးက Database မှာ ထားထားရတာဆိုတော့ သိပ်အဆင်မပြေခဲ့ပေမယ့် Hugo

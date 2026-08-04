@@ -4,6 +4,7 @@ date: 2023-09-18T05:19:51+06:30
 author: heinhtetkyaw
 draft: false
 image: images/diagrams.png
+categories: ["Web Development", "Reference"]
 description:
   Hugo Diagrams or Diagrams system in website. For testing purpose to
   Development.

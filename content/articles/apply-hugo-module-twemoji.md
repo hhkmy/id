@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Apply Hugo Module Twemoji
 date: 2021-08-01T16:52:52+06:30
 image: images/Twemoji-Hugo.png
+categories: ["Web Development", "Hugo"]
 description:
   Hugo Website မှာ Twitter Emoji အတွက်ရှာရင်း ဖွေရင်း Error တွေ တက်ရင်း
   အဆင်ပြေသွားတာလေးကို Blog အဖြစ်နဲ့ Note လာသိမ်းရင်း Share ပေးလိုက်ပါတယ်။

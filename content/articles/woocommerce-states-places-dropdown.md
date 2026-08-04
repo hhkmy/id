@@ -4,6 +4,7 @@ title: Woocommerce States Places Dropdown
 date: 2021-02-03T20:05:29+06:30
 image: images/woocommerce-states-places-dropdown.gif
 featured_image: images/woocommerce-states-places-dropdown-poster.png
+categories: ["WordPress", "Web Development"]
 description:
   Wordpress ရဲ့ Woocommerce မှာ States Places တွေ ကို Dropdown လုပ်ဖို့
   ရှာနေတဲ့လူတွေအတွက် Github repo လေး ဝင်ပြီး Edit ပေးဖြစ်ခဲ့တဲ့ Content

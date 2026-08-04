@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Activate Windows 10 Pro Permanently
 date: 2021-02-04T22:08:58+06:30
 image: images/activate-windows-10-pro-permanently.png
+categories: ["Windows", "Software"]
 description:
   ဒီတစ်ခါကတော့ Windows 10 ကို ဘယ်လို Activate
   လုပ်ရမလဲဆိုတဲ့အကြောင်းအရာပဲဖြစ်ပါတယ်။

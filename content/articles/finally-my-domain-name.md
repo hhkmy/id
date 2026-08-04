@@ -3,6 +3,7 @@ title: "Finally My Domain Name - hhk.my.id"
 date: 2025-07-31T20:37:26+06:30
 author: heinhtetkyaw
 image: images/domain-name.png
+categories: ["Personal", "Web Infrastructure"]
 thumbnail_image: images/domain-name.png
 description: "အရမ်းကြာပြီးနောက်မှာ ကိုယ်ပိုင်ဒိုမိန်းနာမည်ရရှိခဲ့တဲ့အကြောင်းလေးကို မျှဝေထားတဲ့တိုတောင်းတဲ့ပို့စ်ပါ။"
 summary: "အချိန်အတော်ကြာစောင့်ဆိုင်းပြီးနောက်မှာ ကိုယ်ပိုင်ဒိုမိန်းနာမည်ရယူနိုင်ခဲ့တာကို ဝမ်းသာစွာမျှဝေလိုက်ပါတယ်။ ဒီဒိုမိန်းနာမည်ကနေ ကိုယ်ပိုင်ဝက်ဘ်ဆိုက်နဲ့ ပိုမိုတိုးတက်အောင် ဆက်လက်လုပ်ဆောင်သွားမယ်လို့ မျှော်လင့်ပါတယ်။"

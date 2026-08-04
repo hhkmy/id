@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Hyper + Git Terminal Customize
 date: 2023-08-23T07:01:30+07:00
 image: images/hyper-terminal-windows-10.png
+categories: ["Windows", "Developer Tools"]
 description:
     Terminal တွေအများကြီး သုံးဖူးတာမဟုတ်ပေမယ့် Terminal
     တော်တော်များများလိုက်သုံးရင်း ဒီတစ်ခါကတော့ Hyper + terminal လေးကို Git

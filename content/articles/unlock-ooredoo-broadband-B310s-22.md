@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Unlock Ooredoo Broadband B310s-22
 date: 2021-05-18T22:45:31+06:30
 image: images/Multicast_Upgrade_Tool.png
+categories: ["Networking", "Hardware"]
 description:
   B310s-22 Ooredoo Device လေး Unlock လုပ်ဖြစ်တဲ့အကြောင်း ရေးထားတာလေးပေါ့
   Broadband တွေကို Unlock လုပ်ပြီး Sim Card တွေ

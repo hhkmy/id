@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Strict Mode - Playing With Database - 1
 date: 2021-11-26T03:44:49+06:30
 image: images/runcloud_running_services.png
+categories: ["Database", "Web Development"]
 description:
   တွေ့ရကြုံရ ဖြေရှင်းရင်းနဲ့ ဖြစ်ခဲ့တဲ့ Database အတွေ့အကြုံများအကြောင်းထဲကမှ
   Strict Mode ဖြစ်တဲ့ Database အကြောင်း

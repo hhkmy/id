@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Removing Desktop Shortcut Arrow
 date: 2023-08-21T01:15:41+07:00
 image: images/BlankShortcut.png
+categories: ["Windows", "Customization"]
 description:
   ကွန်ပျူတာမှာမြင်မြင်ကြ Shortcut Arrow လေးတွေက ကြည့်ပါများတော့
   မျက်စိနောက်လာတာနဲ့ regedit နဲ့ ဖျောက်တဲ့နည်း
@@ -14,6 +15,7 @@ summary:
 tags:
   - Windows
   - Tips & Tricks
+keywords: ["Windows shortcut arrow", "remove shortcut overlay", "Windows customization"]
 slug: removing-desktop-shortcut-arrow
 ---
 

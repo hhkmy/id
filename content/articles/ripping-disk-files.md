@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Ripping Disk Files
 date: 2021-02-07T04:19:50+06:30
 image: images/rip_1_KB.png
+categories: ["Multimedia", "Software"]
 description: Ripping encrypted music files in the Audio CD Disk
 summary:
   CD တွေထဲမှာ Encrypted music files တွေကို ဘယ်လိုမျိုး Ripping

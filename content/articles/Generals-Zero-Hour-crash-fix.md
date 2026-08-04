@@ -2,7 +2,8 @@
 author: heinhtetkyaw
 title: Generals Zero Hour Crash Fix
 date: 2021-02-06T19:22:51+06:30
-image: images/CCGeneralsRemasteredDemo32022Update.png
+image: images/CCGeneralsRemasteredDemo32022Update.webp
+categories: ["Gaming", "Troubleshooting"]
 description:
   Fixing Command & Conquer Generals Zero Hour Crach Error at High Windows like
   windows 10 and above.

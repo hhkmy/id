@@ -3,6 +3,7 @@ title: Office 365 with Developer Account
 date: 2023-12-21T21:52:06.768Z
 author: heinhtetkyaw
 image: images/microsoft_dns.png
+categories: ["Microsoft", "Cloud Services"]
 description:
   Microsoft ရဲ့ Office 365 ကြီးကိုတော့ မဝယ်နိုင်ဘူး ဒါပေမယ့် သုံးချင်တယ်ဆိုတဲ့
   ကိုယ့်လိုလူတွေအတွက်တော့ အသုံးဝင်မယ့် Note လေးတစ်ခုမှတ်ထားဖို့။
@@ -16,6 +17,7 @@ tags:
 keywords:
   - Office365
   - Microsoft
+slug: office365-with-developer-account
 ---
 Office 365 ကိုဝယ်သုံးလို့ရတာမှန်ပေမယ့် ဝယ်မသုံးနိုင်ပဲ
 သုံးချင်တဲ့လူတွေအတွက်ကတော့ ရှာရင်းဖွေရင်း ဟိုးအရင်ကည်းက တွေ့ပေမယ့်

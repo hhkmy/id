@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Useful Browser Tools
 date: 2021-03-01T19:36:56+06:30
 image: images/Inspect_Elements.png
+categories: ["Web Development", "Developer Tools"]
 description:
   အသုံးဝင်တဲ့ useful Browser tools functions တွေထဲကမှ snapshot
   ဘယ်လိုရိုက်ရမလဲဆိုတာရယ် အခြားအသုံးဝင်တဲ့ Function တွေအကြောင်းရေးထားတာလေး

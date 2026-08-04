@@ -3,6 +3,7 @@ title: Download m3u8 with ffmpeg
 date: 2023-09-28T18:12:51+06:30
 author: heinhtetkyaw
 image: images/m3u8-data.png
+categories: ["Multimedia", "Software"]
 description:
   m3u8 url တွေကို ffmpeg နဲ့ ဘယ်လို Download လုပ်ရမလဲဆိုတာကို လာမှတ်ထားတာပါ။
   ဒီနည်းကတော့ တော်တော်များများသော key တွေနဲ့ ပိတ်ထားတာကိုတောင် download

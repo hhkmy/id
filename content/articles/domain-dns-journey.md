@@ -2,7 +2,8 @@
 title: Domain (DNS) Journey
 date: 2023-10-09T05:40:42+06:30
 author: heinhtetkyaw
-image: images/autumn.png
+image: images/autumn.webp
+categories: ["Networking", "Web Infrastructure"]
 description:
   Domain (DNS) တစ်ခုကို ကောင်းကောင်းမသုံးဖြစ်ပဲ ဟိုပြောင်းလိုက်
   ဒီပြောင်းလိုက်ဖြစ်နေရခြင်းများဆိုတဲ့ Content ထင်တယ်။ ဖြစ်နိုင်ရင်တော့ DNS

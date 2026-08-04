@@ -3,6 +3,7 @@ author: heinhtetkyaw
 title: Activate Office With KMS License Key
 date: 2021-02-05T21:41:16+06:30
 image: images/open-cmd.png
+categories: ["Windows", "Software"]
 description:
   ဒီအကြောင်းအရာလေးကတော့ Windows 10 မှာ Office တွေကို ဘယ်လို Activate
   လုပ်ရမလဲဆိုတာကို ရှင်းပြသွားမှာပဲဖြစ်ပါတယ်။

@@ -4,6 +4,7 @@ date: 2023-09-21T05:19:51+06:30
 author: heinhtetkyaw
 katex: true
 image: images/chemical.png
+categories: ["Science", "Reference"]
 description:
   chemical formula Testing အတွက်ရှာရင်းနဲ့ သူ့အတွက် formula format တွေပါ
   ပေးထားပါတယ် ကိုယ်တိုင်လည်း တစ်ချိန်ပြန်သုံးနိုင်ပြီး Ref

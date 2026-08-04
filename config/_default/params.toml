@@ -1,6 +1,6 @@
 founder = "Hein Htet Kyaw"
 foundingdate = "2021-02-01"
-slogan = "HHK Blogs and Vidoes"
+slogan = "HHK Blogs and Videos"
 currency = "USD"
 paymentAccepted = ["Online Money", "Credit Card", "PayPal"]
 price = "$$ - $$$ - $$$$"
@@ -16,11 +16,11 @@ twitter = "https://x.com/HeinHtetKyaw_"
 areaserved = "Online"
 mobile = "959695811161"
 
-image = "/images/og.png"
-ogimage = "/images/og.png"
+image = "/images/og.webp"
+ogimage = "/images/og.webp"
 availableLanguage = "my"
 hoursAvailable = "Mon - Sat: 9am - 5pm"
-description = "You can read Hein Htet Kyaw s Blogs again, Extra you can watch Video Tutorials later too."
+description = "Practical technology articles, troubleshooting guides, project notes, and software workflows by Hein Htet Kyaw."
 
 # address
 postalcode = "11361"

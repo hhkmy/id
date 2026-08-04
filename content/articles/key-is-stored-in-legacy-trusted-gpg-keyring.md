@@ -3,6 +3,7 @@ title: "Key ကို Legacy Trusted.gpg Keyring မှာ သိမ်းထာ
 date: 2025-08-01T09:14:21+06:30
 author: heinhtetkyaw
 image: images/key-is-stored-in-legacy-trusted-gpg-keyring.png
+categories: ["Linux", "System Administration"]
 thumbnail_image: images/key-is-stored-in-legacy-trusted-gpg-keyring.png
 description: "Debian အခြေပြုစနစ်များတွင် legacy trusted.gpg keyring တွင် key သိမ်းထားခြင်းအကြောင်းသတိပေးချက်ကို ဖြေရှင်းနည်း။"
 summary: "Legacy trusted.gpg keyring မှ GPG key များကို အသုံးပြုရန်အကြံပြုထားသော keyring format သို့ ပြောင်းရွှေ့နည်းလမ်းညွှန်။"

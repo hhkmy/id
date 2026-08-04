@@ -41,7 +41,7 @@ enableRobotsTXT = true
 
     sitename = "HHK BVlog"
     showVisitorLocation = true
-    debug = true
+    debug = false
 
     [params.icons]
         throw_on_error = false

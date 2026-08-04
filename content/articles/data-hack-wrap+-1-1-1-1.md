@@ -2,7 +2,8 @@
 author: heinhtetkyaw
 title: Data Hack Warp+ 1-1-1-1
 date: 2021-02-02T16:35:04+06:30
-image: images/Warp.png
+image: images/Warp.webp
+categories: ["Networking", "Technology"]
 description:
   မြန်မာနိုင်ငံမှာ Website တော်တော်များများက Blacklist ဖြစ်သွားပြီး Banned
   ခံထားရတဲ့အချိန်သုံးဖြစ်တဲ့ Warp+ VPN ကို GB တိုးနည်း
@@ -32,7 +33,7 @@ slug: data-hack-warp-1-1-1-1
 1.1.1.1 ဆိုတဲ့ကောင်လေးကို Data တွေကို Share မလုပ်ပါပဲ ဘယ်လို
 တိုးလို့ရမလဲဆိုတာကို မျှဝေပေးသွားမှာပဲဖြစ်ပါတယ်။
 
-![Data Hack Warp+ 1.1.1.1](images/Warp.png "Data Hack Warp+ 1.1.1.1")
+![Data Hack Warp+ 1.1.1.1](images/Warp.webp "Data Hack Warp+ 1.1.1.1")
 
 ဒီနည်းလေးကိုတော့ Vietnam Website တစ်ခုမှာ တွေ့တာနဲ့ ပြန်ပြီး မှတ်စုအဖြစ်သိမ်းရင်
 အခြားမသိသေးတဲ့လူတွေကို မျှဝေချင်စိတ်ဖြစ်တာရယ်။ Blog ရေးချင်တာရယ်ကြောင့်
