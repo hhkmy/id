@@ -17,52 +17,8 @@ export function initTheme() {
   const lightBtn = document.getElementById("theme-toggle-light");
   const root = document.documentElement;
 
-  const getActiveTheme = () => (root.classList.contains("dark") ? "dark" : "light");
-
-  const setGiscusTheme = (theme) => {
-    const giscusTheme = theme === "dark" ? "dark" : "light";
-    const giscusScript = document.querySelector(
-      'script[src="https://giscus.app/client.js"]',
-    );
-    if (giscusScript) {
-      giscusScript.setAttribute("data-theme", giscusTheme);
-    }
-
-    const giscusFrame = document.querySelector(
-      'iframe.giscus-frame[src^="https://giscus.app"]',
-    );
-    if (!giscusFrame?.contentWindow) return;
-
-    if (giscusFrame.dataset.loaded !== "true") {
-      giscusFrame.addEventListener(
-        "load",
-        () => {
-          giscusFrame.dataset.loaded = "true";
-          setGiscusTheme(getActiveTheme());
-        },
-        { once: true },
-      );
-      return;
-    }
-
-    try {
-      giscusFrame.contentWindow.postMessage(
-        {
-          giscus: {
-            setConfig: {
-              theme: giscusTheme,
-            },
-          },
-        },
-        "https://giscus.app",
-      );
-    } catch {
-      giscusFrame.addEventListener(
-        "load",
-        () => setGiscusTheme(getActiveTheme()),
-        { once: true },
-      );
-    }
+  const setRemark42Theme = (theme) => {
+    window.REMARK42?.changeTheme(theme === "dark" ? "dark" : "light");
   };
 
   const applyTheme = (theme) => {
@@ -76,23 +32,8 @@ export function initTheme() {
     if (lightBtn) lightBtn.style.display = isDark ? "" : "none";
     const qrImage = document.getElementById("qr-image");
     if (qrImage) qrImage.dataset.theme = theme;
-    setGiscusTheme(theme);
+    setRemark42Theme(theme);
   };
-
-  const giscusObserver = new MutationObserver(() => {
-    if (
-      !document.querySelector('iframe.giscus-frame[src^="https://giscus.app"]')
-    ) {
-      return;
-    }
-
-    setGiscusTheme(getActiveTheme());
-    giscusObserver.disconnect();
-  });
-
-  if (document.body) {
-    giscusObserver.observe(document.body, { childList: true, subtree: true });
-  }
 
   const storedTheme = getStoredTheme();
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
