@@ -1,3 +1,10 @@
+# Mandatory Language Policy
+
+- Accept user input written in Burmese/Myanmar, but always reply in English.
+- All actions, commands, code, and system operations must be written and performed in English.
+- Burmese/Myanmar is allowed only in articles, content, or other output when the user explicitly requests it.
+- This policy is mandatory and takes precedence over any conflicting repository guidance.
+
 # Repository Guidance
 
 ## JavaScript Libraries
