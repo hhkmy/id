@@ -17,7 +17,7 @@ trap cleanup EXIT SIGINT SIGTERM
 latest_hugo_version() {
 	local latest_release_url
 
-	latest_release_url=$(curl -fsSLI -o /dev/null -w "%{url_effective}" "https://github.com/gohugoio/hugo/releases/latest")
+	latest_release_url=$(curl --proto '=https' --proto-redir '=https' -fsSLI -o /dev/null -w "%{url_effective}" "https://github.com/gohugoio/hugo/releases/latest")
 	printf "%s\n" "${latest_release_url##*/v}"
 }
 
@@ -30,14 +30,14 @@ main() {
 
 	HUGO_VERSION=$(latest_hugo_version)
 	echo "Installing Hugo ${HUGO_VERSION}..."
-	curl -sfL --output-dir "${build_temp_dir}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+	curl --proto '=https' --proto-redir '=https' -sfL --output-dir "${build_temp_dir}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
 	mkdir -p "${HOME}/.local/hugo"
 	tar -C "${HOME}/.local/hugo" -xf "${build_temp_dir}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
 	export PATH="${HOME}/.local/hugo:${PATH}"
 
 	if [[ -f "package-lock.json" ]]; then
 		echo "Installing Node.js ${NODE_VERSION}..."
-		curl -sfL --output-dir "${build_temp_dir}" -O "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+		curl --proto '=https' --proto-redir '=https' -sfL --output-dir "${build_temp_dir}" -O "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
 		tar -C "${HOME}/.local" -xf "${build_temp_dir}/node-v${NODE_VERSION}-linux-x64.tar.gz"
 		export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 	fi
