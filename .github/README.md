@@ -6,7 +6,6 @@
 
 ## Website Stats
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhhkmy%2Fid.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhhkmy%2Fid?ref=badge_shield)
 [![Netlify](https://img.shields.io/netlify/9bebb371-d351-437c-ab5b-c64a3ef6b71c)](https://app.netlify.com/projects/hhkmyid/deploys)
 [![Website](https://img.shields.io/website?up_message=online&up_color=green&down_message=offline&down_color=lightgrey&url=https%3A%2F%2Fhhk.my.id)](https://hhk.my.id)
 [![Uptime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhhkmy%2Fstats%2Fmaster%2Fapi%2Fhhk%2Fuptime.json)](https://stats.hhk.my.id)
@@ -15,6 +14,16 @@
 [![Hits-of-Code](https://hitsofcode.com/github/hhkmy/id?branch=main&label=Hits-of-Code)](https://hitsofcode.com/github/hhkmy/id/view?branch=main&label=Hits-of-Code)
 [![W3C Validation](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fhhk.my.id%252F%26out%3Djson&query=%24.messages.length&label=w3c&suffix=%20errors&color=brightgreen&cacheSeconds=300)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fhhk.my.id%2F)
 [![Chromium HSTS preload](https://img.shields.io/hsts/preload/hhk.my.id)](https://hhk.my.id)
+
+## Build & Quality
+
+[![All Checks](https://img.shields.io/github/checks-status/hhkmy/id/main?label=all%20checks)](https://github.com/hhkmy/id/commits/main)
+[![Dependabot](https://img.shields.io/badge/Dependabot-config%20validation-025E8C?logo=dependabot&logoColor=white)](https://github.com/hhkmy/id/blob/main/.github/dependabot.yml)
+[![CodeQL Advanced](https://github.com/hhkmy/id/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/hhkmy/id/actions/workflows/codeql.yml)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-deployment-F38020?logo=cloudflarepages&logoColor=white)](https://github.com/hhkmy/id/commits/main)
+[![Workers Builds](https://img.shields.io/badge/Workers%20Builds-hhkmyid-F38020?logo=cloudflareworkers&logoColor=white)](https://github.com/hhkmy/id/commits/main)
+[![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=hhkmy_id&metric=alert_status)](https://sonarcloud.io/dashboard?id=hhkmy_id&branch=main)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhhkmy%2Fid.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhhkmy%2Fid?ref=badge_shield)
 
 ## Technology & Tools
 
