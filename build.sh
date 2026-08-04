@@ -5,6 +5,11 @@ set -euo pipefail
 NODE_VERSION=24.18.1
 TZ=Asia/Yangon
 HUGO_CACHEDIR="${PWD}/.cache/hugo"
+BUILD_MODE="build"
+if [[ "${1:-}" == "--serve" ]]; then
+	BUILD_MODE="serve"
+	shift
+fi
 
 cleanup() {
 	if [[ -n "${build_temp_dir:-}" && -d "${build_temp_dir}" ]]; then
@@ -62,11 +67,18 @@ main() {
 
 	if [[ -f package-lock.json ]]; then
 		echo "Installing Node.js dependencies..."
+		unset npm_config_allow_scripts NPM_CONFIG_ALLOW_SCRIPTS
 		npm ci
 	fi
 
+	if [[ "${BUILD_MODE}" == "serve" ]]; then
+		echo "Starting the local Hugo development server..."
+		npm run watch:hugo -- "$@"
+		return
+	fi
+
 	echo "Building the project..."
-	npm run build
+	npm run build -- "$@"
 	npm run pagefind
 	cp cloudflare/_redirects public/_redirects
 }

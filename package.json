@@ -1,8 +1,7 @@
 {
   "name": "hhkmyid",
   "version": "1.0.0",
-  "description": "K's V/Blog Website nth more with testing my learning skills",
-  "main": "index.js",
+  "description": "A Hugo-powered personal technology blog and practical knowledge base.",
   "scripts": {
     "watch:hugo": "hugo server --disableFastRender",
     "build": "HUGO_CACHEDIR=\"${HUGO_CACHEDIR:-/tmp/hugo_cache}\" hugo --gc --minify",
@@ -19,9 +18,9 @@
     "precommit": "lint-staged"
   },
   "keywords": [
-    "hguo",
-    "tailwindcss",
-    "VScode"
+    "hugo",
+    "technology-blog",
+    "myanmar"
   ],
   "author": "Hein Htet Kyaw",
   "license": "ISC",
@@ -31,6 +30,7 @@
   "devDependencies": {
     "@lavamoat/allow-scripts": "^5.1.0",
     "@tailwindcss/cli": "^4.3.3",
+    "@types/node": "^26.1.2",
     "lint-staged": "^17.3.0",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",

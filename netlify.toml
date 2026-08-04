@@ -1,26 +1,25 @@
 [build]
-    command = "npm run build -- --baseURL $URL"
+    command = "./build.sh --baseURL $URL"
     publish = "public"
     timeout = 1200
 
 [build.environment]
-    HUGO_VERSION = "0.163.3"
     HUGO_ENV = "production"
 
 [context.production.environment]
     HUGO_ENABLEGITINFO = "false"
 
 [context.split1]
-    command = "npm run build -- --baseURL $URL --enableGitInfo"
+    command = "./build.sh --baseURL $URL --enableGitInfo"
 
 [context.split1.environment]
     HUGO_ENV = "production"
 
 [context.deploy-preview]
-    command = "npm run build -- --buildFuture --baseURL $DEPLOY_PRIME_URL"
+    command = "./build.sh --buildFuture --baseURL $DEPLOY_PRIME_URL"
 
 [context.branch-deploy]
-    command = "npm run build -- --baseURL $DEPLOY_PRIME_URL"
+    command = "./build.sh --baseURL $DEPLOY_PRIME_URL"
 
 [context.next.environment]
     HUGO_ENABLEGITINFO = "false"

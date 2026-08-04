@@ -93,9 +93,11 @@ or
 gh repo clone hhkmy/id && cd id
 ```
 
-Install dependencies:
+Install the Node.js version declared in `.nvmrc`, then install dependencies:
 
 ```bash
+nvm install
+nvm use
 npm install
 ```
 
@@ -109,6 +111,12 @@ Start the local development server:
 
 ```bash
 npm run watch:hugo
+```
+
+If Node.js or Hugo is not installed locally, use the repository bootstrap instead. It installs the declared Node.js version and the latest Hugo Extended release before starting the server:
+
+```bash
+./build.sh --serve
 ```
 
 ### Build
