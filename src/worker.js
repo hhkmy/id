@@ -1,3 +1,9 @@
+import { DurableObject } from "cloudflare:workers";
+
+const RATE_LIMIT_WINDOW_MS = 30_000;
+const MAX_PATH_LENGTH = 512;
+const MAX_TOP_VIEW_LIMIT = 100;
+
 const jsonHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -16,6 +22,11 @@ const createJsonResponse = (data, status = 200, cacheControl = "no-store") =>
 
 const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
 
+const isValidArticlePath = (path) =>
+  typeof path === "string" &&
+  path.length <= MAX_PATH_LENGTH &&
+  /^\/articles\/[a-z0-9][a-z0-9+._~!$&'()*+,;=:@%/-]*\/?$/i.test(path);
+
 const parseViewPath = async (request, url) => {
   if (request.method === "GET") {
     return url.searchParams.get("path");
@@ -24,7 +35,7 @@ const parseViewPath = async (request, url) => {
   const contentType = request.headers.get("Content-Type") || "";
   if (contentType.includes("application/json")) {
     const body = await request.json();
-    return body.path;
+    return body?.path;
   }
 
   const body = await request.text();
@@ -33,7 +44,7 @@ const parseViewPath = async (request, url) => {
   }
 
   try {
-    return JSON.parse(body).path;
+    return JSON.parse(body)?.path;
   } catch {
     return new URLSearchParams(body).get("path");
   }
@@ -44,22 +55,64 @@ const isBotRequest = (request) => {
   return /bot|crawl|spider|scraper|curl|wget/i.test(userAgent);
 };
 
-const handleAllViews = async (env) => {
-  const keys = await env.BLOG_VIEWS.list({ prefix: "views:" });
-  const views = {};
+const hashVisitor = async (request) => {
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const userAgent = request.headers.get("User-Agent") || "unknown";
+  const bytes = new TextEncoder().encode(`${ip}\n${userAgent}`);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), (byte) =>
+    byte.toString(16).padStart(2, "0"),
+  ).join("");
+};
 
-  await Promise.all(
-    keys.keys.map(async (key) => {
-      const path = key.name.replace("views:", "");
-      const count = await env.BLOG_VIEWS.get(key.name);
-      views[path] = parseInt(count, 10) || 0;
-    }),
+const getCounterStub = (env, path) => env.VIEW_COUNTER.getByName(path);
+
+const getLegacyCount = async (env, path) => {
+  const value = await env.BLOG_VIEWS.get(`views:${path}`);
+  return Math.max(0, Number.parseInt(value, 10) || 0);
+};
+
+const listLegacyViewEntries = async (env) => {
+  const entries = [];
+  let cursor;
+
+  do {
+    const page = await env.BLOG_VIEWS.list({ prefix: "views:", cursor });
+    const values = await Promise.all(
+      page.keys.map((key) => env.BLOG_VIEWS.get(key.name)),
+    );
+    page.keys.forEach((key, index) => {
+      entries.push({
+        path: key.name.slice("views:".length),
+        legacyCount: Math.max(0, Number.parseInt(values[index], 10) || 0),
+      });
+    });
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  return entries;
+};
+
+const getAccurateViews = async (env) => {
+  const entries = await listLegacyViewEntries(env);
+  return Promise.all(
+    entries.map(async ({ path, legacyCount }) => ({
+      path,
+      views: await getCounterStub(env, path).getCount(legacyCount),
+    })),
+  );
+};
+
+const handleAllViews = async (env) => {
+  const entries = await getAccurateViews(env);
+  const views = Object.fromEntries(
+    entries.map(({ path, views: count }) => [path, count]),
   );
 
   return createJsonResponse(
     {
       success: true,
-      totalPosts: Object.keys(views).length,
+      totalPosts: entries.length,
       views,
       timestamp: new Date().toISOString(),
     },
@@ -69,19 +122,10 @@ const handleAllViews = async (env) => {
 };
 
 const handleTopViews = async (env, url) => {
-  const limit = parseInt(url.searchParams.get("limit"), 10) || 10;
-  const keys = await env.BLOG_VIEWS.list({ prefix: "views:" });
-  const views = [];
-
-  await Promise.all(
-    keys.keys.map(async (key) => {
-      const count = await env.BLOG_VIEWS.get(key.name);
-      views.push({
-        path: key.name.replace("views:", ""),
-        views: parseInt(count, 10) || 0,
-      });
-    }),
-  );
+  const requestedLimit =
+    Number.parseInt(url.searchParams.get("limit"), 10) || 10;
+  const limit = Math.min(Math.max(requestedLimit, 1), MAX_TOP_VIEW_LIMIT);
+  const views = await getAccurateViews(env);
 
   return createJsonResponse(
     {
@@ -106,6 +150,7 @@ const handleViewCounter = async (request, env) => {
       status: "healthy",
       timestamp: new Date().toISOString(),
       kvAvailable: Boolean(env.BLOG_VIEWS),
+      durableObjectAvailable: Boolean(env.VIEW_COUNTER),
     });
   }
 
@@ -126,10 +171,10 @@ const handleViewCounter = async (request, env) => {
   if (path === "TOP_VIEWS") {
     return handleTopViews(env, url);
   }
-  if (!path) {
+  if (!isValidArticlePath(path)) {
     return createJsonResponse(
       {
-        error: "Missing path parameter",
+        error: "Invalid article path",
         usage:
           'GET /api/views?path=/articles/example/ or POST /api/views with {"path":"/articles/example/"}',
       },
@@ -138,15 +183,16 @@ const handleViewCounter = async (request, env) => {
   }
 
   const normalizedPath = normalizePath(path);
-  const countKey = `views:${normalizedPath}`;
+  const legacyCount = await getLegacyCount(env, normalizedPath);
+  const counter = getCounterStub(env, normalizedPath);
 
   if (request.method === "GET") {
-    const views = await env.BLOG_VIEWS.get(countKey);
+    const views = await counter.getCount(legacyCount);
     return createJsonResponse(
       {
         success: true,
         path: normalizedPath,
-        views: parseInt(views, 10) || 0,
+        views,
         timestamp: new Date().toISOString(),
       },
       200,
@@ -155,45 +201,99 @@ const handleViewCounter = async (request, env) => {
   }
 
   if (isBotRequest(request)) {
-    const views = await env.BLOG_VIEWS.get(countKey);
+    const views = await counter.getCount(legacyCount);
     return createJsonResponse({
       success: true,
       path: normalizedPath,
-      views: parseInt(views, 10) || 0,
+      views,
       incremented: false,
     });
   }
 
-  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
-  const rateLimitKey = `rate:${ip}:${countKey}`;
-  const lastIncrement = await env.BLOG_VIEWS.get(rateLimitKey);
+  const visitorKey = await hashVisitor(request);
+  const result = await counter.increment(legacyCount, visitorKey, Date.now());
 
-  if (lastIncrement && Date.now() - parseInt(lastIncrement, 10) < 30000) {
-    const views = await env.BLOG_VIEWS.get(countKey);
-    return createJsonResponse({
-      success: true,
-      path: normalizedPath,
-      views: parseInt(views, 10) || 0,
-      incremented: false,
-      rateLimited: true,
-    });
-  }
-
-  const currentViews = await env.BLOG_VIEWS.get(countKey);
-  const views = (parseInt(currentViews, 10) || 0) + 1;
-  await env.BLOG_VIEWS.put(countKey, views.toString());
-  await env.BLOG_VIEWS.put(rateLimitKey, Date.now().toString(), {
-    expirationTtl: 60,
-  });
+  // Preserve the existing KV key as a discovery index and migration fallback.
+  // Reads use the Durable Object, so KV propagation cannot lose an increment.
+  await env.BLOG_VIEWS.put(`views:${normalizedPath}`, result.views.toString());
 
   return createJsonResponse({
     success: true,
     path: normalizedPath,
-    views,
-    incremented: true,
+    ...result,
     timestamp: new Date().toISOString(),
   });
 };
+
+export class ViewCounter extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.ctx.storage.sql.exec(`
+      CREATE TABLE IF NOT EXISTS counter (
+        id INTEGER PRIMARY KEY CHECK (id = 1),
+        value INTEGER NOT NULL CHECK (value >= 0)
+      );
+      CREATE TABLE IF NOT EXISTS visitor_limits (
+        visitor_key TEXT PRIMARY KEY,
+        expires_at INTEGER NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS visitor_limits_expiry
+        ON visitor_limits (expires_at);
+    `);
+  }
+
+  initialize(initialCount) {
+    const safeInitialCount = Math.max(
+      0,
+      Number.parseInt(initialCount, 10) || 0,
+    );
+    this.ctx.storage.sql.exec(
+      "INSERT OR IGNORE INTO counter (id, value) VALUES (1, ?)",
+      safeInitialCount,
+    );
+  }
+
+  getCount(initialCount = 0) {
+    this.initialize(initialCount);
+    return this.ctx.storage.sql
+      .exec("SELECT value FROM counter WHERE id = 1")
+      .one().value;
+  }
+
+  increment(initialCount, visitorKey, now) {
+    this.initialize(initialCount);
+    this.ctx.storage.sql.exec(
+      "DELETE FROM visitor_limits WHERE expires_at <= ?",
+      now,
+    );
+
+    const accepted = this.ctx.storage.sql
+      .exec(
+        "INSERT OR IGNORE INTO visitor_limits (visitor_key, expires_at) VALUES (?, ?) RETURNING visitor_key",
+        visitorKey,
+        now + RATE_LIMIT_WINDOW_MS,
+      )
+      .toArray();
+
+    if (accepted.length === 0) {
+      return {
+        views: this.getCount(),
+        incremented: false,
+        rateLimited: true,
+      };
+    }
+
+    const views = this.ctx.storage.sql
+      .exec("UPDATE counter SET value = value + 1 WHERE id = 1 RETURNING value")
+      .one().value;
+
+    return {
+      views,
+      incremented: true,
+      rateLimited: false,
+    };
+  }
+}
 
 export default {
   async fetch(request, env) {
@@ -203,10 +303,17 @@ export default {
       try {
         return await handleViewCounter(request, env);
       } catch (error) {
+        console.error(
+          JSON.stringify({
+            level: "error",
+            message: "View counter request failed",
+            path: url.pathname,
+            error: error instanceof Error ? error.message : String(error),
+          }),
+        );
         return createJsonResponse(
           {
             error: "View counter request failed",
-            message: error.message,
           },
           500,
         );

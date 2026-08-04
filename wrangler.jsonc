@@ -3,6 +3,7 @@
   "name": "hhkmyid",
   "main": "src/worker.js",
   "compatibility_date": "2026-07-06",
+  "compatibility_flags": ["nodejs_compat"],
   "build": {
     "command": "chmod a+x build.sh && ./build.sh",
   },
@@ -16,4 +17,18 @@
       "id": "c8aa2de4409a46b29047d6e90a301072",
     },
   ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "VIEW_COUNTER",
+        "class_name": "ViewCounter",
+      },
+    ],
+  },
+  "exports": {
+    "ViewCounter": {
+      "type": "durable-object",
+      "storage": "sqlite",
+    },
+  },
 }
