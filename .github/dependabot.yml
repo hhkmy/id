@@ -9,3 +9,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # The moving major tag always resolves to the latest CodeQL v4 release.
+      # Keep major updates visible, but do not replace @v4 with a fixed v4.x.y tag.
+      - dependency-name: "github/codeql-action"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
