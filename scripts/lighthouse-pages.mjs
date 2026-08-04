@@ -20,7 +20,9 @@ const sitemapPath = args.get("sitemap") ?? "public/sitemap.xml";
 const outputPath = args.get("output") ?? "data/lighthouse.json";
 const limit = Number(args.get("limit") ?? 0);
 const includeGlobs = args.get("include");
-const includePattern = includeGlobs ? createWildcardMatcher(includeGlobs) : null;
+const includePattern = includeGlobs
+  ? createWildcardMatcher(includeGlobs)
+  : null;
 const chromeFlags = args.get("chrome-flags") ?? "--headless=new --no-sandbox";
 const timeoutMs = Number(args.get("timeout-ms") ?? 120000);
 const lighthousePackage = "lighthouse@13.4.0";
@@ -243,9 +245,9 @@ let urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) =>
   normalizeUrl(match[1]),
 );
 urls = [...new Set(urls)];
-if (includePattern) urls = urls.filter((url) => includePattern.test(url));
+if (includePattern) urls = urls.filter((url) => includePattern(url));
 if (excludePattern)
-  urls = urls.filter((url) => !excludePattern.test(new URL(url).pathname));
+  urls = urls.filter((url) => !excludePattern(new URL(url).pathname));
 if (limit > 0) urls = urls.slice(0, limit);
 
 if (!urls.length) {
