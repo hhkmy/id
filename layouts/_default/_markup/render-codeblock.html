@@ -24,6 +24,10 @@
 		</button>
 	</div>
 	<div class="w-full min-w-0 overflow-x-auto px-4 py-4 font-mono text-sm text-slate-200 sm:px-5 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
-		<pre class="min-w-max"><code class="block whitespace-pre{{ with $type }} language-{{ . }}{{ end }}">{{ .Inner }}</code></pre>
+		{{- if $type -}}
+			{{ transform.Highlight .Inner $type "lineNos=false,style=github-dark" }}
+		{{- else -}}
+			<pre class="min-w-max"><code class="block whitespace-pre">{{ .Inner }}</code></pre>
+		{{- end -}}
 	</div>
 </div>

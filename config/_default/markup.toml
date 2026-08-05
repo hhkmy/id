@@ -37,6 +37,11 @@
             unsafe = false
             xhtml = false
 
+    [markup.highlight]
+        lineNos = false
+        noClasses = true
+        style = 'github-dark'
+
 [params.katex]
     enable = true
     html_dom_element = "document.body"
