@@ -33,6 +33,20 @@ const addCopyFeedback = (clipboard) => {
   });
 };
 
+const addCommitCopyFeedback = (clipboard) => {
+  clipboard.on("success", (event) => {
+    const button = event.trigger;
+    const originalLabel = button.getAttribute("aria-label");
+    button.textContent = "Copied";
+    button.setAttribute("aria-label", "Commit hash copied");
+    window.setTimeout(() => {
+      button.textContent = "Copy";
+      button.setAttribute("aria-label", originalLabel);
+    }, 1600);
+    event.clearSelection();
+  });
+};
+
 export function initCodeCopy() {
   const codeClipboard = new ClipboardJS(".code-copy-button", {
     text(trigger) {
@@ -43,7 +57,9 @@ export function initCodeCopy() {
     },
   });
   const paymentClipboard = new ClipboardJS(".payment-copy-button");
+  const commitClipboard = new ClipboardJS(".github-commit-copy");
 
   addCopyFeedback(codeClipboard);
   addCopyFeedback(paymentClipboard);
+  addCommitCopyFeedback(commitClipboard);
 }

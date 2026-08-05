@@ -1,6 +1,7 @@
 import { initArticleListIcons } from "./article-list-icons.js";
 import { initArticleViews } from "./article-views.js";
 import { initCodeCopy } from "./code-copy.js";
+import { initGithubUpdates } from "./github-updates.js";
 import { initLiteYoutube } from "./lite-youtube.js";
 import { initQrModal } from "./qr-modal.js";
 import { initSearch } from "./search.js";
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initQrModal();
   initLiteYoutube();
   initCodeCopy();
+  initGithubUpdates();
   initArticleListIcons();
   initArticleViews();
   initSearch();
