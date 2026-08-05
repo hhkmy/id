@@ -35,16 +35,29 @@ Self-hosted Comment System တွေထဲမှာ Remark42 ကို ရွေ
 
 ဒီ Migration မှာ Traffic သွားတဲ့လမ်းကြောင်းက အောက်ကလိုပါ။
 
-```text
-Article on hhk.my.id
-        ↓
-https://comments.hhk.my.id
-        ↓
-Cloudflare Tunnel
-        ↓
-http://remark42:8080
-        ↓
-Remark42 container on Raspberry Pi
+```goat {title="Remark42 setup architecture"}
+                         Public HTTPS
+ .------------------.   .------------------------.
+ | Article on       |-->| comments.hhk.my.id     |
+ | hhk.my.id        |   | Cloudflare Edge (TLS)  |
+ '------------------'   '-----------+------------'
+                                    |
+                         Cloudflare Tunnel
+                                    |
+                                    v
+ Raspberry Pi / Docker Network
+                         .------------------------.
+                         | cloudflared container  |
+                         '-----------+------------'
+                                     |
+                           http://remark42:8080
+                                     |
+                                     v
+                         .------------------------.
+                         | Remark42 container     |
+                         +------------------------+
+                         | ./remark42/var         |
+                         '------------------------'
 ```
 
 Browser က `comments.hhk.my.id` ကို HTTPS နဲ့ ခေါ်ပေမယ့် Raspberry Pi ထဲမှာတော့ Cloudflare Tunnel က Remark42 Container ဆီ `http://remark42:8080` နဲ့ ဆက်သွယ်တယ်။ Public ဘက်မှာ HTTPS ဖြစ်ပြီး Docker Network အတွင်းမှာ HTTP သုံးထားတာက မှားနေတာမဟုတ်ဘူး။ TLS ကို Cloudflare Edge မှာ အဆုံးသတ်ပေးပြီး Private Docker Network ထဲက Origin ဆီ HTTP နဲ့ ဆက်သွားတာပဲ။
