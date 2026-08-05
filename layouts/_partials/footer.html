@@ -32,6 +32,18 @@
 			{{ end }}
 		</div>
 		<div id="visitor-location" class="mb-2"></div>
+		<nav class="mb-3 flex max-w-md flex-wrap items-center justify-center gap-1" aria-label="Site pages">
+			{{ range slice (dict "label" "Lighthouse" "url" "/lighthouse/" "icon" "views") (dict "label" "Previously" "url" "/previously/" "icon" "calendar") (dict "label" "Whois" "url" "/whois/" "icon" "networking") (dict "label" "Updates" "url" "/update/" "icon" "time") (dict "label" "License" "url" "/license/" "icon" "certificate") (dict "label" "Privacy" "url" "/privacy/" "icon" "files") }}
+				<a
+					href="{{ .url }}"
+					aria-label="{{ .label }}"
+					class="inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+				>
+					{{ $icon := dict "vendor" "default" "name" .icon "width" "1rem" "height" "1rem" }}
+					{{ partialCached "icons/icon" $icon $icon }}
+				</a>
+			{{ end }}
+		</nav>
 		<p class="text-center font-medium leading-relaxed tracking-wide text-slate-500 dark:text-slate-400">
 			{{ $startYear := (time site.Params.foundingdate).Year }} {{ $currentYear := now.Year }} &copy;
 			{{ $startYear }}{{ if ne $startYear $currentYear }}- {{ $currentYear }}{{ end }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights reserved.
