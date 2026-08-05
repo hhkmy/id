@@ -199,7 +199,7 @@
       "lite-youtube",
       "lite-youtube-play",
       "lite-youtube-trigger",
-      "max-h-[32rem]",
+      "max-h-128",
       "max-h-[min(80dvh,48rem)]",
       "max-w-3xl",
       "max-w-4xl",
