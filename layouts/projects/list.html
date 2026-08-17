@@ -1,0 +1,61 @@
+{{ define "main" }}
+	{{ $projects := .RegularPages.ByWeight }}
+	<section class="space-y-10">
+		<header class="home-hero">
+			<div class="home-hero-copy">
+				<p class="section-title mb-4">Projects</p>
+				<h1 class="home-hero-title">{{ .Title }}</h1>
+				<p class="home-hero-summary">{{ .Params.summary }}</p>
+				<div class="prose mt-5 max-w-3xl text-slate-700 dark:text-slate-200">{{ .Content }}</div>
+			</div>
+			<div class="home-hero-panel">
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Active portfolio</p>
+					<p class="home-hero-panel-value">{{ len $projects }} documented bot projects</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Primary stack</p>
+					<p class="home-hero-panel-value">Python, PostgreSQL, Docker, Cloudflare Workers</p>
+				</div>
+				<div class="home-hero-panel-row">
+					<p class="home-hero-panel-label">Case studies</p>
+					<p class="home-hero-panel-value">Architecture, capabilities, and engineering focus</p>
+				</div>
+			</div>
+		</header>
+
+		<section class="panel">
+			<div class="mb-6">
+				<p class="section-title">Selected work</p>
+				<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Bots built for real workflows</h2>
+			</div>
+			<ul class="project-grid">
+				{{ range $projects }}
+					<li class="project-card">
+						<div class="project-card-header">
+							<span class="project-icon" aria-hidden="true">
+								{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1.35rem" "height" "1.35rem") }}
+							</span>
+							<span class="project-visibility">Private</span>
+						</div>
+						<div class="project-card-content">
+							<p class="section-title mt-5">{{ .Params.category }}</p>
+							<h2 class="project-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+							<p class="project-description">{{ .Params.summary }}</p>
+							<ul class="project-tech-list" aria-label="Technologies used">
+								{{ range .Params.technologies }}<li>{{ . }}</li>{{ end }}
+							</ul>
+						</div>
+						<div class="project-card-footer">
+							<a href="{{ .RelPermalink }}" class="project-case-study-link">Read case study</a>
+							<a href="https://t.me/{{ .Params.username }}" class="project-telegram-link" rel="noopener noreferrer">
+								{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1rem" "height" "1rem") }}
+								<span>@{{ .Params.username }}</span>
+							</a>
+						</div>
+					</li>
+				{{ end }}
+			</ul>
+		</section>
+	</section>
+{{ end }}

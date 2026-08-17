@@ -13,23 +13,30 @@
     pageRef = '/archive'
     weight = 2
 [[main]]
+    Pre = 'work'
+    Url = '/projects'
+    identifier = 'projects'
+    name = 'Projects'
+    pageRef = '/projects'
+    weight = 3
+[[main]]
     Pre = 'books'
     Url = '/books'
     identifier = 'books'
     name = 'Books'
     pageRef = '/books'
-    weight = 3
+    weight = 4
 [[main]]
     Pre = 'blog'
     Url = '/articles'
     identifier = 'articles'
     name = 'Articles'
     pageRef = '/articles'
-    weight = 4
+    weight = 5
 [[main]]
     Pre = 'shop'
     Url = '/shop'
     identifier = 'shop'
     name = 'Shop'
     pageRef = '/shop'
-    weight = 5
+    weight = 6
