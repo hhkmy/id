@@ -2,6 +2,7 @@
     command = "./build.sh --baseURL $URL"
     publish = "public"
     timeout = 1200
+    ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- assets/ config/ content/ data/ layouts/ static/ src/ cloudflare/ build.sh package.json package-lock.json netlify.toml"
 
 [build.environment]
     HUGO_ENV = "production"

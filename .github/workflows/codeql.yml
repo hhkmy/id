@@ -14,8 +14,24 @@ name: "CodeQL Advanced"
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "**/*.md"
+      - ".github/dependabot.yml"
+      - ".github/PACKAGE_UPDATES.md"
+      - ".github/README.md"
+      - ".github/SECURITY.md"
+      - "LICENSE"
+      - "AGENTS.md"
   pull_request:
     branches: ["main"]
+    paths-ignore:
+      - "**/*.md"
+      - ".github/dependabot.yml"
+      - ".github/PACKAGE_UPDATES.md"
+      - ".github/README.md"
+      - ".github/SECURITY.md"
+      - "LICENSE"
+      - "AGENTS.md"
   schedule:
     - cron: "45 7 * * 1"
 
