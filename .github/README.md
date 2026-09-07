@@ -133,6 +133,20 @@ Deploy the Cloudflare Worker and static assets with Wrangler:
 npm run deploy:cloudflare
 ```
 
+### Package Updates
+
+Check and update project dependencies:
+
+```bash
+# Check outdated dependencies
+npm outdated
+
+# Update dependencies within semver constraints
+npm update
+```
+
+For major version upgrades, interactive tools, and verification workflows, see the [Package Updates Guide](./PACKAGE_UPDATES.md).
+
 ## License
 
 Licensed under ISC.
