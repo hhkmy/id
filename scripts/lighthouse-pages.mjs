@@ -68,7 +68,7 @@ function matchesWildcard(value, pattern) {
     if (!part) continue;
 
     if (index === lastIndex && !pattern.endsWith("*")) {
-      return value.endsWith(part) && value.indexOf(part, cursor) !== -1;
+      return value.endsWith(part) && value.includes(part, cursor);
     }
 
     const foundIndex = value.indexOf(part, cursor);
