@@ -211,7 +211,7 @@
   }
 
   .book-cover {
-    @apply aspect-[4/5] w-full bg-slate-100 object-cover dark:bg-slate-900;
+    @apply aspect-4/5 w-full bg-slate-100 object-cover dark:bg-slate-900;
   }
 
   .book-card-body {
@@ -421,7 +421,7 @@
   }
 
   .shop-account-emoji {
-    @apply inline-flex h-[1.125rem] w-[1.125rem] shrink-0;
+    @apply inline-flex h-4.5 w-4.5 shrink-0;
   }
 
   .shop-order-note {
@@ -572,7 +572,7 @@
 
   .lite-youtube-play::before {
     content: "";
-    @apply ml-1 block border-y-[10px] border-l-[16px] border-y-transparent border-l-slate-950;
+    @apply ml-1 block border-y-10 border-l-16 border-y-transparent border-l-slate-950;
   }
 
   .article-pagination {
@@ -588,7 +588,7 @@
   }
 
   .pagination-pages {
-    @apply order-first flex w-full items-center justify-center gap-1 sm:order-none sm:w-auto;
+    @apply order-first flex w-full items-center justify-center gap-1 sm:order-0 sm:w-auto;
   }
 
   .pagination-control,
@@ -644,7 +644,7 @@
 }
 
 .lighthouse-table {
-  @apply min-w-[980px] w-full border-collapse text-left text-sm;
+  @apply min-w-245 w-full border-collapse text-left text-sm;
 }
 
 .lighthouse-table th {
@@ -805,13 +805,13 @@ img.emoji {
 }
 .github-commit-group::before {
   content: "";
-  @apply absolute bottom-0 left-[5px] top-4 w-px bg-slate-300 dark:bg-slate-700;
+  @apply absolute bottom-0 left-1.25 top-4 w-px bg-slate-300 dark:bg-slate-700;
 }
 .github-commit-date {
   @apply relative mb-3 flex items-center text-sm text-slate-500 dark:text-slate-400;
 }
 .github-commit-date .octicon-git-commit {
-  @apply absolute -left-[29px] h-4 w-4 bg-white fill-current dark:bg-slate-950;
+  @apply absolute -left-7.25 h-4 w-4 bg-white fill-current dark:bg-slate-950;
 }
 .github-commit-list {
   @apply overflow-hidden rounded-lg border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-950;
@@ -848,10 +848,7 @@ img.emoji {
   @apply inline-flex h-7 min-w-9 items-center justify-center rounded-md border border-slate-300 px-2 font-mono text-slate-500 hover:bg-slate-100 hover:text-slate-950 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white;
 }
 .github-updates-status {
-  @apply mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400;
-}
-.github-updates-status {
-  @apply py-5;
+  @apply mt-1 py-5 text-sm leading-6 text-slate-500 dark:text-slate-400;
 }
 .prose ul,
 .prose ol {
@@ -918,7 +915,7 @@ img.emoji {
   @apply dark:border-slate-700 dark:text-slate-300;
 }
 .prose .note {
-  @apply my-6 rounded-r border-l-4 border-slate-400 bg-slate-100 p-4;
+  @apply my-6 rounded-r-sm border-l-4 border-slate-400 bg-slate-100 p-4;
   @apply dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100;
 }
 .prose .checklist {
