@@ -3,9 +3,9 @@
 		{{ with hugo.Data.lighthouse.summary }}
 			<div class="lighthouse-score mb-4" role="group" aria-label="Lighthouse scores">
 				{{ range slice (dict "label" "Performance" "score" .averages.performance) (dict "label" "Accessibility" "score" .averages.accessibility) (dict "label" "Best Practices" "score" .averages.bestPractices) (dict "label" "SEO" "score" .averages.seo) }}
-					<div class="lighthouse-score-item" title="{{ .label }}: {{ .score }}">
+					<div class="lighthouse-score-item" title="{{ .score | default "-" }} - {{ .label }}">
 						<span class="lighthouse-score-circle" aria-hidden="true">{{ .score | default "-" }}</span>
-						<span class="sr-only">{{ .label }}: {{ .score | default "not generated" }}</span>
+						<span class="sr-only">{{ .score | default "-" }} - {{ .label }}</span>
 					</div>
 				{{ end }}
 				<a href="/lighthouse/" class="lighthouse-score-link">Report</a>
