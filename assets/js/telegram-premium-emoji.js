@@ -9,7 +9,7 @@ async function decodeTgs(response) {
 
   const encoded = (await response.text()).trim();
   const compressed = Uint8Array.from(atob(encoded), (character) =>
-    character.charCodeAt(0),
+    character.codePointAt(0),
   );
   const decompressed = new Blob([compressed])
     .stream()

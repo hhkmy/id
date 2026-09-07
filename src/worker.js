@@ -20,12 +20,18 @@ const createJsonResponse = (data, status = 200, cacheControl = "no-store") =>
     },
   });
 
-const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
+const normalizePath = (path) => {
+  let end = path.length;
+  while (end > 0 && path.charCodeAt(end - 1) === 47) {
+    end--;
+  }
+  return path.slice(0, end) || "/";
+};
 
 const isValidArticlePath = (path) =>
   typeof path === "string" &&
   path.length <= MAX_PATH_LENGTH &&
-  /^\/articles\/[a-z0-9][a-z0-9+._~!$&'()*+,;=:@%/-]*\/?$/i.test(path);
+  /^\/articles\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%/-]*$/i.test(path);
 
 const parseViewPath = async (request, url) => {
   if (request.method === "GET") {
@@ -130,7 +136,7 @@ const handleTopViews = async (env, url) => {
   return createJsonResponse(
     {
       success: true,
-      topViews: views.sort((a, b) => b.views - a.views).slice(0, limit),
+      topViews: views.toSorted((a, b) => b.views - a.views).slice(0, limit),
       timestamp: new Date().toISOString(),
     },
     200,

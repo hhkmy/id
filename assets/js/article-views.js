@@ -45,7 +45,13 @@ const loadAllViewCounters = async (counters) => {
   });
 };
 
-const normalizeCounterPath = (path) => path.replace(/\/+$/, "") || "/";
+const normalizeCounterPath = (path) => {
+  let end = path.length;
+  while (end > 0 && path.charCodeAt(end - 1) === 47) {
+    end--;
+  }
+  return path.slice(0, end) || "/";
+};
 
 const incrementCurrentArticle = async (counter) => {
   const path = counter.dataset.path;
