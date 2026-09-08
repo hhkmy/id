@@ -5,6 +5,15 @@
 - Burmese/Myanmar is allowed only in articles, content, or other output when the user explicitly requests it.
 - This policy is mandatory and takes precedence over any conflicting repository guidance.
 
+# Burmese Content Creation & Writing Style Policy
+
+- When generating, creating, or editing Burmese content, articles, blog posts, summaries, or descriptions:
+  - **Strictly Spoken Tone (စကားပြောဟန်):** Always write in natural, friendly, conversational spoken Burmese (`စကားပြောဟန်`) matching the author's tech blog style.
+  - **Prohibit Literary / Formal Forms:** Never use formal or literary endings/particles (`စာအုပ်ဟန် / အရေးစကား`) such as `သည်`, `ပါသည်`, `ဖြစ်သည်။`, `ဖြစ်ပါသည်။`, `ခဲ့ပါသည်။`, `ခဲ့သည်။`, `မည်`, `ပါမည်`, `၎င်း`, `၌`, `တွင်`, `ဖြင့်` (unless required in exact technical quotes).
+  - **Mandatory Conversational Endings:** Use spoken counterparts like `တယ်` / `ပါတယ်` (statements), `မယ်` / `ပါမယ်` / `မှာပါ` (future/intent), `ခဲ့တယ်` (past), `တာ` / `လုပ်တာ` (nominalization), `နဲ့` / `သုံးပြီး` (instrumental), `မှာ` / `ထဲမှာ` (location), `ဒါပေမဲ့` (but), `ဒါကြောင့်` (therefore), and `ဘာကြောင့်လဲဆိုတော့` (because).
+  - **Narrative Voice:** Use first-person `ကျွန်တော်` and maintain an engaging, peer-to-peer technical storytelling tone.
+
+
 # Repository Guidance
 
 ## JavaScript Libraries
