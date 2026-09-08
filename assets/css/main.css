@@ -1077,10 +1077,17 @@
     }
   }
 
-  .edge-badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3.5 py-1.5 text-xs shadow-2xs backdrop-blur-xs transition-colors duration-200;
+  .edge-divider {
+    @apply w-full border-t border-slate-200;
     @variant dark {
-      @apply border-slate-800 bg-slate-900/80;
+      @apply border-slate-800;
+    }
+  }
+
+  .edge-badge {
+    @apply inline-flex max-w-full items-center gap-2 rounded-full border border-slate-200/90 bg-white/95 px-4 py-1.5 text-xs shadow-2xs backdrop-blur-xs transition-colors duration-200;
+    @variant dark {
+      @apply border-slate-800/90 bg-slate-950/95;
     }
   }
 

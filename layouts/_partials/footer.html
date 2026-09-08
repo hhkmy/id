@@ -31,18 +31,23 @@
 				{{ partialCached "icons/icon" . . }}
 			{{ end }}
 		</div>
-		<div id="visitor-location" class="mb-4">
-			<div id="cf-edge-badge" data-edge-badge class="edge-badge" title="Connected via Cloudflare Global Anycast Network">
-				<svg class="size-4 shrink-0 text-[#F38020]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-					<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
-				</svg>
-				<span class="edge-label">Connected:</span>
-				<div id="cf-edge-location" data-edge-location class="edge-location-text">
-					<span class="relative flex size-2 shrink-0">
-						<span class="absolute inline-flex size-full animate-ping rounded-full bg-[#F38020] opacity-75"></span>
-						<span class="relative inline-flex size-2 rounded-full bg-[#F38020]"></span>
-					</span>
-					<span class="edge-pulse-text">Detecting location...</span>
+		<div id="visitor-location" class="relative my-6 w-full max-w-2xl px-4">
+			<div class="absolute inset-0 flex items-center" aria-hidden="true">
+				<div class="edge-divider"></div>
+			</div>
+			<div class="relative flex justify-center">
+				<div id="cf-edge-badge" data-edge-badge class="edge-badge" title="Connected via Cloudflare Global Anycast Network">
+					<svg class="size-4 shrink-0 text-[#F38020]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+					</svg>
+					<span class="edge-label">Connected:</span>
+					<div id="cf-edge-location" data-edge-location class="edge-location-text">
+						<span class="relative flex size-2 shrink-0">
+							<span class="absolute inline-flex size-full animate-ping rounded-full bg-[#F38020] opacity-75"></span>
+							<span class="relative inline-flex size-2 rounded-full bg-[#F38020]"></span>
+						</span>
+						<span class="edge-pulse-text">Detecting location...</span>
+					</div>
 				</div>
 			</div>
 		</div>
