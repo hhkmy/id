@@ -1,15 +1,15 @@
 {{ define "main" }}
 	<article class="mx-auto max-w-3xl">
 		<header class="mb-6">
-			<h1 class="text-4xl font-bold tracking-tight text-slate-950 dark:text-white">{{ .Title }}</h1>
+			<h1 class="page-header-title">{{ .Title }}</h1>
 			{{ if .Date }}
 				{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 				{{ $dateHuman := .Date | time.Format ":date_long" }}
-				<time datetime="{{ $dateMachine }}" class="mt-2 block text-sm text-slate-500 dark:text-slate-400">{{ $dateHuman }}</time>
+				<time datetime="{{ $dateMachine }}" class="page-header-time">{{ $dateHuman }}</time>
 			{{ end }}
 		</header>
 
-		<div class="prose max-w-none text-slate-700 dark:text-slate-200">
+		<div class="prose max-w-none">
 			{{ .Content }}
 		</div>
 

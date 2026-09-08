@@ -6,7 +6,7 @@
 			<p class="section-title mb-4">Archive</p>
 			<h1 class="home-hero-title">{{ .Title }}</h1>
 			{{ with .Content }}
-				<div class="prose mt-5 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-200">{{ . }}</div>
+				<div class="prose mt-5 max-w-3xl text-lg leading-8">{{ . }}</div>
 			{{ else }}
 				<p class="home-hero-summary">Technical notes, fixes, and practical workflows collected from day-to-day web operations and systems work.</p>
 			{{ end }}
@@ -31,9 +31,9 @@
 		<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
 			<div>
 				<p class="section-title">Articles</p>
-				<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Technical notes and guides</h2>
+				<h2 class="panel-heading">Technical notes and guides</h2>
 			</div>
-			<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+			<p class="panel-summary">
 				Browse practical notes on servers, software, DNS, Git, automation, and day-to-day troubleshooting.
 			</p>
 		</div>
@@ -67,7 +67,7 @@
 							mt-4 text-2xl sm:text-3xl
 						{{ else }}
 							mt-3 text-xl
-						{{ end }} font-bold leading-snug tracking-tight text-slate-950 dark:text-white"
+						{{ end }} article-card-heading"
 					>
 						<a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.LinkTitle }}</a>
 					</h2>
@@ -78,15 +78,15 @@
 						<div class="flex flex-wrap items-center gap-2">
 							{{ with $p.Params.tags }}
 								{{ range first 4 . }}
-									<span class="text-xs font-medium text-slate-500 dark:text-slate-400">#{{ . }}</span>
+									<span class="article-card-tag">#{{ . }}</span>
 								{{ end }}
 							{{ else }}
-								<span class="text-xs text-slate-400 dark:text-slate-500">No tags</span>
+								<span class="article-card-tag-empty">No tags</span>
 							{{ end }}
 						</div>
 						<a
 							href="{{ $p.RelPermalink }}"
-							class="text-sm font-semibold text-slate-700 hover:text-slate-950 hover:underline dark:text-slate-300 dark:hover:text-white"
+							class="article-card-link"
 							>Read more</a
 						>
 					</div>
