@@ -8,7 +8,7 @@
 			<p class="section-title mb-4">{{ $plural }}</p>
 			<h1 class="home-hero-title">{{ $termName }}</h1>
 			{{ with .Content }}
-				<div class="prose mt-5 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-200">{{ . }}</div>
+				<div class="prose home-hero-summary mt-5 max-w-3xl text-lg leading-8">{{ . }}</div>
 			{{ else }}
 				<p class="home-hero-summary">All articles and notes published under the {{ $termName }} {{ .Data.Singular }}.</p>
 			{{ end }}
@@ -33,9 +33,9 @@
 		<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
 			<div>
 				<p class="section-title">Articles</p>
-				<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Publications in {{ $termName }}</h2>
+				<h2 class="panel-heading">Publications in {{ $termName }}</h2>
 			</div>
-			<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+			<p class="panel-summary">
 				Explore all installments, practical notes, and documentation in this topic.
 			</p>
 		</div>
@@ -43,25 +43,23 @@
 		{{ if $pages }}
 			<div class="grid gap-4">
 				{{ range $i, $p := $pages }}
-					<article class="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 sm:flex-row sm:items-center sm:justify-between">
+					<article class="term-card">
 						<div class="space-y-1.5 flex-1">
-							<div class="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
-								<span class="flex items-center gap-1">
-									{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "0.9rem" "height" "0.9rem") }}
-									{{ (time $p.Date).Format "Jan 2, 2006" }}
-								</span>
+							<div class="term-card-date">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "0.9rem" "height" "0.9rem") }}
+								<span>{{ (time $p.Date).Format "Jan 2, 2006" }}</span>
 								{{ with $p.ReadingTime }}<span>&bull; {{ . }} min read</span>{{ end }}
 							</div>
-							<h3 class="text-lg font-bold text-slate-950 dark:text-white">
-								<a href="{{ $p.RelPermalink }}" class="hover:text-blue-600 hover:underline dark:hover:text-blue-400">{{ $p.LinkTitle }}</a>
+							<h3 class="term-card-title">
+								<a href="{{ $p.RelPermalink }}">{{ $p.LinkTitle }}</a>
 							</h3>
 							{{ with $p.Summary }}
-								<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 line-clamp-2">{{ . | plainify }}</p>
+								<p class="term-card-summary">{{ . | plainify }}</p>
 							{{ end }}
 						</div>
 						<div class="flex shrink-0 items-center gap-3 pt-2 sm:pt-0">
 							<span
-								class="post-view-count inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+								class="post-view-count term-card-badge"
 								data-path="{{ $p.RelPermalink }}"
 								aria-live="polite"
 							>
@@ -70,7 +68,7 @@
 							</span>
 							<a
 								href="{{ $p.RelPermalink }}"
-								class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
+								class="term-card-link"
 							>
 								Read &rarr;
 							</a>
@@ -79,7 +77,7 @@
 				{{ end }}
 			</div>
 		{{ else }}
-			<p class="text-slate-500 dark:text-slate-400">No articles found in this collection.</p>
+			<p class="empty-state-text">No articles found in this collection.</p>
 		{{ end }}
 	</section>
 {{ end }}
