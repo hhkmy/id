@@ -111,7 +111,7 @@
   }
 
   .focus-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .focus-card-icon {
@@ -127,7 +127,7 @@
   }
 
   .about-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .about-section-heading {
@@ -139,7 +139,7 @@
   }
 
   .about-contact-card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200;
+    @apply rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-slate-700;
   }
 
   .about-contact-icon {
@@ -151,7 +151,7 @@
   }
 
   .about-timeline-item {
-    @apply rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950 md:grid md:grid-cols-[180px_1fr] md:gap-6;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 md:grid md:grid-cols-[180px_1fr] md:gap-6;
   }
 
   .about-timeline-year {
@@ -179,7 +179,23 @@
   }
 
   .about-skill-card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950;
+    @apply rounded-xl border border-slate-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+  }
+
+  .about-skill-card.is-hidden {
+    display: none !important;
+  }
+
+  .skill-filter-tabs {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .skill-filter-btn {
+    @apply inline-flex cursor-pointer items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800 dark:hover:text-white;
+  }
+
+  .skill-filter-btn.active {
+    @apply border-slate-900 bg-slate-900 text-white shadow-sm dark:border-white dark:bg-white dark:text-slate-950;
   }
 
   .archive-year-card {
@@ -207,7 +223,7 @@
   }
 
   .book-card {
-    @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950;
+    @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .book-cover {
@@ -239,7 +255,7 @@
   }
 
   .project-card {
-    @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950;
+    @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .project-card-header {
@@ -312,7 +328,7 @@
   }
 
   .shop-card {
-    @apply relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950;
+    @apply relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .shop-card-highlight {
@@ -425,11 +441,11 @@
   }
 
   .shop-order-note {
-    @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950 sm:flex-row sm:items-center;
+    @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 sm:flex-row sm:items-center;
   }
 
   .article-card {
-    @apply rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-400 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-600;
+    @apply rounded-xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-600;
   }
 
   .article-bento-grid {
