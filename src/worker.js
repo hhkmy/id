@@ -305,6 +305,19 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.pathname === "/api/edge-info") {
+      return createJsonResponse(
+        {
+          country: request.cf?.country || "MM",
+          city: request.cf?.city || "",
+          colo: request.cf?.colo || "",
+          timezone: request.cf?.timezone || "",
+        },
+        200,
+        "public, max-age=3600",
+      );
+    }
+
     if (url.pathname === "/api/views" || url.pathname === "/api/views/health") {
       try {
         return await handleViewCounter(request, env);

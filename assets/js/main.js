@@ -9,6 +9,7 @@ import { initSiteTooltips } from "./site-tooltips.js";
 import { initSkillFilter } from "./skill-filter.js";
 import { initTelegramPremiumEmoji } from "./telegram-premium-emoji.js";
 import { initTheme } from "./theme.js";
+import { initVisitorLocation } from "./visitor-location.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const theme = initTheme();
@@ -23,5 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSiteTooltips();
   initSkillFilter();
   initTelegramPremiumEmoji();
+  initVisitorLocation();
   theme.watchSystemTheme();
 });
