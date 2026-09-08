@@ -1,0 +1,38 @@
+{
+  "hero_panel": [
+    {
+      "label": "Primary stack",
+      "value": "Python, Linux, Docker, Cloudflare, Hugo"
+    },
+    {
+      "label": "Recent topics",
+      "value": "DNS, Git security, automation, activation notes"
+    },
+    {
+      "label": "Writing style",
+      "value": "Practical guides, fixes, and repeatable workflows"
+    }
+  ],
+  "focus": {
+    "section_title": "Focus",
+    "title": "Systems, publishing, and operations",
+    "summary": "Notes are organized around work that needs to be repeatable, searchable, and easy to verify later.",
+    "cards": [
+      {
+        "icon": "work",
+        "title": "Web operations",
+        "text": "Administration, deployment, DNS, Cloudflare, WordPress, and hosting workflows."
+      },
+      {
+        "icon": "blog",
+        "title": "Technical writing",
+        "text": "Step-by-step notes for fixes, tools, server setup, and software configuration."
+      },
+      {
+        "icon": "skills",
+        "title": "Systems",
+        "text": "Linux, Debian, Git, automation, and day-to-day troubleshooting."
+      }
+    ]
+  }
+}

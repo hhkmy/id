@@ -14,53 +14,35 @@
 				</div>
 			</div>
 			<div class="home-hero-panel">
-				<div class="home-hero-panel-row">
-					<p class="home-hero-panel-label">Primary stack</p>
-					<p class="home-hero-panel-value">Hugo, Cloudflare, Linux, WordPress</p>
-				</div>
-				<div class="home-hero-panel-row">
-					<p class="home-hero-panel-label">Recent topics</p>
-					<p class="home-hero-panel-value">DNS, Git security, automation, activation notes</p>
-				</div>
-				<div class="home-hero-panel-row">
-					<p class="home-hero-panel-label">Writing style</p>
-					<p class="home-hero-panel-value">Practical guides, fixes, and repeatable workflows</p>
-				</div>
+				{{ range hugo.Data.home.hero_panel }}
+					<div class="home-hero-panel-row">
+						<p class="home-hero-panel-label">{{ .label }}</p>
+						<p class="home-hero-panel-value">{{ .value }}</p>
+					</div>
+				{{ end }}
 			</div>
 		</header>
 
 		<section class="panel">
 			<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
 				<div>
-					<p class="section-title">Focus</p>
-					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Systems, publishing, and operations</h2>
+					<p class="section-title">{{ hugo.Data.home.focus.section_title }}</p>
+					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">{{ hugo.Data.home.focus.title }}</h2>
 				</div>
 				<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
-					Notes are organized around work that needs to be repeatable, searchable, and easy to verify later.
+					{{ hugo.Data.home.focus.summary }}
 				</p>
 			</div>
 			<div class="focus-grid">
-				<div class="focus-card">
-					<div class="focus-card-icon">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.15rem" "height" "1.15rem") }}
+				{{ range hugo.Data.home.focus.cards }}
+					<div class="focus-card">
+						<div class="focus-card-icon">
+							{{ partial "icons/icon" (dict "vendor" "default" "name" .icon "width" "1.15rem" "height" "1.15rem") }}
+						</div>
+						<h3 class="focus-card-title">{{ .title }}</h3>
+						<p class="focus-card-text">{{ .text }}</p>
 					</div>
-					<h3 class="focus-card-title">Web operations</h3>
-					<p class="focus-card-text">Administration, deployment, DNS, Cloudflare, WordPress, and hosting workflows.</p>
-				</div>
-				<div class="focus-card">
-					<div class="focus-card-icon">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "blog" "width" "1.15rem" "height" "1.15rem") }}
-					</div>
-					<h3 class="focus-card-title">Technical writing</h3>
-					<p class="focus-card-text">Step-by-step notes for fixes, tools, server setup, and software configuration.</p>
-				</div>
-				<div class="focus-card">
-					<div class="focus-card-icon">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.15rem" "height" "1.15rem") }}
-					</div>
-					<h3 class="focus-card-title">Systems</h3>
-					<p class="focus-card-text">Linux, Debian, Git, automation, and day-to-day troubleshooting.</p>
-				</div>
+				{{ end }}
 			</div>
 		</section>
 
