@@ -34,8 +34,9 @@
 - **Mandatory Build Verification:** Always run `npm run build` after modifying CSS, HTML templates, JS, or Hugo configuration.
 - **Zero Errors & Warnings Policy:** Inspect the build logs and linter feedback. Any syntax error, `@apply` issue, template execution failure, or linter warning **must** be resolved immediately before finishing the task or committing. Never leave open errors or warnings in the repository.
 
-## Commit Messages
+## Git Push & Commit Policy
 
+- **Do Not Push Automatically:** Do not execute `git push` unless the user explicitly instructs or confirms to push. You may make local git commits when appropriate to organize work, but pushing to the remote repository is strictly forbidden unless explicitly requested by the user.
 - Work directly on the `main` branch for repository changes. Do not create new branches unless the user explicitly asks for a branch or pull request workflow.
 - If `git push origin main` fails with `GH006: Protected branch update failed` or `Changes must be made through a pull request`, stay on `main` and fix the GitHub branch protection/ruleset that is requiring pull requests, then retry `git push origin main`. Do not create, switch to, push, merge, or open a branch/PR as a fallback unless the user explicitly asks for that workflow.
 - Prefer Conventional Commit style: `type(scope): summary`.
