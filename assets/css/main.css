@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @source "hugo_stats.json";
-
-@custom-variant dark (&:is(.dark *));
+@variant dark (&:is(.dark *));
 
 @theme {
   --breakpoint-sm: 480px;
@@ -19,6 +18,7 @@
   font-display: swap;
   src: url("/fonts/Pyidaungsu.woff2") format("woff2");
 }
+
 @layer base {
   *,
   ::after,
@@ -29,7 +29,10 @@
   }
 
   body {
-    @apply min-h-screen bg-slate-50 font-sans text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+    @apply min-h-screen bg-slate-50 font-sans text-slate-900 antialiased;
+    @variant dark {
+      @apply bg-slate-950 text-slate-100;
+    }
   }
 
   main {
@@ -37,11 +40,17 @@
   }
 
   a {
-    @apply decoration-slate-300 underline-offset-4 dark:decoration-slate-700;
+    @apply decoration-slate-300 underline-offset-4;
+    @variant dark {
+      @apply decoration-slate-700;
+    }
   }
 
   footer {
-    @apply mt-12 border-t border-slate-200/80 dark:border-slate-800;
+    @apply mt-12 border-t border-slate-200/80;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 }
 
@@ -50,28 +59,113 @@
     @apply flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm;
   }
 
+  .site-nav {
+    @apply sticky top-0 z-50 mb-8 border-b border-slate-200/80 bg-white/90 backdrop-blur;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950/90;
+    }
+  }
+
+  .site-brand-logo {
+    @apply size-10 rounded-md ring-1 ring-slate-200;
+    @variant dark {
+      @apply ring-slate-800;
+    }
+  }
+
+  .site-brand-title {
+    @apply hidden text-lg font-bold tracking-tight text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:inline;
+    @variant dark {
+      @apply text-slate-100;
+    }
+  }
+
+  .theme-toggle-icon-dark {
+    @apply size-5 text-slate-700;
+    @variant dark {
+      @apply text-yellow-300;
+    }
+  }
+
+  .theme-toggle-icon-light {
+    @apply size-5 text-yellow-500;
+    @variant dark {
+      @apply text-yellow-200;
+    }
+  }
+
+  .qr-modal-box {
+    @apply relative rounded-lg bg-white p-4 shadow-2xl ring-1 ring-slate-200;
+    @variant dark {
+      @apply bg-slate-950 ring-slate-800;
+    }
+  }
+
   .site-shell {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 
   .panel {
-    @apply border-t border-slate-200 bg-transparent py-8 dark:border-slate-800;
+    @apply border-t border-slate-200 bg-transparent py-8;
+    @variant dark {
+      @apply border-slate-800;
+    }
+  }
+
+  .panel-heading {
+    @apply mt-1 text-2xl font-bold tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
+  }
+
+  .panel-heading-sm {
+    @apply mt-1 text-lg font-bold tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
+  }
+
+  .panel-summary {
+    @apply max-w-xl text-sm leading-6 text-slate-600;
+    @variant dark {
+      @apply text-slate-300;
+    }
+  }
+
+  .panel-link {
+    @apply hidden text-sm font-semibold text-slate-600 hover:text-slate-950 sm:inline;
+    @variant dark {
+      @apply text-slate-300 hover:text-white;
+    }
   }
 
   .section-title {
-    @apply text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .link-button {
-    @apply inline-flex items-center justify-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200;
+    @apply inline-flex items-center justify-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply bg-white text-slate-950 hover:bg-slate-200;
+    }
   }
 
   .quiet-button {
-    @apply inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800;
+    @apply inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply border-slate-700 bg-slate-900 text-slate-100 hover:bg-slate-800;
+    }
   }
 
   .home-hero {
-    @apply grid gap-8 border-b border-slate-200 py-12 dark:border-slate-800 lg:grid-cols-[minmax(0,1.5fr)_minmax(320px,0.8fr)] lg:items-end;
+    @apply grid gap-8 border-b border-slate-200 py-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(320px,0.8fr)] lg:items-end;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .home-hero-copy {
@@ -79,11 +173,17 @@
   }
 
   .home-hero-title {
-    @apply max-w-4xl text-5xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-6xl;
+    @apply max-w-4xl text-5xl font-bold leading-tight tracking-tight text-slate-950 sm:text-6xl;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .home-hero-summary {
-    @apply mt-5 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-200;
+    @apply mt-5 max-w-3xl text-lg leading-8 text-slate-700;
+    @variant dark {
+      @apply text-slate-200;
+    }
   }
 
   .home-hero-actions {
@@ -91,19 +191,37 @@
   }
 
   .home-hero-panel {
-    @apply rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950;
+    @apply rounded-xl border border-slate-200 bg-white p-5;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950;
+    }
   }
 
   .home-hero-panel-row {
-    @apply border-t border-slate-200 py-4 first:border-t-0 first:pt-0 last:pb-0 dark:border-slate-800;
+    @apply border-t border-slate-200 py-4;
+    &:first-child {
+      @apply border-t-0 pt-0;
+    }
+    &:last-child {
+      @apply pb-0;
+    }
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .home-hero-panel-label {
-    @apply text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .home-hero-panel-value {
-    @apply mt-1 text-sm font-semibold leading-6 text-slate-950 dark:text-white;
+    @apply mt-1 text-sm font-semibold leading-6 text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .focus-grid {
@@ -111,27 +229,45 @@
   }
 
   .focus-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .focus-card-icon {
-    @apply mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100;
+    @apply mb-4 flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900 text-slate-100;
+    }
   }
 
   .focus-card-title {
-    @apply text-base font-bold text-slate-950 dark:text-white;
+    @apply text-base font-bold text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .focus-card-text {
-    @apply mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300;
+    @apply mt-2 text-sm leading-7 text-slate-600;
+    @variant dark {
+      @apply text-slate-300;
+    }
   }
 
   .about-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .about-section-heading {
-    @apply mb-6 flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-950 dark:text-white;
+    @apply mb-6 flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .about-contact-grid {
@@ -139,11 +275,17 @@
   }
 
   .about-contact-card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-700;
+    }
   }
 
   .about-contact-icon {
-    @apply mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100;
+    @apply mb-4 flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900 text-slate-100;
+    }
   }
 
   .about-timeline {
@@ -151,11 +293,102 @@
   }
 
   .about-timeline-item {
-    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 md:grid md:grid-cols-[180px_1fr] md:gap-6;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 md:grid md:grid-cols-[180px_1fr] md:gap-6;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
+  }
+
+  .about-prose {
+    @apply mt-5 max-w-3xl text-slate-700;
+    @variant dark {
+      @apply text-slate-200;
+    }
+  }
+
+  .about-timeline-company {
+    @apply flex items-center gap-2 text-lg font-bold text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
+  }
+
+  .about-timeline-role {
+    @apply mt-1 text-sm leading-6 text-slate-700;
+    @variant dark {
+      @apply text-slate-300;
+    }
+  }
+
+  .about-timeline-link {
+    @apply mt-1 inline-block break-all text-sm text-slate-500 hover:text-slate-950 hover:underline;
+    @variant dark {
+      @apply text-slate-400 hover:text-white;
+    }
+  }
+
+  .about-subheading {
+    @apply mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
+  }
+
+  .about-entry-title {
+    @apply font-semibold text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
+  }
+
+  .about-entry-meta {
+    @apply mt-1 text-sm text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
+  }
+
+  .about-entry-year {
+    @apply shrink-0 text-sm text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
+  }
+
+  .about-skill-name {
+    @apply flex items-center gap-2 text-sm font-semibold text-slate-800;
+    @variant dark {
+      @apply text-slate-200;
+    }
+  }
+
+  .about-skill-pct {
+    @apply text-xs font-bold text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
+  }
+
+  .about-progress-track {
+    @apply h-1.5 w-full overflow-hidden rounded-full bg-slate-200;
+    @variant dark {
+      @apply bg-slate-800;
+    }
+  }
+
+  .about-progress-bar {
+    width: var(--progress, 0%);
+    @apply h-full max-w-full rounded-full bg-linear-to-r from-slate-700 to-slate-950;
+    @variant dark {
+      @apply from-slate-300 to-white;
+    }
   }
 
   .about-timeline-year {
-    @apply text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    @apply text-sm font-semibold uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .about-skills-grid {
@@ -179,7 +412,10 @@
   }
 
   .about-skill-card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .about-skill-card.is-hidden {
@@ -191,15 +427,24 @@
   }
 
   .skill-filter-btn {
-    @apply inline-flex cursor-pointer items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800 dark:hover:text-white;
+    @apply inline-flex cursor-pointer items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-700 hover:bg-slate-800 hover:text-white;
+    }
   }
 
   .skill-filter-btn.active {
-    @apply border-slate-900 bg-slate-900 text-white shadow-sm dark:border-white dark:bg-white dark:text-slate-950;
+    @apply border-slate-900 bg-slate-900 text-white shadow-xs;
+    @variant dark {
+      @apply border-white bg-white text-slate-950;
+    }
   }
 
   .archive-year-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950;
+    @apply rounded-xl border border-slate-200 bg-white p-5;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950;
+    }
   }
 
   .archive-list {
@@ -207,15 +452,24 @@
   }
 
   .archive-item {
-    @apply flex flex-col gap-2 rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/60 sm:flex-row sm:items-center;
+    @apply flex flex-col gap-2 rounded-lg border border-slate-200 bg-slate-50 p-4 sm:flex-row sm:items-center;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900/60;
+    }
   }
 
   .archive-date {
-    @apply w-20 shrink-0 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    @apply w-20 shrink-0 text-sm font-semibold uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .archive-link {
-    @apply flex-1 text-base font-semibold text-slate-950 hover:underline dark:text-white;
+    @apply flex-1 text-base font-semibold text-slate-950 hover:underline;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .book-grid {
@@ -223,11 +477,17 @@
   }
 
   .book-card {
-    @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .book-cover {
-    @apply aspect-4/5 w-full bg-slate-100 object-cover dark:bg-slate-900;
+    @apply aspect-4/5 w-full bg-slate-100 object-cover;
+    @variant dark {
+      @apply bg-slate-900;
+    }
   }
 
   .book-card-body {
@@ -235,15 +495,24 @@
   }
 
   .book-card-footer {
-    @apply mt-auto border-t border-slate-200 px-5 py-4 dark:border-slate-800;
+    @apply mt-auto border-t border-slate-200 px-5 py-4;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .book-download-link {
-    @apply flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-300 hover:bg-white hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:bg-slate-950 dark:hover:text-white;
+    @apply flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-300 hover:bg-white hover:text-slate-950;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900 text-slate-200 hover:border-slate-700 hover:bg-slate-950 hover:text-white;
+    }
   }
 
   .book-meta {
-    @apply mt-3 flex flex-wrap gap-3 text-xs font-semibold text-slate-500 dark:text-slate-400;
+    @apply mt-3 flex flex-wrap gap-3 text-xs font-semibold text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .book-meta-item {
@@ -255,7 +524,10 @@
   }
 
   .project-card {
-    @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .project-card-header {
@@ -263,11 +535,17 @@
   }
 
   .project-icon {
-    @apply flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100;
+    @apply flex size-11 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900 text-slate-100;
+    }
   }
 
   .project-visibility {
-    @apply rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400;
+    @apply rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-500;
+    @variant dark {
+      @apply border-slate-800 bg-slate-900 text-slate-400;
+    }
   }
 
   .project-card-content {
@@ -275,7 +553,10 @@
   }
 
   .project-title {
-    @apply mt-2 text-xl font-bold tracking-tight text-slate-950 dark:text-white;
+    @apply mt-2 text-xl font-bold tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .project-title > a {
@@ -283,7 +564,10 @@
   }
 
   .project-description {
-    @apply mt-3 flex-1 text-sm leading-6 text-slate-600 dark:text-slate-300;
+    @apply mt-3 flex-1 text-sm leading-6 text-slate-600;
+    @variant dark {
+      @apply text-slate-300;
+    }
   }
 
   .project-tech-list {
@@ -291,15 +575,24 @@
   }
 
   .project-tech-list > li {
-    @apply rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-900 dark:text-slate-300;
+    @apply rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600;
+    @variant dark {
+      @apply bg-slate-900 text-slate-300;
+    }
   }
 
   .project-card-footer {
-    @apply mt-5 flex flex-wrap items-center justify-between gap-x-5 gap-y-3 border-t border-slate-200 pt-4 dark:border-slate-800;
+    @apply mt-5 flex flex-wrap items-center justify-between gap-x-5 gap-y-3 border-t border-slate-200 pt-4;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .project-case-study-link {
-    @apply inline-flex items-center text-sm font-semibold text-slate-950 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-white;
+    @apply inline-flex items-center text-sm font-semibold text-slate-950 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .project-case-study-link::after {
@@ -308,15 +601,24 @@
   }
 
   .project-telegram-link {
-    @apply inline-flex max-w-full items-center gap-2 break-all text-sm font-semibold text-slate-700 hover:text-slate-950 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-slate-300 dark:hover:text-white;
+    @apply inline-flex max-w-full items-center gap-2 break-all text-sm font-semibold text-slate-700 hover:text-slate-950 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply text-slate-300 hover:text-white;
+    }
   }
 
   .project-detail-hero {
-    @apply grid gap-8 border-b border-slate-200 py-12 dark:border-slate-800 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.7fr)] lg:items-end;
+    @apply grid gap-8 border-b border-slate-200 py-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.7fr)] lg:items-end;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .project-back-link {
-    @apply inline-flex text-sm font-semibold text-slate-600 hover:text-slate-950 hover:underline dark:text-slate-300 dark:hover:text-white;
+    @apply inline-flex text-sm font-semibold text-slate-600 hover:text-slate-950 hover:underline;
+    @variant dark {
+      @apply text-slate-300 hover:text-white;
+    }
   }
 
   .project-detail-content {
@@ -328,11 +630,17 @@
   }
 
   .shop-card {
-    @apply relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 hover:border-slate-300;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .shop-card-highlight {
-    @apply border-blue-300 bg-blue-50/50 ring-1 ring-blue-200 dark:border-blue-800 dark:bg-blue-950/20 dark:ring-blue-900;
+    @apply border-blue-300 bg-blue-50/50 ring-1 ring-blue-200;
+    @variant dark {
+      @apply border-blue-800 bg-blue-950/20 ring-blue-900;
+    }
   }
 
   .shop-card-content {
@@ -352,7 +660,10 @@
   }
 
   .shop-card-icon {
-    @apply flex h-9 w-9 shrink-0 items-center justify-center text-slate-800 dark:text-slate-100;
+    @apply flex size-9 shrink-0 items-center justify-center text-slate-800;
+    @variant dark {
+      @apply text-slate-100;
+    }
   }
 
   .shop-plan-emoji {
@@ -360,31 +671,49 @@
   }
 
   .telegram-premium-emoji > svg {
-    @apply h-full w-full;
+    @apply size-full;
   }
 
   .shop-popular-badge {
-    @apply inline-flex rounded-full border border-blue-200 bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300;
+    @apply inline-flex rounded-full border border-blue-200 bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-700;
+    @variant dark {
+      @apply border-blue-800 bg-blue-950 text-blue-300;
+    }
   }
 
   .shop-card-title {
-    @apply mt-1 text-lg font-bold tracking-tight text-slate-950 dark:text-white;
+    @apply mt-1 text-lg font-bold tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .shop-card-price {
-    @apply text-xl font-bold tracking-tight text-slate-950 dark:text-white;
+    @apply text-xl font-bold tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .shop-card-note {
-    @apply mt-1 text-xs font-medium text-slate-500 dark:text-slate-400;
+    @apply mt-1 text-xs font-medium text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .shop-buy-button {
-    @apply mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-700 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200;
+    @apply mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply border-slate-700 bg-white text-slate-950 hover:bg-slate-200;
+    }
   }
 
   .shop-card-highlight .shop-buy-button {
-    @apply border-blue-700 bg-blue-700 hover:bg-blue-600 dark:border-blue-400 dark:bg-blue-400 dark:text-slate-950 dark:hover:bg-blue-300;
+    @apply border-blue-700 bg-blue-700 hover:bg-blue-600;
+    @variant dark {
+      @apply border-blue-400 bg-blue-400 text-slate-950 hover:bg-blue-300;
+    }
   }
 
   .shop-payment-row {
@@ -396,7 +725,10 @@
   }
 
   .shop-payment-details {
-    @apply mt-3 grid gap-1.5 text-sm text-slate-600 dark:text-slate-300;
+    @apply mt-3 grid gap-1.5 text-sm text-slate-600;
+    @variant dark {
+      @apply text-slate-300;
+    }
   }
 
   .shop-payment-detail {
@@ -404,7 +736,10 @@
   }
 
   .payment-copy-button {
-    @apply relative cursor-pointer rounded-sm font-semibold text-slate-950 underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-white;
+    @apply relative cursor-pointer rounded-sm font-semibold text-slate-950 underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .shop-payment-methods {
@@ -412,11 +747,17 @@
   }
 
   .shop-payment-method {
-    @apply relative inline-flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white;
+    @apply relative inline-flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-700 hover:bg-slate-900 hover:text-white;
+    }
   }
 
   .site-tooltip {
-    @apply pointer-events-none fixed z-100 w-max max-w-[calc(100vw-1rem)] whitespace-normal rounded-md bg-slate-950 px-2.5 py-1.5 text-center text-xs font-medium normal-case tracking-normal text-white shadow-lg dark:bg-slate-800 dark:text-white;
+    @apply pointer-events-none fixed z-100 w-max max-w-[calc(100vw-1rem)] whitespace-normal rounded-md bg-slate-950 px-2.5 py-1.5 text-center text-xs font-medium normal-case tracking-normal text-white shadow-lg;
+    @variant dark {
+      @apply bg-slate-800 text-white;
+    }
   }
 
   .site-tooltip-arrow {
@@ -425,27 +766,39 @@
   }
 
   .site-tooltip[data-placement="top"] .site-tooltip-arrow {
-    @apply top-full border-t-slate-950 dark:border-t-slate-800;
+    @apply top-full border-t-slate-950;
+    @variant dark {
+      @apply border-t-slate-800;
+    }
   }
 
   .site-tooltip[data-placement="bottom"] .site-tooltip-arrow {
-    @apply bottom-full border-b-slate-950 dark:border-b-slate-800;
+    @apply bottom-full border-b-slate-950;
+    @variant dark {
+      @apply border-b-slate-800;
+    }
   }
 
   .shop-payment-emoji {
-    @apply inline-flex h-6 w-6 shrink-0;
+    @apply inline-flex size-6 shrink-0;
   }
 
   .shop-account-emoji {
-    @apply inline-flex h-4.5 w-4.5 shrink-0;
+    @apply inline-flex size-4.5 shrink-0;
   }
 
   .shop-order-note {
-    @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 sm:flex-row sm:items-center;
+    @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 sm:flex-row sm:items-center;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+    }
   }
 
   .article-card {
-    @apply rounded-xl border border-slate-200 bg-white p-6 transition-colors duration-200 hover:border-slate-400 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-600;
+    @apply rounded-xl border border-slate-200 bg-white p-6 transition-colors duration-200 hover:border-slate-400;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-600;
+    }
   }
 
   .article-bento-grid {
@@ -469,15 +822,31 @@
   }
 
   .article-category-badge {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-300;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700;
+    @variant dark {
+      @apply border-blue-900/60 bg-blue-950/40 text-blue-300;
+    }
+  }
+
+  .article-card-heading {
+    @apply font-bold leading-snug tracking-tight text-slate-950;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .article-card-meta {
-    @apply mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400;
+    @apply mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .article-card-snippet {
-    @apply mt-3 text-base leading-7 text-slate-600 dark:text-slate-300;
+    @apply mt-3 text-base leading-7 text-slate-600;
+    @variant dark {
+      @apply text-slate-300;
+    }
   }
 
   .single-article {
@@ -485,39 +854,69 @@
   }
 
   .article-hero {
-    @apply grid gap-8 border-b border-slate-200 py-12 dark:border-slate-800 lg:grid-cols-[minmax(0,1.5fr)_minmax(320px,0.8fr)] lg:items-end;
+    @apply grid gap-8 border-b border-slate-200 py-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(320px,0.8fr)] lg:items-end;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .article-kicker {
-    @apply mb-4 inline-flex text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white;
+    @apply mb-4 inline-flex text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-950;
+    @variant dark {
+      @apply text-slate-400 hover:text-white;
+    }
   }
 
   .article-title {
-    @apply max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-6xl;
+    @apply max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-6xl;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .article-summary {
-    @apply mt-5 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-200;
+    @apply mt-5 max-w-3xl text-lg leading-8 text-slate-700;
+    @variant dark {
+      @apply text-slate-200;
+    }
   }
 
   .article-meta {
-    @apply grid gap-0 rounded-xl border border-slate-200 bg-white p-5 text-sm dark:border-slate-800 dark:bg-slate-950;
+    @apply grid gap-0 rounded-xl border border-slate-200 bg-white p-5 text-sm;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950;
+    }
   }
 
   .article-meta-item {
-    @apply flex items-center gap-2 border-t border-slate-200 py-4 font-medium leading-none text-slate-700 first:border-t-0 first:pt-0 last:pb-0 dark:border-slate-800 dark:text-slate-200;
+    @apply flex items-center gap-2 border-t border-slate-200 py-4 font-medium leading-none text-slate-700;
+    &:first-child {
+      @apply border-t-0 pt-0;
+    }
+    &:last-child {
+      @apply pb-0;
+    }
+    @variant dark {
+      @apply border-slate-800 text-slate-200;
+    }
   }
 
   .article-meta-item > svg {
-    @apply h-4 w-4 shrink-0 self-center;
+    @apply size-4 shrink-0 self-center;
   }
 
   .article-featured-image {
-    @apply mt-8 h-auto w-full rounded-xl object-contain ring-1 ring-slate-200 dark:ring-slate-800;
+    @apply mt-8 h-auto w-full rounded-xl object-contain ring-1 ring-slate-200;
+    @variant dark {
+      @apply ring-slate-800;
+    }
   }
 
   .article-content {
-    @apply mx-auto mt-8 max-w-4xl rounded-xl border border-slate-200 bg-white p-6 text-base leading-8 text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 sm:p-8;
+    @apply mx-auto mt-8 max-w-4xl rounded-xl border border-slate-200 bg-white p-6 text-base leading-8 text-slate-700 sm:p-8;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 text-slate-200;
+    }
   }
 
   .article-shell {
@@ -525,11 +924,17 @@
   }
 
   .article-footer {
-    @apply mx-auto mt-10 max-w-4xl border-t border-slate-200 pt-6 dark:border-slate-800;
+    @apply mx-auto mt-10 max-w-4xl border-t border-slate-200 pt-6;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .article-comments {
-    @apply mx-auto mt-10 max-w-4xl border-t border-slate-200 pt-8 dark:border-slate-800;
+    @apply mx-auto mt-10 max-w-4xl border-t border-slate-200 pt-8;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .article-tags {
@@ -537,7 +942,10 @@
   }
 
   .article-tag {
-    @apply inline-flex rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white;
+    @apply inline-flex rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 hover:bg-slate-900 hover:text-white;
+    }
   }
 
   .article-adjacent {
@@ -545,25 +953,37 @@
   }
 
   .article-adjacent-link {
-    @apply rounded-lg border border-slate-200 bg-white p-4 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 dark:hover:bg-slate-900;
+    @apply rounded-lg border border-slate-200 bg-white p-4 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 hover:border-slate-700 hover:bg-slate-900;
+    }
   }
 
   .article-adjacent-label {
-    @apply block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    @apply block text-xs font-semibold uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .article-adjacent-title {
-    @apply mt-1 block text-sm font-semibold leading-6 text-slate-900 dark:text-white;
+    @apply mt-1 block text-sm font-semibold leading-6 text-slate-900;
+    @variant dark {
+      @apply text-white;
+    }
   }
 
   .lite-youtube {
-    @apply relative my-6 aspect-video overflow-hidden rounded-lg bg-slate-100 ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800;
+    @apply relative my-6 aspect-video overflow-hidden rounded-lg bg-slate-100 ring-1 ring-slate-200;
+    @variant dark {
+      @apply bg-slate-900 ring-slate-800;
+    }
   }
 
   .lite-youtube iframe,
   .lite-youtube-trigger,
   .lite-youtube-trigger img {
-    @apply absolute inset-0 h-full w-full;
+    @apply absolute inset-0 size-full;
   }
 
   .lite-youtube iframe {
@@ -583,7 +1003,7 @@
   }
 
   .lite-youtube-play {
-    @apply absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 shadow-sm;
+    @apply absolute left-1/2 top-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 shadow-xs;
   }
 
   .lite-youtube-play::before {
@@ -592,11 +1012,17 @@
   }
 
   .article-pagination {
-    @apply mt-10 border-t border-slate-200 pt-6 dark:border-slate-800;
+    @apply mt-10 border-t border-slate-200 pt-6;
+    @variant dark {
+      @apply border-slate-800;
+    }
   }
 
   .pagination-status {
-    @apply mb-3 text-center text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    @apply mb-3 text-center text-xs font-medium uppercase tracking-wider text-slate-500;
+    @variant dark {
+      @apply text-slate-400;
+    }
   }
 
   .pagination-list {
@@ -609,7 +1035,10 @@
 
   .pagination-control,
   .pagination-page {
-    @apply inline-flex min-h-10 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white;
+    @apply inline-flex min-h-10 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+    @variant dark {
+      @apply border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 hover:bg-slate-900 hover:text-white;
+    }
   }
 
   .pagination-control {
@@ -621,13 +1050,20 @@
   }
 
   .pagination-page-current {
-    @apply border-slate-900 bg-slate-900 text-white hover:border-slate-900 hover:bg-slate-900 hover:text-white dark:border-white dark:bg-white dark:text-slate-950 dark:hover:border-white dark:hover:bg-white dark:hover:text-slate-950;
+    @apply border-slate-900 bg-slate-900 text-white hover:border-slate-900 hover:bg-slate-900 hover:text-white;
+    @variant dark {
+      @apply border-white bg-white text-slate-950 hover:border-white hover:bg-white hover:text-slate-950;
+    }
   }
 
   .pagination-control-disabled {
-    @apply cursor-not-allowed border-slate-200 bg-transparent text-slate-300 hover:border-slate-200 hover:bg-transparent hover:text-slate-300 dark:border-slate-800 dark:text-slate-700 dark:hover:border-slate-800 dark:hover:bg-transparent dark:hover:text-slate-700;
+    @apply cursor-not-allowed border-slate-200 bg-transparent text-slate-300 hover:border-slate-200 hover:bg-transparent hover:text-slate-300;
+    @variant dark {
+      @apply border-slate-800 text-slate-700 hover:border-slate-800 hover:bg-transparent hover:text-slate-700;
+    }
   }
 }
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -648,15 +1084,24 @@
 }
 
 .lighthouse-score-circle {
-  @apply inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-emerald-500 text-[0.72rem] font-bold leading-none text-emerald-700 dark:text-emerald-400;
+  @apply inline-flex size-8 items-center justify-center rounded-full border-2 border-emerald-500 text-[0.72rem] font-bold leading-none text-emerald-700;
+  @variant dark {
+    @apply text-emerald-400;
+  }
 }
 
 .lighthouse-score-link {
-  @apply ml-2 text-xs font-semibold text-slate-500 hover:text-slate-950 hover:underline dark:text-slate-400 dark:hover:text-white;
+  @apply ml-2 text-xs font-semibold text-slate-500 hover:text-slate-950 hover:underline;
+  @variant dark {
+    @apply text-slate-400 hover:text-white;
+  }
 }
 
 .lighthouse-table-wrap {
-  @apply overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800;
+  @apply overflow-x-auto rounded-lg border border-slate-200;
+  @variant dark {
+    @apply border-slate-800;
+  }
 }
 
 .lighthouse-table {
@@ -664,15 +1109,24 @@
 }
 
 .lighthouse-table th {
-  @apply bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:bg-slate-900 dark:text-slate-300;
+  @apply bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-600;
+  @variant dark {
+    @apply bg-slate-900 text-slate-300;
+  }
 }
 
 .lighthouse-table td {
-  @apply border-t border-slate-200 px-3 py-3 align-top text-slate-700 dark:border-slate-800 dark:text-slate-200;
+  @apply border-t border-slate-200 px-3 py-3 align-top text-slate-700;
+  @variant dark {
+    @apply border-slate-800 text-slate-200;
+  }
 }
 
 .lighthouse-issue {
-  @apply mb-1 mr-1 inline-block rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800 dark:bg-amber-950/40 dark:text-amber-200;
+  @apply mb-1 mr-1 inline-block rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800;
+  @variant dark {
+    @apply bg-amber-950/40 text-amber-200;
+  }
 }
 
 html:root {
@@ -728,7 +1182,10 @@ html:root[data-pf-theme="dark"] {
 }
 
 .nav-search-trigger {
-  @apply inline-flex min-h-9 items-center justify-center gap-2 rounded-md px-2 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white sm:px-3 sm:py-1.5;
+  @apply inline-flex min-h-9 items-center justify-center gap-2 rounded-md px-2 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:px-3 sm:py-1.5;
+  @variant dark {
+    @apply text-slate-300 hover:bg-slate-800 hover:text-white;
+  }
 }
 
 .scroll-reveal {
@@ -776,27 +1233,39 @@ img.emoji {
 /* Tailwind prose/content styles using @apply */
 .prose h1 {
   @apply mt-8 mb-3 border-b border-slate-200 pb-3 text-3xl font-bold tracking-tight text-slate-950;
-  @apply dark:border-slate-800 dark:text-white;
+  @variant dark {
+    @apply border-slate-800 text-white;
+  }
 }
 .prose h2 {
   @apply mt-8 mb-3 border-l-4 border-slate-300 pl-3 text-2xl font-bold text-slate-900;
-  @apply dark:border-slate-700 dark:text-slate-100;
+  @variant dark {
+    @apply border-slate-700 text-slate-100;
+  }
 }
 .prose h3 {
   @apply mt-6 mb-2 text-xl font-semibold text-slate-900;
-  @apply dark:text-slate-100;
+  @variant dark {
+    @apply text-slate-100;
+  }
 }
 .prose a {
   @apply font-medium text-slate-950 underline hover:text-blue-700;
-  @apply dark:text-white dark:hover:text-blue-300;
+  @variant dark {
+    @apply text-white hover:text-blue-300;
+  }
 }
 .prose code {
   @apply rounded bg-slate-100 px-1 py-0.5 text-sm;
-  @apply dark:bg-slate-800 dark:text-slate-100;
+  @variant dark {
+    @apply bg-slate-800 text-slate-100;
+  }
 }
 .prose > pre {
   @apply my-5 overflow-hidden whitespace-pre-wrap wrap-break-word rounded border-l-4 border-slate-300 bg-slate-100 p-4 text-sm leading-6;
-  @apply dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100;
+  @variant dark {
+    @apply border-slate-700 bg-slate-800 text-slate-100;
+  }
 }
 .prose > pre code {
   @apply block min-w-0 whitespace-pre-wrap wrap-break-word rounded-none bg-transparent p-0 text-inherit;
@@ -821,50 +1290,86 @@ img.emoji {
 }
 .github-commit-group::before {
   content: "";
-  @apply absolute bottom-0 left-1.25 top-4 w-px bg-slate-300 dark:bg-slate-700;
+  @apply absolute bottom-0 left-1.25 top-4 w-px bg-slate-300;
+  @variant dark {
+    @apply bg-slate-700;
+  }
 }
 .github-commit-date {
-  @apply relative mb-3 flex items-center text-sm text-slate-500 dark:text-slate-400;
+  @apply relative mb-3 flex items-center text-sm text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
 }
 .github-commit-date .octicon-git-commit {
-  @apply absolute -left-7.25 h-4 w-4 bg-white fill-current dark:bg-slate-950;
+  @apply absolute -left-7.25 size-4 bg-white fill-current;
+  @variant dark {
+    @apply bg-slate-950;
+  }
 }
 .github-commit-list {
-  @apply overflow-hidden rounded-lg border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-950;
+  @apply overflow-hidden rounded-lg border border-slate-300 bg-white;
+  @variant dark {
+    @apply border-slate-700 bg-slate-950;
+  }
 }
 .github-commit-row {
-  @apply flex flex-col gap-3 border-b border-slate-200 px-4 py-3 last:border-b-0 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between;
+  @apply flex flex-col gap-3 border-b border-slate-200 px-4 py-3 sm:flex-row sm:items-center sm:justify-between;
+  &:last-child {
+    @apply border-b-0;
+  }
+  @variant dark {
+    @apply border-slate-800;
+  }
 }
 .github-commit-body {
   @apply min-w-0 flex-1;
 }
 .github-commit-title {
-  @apply block truncate font-medium leading-6 text-slate-950 hover:text-blue-700 hover:underline dark:text-slate-100 dark:hover:text-blue-300;
+  @apply block truncate font-medium leading-6 text-slate-950 hover:text-blue-700 hover:underline;
+  @variant dark {
+    @apply text-slate-100 hover:text-blue-300;
+  }
 }
 .github-commit-meta {
-  @apply mt-1 flex items-center text-xs leading-5 text-slate-500 dark:text-slate-400;
+  @apply mt-1 flex items-center text-xs leading-5 text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
 }
 .github-commit-meta time {
   @apply ml-1;
 }
 .github-commit-avatar {
-  @apply mr-1.5 h-5 w-5 rounded-full;
+  @apply mr-1.5 size-5 rounded-full;
 }
 .github-commit-actions {
   @apply flex shrink-0 items-center gap-2 text-xs;
 }
 .github-commit-verified {
-  @apply rounded-full border border-emerald-600 px-2 py-0.5 font-medium text-emerald-700 dark:text-emerald-400;
+  @apply rounded-full border border-emerald-600 px-2 py-0.5 font-medium text-emerald-700;
+  @variant dark {
+    @apply text-emerald-400;
+  }
 }
 .github-commit-sha {
-  @apply min-w-14 font-mono text-slate-600 hover:text-slate-950 hover:underline dark:text-slate-300 dark:hover:text-white;
+  @apply min-w-14 font-mono text-slate-600 hover:text-slate-950 hover:underline;
+  @variant dark {
+    @apply text-slate-300 hover:text-white;
+  }
 }
 .github-commit-copy,
 .github-commit-browse {
-  @apply inline-flex h-7 min-w-9 items-center justify-center rounded-md border border-slate-300 px-2 font-mono text-slate-500 hover:bg-slate-100 hover:text-slate-950 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white;
+  @apply inline-flex h-7 min-w-9 items-center justify-center rounded-md border border-slate-300 px-2 font-mono text-slate-500 hover:bg-slate-100 hover:text-slate-950;
+  @variant dark {
+    @apply border-slate-700 text-slate-400 hover:bg-slate-800 hover:text-white;
+  }
 }
 .github-updates-status {
-  @apply mt-1 py-5 text-sm leading-6 text-slate-500 dark:text-slate-400;
+  @apply mt-1 py-5 text-sm leading-6 text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
 }
 .prose ul,
 .prose ol {
@@ -877,20 +1382,29 @@ img.emoji {
   @apply list-decimal;
 }
 .prose li {
-  @apply mb-2 pl-1 marker:text-slate-400 dark:marker:text-slate-500;
+  @apply mb-2 pl-1 marker:text-slate-400;
+  @variant dark {
+    @apply marker:text-slate-500;
+  }
 }
 .prose li > ul,
 .prose li > ol {
   @apply my-2;
 }
 .article-content ul {
-  @apply my-6 list-none space-y-3 pl-0 text-slate-700 dark:text-slate-200;
+  @apply my-6 list-none space-y-3 pl-0 text-slate-700;
+  @variant dark {
+    @apply text-slate-200;
+  }
 }
 .article-content ul > li {
   @apply relative pl-7;
 }
 .article-content ul > li > svg {
-  @apply absolute left-0 top-1.5 h-4 w-4 text-emerald-600 dark:text-emerald-400;
+  @apply absolute left-0 top-1.5 size-4 text-emerald-600;
+  @variant dark {
+    @apply text-emerald-400;
+  }
 }
 .article-content li > ul,
 .article-content li > ol {
@@ -900,39 +1414,56 @@ img.emoji {
   @apply my-8 block max-w-full;
 }
 .article-content-image {
-  @apply mx-auto my-8 block h-auto max-w-full rounded-xl ring-1 ring-slate-200 dark:ring-slate-800;
+  @apply mx-auto my-8 block h-auto max-w-full rounded-xl ring-1 ring-slate-200;
+  @variant dark {
+    @apply ring-slate-800;
+  }
 }
 .article-content-picture > .article-content-image {
   @apply my-0;
 }
 .prose table {
-  @apply my-6 w-full border-collapse rounded-lg shadow-sm;
-  @apply dark:shadow-none;
+  @apply my-6 w-full border-collapse rounded-lg shadow-xs;
+  @variant dark {
+    @apply shadow-none;
+  }
 }
 .prose th,
 .prose td {
   @apply border-b border-slate-200 px-3 py-2 text-left;
-  @apply dark:border-slate-800;
+  @variant dark {
+    @apply border-slate-800;
+  }
 }
 .prose th {
   @apply bg-slate-900 font-medium text-white;
-  @apply dark:bg-slate-800;
+  @variant dark {
+    @apply bg-slate-800;
+  }
 }
 .prose tr:nth-child(even) {
   @apply bg-slate-50;
-  @apply dark:bg-slate-900;
+  @variant dark {
+    @apply bg-slate-900;
+  }
 }
 .prose hr {
   @apply my-8 h-px border-0 bg-slate-200;
-  @apply dark:bg-slate-800;
+  @variant dark {
+    @apply bg-slate-800;
+  }
 }
 .prose blockquote {
   @apply my-6 border-l-4 border-slate-300 pl-4 text-slate-600 italic;
-  @apply dark:border-slate-700 dark:text-slate-300;
+  @variant dark {
+    @apply border-slate-700 text-slate-300;
+  }
 }
 .prose .note {
   @apply my-6 rounded-r-sm border-l-4 border-slate-400 bg-slate-100 p-4;
-  @apply dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100;
+  @variant dark {
+    @apply border-slate-700 bg-slate-900 text-slate-100;
+  }
 }
 .prose .checklist {
   @apply list-none pl-0;
@@ -943,5 +1474,7 @@ img.emoji {
 .prose .checklist li:before {
   content: "✓";
   @apply absolute left-0 text-emerald-600;
-  @apply dark:text-emerald-400;
+  @variant dark {
+    @apply text-emerald-400;
+  }
 }

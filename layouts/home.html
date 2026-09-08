@@ -27,9 +27,9 @@
 			<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
 				<div>
 					<p class="section-title">{{ hugo.Data.home.focus.section_title }}</p>
-					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">{{ hugo.Data.home.focus.title }}</h2>
+					<h2 class="panel-heading">{{ hugo.Data.home.focus.title }}</h2>
 				</div>
-				<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+				<p class="panel-summary">
 					{{ hugo.Data.home.focus.summary }}
 				</p>
 			</div>
@@ -50,9 +50,9 @@
 			<div class="mb-2 flex items-end justify-between gap-4">
 				<div>
 					<p class="section-title">Latest writing</p>
-					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Technical notes and guides</h2>
+					<h2 class="panel-heading">Technical notes and guides</h2>
 				</div>
-				<a href="/articles/" class="hidden text-sm font-semibold text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white sm:inline"
+				<a href="/articles/" class="panel-link"
 					>All articles</a
 				>
 			</div>
@@ -85,7 +85,7 @@
 								mt-4 text-2xl sm:text-3xl
 							{{ else }}
 								mt-3 text-xl
-							{{ end }} font-bold leading-snug tracking-tight text-slate-950 dark:text-white"
+							{{ end }} article-card-heading"
 						>
 							<a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.LinkTitle }}</a>
 						</h3>

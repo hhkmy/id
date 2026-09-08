@@ -1,10 +1,10 @@
-<nav class="sticky top-0 z-50 mb-8 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+<nav class="site-nav">
 	<div class="site-shell flex items-center justify-between py-3">
 		<!-- Logo & Site Title -->
 		<div class="flex items-center gap-3">
 			{{ $qr := resources.Get "ui/qr.svg" }}
 			<a href="{{ .Site.Home.RelPermalink }}" class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:hidden" aria-label="Home">
-				<img class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800" src="{{ $qr.RelPermalink }}" width="40" height="40" alt="" />
+				<img class="site-brand-logo" src="{{ $qr.RelPermalink }}" width="40" height="40" alt="" />
 			</a>
 			<button
 				id="qr-image-trigger"
@@ -15,13 +15,13 @@
 				aria-label="Open QR code"
 			>
 				{{ $qr.Content
-					| replaceRE "<svg " `<svg id="qr-image" class="pointer-events-none h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800" aria-hidden="true" focusable="false" `
+					| replaceRE "<svg " `<svg id="qr-image" class="pointer-events-none site-brand-logo" aria-hidden="true" focusable="false" `
 					| safeHTML
 				}}
 			</button>
 			<a
 				href="{{ .Site.Home.RelPermalink }}"
-				class="hidden text-lg font-bold tracking-tight text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-slate-100 sm:inline"
+				class="site-brand-title"
 				>{{ site.Title }}</a
 			>
 		</div>
@@ -30,7 +30,7 @@
 		<div class="flex items-center gap-2 sm:gap-3">
 			{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 			<button id="site-search-trigger" type="button" class="nav-search-trigger" aria-label="Search" title="Search">
-				<svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg aria-hidden="true" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35m1.1-5.4a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
 				</svg>
 				<span class="hidden sm:inline">Search</span>
@@ -42,7 +42,7 @@
 					class="rounded-md p-2 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
 					title="Dark mode"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 dark:text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<svg xmlns="http://www.w3.org/2000/svg" class="theme-toggle-icon-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
 					</svg>
 				</button>
@@ -52,7 +52,7 @@
 					class="rounded-md p-2 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
 					title="Light mode"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500 dark:text-yellow-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<svg xmlns="http://www.w3.org/2000/svg" class="theme-toggle-icon-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
 							stroke-linecap="round"
 							stroke-linejoin="round"
@@ -68,13 +68,13 @@
 
 <div
 	id="qr-modal"
-	class="fixed inset-0 z-100 hidden items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+	class="fixed inset-0 z-100 hidden items-center justify-center bg-slate-950/80 p-4 backdrop-blur-xs"
 	role="dialog"
 	aria-modal="true"
 	aria-labelledby="qr-modal-title"
 	tabindex="-1"
 >
-	<div class="relative rounded-lg bg-white p-4 shadow-2xl ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800">
+	<div class="qr-modal-box">
 		<h2 id="qr-modal-title" class="sr-only">QR code</h2>
 		<img
 			id="qr-modal-image"

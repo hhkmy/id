@@ -34,9 +34,9 @@
 			<div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
 				<div>
 					<p class="section-title">Service plans</p>
-					<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">Choose your plan</h2>
+					<h2 class="panel-heading">Choose your plan</h2>
 				</div>
-				<p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+				<p class="panel-summary">
 					Select a product, then contact {{ $shop.name }} on Telegram to complete your order.
 				</p>
 			</div>
@@ -104,7 +104,7 @@
 			<div class="shop-payment-row">
 				<div class="shop-payment-heading">
 					<p class="section-title">Payment</p>
-					<h2 class="mt-1 text-lg font-bold text-slate-950 dark:text-white">Payment methods</h2>
+					<h2 class="panel-heading-sm">Payment methods</h2>
 					<div class="shop-payment-details">
 						<p class="shop-payment-detail">
 							<span>Pay Phone No</span>
@@ -168,8 +168,8 @@
 					{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1.15rem" "height" "1.15rem") }}
 				</span>
 				<div>
-					<h2 class="text-lg font-bold text-slate-950 dark:text-white">Ready to order?</h2>
-					<p class="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">
+					<h2 class="panel-heading-sm">Ready to order?</h2>
+					<p class="panel-summary">
 						Send {{ $shop.handle }} the plan duration you want, and continue the purchase in Telegram.
 					</p>
 				</div>
