@@ -1,4 +1,13 @@
-import lottie from "lottie-web/build/player/lottie_light";
+let lottieLoader = null;
+
+function getLottie() {
+  if (!lottieLoader) {
+    lottieLoader = import("lottie-web/build/player/lottie_light").then(
+      (m) => m.default || m,
+    );
+  }
+  return lottieLoader;
+}
 
 const animationDataCache = new Map();
 
@@ -42,7 +51,10 @@ async function renderEmoji(element, reduceMotion) {
   element.dataset.emojiState = "loading";
 
   try {
-    const animationData = await getAnimationData(source);
+    const [animationData, lottie] = await Promise.all([
+      getAnimationData(source),
+      getLottie(),
+    ]);
     const animation = lottie.loadAnimation({
       animationData: structuredClone(animationData),
       autoplay: !reduceMotion,

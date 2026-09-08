@@ -1,5 +1,6 @@
 <div class="article-comments">
 	<h2>Comments</h2>
+	<div id="remark42">Comments loading...</div>
 	<script>
 		window.remark_config = {
 			host: "https://comments.hhk.my.id",
@@ -8,24 +9,47 @@
 			components: ["embed"],
 			no_footer: true,
 		};
-	</script>
-	<script>
-		((components, doc) => {
-			const target = doc.head || doc.body;
-			for (const component of components) {
-				const script = doc.createElement("script");
-				let ext = ".js";
-				if ("noModule" in script) {
-					script.type = "module";
-					ext = ".mjs";
-				} else {
-					script.async = true;
+
+		(function () {
+			var loaded = false;
+			function loadRemark() {
+				if (loaded) return;
+				loaded = true;
+				var doc = document;
+				var target = doc.head || doc.body;
+				var components = window.remark_config.components || ["embed"];
+				for (var i = 0; i < components.length; i++) {
+					var script = doc.createElement("script");
+					var ext = ".js";
+					if ("noModule" in script) {
+						script.type = "module";
+						ext = ".mjs";
+					} else {
+						script.async = true;
+					}
+					script.defer = true;
+					script.src = window.remark_config.host + "/web/" + components[i] + ext;
+					target.appendChild(script);
 				}
-				script.defer = true;
-				script.src = `${remark_config.host}/web/${component}${ext}`;
-				target.appendChild(script);
 			}
-		})(remark_config.components || ["embed"], document);
+
+			var container = document.getElementById("remark42");
+			if (!container) return;
+
+			if ("IntersectionObserver" in window) {
+				var observer = new IntersectionObserver(
+					function (entries) {
+						if (entries[0].isIntersecting) {
+							observer.disconnect();
+							loadRemark();
+						}
+					},
+					{rootMargin: "300px"},
+				);
+				observer.observe(container);
+			} else {
+				loadRemark();
+			}
+		})();
 	</script>
-	<div id="remark42">Comments loading...</div>
 </div>

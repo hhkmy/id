@@ -50,7 +50,7 @@
 				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "loading" "eager" "fetchpriority" "high") }}
 			{{ else }}
 				{{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
-					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async" fetchpriority="high">
+					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async" fetchpriority="high" />
 				{{ end }}
 
 			{{ end }}

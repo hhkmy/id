@@ -121,7 +121,9 @@ function initRevealAnimations() {
     ".lighthouse-table-wrap",
   ];
 
-  const revealItems = Array.from(document.querySelectorAll(revealSelectors.join(",")));
+  const revealItems = Array.from(
+    document.querySelectorAll(revealSelectors.join(",")),
+  );
   const nestedRevealSelector = nestedRevealSelectors.join(",");
   const groupedItems = new Map();
 
@@ -131,12 +133,16 @@ function initRevealAnimations() {
   });
 
   const revealTargets = revealItems.filter(
-    (item) => !item.matches(".panel") || !item.querySelector(nestedRevealSelector),
+    (item) =>
+      !item.matches(".panel") || !item.querySelector(nestedRevealSelector),
   );
 
   const isBoxVisible = (target) => {
     const rect = target.getBoundingClientRect();
-    return rect.bottom > window.innerHeight * 0.12 && rect.top < window.innerHeight * 0.88;
+    return (
+      rect.bottom > window.innerHeight * 0.12 &&
+      rect.top < window.innerHeight * 0.88
+    );
   };
 
   const revealControllers = [];
@@ -153,18 +159,15 @@ function initRevealAnimations() {
     item.style.setProperty("--reveal-y", "22px");
 
     let isRevealed = false;
-    const revealTimeline = createTimeline({ autoplay: false }).add(
-      item,
-      {
-        opacity: [0, 1],
-        "--reveal-y": ["28px", "0px"],
-        scale: [0.96, 1],
-        rotate: [-1.4, 0],
-        duration: 620,
-        delay: (sequenceIndex % 12) * 80,
-        ease: "outQuad",
-      }
-    );
+    const revealTimeline = createTimeline({ autoplay: false }).add(item, {
+      opacity: [0, 1],
+      "--reveal-y": ["28px", "0px"],
+      scale: [0.96, 1],
+      rotate: [-1.4, 0],
+      duration: 620,
+      delay: (sequenceIndex % 12) * 80,
+      ease: "outQuad",
+    });
 
     const playReveal = () => {
       if (isRevealed) return;
@@ -261,26 +264,39 @@ function initHoverAnimations() {
     element.addEventListener("focusout", () => animateLift(element, 0));
   });
 
-  document.querySelectorAll(subtleLiftSelectors.join(",")).forEach((element) => {
-    element.addEventListener("mouseenter", () => animateLift(element, -2));
-    element.addEventListener("mouseleave", () => animateLift(element, 0));
-    element.addEventListener("focusin", () => animateLift(element, -2));
-    element.addEventListener("focusout", () => animateLift(element, 0));
-  });
-
-  document.querySelectorAll(".focus-card, .about-contact-card, .shop-card, .shop-order-note").forEach((card) => {
-    const icon = card.querySelector(".focus-card-icon, .about-contact-icon, .shop-card-icon");
-    if (!icon) return;
-
-    card.addEventListener("mouseenter", () => {
-      remove(icon);
-      animate(icon, { rotate: -2, scale: 1.05, duration: 220, ease: "outQuad" });
+  document
+    .querySelectorAll(subtleLiftSelectors.join(","))
+    .forEach((element) => {
+      element.addEventListener("mouseenter", () => animateLift(element, -2));
+      element.addEventListener("mouseleave", () => animateLift(element, 0));
+      element.addEventListener("focusin", () => animateLift(element, -2));
+      element.addEventListener("focusout", () => animateLift(element, 0));
     });
-    card.addEventListener("mouseleave", () => {
-      remove(icon);
-      animate(icon, { rotate: 0, scale: 1, duration: 220, ease: "outQuad" });
+
+  document
+    .querySelectorAll(
+      ".focus-card, .about-contact-card, .shop-card, .shop-order-note",
+    )
+    .forEach((card) => {
+      const icon = card.querySelector(
+        ".focus-card-icon, .about-contact-icon, .shop-card-icon",
+      );
+      if (!icon) return;
+
+      card.addEventListener("mouseenter", () => {
+        remove(icon);
+        animate(icon, {
+          rotate: -2,
+          scale: 1.05,
+          duration: 220,
+          ease: "outQuad",
+        });
+      });
+      card.addEventListener("mouseleave", () => {
+        remove(icon);
+        animate(icon, { rotate: 0, scale: 1, duration: 220, ease: "outQuad" });
+      });
     });
-  });
 
   document.querySelectorAll(".book-card").forEach((card) => {
     const cover = card.querySelector(".book-cover");

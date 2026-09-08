@@ -3,18 +3,8 @@
 		<!-- Logo & Site Title -->
 		<div class="flex items-center gap-3">
 			{{ $qr := resources.Get "ui/qr.svg" }}
-			<a
-				href="{{ .Site.Home.RelPermalink }}"
-				class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:hidden"
-				aria-label="Home"
-			>
-				<img
-					class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800"
-					src="{{ $qr.RelPermalink }}"
-					width="40"
-					height="40"
-					alt=""
-				>
+			<a href="{{ .Site.Home.RelPermalink }}" class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:hidden" aria-label="Home">
+				<img class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800" src="{{ $qr.RelPermalink }}" width="40" height="40" alt="" />
 			</a>
 			<button
 				id="qr-image-trigger"
@@ -93,6 +83,8 @@
 			width="1024"
 			height="1024"
 			alt="HHK QR code"
-		>
+			loading="lazy"
+			decoding="async"
+		/>
 	</div>
 </div>

@@ -1,13 +1,9 @@
 {{- $id := .Get "id" | default (.Get 0) -}}
 {{- $title := .Get "title" | default "YouTube video" -}}
 {{- with $id -}}
-	<div
-		class="lite-youtube"
-		data-youtube-id="{{ . }}"
-		data-youtube-title="{{ $title }}"
-	>
+	<div class="lite-youtube" data-youtube-id="{{ . }}" data-youtube-title="{{ $title }}">
 		<button class="lite-youtube-trigger" type="button" aria-label="Play {{ $title }}">
-			<img src="https://i.ytimg.com/vi/{{ . }}/hqdefault.jpg" width="480" height="360" alt="Thumbnail for {{ $title }}" loading="lazy" decoding="async">
+			<img src="https://i.ytimg.com/vi/{{ . }}/hqdefault.jpg" width="480" height="360" alt="Thumbnail for {{ $title }}" loading="lazy" decoding="async" />
 			<span class="lite-youtube-play" aria-hidden="true"></span>
 		</button>
 	</div>

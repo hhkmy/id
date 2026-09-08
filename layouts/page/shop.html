@@ -60,7 +60,15 @@
 									></span>
 								{{ else }}
 									<span class="shop-card-icon">
-										<img src="{{ $planEmoji.RelPermalink }}" width="20" height="20" alt="{{ .emoji }}" class="shop-plan-emoji" />
+										<img
+											src="{{ $planEmoji.RelPermalink }}"
+											width="20"
+											height="20"
+											alt="{{ .emoji }}"
+											class="shop-plan-emoji"
+											loading="lazy"
+											decoding="async"
+										/>
 									</span>
 								{{ end }}
 								<div class="min-w-0">

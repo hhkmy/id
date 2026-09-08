@@ -37,7 +37,8 @@ export function initTheme() {
 
   const storedTheme = getStoredTheme();
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const theme = storedTheme === "dark" || (!storedTheme && systemDark) ? "dark" : "light";
+  const theme =
+    storedTheme === "dark" || (!storedTheme && systemDark) ? "dark" : "light";
   setStoredTheme(theme);
   applyTheme(theme);
 

@@ -31,7 +31,7 @@
 			<ul class="book-grid">
 				{{ range $books }}
 					<li class="book-card">
-						<img src="{{ .cover }}" width="320" height="400" alt="{{ .title }} cover" class="book-cover" loading="lazy" decoding="async">
+						<img src="{{ .cover }}" width="320" height="400" alt="{{ .title }} cover" class="book-cover" loading="lazy" decoding="async" />
 						<div class="book-card-body">
 							<span class="article-category-badge w-fit">
 								{{ if eq .tag "Linux" }}
