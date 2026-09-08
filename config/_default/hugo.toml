@@ -12,6 +12,11 @@ enableEmoji = true
 enableGitInfo = false
 enableRobotsTXT = true
 
+[taxonomies]
+    category = "categories"
+    tag = "tags"
+    series = "series"
+
 [caches]
     [caches.images]
         dir = ':cacheDir/images'
