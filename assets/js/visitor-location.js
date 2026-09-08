@@ -43,7 +43,7 @@ function getCountryName(cc) {
 function renderLocation(locEl, countryCode, cityName) {
   const cc = (countryCode || "").toUpperCase();
   if (!cc || cc === "XX") {
-    locEl.innerHTML = '<span class="font-medium text-slate-600 dark:text-slate-300 leading-none">Global Edge</span>';
+    locEl.innerHTML = '<span class="edge-location-global">Global Edge</span>';
     return;
   }
 
@@ -55,7 +55,7 @@ function renderLocation(locEl, countryCode, cityName) {
   const flagImg = `<img src="https://flagcdn.com/24x18/${cc.toLowerCase()}.png" srcset="https://flagcdn.com/48x36/${cc.toLowerCase()}.png 2x" width="20" height="15" alt="${cc}" class="edge-flag" onerror="this.replaceWith(document.createTextNode('${flagEmoji}'))" />`;
 
   locEl.innerHTML = `
-    <span class="inline-flex items-center gap-2 leading-none font-semibold text-slate-800 dark:text-slate-200 flex-wrap">
+    <span class="edge-location-display">
       ${flagImg}
       <span class="leading-normal tracking-tight">${locationText}</span>
     </span>

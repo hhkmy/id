@@ -1,5 +1,5 @@
 <footer>
-	<div class="site-shell flex flex-col items-center justify-center py-8 text-sm text-slate-500 dark:text-slate-400">
+	<div class="site-shell site-footer-shell">
 		{{ with hugo.Data.lighthouse.summary }}
 			<div class="lighthouse-score mb-4" role="group" aria-label="Lighthouse scores">
 				{{ range slice (dict "label" "Performance" "score" .averages.performance) (dict "label" "Accessibility" "score" .averages.accessibility) (dict "label" "Best Practices" "score" .averages.bestPractices) (dict "label" "SEO" "score" .averages.seo) }}
@@ -13,7 +13,7 @@
 		{{ end }}
 		<div class="flex gap-6 mb-4">
 			{{ range hugo.Data.seo.social }}
-				<a href="{{ .url }}" aria-label="{{ .title }}" class="text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white">
+				<a href="{{ .url }}" aria-label="{{ .title }}" class="site-footer-social-link">
 					{{ $icon := dict "vendor" "social" "name" (lower .title) "width" "1.3rem" "height" "1.3rem" }}
 					{{ partialCached "icons/icon" $icon $icon }}
 				</a>
@@ -51,14 +51,14 @@
 				<a
 					href="{{ .url }}"
 					aria-label="{{ .label }}"
-					class="inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+					class="site-footer-nav-link"
 				>
 					{{ $icon := dict "vendor" "default" "name" .icon "width" "1rem" "height" "1rem" }}
 					{{ partialCached "icons/icon" $icon $icon }}
 				</a>
 			{{ end }}
 		</nav>
-		<p class="text-center font-medium leading-relaxed tracking-wide text-slate-500 dark:text-slate-400">
+		<p class="site-footer-copyright">
 			{{ $startYear := (time site.Params.foundingdate).Year }} {{ $currentYear := now.Year }} &copy;
 			{{ $startYear }}{{ if ne $startYear $currentYear }}- {{ $currentYear }}{{ end }} <span class="font-semibold">{{ .Site.Title }}</span>. All rights reserved.
 		</p>
