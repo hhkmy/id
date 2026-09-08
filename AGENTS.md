@@ -19,6 +19,14 @@
 - Do not use `navigator.clipboard` or custom fallback copy scripts for `.code-copy-button`; keep copy behavior in the Hugo `js.Build` bundle through ClipboardJS.
 - Keep `assets/js/main.js` as a small initializer that imports focused modules instead of accumulating feature code directly.
 
+## Tailwind CSS v4 Rules
+
+- Follow official Tailwind CSS v4 documentation and standards.
+- Always fix linter warnings and errors by updating to correct, modern Tailwind CSS v4 syntax; do not suppress or ignore warnings.
+- Use `@variant dark (&:is(.dark *));` or `@variant dark (&:where(.dark, .dark *));` (never use deprecated `@custom-variant`).
+- Use `@theme` blocks in CSS for theme customizations rather than legacy configuration files.
+- Use modern Tailwind v4 utilities (e.g. `bg-linear-to-*` instead of `bg-gradient-to-*`, `size-*` for uniform width/height, `shadow-xs`, etc.).
+
 ## Commit Messages
 
 - Work directly on the `main` branch for repository changes. Do not create new branches unless the user explicitly asks for a branch or pull request workflow.
