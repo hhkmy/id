@@ -45,9 +45,28 @@ const formatRelativeDate = (value) => {
   return "just now";
 };
 
+const getLocalDateKey = (isoString) => {
+  const d = new Date(isoString);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
+const formatHeadingDate = (dateKey) => {
+  const [year, month, day] = dateKey.split("-").map(Number);
+  const d = new Date(year, month - 1, day);
+  return dateHeading.format(d);
+};
+
 const createCommitItem = (entry) => {
   const item = document.createElement("li");
   item.className = "github-commit-row";
+
+  const node = document.createElement("span");
+  node.className = "github-commit-node";
+  node.setAttribute("aria-hidden", "true");
+  node.append(createCommitIcon());
 
   const body = document.createElement("div");
   body.className = "github-commit-body";
@@ -61,7 +80,7 @@ const createCommitItem = (entry) => {
   meta.className = "github-commit-meta";
 
   const author = entry.author?.login || entry.commit.author?.name || "Unknown";
-  const dateValue = entry.commit.author?.date;
+  const dateValue = entry.commit.author?.date || entry.commit.committer?.date;
   const shortSha = entry.sha.slice(0, 7);
 
   if (entry.author?.avatar_url) {
@@ -69,8 +88,8 @@ const createCommitItem = (entry) => {
     avatar.className = "github-commit-avatar";
     avatar.src = `${entry.author.avatar_url}&size=40`;
     avatar.alt = "";
-    avatar.width = 20;
-    avatar.height = 20;
+    avatar.width = 18;
+    avatar.height = 18;
     avatar.loading = "lazy";
     meta.append(avatar);
   }
@@ -120,21 +139,32 @@ const createCommitItem = (entry) => {
   );
 
   actions.append(shaLink, copyButton, browseLink);
-  item.append(body, actions);
+  item.append(node, body, actions);
 
   return item;
 };
 
-const createCommitGroup = (date, commits) => {
+const createCommitGroup = (dateKey, commits) => {
   const section = document.createElement("section");
   section.className = "github-commit-group";
 
-  const heading = document.createElement("h3");
+  const heading = document.createElement("div");
   heading.className = "github-commit-date";
-  heading.append(
-    createCommitIcon(),
-    `Commits on ${dateHeading.format(new Date(date))}`,
-  );
+
+  const icon = document.createElement("span");
+  icon.className = "github-commit-date-icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.append(createCommitIcon());
+
+  const label = document.createElement("h3");
+  label.className = "github-commit-date-label";
+  label.textContent = `Commits on ${formatHeadingDate(dateKey)}`;
+
+  const count = document.createElement("span");
+  count.className = "github-commit-count";
+  count.textContent = `${commits.length} ${commits.length === 1 ? "commit" : "commits"}`;
+
+  heading.append(icon, label, count);
 
   const list = document.createElement("ol");
   list.className = "github-commit-list";
@@ -161,18 +191,54 @@ export const initGithubUpdates = async () => {
 
     const groups = new Map();
     commits.forEach((commit) => {
-      const date = commit.commit.author.date.slice(0, 10);
-      const group = groups.get(date) || [];
+      const dateValue =
+        commit.commit.author?.date ||
+        commit.commit.committer?.date ||
+        commit.commit.date;
+      const dateKey = getLocalDateKey(dateValue);
+      const group = groups.get(dateKey) || [];
       group.push(commit);
-      groups.set(date, group);
+      groups.set(dateKey, group);
     });
 
     const timeline = document.createElement("div");
     timeline.className = "github-commit-timeline";
-    groups.forEach((group, date) =>
-      timeline.append(createCommitGroup(date, group)),
+
+    const track = document.createElement("div");
+    track.className = "github-commit-track";
+    track.setAttribute("aria-hidden", "true");
+    timeline.append(track);
+
+    groups.forEach((group, dateKey) =>
+      timeline.append(createCommitGroup(dateKey, group)),
     );
     container.replaceChildren(timeline);
+
+    const updateTrack = () => {
+      const firstIcon = timeline.querySelector(".github-commit-date-icon");
+      const allNodes = timeline.querySelectorAll(".github-commit-node");
+      const lastNode = allNodes[allNodes.length - 1];
+      if (!firstIcon || !lastNode || !track) return;
+
+      const timelineRect = timeline.getBoundingClientRect();
+      const firstRect = firstIcon.getBoundingClientRect();
+      const lastRect = lastNode.getBoundingClientRect();
+
+      const top = firstRect.top + firstRect.height / 2 - timelineRect.top;
+      const bottom = lastRect.top + lastRect.height / 2 - timelineRect.top;
+
+      track.style.top = `${top}px`;
+      track.style.height = `${Math.max(0, bottom - top)}px`;
+    };
+
+    updateTrack();
+
+    if (window.ResizeObserver) {
+      const observer = new ResizeObserver(() => updateTrack());
+      observer.observe(timeline);
+    } else {
+      window.addEventListener("resize", updateTrack);
+    }
   } catch (error) {
     console.error("Unable to load GitHub updates:", error);
     const status = document.createElement("p");
