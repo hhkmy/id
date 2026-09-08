@@ -52,12 +52,12 @@ function renderLocation(locEl, countryCode, cityName) {
   const displayCity = cityName && cityName.trim().length > 0 ? cityName.trim() : "";
   const locationText = displayCity ? `${displayCity}, ${countryName}` : countryName;
 
-  const flagImg = `<img src="https://flagcdn.com/24x18/${cc.toLowerCase()}.png" srcset="https://flagcdn.com/48x36/${cc.toLowerCase()}.png 2x" width="20" height="15" alt="${cc}" class="edge-flag" onerror="this.replaceWith(document.createTextNode('${flagEmoji}'))" />`;
+  const flagImg = `<img src="https://flagcdn.com/24x18/${cc.toLowerCase()}.png" srcset="https://flagcdn.com/48x36/${cc.toLowerCase()}.png 2x" width="18" height="13.5" alt="${cc}" class="edge-flag" onerror="this.replaceWith(document.createTextNode('${flagEmoji}'))" />`;
 
   locEl.innerHTML = `
     <span class="edge-location-display">
       ${flagImg}
-      <span class="leading-normal tracking-tight">${locationText}</span>
+      <span class="leading-none tracking-tight">${locationText}</span>
     </span>
   `;
 }
