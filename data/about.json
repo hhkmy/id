@@ -1,4 +1,14 @@
 {
+  "hero_panel": [
+    {
+      "label": "Current focus",
+      "value": "Web operations, bot engineering, and technical documentation"
+    },
+    {
+      "label": "Tooling",
+      "value": "Linux, Python, Docker, Cloudflare, Hugo, Git"
+    }
+  ],
   "contact": [
     {
       "icon": "phone",
@@ -112,113 +122,117 @@
   ],
   "skills": [
     {
-      "icon": "react",
-      "dev": "React",
-      "percentage": "1"
-    },
-    {
-      "icon": "javascript",
-      "dev": "Javascript",
-      "percentage": "5"
-    },
-    {
-      "icon": "laravel",
-      "dev": "Laravel",
-      "percentage": "20"
-    },
-    {
       "icon": "php",
       "dev": "PHP",
-      "percentage": "35"
+      "category": "backend",
+      "percentage": "45"
     },
     {
-      "icon": "hugo",
-      "dev": "Hugo",
-      "percentage": "65"
+      "icon": "nodejs",
+      "dev": "Node.js / JavaScript",
+      "category": "backend",
+      "percentage": "78"
     },
     {
-      "icon": "python",
-      "dev": "Python",
-      "percentage": "69"
+      "icon": "wordpress",
+      "dev": "WordPress",
+      "category": "frontend",
+      "percentage": "80"
     },
     {
-      "icon": "css3",
-      "dev": "CSS3",
-      "percentage": "70"
-    },
-    {
-      "icon": "cloudflare",
-      "dev": "Cloudflare",
-      "percentage": "75"
+      "icon": "postgresql",
+      "dev": "PostgreSQL & Databases",
+      "category": "backend",
+      "percentage": "82"
     },
     {
       "icon": "tailwindcss",
       "dev": "Tailwind CSS",
-      "percentage": "83"
+      "category": "frontend",
+      "percentage": "85"
+    },
+    {
+      "icon": "cloudflare",
+      "dev": "Cloudflare & Serverless",
+      "category": "devops",
+      "percentage": "85"
+    },
+    {
+      "icon": "redis",
+      "dev": "Redis & In-Memory Caching",
+      "category": "backend",
+      "percentage": "86"
+    },
+    {
+      "icon": "docker",
+      "dev": "Docker & Containerization",
+      "category": "devops",
+      "percentage": "88"
+    },
+    {
+      "icon": "hugo",
+      "dev": "Hugo",
+      "category": "frontend",
+      "percentage": "88"
     },
     {
       "icon": "html5",
-      "dev": "HTML",
-      "percentage": "85"
+      "dev": "HTML5",
+      "category": "frontend",
+      "percentage": "90"
     },
     {
       "icon": "git",
       "dev": "Git",
+      "category": "devops",
       "percentage": "90"
     },
     {
-      "icon": "github",
-      "dev": "Github",
+      "icon": "githubactions",
+      "dev": "GitHub & CI/CD Actions",
+      "category": "devops",
       "percentage": "90"
     },
     {
-      "icon": "mybb",
-      "dev": "Mybb",
+      "icon": "python",
+      "dev": "Python (AsyncIO / Microservices)",
+      "category": "backend",
       "percentage": "92"
     },
     {
-      "icon": "elementor",
-      "dev": "Elementor",
-      "percentage": "93"
-    },
-    {
-      "icon": "wordpress",
-      "dev": "Wordpress",
-      "percentage": "93"
-    },
-    {
-      "icon": "msoffice",
-      "dev": "Microsoft Office",
-      "percentage": "95"
-    },
-    {
       "icon": "telegram",
-      "dev": "Telegram Bots",
+      "dev": "Telegram Bots & Automation",
+      "category": "backend",
       "percentage": "96"
     },
     {
       "icon": "microsoft",
       "dev": "Windows Troubleshooting",
+      "category": "devops",
       "percentage": "97"
     },
     {
       "icon": "linux",
       "dev": "Linux / Server Administration",
+      "category": "devops",
       "percentage": "97"
     },
     {
       "icon": "debian",
       "dev": "Debian",
+      "category": "devops",
       "percentage": "98.9"
     },
     {
       "icon": "vibe",
       "dev": "Vibe",
+      "category": "vibe",
       "percentage": "100"
     },
     {
       "icon": "vibecode",
       "dev": "Vibe Code",
+      "category": "vibe",
       "percentage": "101"
     }
   ]

@@ -6,6 +6,7 @@ import { initLiteYoutube } from "./lite-youtube.js";
 import { initQrModal } from "./qr-modal.js";
 import { initSearch } from "./search.js";
 import { initSiteTooltips } from "./site-tooltips.js";
+import { initSkillFilter } from "./skill-filter.js";
 import { initTelegramPremiumEmoji } from "./telegram-premium-emoji.js";
 import { initTheme } from "./theme.js";
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initArticleViews();
   initSearch();
   initSiteTooltips();
+  initSkillFilter();
   initTelegramPremiumEmoji();
   theme.watchSystemTheme();
 });
