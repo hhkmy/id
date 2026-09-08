@@ -111,7 +111,7 @@
   }
 
   .focus-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .focus-card-icon {
@@ -127,7 +127,7 @@
   }
 
   .about-card {
-    @apply rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .about-section-heading {
@@ -139,7 +139,7 @@
   }
 
   .about-contact-card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-slate-700;
   }
 
   .about-contact-icon {
@@ -151,7 +151,7 @@
   }
 
   .about-timeline-item {
-    @apply rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 md:grid md:grid-cols-[180px_1fr] md:gap-6;
+    @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 md:grid md:grid-cols-[180px_1fr] md:gap-6;
   }
 
   .about-timeline-year {
@@ -179,7 +179,7 @@
   }
 
   .about-skill-card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .about-skill-card.is-hidden {
@@ -223,7 +223,7 @@
   }
 
   .book-card {
-    @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .book-cover {
@@ -255,7 +255,7 @@
   }
 
   .project-card {
-    @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .project-card-header {
@@ -328,7 +328,7 @@
   }
 
   .shop-card {
-    @apply relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
+    @apply relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700;
   }
 
   .shop-card-highlight {
@@ -441,11 +441,11 @@
   }
 
   .shop-order-note {
-    @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 sm:flex-row sm:items-center;
+    @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 sm:flex-row sm:items-center;
   }
 
   .article-card {
-    @apply rounded-xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-600;
+    @apply rounded-xl border border-slate-200 bg-white p-6 transition-colors duration-200 hover:border-slate-400 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-600;
   }
 
   .article-bento-grid {
