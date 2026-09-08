@@ -26,6 +26,13 @@
 - Use `@variant dark (&:is(.dark *));` or `@variant dark (&:where(.dark, .dark *));` (never use deprecated `@custom-variant`).
 - Use `@theme` blocks in CSS for theme customizations rather than legacy configuration files.
 - Use modern Tailwind v4 utilities (e.g. `bg-linear-to-*` instead of `bg-gradient-to-*`, `size-*` for uniform width/height, `shadow-xs`, etc.).
+- In Tailwind CSS v4, **never** use `@apply group` or modifier classes within `@apply`. Use native CSS nesting (`&:hover .child-class`) and `@variant dark` blocks for interactive/dark states.
+- When creating recurring UI components, define semantic component classes in `assets/css/main.css` with `@variant dark` rather than scattering conflicting inline dual-color utilities across HTML templates.
+
+## Quality Assurance & Verification
+
+- **Mandatory Build Verification:** Always run `npm run build` after modifying CSS, HTML templates, JS, or Hugo configuration.
+- **Zero Errors & Warnings Policy:** Inspect the build logs and linter feedback. Any syntax error, `@apply` issue, template execution failure, or linter warning **must** be resolved immediately before finishing the task or committing. Never leave open errors or warnings in the repository.
 
 ## Commit Messages
 
