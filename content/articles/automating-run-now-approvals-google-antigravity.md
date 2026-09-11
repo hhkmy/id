@@ -40,7 +40,7 @@ Agent က `run_command` tool ကို ခေါ်သုံးပြီး Bash
 
 ### က။ Antigravity 2.0 (Desktop App) ထဲမှာ ပြင်ဆင်နည်း
 1. ဘယ်ဘက်အောက်ထောင့်က **Gear Icon (⚙️ Settings)** ကို နှိပ်ပါ။
-2. **Agent Settings** $\longrightarrow$ **Tool Execution Policy** ဆီ သွားပါ။
+2. **Agent Settings** → **Tool Execution Policy** ဆီ သွားပါ။
 3. Default ဖြစ်နေတဲ့ `request-review` ကနေ **`always-proceed`** သို့မဟုတ် **`proceed-in-sandbox`** ကို ပြောင်းလဲပေးပါ။
 4. Project အလိုက် သီးသန့်ထားချင်ရင်တော့ **Project Settings** အောက်က **Auto-Execution Policy** ကို `always-proceed` ပေးထားနိုင်ပါတယ်။
 
