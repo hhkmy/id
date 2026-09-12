@@ -28,6 +28,7 @@ pnpm-debug.log*
 .wrangler
 .dev.vars*
 .env*
+.scannerwork
 
 # Hugo build output
 resources
