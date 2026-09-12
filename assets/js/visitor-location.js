@@ -22,8 +22,8 @@ function getCountryName(countryCode) {
   return countryCode;
 }
 
-function renderLocation(locEl, countryCode, cityName) {
-  const cc = (countryCode || "").toUpperCase();
+function renderLocation(locEl, data) {
+  const cc = (data.country || "").toUpperCase();
   if (!cc || cc === "XX") {
     locEl.innerHTML = '<span class="edge-location-global">Global Edge</span>';
     return;
@@ -31,11 +31,21 @@ function renderLocation(locEl, countryCode, cityName) {
 
   const flagEmoji = getFlagEmoji(cc);
   const countryName = getCountryName(cc);
-  const displayCity =
-    cityName && cityName.trim().length > 0 ? cityName.trim() : "";
-  const locationText = displayCity
-    ? `${displayCity}, ${countryName}`
-    : countryName;
+
+  // Format visible location text: City, Region, Country
+  const locationParts = [];
+  if (data.city && data.city.trim()) {
+    locationParts.push(data.city.trim());
+  }
+  if (
+    data.region &&
+    data.region.trim() &&
+    data.region.trim().toLowerCase() !== data.city?.trim().toLowerCase()
+  ) {
+    locationParts.push(data.region.trim());
+  }
+  locationParts.push(countryName);
+  const locationText = locationParts.join(", ");
 
   const flagImg = `<img src="https://flagcdn.com/24x18/${cc.toLowerCase()}.png" srcset="https://flagcdn.com/48x36/${cc.toLowerCase()}.png 2x" width="18" height="13.5" alt="${cc}" class="edge-flag" onerror="this.replaceWith(document.createTextNode('${flagEmoji}'))" />`;
 
@@ -45,6 +55,28 @@ function renderLocation(locEl, countryCode, cityName) {
       <span class="leading-none tracking-tight">${locationText}</span>
     </span>
   `;
+
+  // Update badge title with Cloudflare Radar-style Real IP metadata
+  const badge = locEl.closest("#cf-edge-badge, [data-edge-badge]");
+  if (badge) {
+    const details = [];
+    if (data.ip) {
+      details.push(`IP: ${data.ip}`);
+    }
+    if (data.asOrganization || data.asn) {
+      const asnStr = data.asn ? `AS${data.asn}` : "";
+      const orgStr = data.asOrganization || "";
+      const networkStr = [asnStr, orgStr].filter(Boolean).join(" ");
+      if (networkStr) {
+        details.push(`Network: ${networkStr}`);
+      }
+    }
+    details.push(`Location: ${locationText}`);
+    if (data.colo) {
+      details.push(`Edge: ${data.colo}`);
+    }
+    badge.title = details.join(" • ");
+  }
 }
 
 export async function initVisitorLocation() {
@@ -53,13 +85,13 @@ export async function initVisitorLocation() {
     document.querySelector("[data-edge-location]");
   if (!locEl) return;
 
-  // 1. Fetch Cloudflare edge info from Worker (/api/edge-info) based on Real IP
+  // 1. Fetch Cloudflare Worker endpoint (/api/edge-info) for Real IP Data (Radar-style)
   try {
     const res = await fetch("/api/edge-info", { cache: "no-store" });
     if (res.ok) {
       const data = await res.json();
       if (data?.country && data.country !== "XX") {
-        renderLocation(locEl, data.country, data.city);
+        renderLocation(locEl, data);
         return;
       }
     }
@@ -67,7 +99,7 @@ export async function initVisitorLocation() {
     // Ignore edge-info fetch failure and fallback to cdn-cgi trace
   }
 
-  // 2. Fallback to Cloudflare native edge trace (/cdn-cgi/trace) based on Real IP
+  // 2. Fallback to Cloudflare native edge trace (/cdn-cgi/trace)
   try {
     const res = await fetch("/cdn-cgi/trace");
     if (res.ok) {
@@ -78,7 +110,11 @@ export async function initVisitorLocation() {
         if (k && v) trace[k.trim()] = v.trim();
       });
       if (trace.loc && trace.loc !== "XX") {
-        renderLocation(locEl, trace.loc, "");
+        renderLocation(locEl, {
+          ip: trace.ip || "",
+          country: trace.loc,
+          colo: trace.colo || "",
+        });
         return;
       }
     }
@@ -87,5 +123,5 @@ export async function initVisitorLocation() {
   }
 
   // 3. Fallback when Cloudflare location is unavailable
-  renderLocation(locEl, "XX", "");
+  renderLocation(locEl, { country: "XX" });
 }
