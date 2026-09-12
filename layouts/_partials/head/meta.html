@@ -59,19 +59,35 @@
 	{{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}" />{{ end }}
 	{{ range .GetTerms "tags" }}<meta property="article:tag" content="{{ .LinkTitle }}" />{{ end }}
 {{ end }}
+{{- $twitterHandle := .Site.Params.twitterHandle | default "@HeinHtetKyaw_" -}}
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="{{ $twitterHandle }}" />
+<meta name="twitter:creator" content="{{ $twitterHandle }}" />
 <meta name="twitter:title" content="{{ $title }}" />
 <meta name="twitter:description" content="{{ $description }}" />
 <meta name="twitter:image" content="{{ $imageURL }}" />
-<script type="application/ld+json">
-	{{- if eq $ogType "article" -}}
+<meta name="twitter:image:alt" content="{{ $title }}" />
+{{- if eq $ogType "article" -}}
+	{{- $breadcrumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" .Site.BaseURL) -}}
+	{{- $pos := 2 -}}
+	{{- $breadcrumbs = $breadcrumbs | append (dict "@type" "ListItem" "position" $pos "name" "Articles" "item" ("articles/" | absURL)) -}}
+	{{- with .GetTerms "series" -}}
+		{{- range . -}}
+			{{- $pos = add $pos 1 -}}
+			{{- $breadcrumbs = $breadcrumbs | append (dict "@type" "ListItem" "position" $pos "name" .LinkTitle "item" .Permalink) -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $pos = add $pos 1 -}}
+	{{- $breadcrumbs = $breadcrumbs | append (dict "@type" "ListItem" "position" $pos "name" .Title "item" .Permalink) -}}
+	<script type="application/ld+json">
 		{{- dict
 			"@context" "https://schema.org"
 			"@type" "BlogPosting"
 			"headline" .Title
 			"description" $description
 			"url" .Permalink
-				"image" $imageURL
+			"mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+			"image" $imageURL
 			"datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
 			"dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
 			"author" (dict "@type" "Person" "name" $author "url" .Site.BaseURL)
@@ -79,18 +95,58 @@
 			| jsonify (dict "indent" "\t")
 			| safeJS
 		-}}
-	{{- else -}}
+	</script>
+	<script type="application/ld+json">
+		{{- dict
+			"@context" "https://schema.org"
+			"@type" "BreadcrumbList"
+			"itemListElement" $breadcrumbs
+			| jsonify (dict "indent" "\t")
+			| safeJS
+		-}}
+	</script>
+{{- else if .IsHome -}}
+	<script type="application/ld+json">
+		{{- dict
+			"@context" "https://schema.org"
+			"@graph" (slice
+				(dict
+					"@type" "WebSite"
+					"@id" (printf "%s#website" .Site.BaseURL)
+					"url" .Site.BaseURL
+					"name" .Site.Title
+					"description" $description
+					"inLanguage" (.Site.Language.Locale | default "my-MM")
+					"publisher" (dict "@id" (printf "%s#person" .Site.BaseURL))
+				)
+				(dict
+					"@type" "Person"
+					"@id" (printf "%s#person" .Site.BaseURL)
+					"name" $author
+					"url" .Site.BaseURL
+					"image" $imageURL
+					"jobTitle" "Founder"
+					"worksFor" (dict "@type" "Organization" "name" .Site.Params.orgname "url" .Site.Params.orgurl)
+					"sameAs" (slice .Site.Params.linkedin .Site.Params.github .Site.Params.twitter .Site.Params.facebook)
+				)
+			)
+			| jsonify (dict "indent" "\t")
+			| safeJS
+		-}}
+	</script>
+{{- else -}}
+	<script type="application/ld+json">
 		{{- dict
 			"@context" "https://schema.org"
 			"@type" "Person"
 			"name" $author
 			"url" .Site.BaseURL
-				"image" $imageURL
+			"image" $imageURL
 			"jobTitle" "Founder"
 			"worksFor" (dict "@type" "Organization" "name" .Site.Params.orgname "url" .Site.Params.orgurl)
 			"sameAs" (slice .Site.Params.linkedin .Site.Params.github .Site.Params.twitter .Site.Params.facebook)
 			| jsonify (dict "indent" "\t")
 			| safeJS
 		-}}
-	{{- end -}}
-</script>
+	</script>
+{{- end -}}

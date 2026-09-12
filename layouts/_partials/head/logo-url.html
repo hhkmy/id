@@ -1,3 +1,5 @@
+{{- $url := "ui/logo.png" | absURL -}}
 {{- with resources.Get "ui/logo.png" -}}
-	{{- return (.Permalink | absURL) -}}
+	{{- $url = .Permalink -}}
 {{- end -}}
+{{- return $url -}}
