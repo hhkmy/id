@@ -69,24 +69,26 @@ export function getAppLaunchKeyboard(appUrl) {
   const inline_keyboard = [];
 
   if (appUrl) {
-    inline_keyboard.push([
-      {
-        text: "Launch Mini App",
-        web_app: { url: appUrl },
-        icon_custom_emoji_id: "6158861769637891517",
-      },
-    ]);
-    inline_keyboard.push([
-      {
-        text: "Web Dashboard",
-        url: appUrl,
-        icon_custom_emoji_id: WEBSITE_EMOJI_ID,
-      },
-      {
-        text: "Main Menu",
-        callback_data: "cmd_main",
-      },
-    ]);
+    inline_keyboard.push(
+      [
+        {
+          text: "Launch Mini App",
+          web_app: { url: appUrl },
+          icon_custom_emoji_id: "6158861769637891517",
+        },
+      ],
+      [
+        {
+          text: "Web Dashboard",
+          url: appUrl,
+          icon_custom_emoji_id: WEBSITE_EMOJI_ID,
+        },
+        {
+          text: "Main Menu",
+          callback_data: "cmd_main",
+        },
+      ],
+    );
   } else {
     inline_keyboard.push([
       {

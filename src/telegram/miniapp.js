@@ -1587,7 +1587,7 @@ export function renderMiniAppHtml() {
           if (!card) return;
           const avatar = card.querySelector(".plan-avatar");
           const val = e.target.value.trim();
-          if (val && /^\d+$/.test(val)) {
+          if (val && /^[0-9]+$/.test(val)) {
             avatar.innerHTML = \`<tg-emoji emoji-id="\${val}"><span class="tg-emoji-wrap">⭐️</span></tg-emoji>\`;
             initCustomEmojis(avatar);
           }

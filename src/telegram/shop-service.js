@@ -316,6 +316,28 @@ export function segregatePlansByCategory(plans) {
   return { premium, stars, gram, other };
 }
 
+function reconstructFromCategoryKvs(categories, storeInfo, payment) {
+  const [premium, stars, gram, other] = categories;
+  if (!premium && !stars && !gram && !other) return null;
+
+  const plans = [
+    ...(Array.isArray(premium) ? premium : []),
+    ...(Array.isArray(stars) ? stars : []),
+    ...(Array.isArray(gram) ? gram : []),
+    ...(Array.isArray(other) ? other : []),
+  ];
+
+  if (plans.length === 0) return null;
+
+  return {
+    store: storeInfo?.store || DEFAULT_SERVICES.store,
+    stars_info: storeInfo?.stars_info || DEFAULT_SERVICES.stars_info,
+    payment_details: payment?.payment_details || payment || DEFAULT_SERVICES.payment_details,
+    payment_methods: payment?.payment_methods || DEFAULT_SERVICES.payment_methods,
+    plans,
+  };
+}
+
 /**
  * Retrieves the current shop data from Cloudflare KV, falling back to modular keys or default values.
  * @param {Record<string, any>} env
@@ -342,23 +364,13 @@ export async function getShopData(env) {
       env.SHOP_DATA.get(KV_KEY_PAYMENT_DETAILS, "json"),
     ]);
 
-    if (premium || stars || gram || other) {
-      const reconstructedPlans = [
-        ...(Array.isArray(premium) ? premium : []),
-        ...(Array.isArray(stars) ? stars : []),
-        ...(Array.isArray(gram) ? gram : []),
-        ...(Array.isArray(other) ? other : []),
-      ];
-
-      if (reconstructedPlans.length > 0) {
-        return {
-          store: storeInfo?.store || DEFAULT_SERVICES.store,
-          stars_info: storeInfo?.stars_info || DEFAULT_SERVICES.stars_info,
-          payment_details: payment?.payment_details || payment || DEFAULT_SERVICES.payment_details,
-          payment_methods: payment?.payment_methods || DEFAULT_SERVICES.payment_methods,
-          plans: reconstructedPlans,
-        };
-      }
+    const reconstructed = reconstructFromCategoryKvs(
+      [premium, stars, gram, other],
+      storeInfo,
+      payment,
+    );
+    if (reconstructed) {
+      return reconstructed;
     }
   } catch (error) {
     console.error(
@@ -371,6 +383,24 @@ export async function getShopData(env) {
   }
 
   return structuredClone(DEFAULT_SERVICES);
+}
+
+async function normalizePlanEmoji(plan, env, resolveEmojiFromUrl, fetchAndCacheEmoji) {
+  if (!plan.premium_emoji_id) return;
+
+  const rawId = String(plan.premium_emoji_id).trim();
+  if (rawId.includes("t.me/")) {
+    const resolved = await resolveEmojiFromUrl(rawId);
+    if (resolved) {
+      plan.premium_emoji_id = resolved.customEmojiId;
+      if (resolved.unicodeChar) plan.emoji = resolved.unicodeChar;
+    }
+  }
+
+  // Trigger background cache if it's a numeric ID
+  if (plan.premium_emoji_id && /^\d{18,20}$/.test(plan.premium_emoji_id)) {
+    fetchAndCacheEmoji(plan.premium_emoji_id, env).catch(() => {});
+  }
 }
 
 /**
@@ -387,20 +417,7 @@ export async function saveShopData(env, data) {
   // Auto-resolve any Telegram post URLs or raw links pasted in premium_emoji_id
   const { resolveEmojiFromUrl, fetchAndCacheEmoji } = await import("./emoji.js");
   for (const plan of data.plans) {
-    if (plan.premium_emoji_id) {
-      const rawId = String(plan.premium_emoji_id).trim();
-      if (rawId.includes("t.me/")) {
-        const resolved = await resolveEmojiFromUrl(rawId);
-        if (resolved) {
-          plan.premium_emoji_id = resolved.customEmojiId;
-          if (resolved.unicodeChar) plan.emoji = resolved.unicodeChar;
-        }
-      }
-      // Trigger background cache if it's a numeric ID
-      if (plan.premium_emoji_id && /^\d{18,20}$/.test(plan.premium_emoji_id)) {
-        fetchAndCacheEmoji(plan.premium_emoji_id, env).catch(() => {});
-      }
-    }
+    await normalizePlanEmoji(plan, env, resolveEmojiFromUrl, fetchAndCacheEmoji);
   }
 
   if (!env.SHOP_DATA) {
@@ -465,7 +482,7 @@ export function findPlanIndex(plans, query) {
   }
 
   // 2. Stars shortcuts (e.g. "50s", "50 stars", "1000s")
-  const starMatch = q.match(/^(\d+)\s*(?:stars?|s)$/);
+  const starMatch = /^(\d+)\s*(?:stars?|s)$/.exec(q);
   if (starMatch) {
     const targetCount = starMatch[1];
     const match = plans.findIndex(

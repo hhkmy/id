@@ -130,8 +130,9 @@ async function renderEmoji(element, reduceMotion) {
 
     if (reduceMotion) animation.goToAndStop(0, true);
     element.dataset.emojiState = "ready";
-  } catch (error) {
-    // If fallback span or Telegram <i> exists, leave it intact!
+  } catch (_ignoredError) {
+    // Expected exception: safely fallback to static emoji when Lottie fails to parse
+    console.debug("Telegram premium emoji animation fallback:", _ignoredError);
     if (
       !element.querySelector(".shop-plan-emoji-fallback") &&
       !element.querySelector("i.emoji") &&
