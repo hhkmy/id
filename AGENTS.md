@@ -67,6 +67,28 @@
 - **Automated IDE Problems Resolution (`@[current_problems]`):** Whenever `@[current_problems]` appears in user context or metadata, you MUST proactively and automatically resolve all reported warnings, errors, and diagnostic messages across all mentioned files during the current turn before concluding. Never ignore or leave items in `@[current_problems]`.
 - **Prohibit Inline Property Collisions:** In Tailwind CSS v4, never place conflicting base and variant classes on the same element in HTML templates (e.g. `text-slate-950 dark:text-white`, `border-slate-200 dark:border-slate-700`, `bg-white dark:bg-slate-950`). This triggers IDE property collision warnings (`'X' applies the same CSS properties as 'dark:Y'`). Always encapsulate them into semantic component classes in the appropriate CSS partial using `@variant dark { ... }` blocks.
 
+## SonarQube & SonarCloud Standards
+
+- **Vendor & Build Asset Exclusions:** Keep third-party search libraries and generated files (`assets/pagefind/**`, `public/**`, `node_modules/**`, `resources/**`) excluded in `.sonarcloud.properties` and `sonar-project.properties`. Never allow vendor code to generate quality gate noise.
+- **CSS `@import` Order (`css:S8778`):** In `assets/css/main.css` and all CSS entrypoints, all `@import` statements must strictly precede all other rules and at-rules (`@source`, `@variant dark`, `@theme`, `@font-face`).
+- **Modern JavaScript Conventions:**
+  - Prefer `element.dataset.*` over `setAttribute("data-*", ...)` or `getAttribute("data-*")` (`javascript:S7761`).
+  - Prefer `String#codePointAt()` and `String.fromCodePoint()` over `charCodeAt()` and `fromCharCode()` (`javascript:S7758`).
+  - Prefer `String#replaceAll()` over regex `replace(/.../g)` (`javascript:S7781`).
+  - Re-export symbols directly with `export { X } from "./module.js"` instead of importing first (`javascript:S7763`).
+  - Never leave empty `catch` blocks without an explanatory comment explaining why the exception is safely ignored (`javascript:S2486`).
+  - Simplify conditions (`else if` instead of nesting `if` inside `else`, `for-of` instead of indexed `for` over arrays).
+- **Accessible Name & Visible Label Compliance (WCAG 2.5.3 / `Web:S7927`):**
+  - Interactive elements with visible text must never have conflicting or mismatched `aria-label` attributes.
+  - Do not add redundant `aria-label` attributes to elements whose visible label already conveys the name. For extra context, nest `<span class="sr-only">`.
+  - For icon-only buttons and links, use `<span class="sr-only">Description</span>` inside the element for reliable assistive technology access.
+- **Shell & Python Standards:**
+  - In Bash scripts, always use `[[ ... ]]` instead of POSIX `[ ... ]` (`shelldre:S7688`).
+  - Always provide a default `*) ;;` case branch in `case` statements (`shelldre:S131`).
+  - Provide explicit `return` statements at the end of shell functions (`shelldre:S7682`).
+  - Define constants for literals repeated 3 or more times (`shelldre:S1192`).
+  - In Python, use `str.replace()` for literal string substitutions rather than `re.sub()` (`python:S5361`).
+
 ## Git Push & Commit Policy
 
 - **Do Not Push Automatically:** Do not execute `git push` unless the user explicitly instructs or confirms to push. You may make local git commits when appropriate to organize work, but pushing to the remote repository is strictly forbidden unless explicitly requested by the user.
