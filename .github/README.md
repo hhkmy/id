@@ -86,6 +86,11 @@ This repository contains the source for that website, including the Hugo configu
 ## Recent Articles
 
 <!-- BLOG-POST-LIST:START -->
+- [GitHub README မှာ Blog Post တွေ Auto Update လုပ်နည်း](https://hhk.my.id/article/github-readme-blog-post-workflow-automation/)
+- [Hugo Website မှာ Twemoji ထည့်သွင်း အသုံးပြုနည်း](https://hhk.my.id/article/hugo-twemoji-modern-setup-guide/)
+- [Linux Terminal မှာ Myanso နဲ့ Zsh မြန်မာစာ ပြင်နည်း](https://hhk.my.id/article/myanso-terminal-linux-zsh-myanmar-font-fix/)
+- [Google Antigravity မှာ Run Now Auto-Proceed သတ်မှတ်နည်း](https://hhk.my.id/article/automating-run-now-approvals-google-antigravity/)
+- [Google Play Console ပေါ် Ent H App တင်ခဲ့တဲ့ မှတ်တမ်း](https://hhk.my.id/article/google-play-console-release-ent-h-offline-reader-journey/)
 <!-- BLOG-POST-LIST:END -->
 
 ## Requirement
