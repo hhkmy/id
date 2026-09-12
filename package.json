@@ -10,9 +10,9 @@
     "build:search": "npm run build",
     "lighthouse:pages": "node scripts/lighthouse-pages.mjs --site https://hhk.my.id",
     "lighthouse:pages:sample": "node scripts/lighthouse-pages.mjs --site https://hhk.my.id --limit 5",
-    "deploy:cloudflare": "npx -y wrangler@4.107.0 deploy",
-    "deploy:cloudflare:ci": "npm ci --ignore-scripts && npx -y wrangler@4.107.0 deploy",
-    "deploy:cloudflare:version": "npx -y wrangler@4.107.0 versions upload && npx -y wrangler@4.107.0 versions deploy -y && npx -y wrangler@4.107.0 triggers deploy",
+    "deploy:cloudflare": "npx --ignore-scripts -y wrangler@4.107.0 deploy",
+    "deploy:cloudflare:ci": "npm ci --ignore-scripts && npx --ignore-scripts -y wrangler@4.107.0 deploy",
+    "deploy:cloudflare:version": "npx --ignore-scripts -y wrangler@4.107.0 versions upload && npx --ignore-scripts -y wrangler@4.107.0 versions deploy -y && npx --ignore-scripts -y wrangler@4.107.0 triggers deploy",
     "deploy:cloudflare:version:ci": "npm ci --ignore-scripts && npm run deploy:cloudflare:version",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
     "precommit": "lint-staged"

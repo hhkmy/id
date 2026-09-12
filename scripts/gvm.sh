@@ -120,7 +120,7 @@ get_latest_stable_version() {
     if command -v curl >/dev/null 2>&1; then
         versions_json=$(curl -s --connect-timeout 15 --proto-default https --proto-redir =https "$GO_VERSIONS_URL" 2>/dev/null)
     elif command -v wget >/dev/null 2>&1; then
-        versions_json=$(wget -q --https-only --timeout=15 -O - "$GO_VERSIONS_URL" 2>/dev/null)
+        versions_json=$(wget -q --max-redirect=0 --https-only --timeout=15 -O - "$GO_VERSIONS_URL" 2>/dev/null)
     else
         return 1
     fi
