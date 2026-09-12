@@ -44,7 +44,21 @@
 - Use `@theme` blocks in CSS for theme customizations rather than legacy configuration files.
 - Use modern Tailwind v4 utilities (e.g. `bg-linear-to-*` instead of `bg-gradient-to-*`, `size-*` for uniform width/height, `shadow-xs`, etc.).
 - In Tailwind CSS v4, **never** use `@apply group` or modifier classes within `@apply`. Use native CSS nesting (`&:hover .child-class`) and `@variant dark` blocks for interactive/dark states.
-- When creating recurring UI components, define semantic component classes in `assets/css/main.css` with `@variant dark` rather than scattering conflicting inline dual-color utilities across HTML templates.
+- When creating recurring UI components, define semantic component classes in the appropriate CSS partial with `@variant dark` rather than scattering conflicting inline dual-color utilities across HTML templates.
+
+## CSS Architecture (Partials)
+
+- **`assets/css/main.css` is an import-only entry point.** It must contain ONLY Tailwind directives (`@import "tailwindcss"`, `@source`, `@variant dark`, `@theme`, `@font-face`) and `@import` statements for partials. **Never** add CSS classes, selectors, or rules directly into `main.css`.
+- All CSS classes and rules live in `assets/css/partials/_<name>.css`. Each partial is self-contained and grouped by page or feature.
+- When adding new styles, place them in the most appropriate existing partial. Only create a new partial when the styles belong to a clearly distinct page or feature not covered by existing files.
+- When creating a new partial, use the `_<name>.css` naming convention (underscore prefix) and add a corresponding `@import "./partials/_<name>.css";` line in `main.css` under the matching section comment.
+- Existing partial layout:
+  - **Base:** `_base.css` (body, scrollbar, resets)
+  - **Layout:** `_layout.css`, `_buttons.css`, `_qr-modal.css` (header, nav, shell, panels, buttons)
+  - **Pages:** `_home.css`, `_about.css`, `_articles.css`, `_series.css`, `_taxonomy.css`, `_pagination.css`, `_legal.css`, `_updates.css`, `_whois.css`, `_not-found.css`
+  - **Features:** `_lighthouse.css`, `_search.css`, `_footer.css`
+  - **Content:** `_prose.css` (typography, markdown), `_code.css` (code blocks, lite-youtube)
+  - **Utilities:** `_utilities.css` (books, projects, shop, scroll-reveal, scroll-to-top, mermaid, flags, emoji)
 
 ## Quality Assurance & Verification
 
