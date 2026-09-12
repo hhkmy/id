@@ -1,0 +1,104 @@
+.page-header-title {
+  @apply text-4xl font-bold tracking-tight text-slate-950;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.page-header-time {
+  @apply mt-2 block text-sm text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.taxonomy-card {
+  @apply flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+  }
+
+  &:hover .taxonomy-title {
+    @apply text-blue-600;
+    @variant dark {
+      @apply text-blue-400;
+    }
+  }
+
+  &:hover .taxonomy-action {
+    @apply text-blue-600;
+    @variant dark {
+      @apply text-blue-400;
+    }
+  }
+}
+
+.taxonomy-badge {
+  @apply rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-700;
+  @variant dark {
+    @apply bg-blue-950/70 text-blue-300;
+  }
+}
+
+.taxonomy-title {
+  @apply mt-3 text-lg font-bold text-slate-950 transition-colors duration-200;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.taxonomy-action {
+  @apply mt-4 flex items-center justify-end text-xs font-semibold text-slate-500 transition-colors duration-200;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.term-card {
+  @apply flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 sm:flex-row sm:items-center sm:justify-between;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+  }
+}
+
+.term-card-date {
+  @apply flex items-center gap-1 text-xs font-medium text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.term-card-title {
+  @apply text-lg font-bold text-slate-950 hover:text-blue-600 hover:underline;
+  @variant dark {
+    @apply text-white hover:text-blue-400;
+  }
+}
+
+.term-card-summary {
+  @apply text-sm leading-relaxed text-slate-600 line-clamp-2;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.term-card-badge {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-600;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-300;
+  }
+}
+
+.term-card-link {
+  @apply inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline;
+  @variant dark {
+    @apply text-blue-400 hover:text-blue-300;
+  }
+}
+
+.empty-state-text {
+  @apply text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}

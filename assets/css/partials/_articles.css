@@ -1,0 +1,321 @@
+.archive-year-card {
+  @apply rounded-xl border border-slate-200 bg-white p-5;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950;
+  }
+}
+
+.archive-list {
+  @apply mt-5 grid gap-3;
+}
+
+.archive-item {
+  @apply flex flex-col gap-2 rounded-lg border border-slate-200 bg-slate-50 p-4 sm:flex-row sm:items-center;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900/60;
+  }
+}
+
+.archive-date {
+  @apply w-20 shrink-0 text-sm font-semibold uppercase tracking-wider text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.archive-link {
+  @apply flex-1 text-base font-semibold text-slate-950 hover:underline;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.article-card {
+  @apply rounded-xl border border-slate-200 bg-white p-6 transition-colors duration-200 hover:border-slate-400;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-600;
+  }
+}
+
+.article-bento-grid {
+  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-6;
+}
+
+.article-bento-feature {
+  @apply md:col-span-2 lg:col-span-4 lg:row-span-2;
+}
+
+.article-bento-wide {
+  @apply md:col-span-2 lg:col-span-3;
+}
+
+.article-bento-tall {
+  @apply lg:col-span-2 lg:row-span-2;
+}
+
+.article-bento-compact {
+  @apply lg:col-span-2;
+}
+
+.article-category-badge {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700;
+  @variant dark {
+    @apply border-blue-900/60 bg-blue-950/40 text-blue-300;
+  }
+}
+
+.article-card-heading {
+  @apply font-bold leading-snug tracking-tight text-slate-950;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.article-card-meta {
+  @apply mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.article-card-snippet {
+  @apply mt-3 text-base leading-7 text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.article-card-tag {
+  @apply text-xs font-medium text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.article-card-tag-empty {
+  @apply text-xs text-slate-400;
+  @variant dark {
+    @apply text-slate-500;
+  }
+}
+
+.article-card-link {
+  @apply text-sm font-semibold text-slate-700 hover:text-slate-950 hover:underline;
+  @variant dark {
+    @apply text-slate-300 hover:text-white;
+  }
+}
+
+.single-article {
+  @apply mx-auto w-full;
+}
+
+.article-hero {
+  @apply mx-auto max-w-4xl border-b border-slate-200 py-10 sm:py-12;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.article-kicker {
+  @apply mb-4 inline-flex text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-950;
+  @variant dark {
+    @apply text-slate-400 hover:text-white;
+  }
+}
+
+.article-breadcrumb {
+  @apply mb-4 flex items-center;
+}
+
+.article-breadcrumb-list {
+  @apply flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.article-breadcrumb-item {
+  @apply inline-flex items-center;
+}
+
+.article-breadcrumb-link {
+  @apply transition-colors hover:text-slate-900;
+  @variant dark {
+    @apply hover:text-white;
+  }
+}
+
+.article-breadcrumb-series {
+  @apply font-semibold text-sky-600 hover:text-sky-700;
+  @variant dark {
+    @apply text-sky-400 hover:text-sky-300;
+  }
+}
+
+.article-breadcrumb-separator {
+  @apply flex items-center text-slate-300;
+  @variant dark {
+    @apply text-slate-700;
+  }
+}
+
+.article-breadcrumb-current {
+  @apply font-semibold text-slate-800;
+  @variant dark {
+    @apply text-slate-200;
+  }
+}
+
+.article-title {
+  @apply text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl md:text-5xl leading-tight sm:leading-tight;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.article-summary {
+  @apply mt-4 text-base sm:text-lg leading-relaxed text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.article-meta-card {
+  @apply mt-8 rounded-2xl border border-slate-200/80 bg-white/70 p-4 sm:p-5 ring-1 ring-slate-100 backdrop-blur-xs;
+  @variant dark {
+    @apply border-slate-800/80 bg-slate-900/60 ring-slate-900/50;
+  }
+}
+
+.article-meta-grid {
+  @apply grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 sm:gap-3.5;
+}
+
+.article-meta-stat {
+  @apply flex items-center gap-2.5 rounded-xl border border-slate-100/90 bg-slate-50/70 p-2.5 transition-colors;
+  @variant dark {
+    @apply border-slate-800/60 bg-slate-950/50;
+  }
+}
+
+.article-meta-icon {
+  @apply flex size-8 shrink-0 items-center justify-center rounded-lg bg-white text-slate-500 ring-1 ring-slate-200/60;
+  @variant dark {
+    @apply bg-slate-900 text-slate-400 ring-slate-800;
+  }
+}
+
+.article-meta-stat-label {
+  @apply block text-[11px] font-medium uppercase tracking-wider text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.article-meta-stat-value {
+  @apply block text-xs font-bold text-slate-800 truncate;
+  @variant dark {
+    @apply text-slate-200;
+  }
+}
+
+.article-meta-footer {
+  @apply mt-3.5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100/90 pt-3.5;
+  @variant dark {
+    @apply border-slate-800/80;
+  }
+}
+
+.article-meta-footer-label {
+  @apply flex items-center gap-1.5 text-xs font-semibold text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.article-meta-categories {
+  @apply flex flex-wrap items-center gap-1.5;
+}
+
+.article-meta-category-pill {
+  @apply inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 hover:bg-slate-800 hover:text-white;
+  }
+}
+
+.article-meta-draft {
+  @apply font-semibold text-red-500;
+  @variant dark {
+    @apply text-red-400;
+  }
+}
+
+.article-featured-image {
+  @apply mt-8 h-auto w-full rounded-xl object-contain ring-1 ring-slate-200;
+  @variant dark {
+    @apply ring-slate-800;
+  }
+}
+
+.article-content {
+  @apply mx-auto mt-8 max-w-4xl rounded-xl border border-slate-200 bg-white p-6 text-base leading-8 text-slate-700 sm:p-8;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 text-slate-200;
+  }
+}
+
+.article-shell {
+  @apply mx-auto max-w-4xl;
+}
+
+.article-footer {
+  @apply mx-auto mt-10 max-w-4xl border-t border-slate-200 pt-6;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.article-comments {
+  @apply mx-auto mt-10 max-w-4xl border-t border-slate-200 pt-8;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.article-tags {
+  @apply flex flex-wrap gap-2;
+}
+
+.article-tag {
+  @apply inline-flex rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 hover:bg-slate-900 hover:text-white;
+  }
+}
+
+.article-adjacent {
+  @apply mt-8 grid gap-3 sm:grid-cols-2;
+}
+
+.article-adjacent-link {
+  @apply rounded-lg border border-slate-200 bg-white p-4 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700 hover:bg-slate-900;
+  }
+}
+
+.article-adjacent-label {
+  @apply block text-xs font-semibold uppercase tracking-wider text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.article-adjacent-title {
+  @apply mt-1 block text-sm font-semibold leading-6 text-slate-900;
+  @variant dark {
+    @apply text-white;
+  }
+}

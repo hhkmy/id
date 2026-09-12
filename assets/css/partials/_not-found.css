@@ -1,0 +1,35 @@
+.not-found-container {
+  @apply flex min-h-[60vh] flex-col items-center justify-center py-16 text-center;
+}
+
+.not-found-content {
+  @apply flex flex-col items-center;
+}
+
+.not-found-icon {
+  @apply mb-6 size-20 text-red-400;
+  @variant dark {
+    @apply text-red-300;
+  }
+}
+
+.not-found-code {
+  @apply mb-2 text-4xl font-extrabold text-indigo-700;
+  @variant dark {
+    @apply text-indigo-400;
+  }
+}
+
+.not-found-title {
+  @apply mb-4 text-xl font-semibold text-slate-700;
+  @variant dark {
+    @apply text-slate-200;
+  }
+}
+
+.not-found-message {
+  @apply mb-6 max-w-md text-center text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}

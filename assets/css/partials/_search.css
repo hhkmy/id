@@ -1,0 +1,58 @@
+html:root {
+  --pf-text: var(--color-slate-900);
+  --pf-text-secondary: var(--color-slate-600);
+  --pf-text-muted: var(--color-slate-500);
+  --pf-background: var(--color-white);
+  --pf-border: var(--color-slate-200);
+  --pf-border-focus: var(--color-slate-400);
+  --pf-skeleton: var(--color-slate-100);
+  --pf-skeleton-shine: var(--color-slate-50);
+  --pf-hover: var(--color-slate-100);
+  --pf-mark: var(--color-slate-950);
+  --pf-scroll-shadow: transparent;
+  --pf-shadow-sm: none;
+  --pf-shadow-md: none;
+  --pf-shadow-lg: none;
+  --pf-error-bg: var(--color-red-50);
+  --pf-error-border: var(--color-red-200);
+  --pf-error-text: var(--color-red-700);
+  --pf-error-text-secondary: var(--color-red-800);
+  --pf-outline-focus: var(--color-slate-400);
+  --pf-font: var(--font-sans);
+  --pf-modal-backdrop: rgb(15 23 42 / 0.45);
+  --pf-border-radius: 0.5rem;
+  --pf-modal-max-width: 42rem;
+  --pf-modal-top: 12dvh;
+  --pf-icon-search: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7549 11.255H11.9649L11.6849 10.985C12.6649 9.845 13.2549 8.365 13.2549 6.755C13.2549 3.165 10.3449 0.255005 6.75488 0.255005C3.16488 0.255005 0.254883 3.165 0.254883 6.755C0.254883 10.345 3.16488 13.255 6.75488 13.255C8.36488 13.255 9.84488 12.665 10.9849 11.685L11.2549 11.965V12.755L16.2549 17.745L17.7449 16.255L12.7549 11.255ZM6.75488 11.255C4.26488 11.255 2.25488 9.245 2.25488 6.755C2.25488 4.26501 4.26488 2.255 6.75488 2.255C9.24488 2.255 11.2549 4.26501 11.2549 6.755C11.2549 9.245 9.24488 11.255 6.75488 11.255Z' fill='%23475569'/%3E%3C/svg%3E%0A");
+}
+
+html:root[data-pf-theme="dark"] {
+  --pf-text: var(--color-slate-100);
+  --pf-text-secondary: var(--color-slate-300);
+  --pf-text-muted: var(--color-slate-400);
+  --pf-background: var(--color-slate-950);
+  --pf-border: var(--color-slate-800);
+  --pf-border-focus: var(--color-slate-500);
+  --pf-skeleton: var(--color-slate-900);
+  --pf-skeleton-shine: var(--color-slate-800);
+  --pf-hover: var(--color-slate-900);
+  --pf-mark: var(--color-white);
+  --pf-scroll-shadow: transparent;
+  --pf-shadow-sm: none;
+  --pf-shadow-md: none;
+  --pf-shadow-lg: none;
+  --pf-error-bg: rgb(127 29 29 / 0.18);
+  --pf-error-border: rgb(248 113 113 / 0.35);
+  --pf-error-text: var(--color-red-300);
+  --pf-error-text-secondary: var(--color-red-200);
+  --pf-outline-focus: var(--color-slate-500);
+  --pf-modal-backdrop: rgb(2 6 23 / 0.74);
+  --pf-icon-search: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7549 11.255H11.9649L11.6849 10.985C12.6649 9.845 13.2549 8.365 13.2549 6.755C13.2549 3.165 10.3449 0.255005 6.75488 0.255005C3.16488 0.255005 0.254883 3.165 0.254883 6.755C0.254883 10.345 3.16488 13.255 6.75488 13.255C8.36488 13.255 9.84488 12.665 10.9849 11.685L11.2549 11.965V12.755L16.2549 17.745L17.7449 16.255L12.7549 11.255ZM6.75488 11.255C4.26488 11.255 2.25488 9.245 2.25488 6.755C2.25488 4.26501 4.26488 2.255 6.75488 2.255C9.24488 2.255 11.2549 4.26501 11.2549 6.755C11.2549 9.245 9.24488 11.255 6.75488 11.255Z' fill='%23cbd5e1'/%3E%3C/svg%3E%0A");
+}
+
+.nav-search-trigger {
+  @apply relative inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-700 hover:bg-slate-800 hover:text-white;
+  }
+}

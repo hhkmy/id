@@ -1,0 +1,90 @@
+.series-nav {
+  @apply mx-auto my-8 max-w-4xl rounded-2xl border border-sky-200/80 bg-linear-to-br from-sky-50/70 via-slate-50/50 to-white/90 p-5 ring-1 ring-sky-100 backdrop-blur-xs;
+  @variant dark {
+    @apply border-sky-900/60 bg-linear-to-br from-slate-900/90 via-slate-900/60 to-slate-950/80 ring-sky-950/50;
+  }
+}
+
+.series-nav-header {
+  @apply flex flex-wrap items-center justify-between gap-3 border-b border-sky-200/60 pb-3.5;
+  @variant dark {
+    @apply border-slate-800/80;
+  }
+}
+
+.series-nav-icon {
+  @apply flex size-8 shrink-0 items-center justify-center rounded-lg bg-sky-100 text-sky-700 ring-1 ring-sky-200/60;
+  @variant dark {
+    @apply bg-sky-950/80 text-sky-300 ring-sky-800/60;
+  }
+}
+
+.series-nav-tag {
+  @apply block text-xs font-bold uppercase tracking-wider text-sky-700;
+  @variant dark {
+    @apply text-sky-400;
+  }
+}
+
+.series-nav-title {
+  @apply text-base font-bold text-slate-950 transition-colors hover:text-sky-600;
+  @variant dark {
+    @apply text-white hover:text-sky-400;
+  }
+}
+
+.series-nav-badge {
+  @apply rounded-full border border-sky-200 bg-sky-100/80 px-3 py-0.5 text-xs font-semibold text-sky-800;
+  @variant dark {
+    @apply border-sky-800/80 bg-sky-950/70 text-sky-300;
+  }
+}
+
+.series-nav-item-num {
+  @apply flex size-5.5 shrink-0 items-center justify-center rounded-full text-xs font-bold bg-slate-200/90 text-slate-700;
+  @variant dark {
+    @apply bg-slate-800 text-slate-300;
+  }
+}
+
+.series-nav-item-num-active {
+  @apply flex size-5.5 shrink-0 items-center justify-center rounded-full text-xs font-bold bg-sky-600 text-white ring-2 ring-sky-300/50;
+  @variant dark {
+    @apply ring-sky-700/50;
+  }
+}
+
+.series-nav-current {
+  @apply font-semibold text-sky-700;
+  @variant dark {
+    @apply text-sky-300;
+  }
+}
+
+.series-nav-current-hint {
+  @apply ml-1.5 inline-flex items-center rounded bg-sky-100 px-1.5 py-0.5 text-[11px] font-medium text-sky-800;
+  @variant dark {
+    @apply bg-sky-950 text-sky-300;
+  }
+}
+
+.series-nav-link {
+  @apply text-slate-700 transition-colors hover:text-sky-600 hover:underline;
+  @variant dark {
+    @apply text-slate-300 hover:text-sky-400;
+  }
+}
+
+.series-summary-text {
+  @apply mt-3 text-sm text-slate-600;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.series-summary-link {
+  @apply font-medium text-sky-600 hover:underline;
+  @variant dark {
+    @apply text-sky-400;
+  }
+}

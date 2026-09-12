@@ -1,0 +1,436 @@
+.book-grid {
+  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.book-card {
+  @apply flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-colors duration-200 hover:border-slate-300;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+  }
+}
+
+.book-cover {
+  @apply aspect-4/5 w-full bg-slate-100 object-cover;
+  @variant dark {
+    @apply bg-slate-900;
+  }
+}
+
+.book-card-body {
+  @apply flex flex-1 flex-col p-5;
+}
+
+.book-card-footer {
+  @apply mt-auto border-t border-slate-200 px-5 py-4;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.book-download-link {
+  @apply flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-300 hover:bg-white hover:text-slate-950;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-200 hover:border-slate-700 hover:bg-slate-950 hover:text-white;
+  }
+}
+
+.book-meta {
+  @apply mt-3 flex flex-wrap gap-3 text-xs font-semibold text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.book-meta-item {
+  @apply inline-flex items-center gap-1.5;
+}
+
+.project-grid {
+  @apply grid gap-6 md:grid-cols-2;
+}
+
+.project-card {
+  @apply flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+  }
+}
+
+.project-card-header {
+  @apply flex items-start justify-between gap-3;
+}
+
+.project-card-title-group {
+  @apply flex min-w-0 items-center gap-3.5;
+}
+
+.project-icon {
+  @apply flex size-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-100;
+  }
+}
+
+.project-visibility {
+  @apply shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-500;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-400;
+  }
+}
+
+.project-card-content {
+  @apply mt-4 flex flex-1 flex-col;
+}
+
+.project-title {
+  @apply text-lg font-bold tracking-tight text-slate-950 sm:text-xl;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.project-title > a {
+  @apply hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+}
+
+.project-category {
+  @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.project-description {
+  @apply flex-1 text-sm leading-6 text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.project-tech-list {
+  @apply mt-4 flex flex-wrap gap-2;
+}
+
+.project-tech-list > li {
+  @apply rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600;
+  @variant dark {
+    @apply bg-slate-900 text-slate-300;
+  }
+}
+
+.project-card-footer {
+  @apply mt-5 flex flex-wrap items-center justify-between gap-x-5 gap-y-3 border-t border-slate-200 pt-4;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.project-case-study-link {
+  @apply inline-flex items-center text-sm font-semibold text-slate-950 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.project-case-study-link::after {
+  content: "→";
+  @apply ml-2;
+}
+
+.project-telegram-link {
+  @apply inline-flex max-w-full items-center gap-2 break-all text-sm font-semibold text-slate-700 hover:text-slate-950 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+  @variant dark {
+    @apply text-slate-300 hover:text-white;
+  }
+}
+
+.project-detail-hero {
+  @apply grid gap-8 border-b border-slate-200 py-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.7fr)] lg:items-end;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.project-back-link {
+  @apply inline-flex text-sm font-semibold text-slate-600 hover:text-slate-950 hover:underline;
+  @variant dark {
+    @apply text-slate-300 hover:text-white;
+  }
+}
+
+.project-detail-content {
+  @apply mx-auto max-w-3xl text-base leading-7;
+}
+
+.shop-grid {
+  @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.shop-card {
+  @apply relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5.5 transition-all duration-200 hover:-translate-y-1 hover:border-slate-400;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950/80 hover:border-slate-700;
+  }
+}
+
+.shop-card-highlight {
+  @apply border-blue-400 bg-linear-to-b from-blue-50/60 to-white ring-2 ring-blue-400/30;
+  @variant dark {
+    @apply border-blue-500/60 bg-linear-to-b from-blue-950/30 to-slate-950 ring-blue-500/30;
+  }
+}
+
+.shop-card-top {
+  @apply flex flex-col;
+}
+
+.shop-card-header {
+  @apply flex items-center justify-between gap-2;
+}
+
+.shop-service-pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100/90 px-2.5 py-1 text-xs font-semibold text-slate-700;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-300;
+  }
+}
+
+.shop-card-icon {
+  @apply flex size-4.5 shrink-0 items-center justify-center text-slate-800;
+  @variant dark {
+    @apply text-slate-100;
+  }
+}
+
+.shop-card-icon .telegram-premium-emoji,
+.telegram-premium-emoji > svg {
+  @apply size-full;
+}
+
+.shop-plan-emoji {
+  @apply block shrink-0;
+}
+
+.shop-popular-badge {
+  @apply inline-flex items-center gap-1 rounded-full border border-blue-300 bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700;
+  @variant dark {
+    @apply border-blue-800 bg-blue-950 text-blue-300;
+  }
+}
+
+.shop-card-body {
+  @apply mt-4;
+}
+
+.shop-plan-duration {
+  @apply text-2xl font-black tracking-tight text-slate-950 sm:text-3xl;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.shop-plan-subtitle {
+  @apply mt-1 text-xs font-medium text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.shop-card-bottom {
+  @apply mt-6 flex flex-col gap-4 border-t border-dashed border-slate-200 pt-4;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.shop-plan-price-wrap {
+  @apply flex items-baseline justify-between gap-2;
+}
+
+.shop-plan-price {
+  @apply text-xl font-black tracking-tight text-slate-950 sm:text-2xl;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.shop-buy-button {
+  @apply relative inline-flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl border border-sky-500/40 bg-linear-to-r from-sky-500 via-sky-600 to-blue-600 px-4 py-2.5 text-sm font-bold tracking-wide text-white transition-all duration-200 hover:from-sky-400 hover:via-sky-500 hover:to-blue-500 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400;
+  @variant dark {
+    @apply border-sky-400/30 from-sky-600 via-sky-700 to-blue-700 hover:from-sky-500 hover:via-sky-600 hover:to-blue-600;
+  }
+
+  & svg {
+    @apply transition-transform duration-200 ease-out;
+  }
+
+  &:hover svg {
+    @apply translate-x-0.5 -translate-y-0.5;
+  }
+}
+
+.shop-card-highlight .shop-buy-button {
+  @apply border-indigo-500/50 bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:via-indigo-500 hover:to-violet-500;
+  @variant dark {
+    @apply border-indigo-400/40 from-blue-600 via-indigo-600 to-violet-700 hover:from-blue-500 hover:via-indigo-500 hover:to-violet-600;
+  }
+}
+
+.shop-payment-row {
+  @apply flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between;
+}
+
+.shop-payment-heading {
+  @apply shrink-0;
+}
+
+.shop-payment-details {
+  @apply mt-3.5 grid gap-2 text-sm text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.shop-payment-detail {
+  @apply flex flex-wrap items-center gap-2 text-xs sm:text-sm;
+}
+
+.payment-copy-button {
+  @apply relative inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-100/90 px-2.5 py-1 font-mono text-xs font-bold text-slate-900 transition-all duration-150 hover:border-sky-400 hover:bg-sky-50 hover:text-sky-700 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-100 hover:border-sky-700 hover:bg-sky-950/60 hover:text-sky-300;
+  }
+}
+
+.shop-payment-methods {
+  @apply flex flex-wrap gap-2.5 sm:justify-end;
+}
+
+.shop-payment-method {
+  @apply relative inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 transition-all duration-150 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 hover:-translate-y-0.5;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900/80 text-slate-300 hover:border-slate-700 hover:bg-slate-800 hover:text-white;
+  }
+}
+
+.site-tooltip {
+  @apply pointer-events-none fixed z-100 w-max max-w-[calc(100vw-1rem)] whitespace-normal rounded-md border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-center text-xs font-medium normal-case tracking-normal text-white;
+  @variant dark {
+    @apply border-slate-700 bg-slate-800 text-white;
+  }
+}
+
+.site-tooltip-arrow {
+  left: var(--tooltip-arrow-left);
+  @apply absolute -translate-x-1/2 border-4 border-transparent;
+}
+
+.site-tooltip[data-placement="top"] .site-tooltip-arrow {
+  @apply top-full border-t-slate-950;
+  @variant dark {
+    @apply border-t-slate-800;
+  }
+}
+
+.site-tooltip[data-placement="bottom"] .site-tooltip-arrow {
+  @apply bottom-full border-b-slate-950;
+  @variant dark {
+    @apply border-b-slate-800;
+  }
+}
+
+.shop-payment-emoji {
+  @apply inline-flex size-6 shrink-0;
+}
+
+.shop-account-emoji {
+  @apply inline-flex size-4.5 shrink-0;
+}
+
+.shop-order-note {
+  @apply flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300 sm:flex-row sm:items-center;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+  }
+}
+
+.scroll-reveal {
+  --reveal-y: 18px;
+  --lift-y: 0px;
+  opacity: 0;
+  transform: translate3d(0, calc(var(--reveal-y) + var(--lift-y)), 0);
+  backface-visibility: hidden;
+}
+
+.scroll-reveal.is-visible {
+  --reveal-y: 0px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+#js-geolocation {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+img.emoji {
+  display: inline;
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+}
+
+.scroll-to-top {
+  @apply fixed right-5 bottom-5 sm:right-7 sm:bottom-7 z-40 flex size-11 cursor-pointer items-center justify-center rounded-full border border-slate-300 bg-white/90 text-slate-700 ring-1 ring-slate-200/80 backdrop-blur-md opacity-0 pointer-events-none translate-y-3 transition-all duration-300 ease-out focus:outline-none;
+
+  &:hover {
+    @apply bg-white text-slate-950 scale-105;
+  }
+
+  &:active {
+    @apply scale-95;
+  }
+
+  &:focus-visible {
+    @apply ring-2 ring-sky-500;
+  }
+
+  @variant dark {
+    @apply border-slate-700 bg-slate-900/90 text-slate-300 ring-slate-800/80;
+
+    &:hover {
+      @apply bg-slate-800 text-white ring-slate-700;
+    }
+  }
+}
+
+.scroll-to-top.is-visible {
+  @apply opacity-100 pointer-events-auto translate-y-0;
+}
+
+.mermaid-block {
+  @apply my-6 flex justify-center overflow-x-auto bg-transparent p-2;
+}
+
+.mermaid-block .mermaid {
+  @apply flex justify-center w-full max-w-full font-sans text-center text-slate-800;
+  @variant dark {
+    @apply text-slate-200;
+  }
+}

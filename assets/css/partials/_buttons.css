@@ -1,0 +1,61 @@
+.link-button {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-slate-900 px-4.5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:bg-slate-800 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+  @variant dark {
+    @apply bg-white text-slate-950 hover:bg-slate-100;
+  }
+}
+
+.quiet-button {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4.5 py-2.5 text-sm font-bold text-slate-800 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900/90 text-slate-100 hover:border-slate-700 hover:bg-slate-800 hover:text-white;
+  }
+}
+
+.theme-toggle-icon-dark {
+  @apply size-5 text-slate-700;
+  @variant dark {
+    @apply text-yellow-300;
+  }
+}
+
+.theme-toggle-icon-light {
+  @apply size-5 text-yellow-500;
+  @variant dark {
+    @apply text-yellow-200;
+  }
+}
+
+.site-tooltip {
+  @apply pointer-events-none fixed z-100 w-max max-w-[calc(100vw-1rem)] whitespace-normal rounded-md border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-center text-xs font-medium normal-case tracking-normal text-white;
+  @variant dark {
+    @apply border-slate-700 bg-slate-800 text-white;
+  }
+}
+
+.site-tooltip-arrow {
+  left: var(--tooltip-arrow-left);
+  @apply absolute -translate-x-1/2 border-4 border-transparent;
+}
+
+.site-tooltip[data-placement="top"] .site-tooltip-arrow {
+  @apply top-full border-t-slate-950;
+  @variant dark {
+    @apply border-t-slate-800;
+  }
+}
+
+.site-tooltip[data-placement="bottom"] .site-tooltip-arrow {
+  @apply bottom-full border-b-slate-950;
+  @variant dark {
+    @apply border-b-slate-800;
+  }
+}
+
+.shop-payment-emoji {
+  @apply inline-flex size-6 shrink-0;
+}
+
+.shop-account-emoji {
+  @apply inline-flex size-4.5 shrink-0;
+}

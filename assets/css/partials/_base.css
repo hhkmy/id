@@ -1,0 +1,47 @@
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  body {
+    @apply min-h-screen bg-slate-50 font-sans text-slate-900 antialiased;
+    font-synthesis: none;
+    @variant dark {
+      @apply bg-slate-950 text-slate-100;
+    }
+  }
+
+  main {
+    @apply w-full;
+  }
+
+  a {
+    @apply decoration-slate-300 underline-offset-4;
+    @variant dark {
+      @apply decoration-slate-700;
+    }
+  }
+
+  footer {
+    @apply relative mt-16;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #4c6cf4;
+  border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #002fff;
+}

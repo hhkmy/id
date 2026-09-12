@@ -1,0 +1,94 @@
+.home-hero {
+  @apply grid gap-8 border-b border-slate-200 py-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(320px,0.8fr)] lg:items-end;
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.home-hero-copy {
+  @apply max-w-4xl;
+}
+
+.home-hero-title {
+  @apply max-w-4xl text-5xl font-bold leading-tight tracking-tight text-slate-950 sm:text-6xl;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.home-hero-summary {
+  @apply mt-5 max-w-3xl text-lg leading-8 text-slate-700;
+  @variant dark {
+    @apply text-slate-200;
+  }
+}
+
+.home-hero-actions {
+  @apply mt-8 flex flex-wrap gap-3;
+}
+
+.home-hero-panel {
+  @apply rounded-xl border border-slate-200 bg-white p-5;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950;
+  }
+}
+
+.home-hero-panel-row {
+  @apply border-t border-slate-200 py-4;
+  &:first-child {
+    @apply border-t-0 pt-0;
+  }
+  &:last-child {
+    @apply pb-0;
+  }
+  @variant dark {
+    @apply border-slate-800;
+  }
+}
+
+.home-hero-panel-label {
+  @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.home-hero-panel-value {
+  @apply mt-1 text-sm font-semibold leading-6 text-slate-950;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.focus-grid {
+  @apply grid gap-6 md:grid-cols-3;
+}
+
+.focus-card {
+  @apply rounded-xl border border-slate-200 bg-white p-5 transition-colors duration-200 hover:border-slate-300;
+  @variant dark {
+    @apply border-slate-800 bg-slate-950 hover:border-slate-700;
+  }
+}
+
+.focus-card-icon {
+  @apply mb-4 flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900 text-slate-100;
+  }
+}
+
+.focus-card-title {
+  @apply text-base font-bold text-slate-950;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.focus-card-text {
+  @apply mt-2 text-sm leading-7 text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}

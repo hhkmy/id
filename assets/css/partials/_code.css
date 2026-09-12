@@ -1,0 +1,62 @@
+.lite-youtube {
+  @apply relative my-6 aspect-video overflow-hidden rounded-lg bg-slate-100 ring-1 ring-slate-200;
+  @variant dark {
+    @apply bg-slate-900 ring-slate-800;
+  }
+}
+
+.lite-youtube iframe,
+.lite-youtube-trigger,
+.lite-youtube-trigger img {
+  @apply absolute inset-0 size-full;
+}
+
+.lite-youtube iframe {
+  @apply border-0;
+}
+
+.lite-youtube-trigger {
+  @apply cursor-pointer bg-slate-900 p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400;
+}
+
+.lite-youtube-trigger img {
+  @apply object-cover opacity-90;
+}
+
+.lite-youtube-trigger:hover img {
+  @apply opacity-100;
+}
+
+.lite-youtube-play {
+  @apply absolute left-1/2 top-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95;
+  @variant dark {
+    @apply border-slate-700 bg-slate-900/95;
+  }
+}
+
+.lite-youtube-play::before {
+  content: "";
+  @apply ml-1 block border-y-10 border-l-16 border-y-transparent border-l-slate-950;
+}
+
+.code-window {
+  font-synthesis: none;
+}
+.code-window pre,
+.code-window code {
+  @apply m-0 p-0 text-inherit;
+  font-family: var(--font-mono);
+  font-style: normal !important;
+  letter-spacing: normal;
+  line-height: 1.7;
+  background-color: transparent !important;
+}
+.code-window pre *,
+.code-window code *,
+.code-window .highlight * {
+  font-style: normal !important;
+}
+.code-window .highlight {
+  min-width: max-content;
+  background-color: transparent !important;
+}
