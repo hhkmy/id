@@ -12,18 +12,14 @@
 				class="group hidden rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:block"
 				aria-haspopup="dialog"
 				aria-controls="qr-modal"
-				aria-label="Open QR code"
 			>
+				<span class="sr-only">Open QR code</span>
 				{{ $qr.Content
 					| replaceRE "<svg " `<svg id="qr-image" class="pointer-events-none site-brand-logo" aria-hidden="true" focusable="false" `
 					| safeHTML
 				}}
 			</button>
-			<a
-				href="{{ .Site.Home.RelPermalink }}"
-				class="site-brand-title"
-				>{{ site.Title }}</a
-			>
+			<a href="{{ .Site.Home.RelPermalink }}" class="site-brand-title">{{ site.Title }}</a>
 		</div>
 
 		<!-- Navigation & Theme Switcher -->

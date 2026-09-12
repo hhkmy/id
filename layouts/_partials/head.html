@@ -1,21 +1,22 @@
 <meta charset="utf-8" />
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s - %s" .Title site.Title }}{{ end }}</title>
 {{ partialCached "head/meta.html" . .Permalink }}
 <script>
 	(function () {
 		var storedTheme = null;
 		try {
 			storedTheme = localStorage.getItem("theme");
-		} catch (error) {}
+		} catch (_) {
+			// Ignore localStorage unavailable
+		}
 
 		if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
 			document.documentElement.classList.add("dark");
-			document.documentElement.setAttribute("data-pf-theme", "dark");
+			document.documentElement.dataset.pfTheme = "dark";
 			return;
 		}
 
 		document.documentElement.classList.remove("dark");
-		document.documentElement.removeAttribute("data-pf-theme");
+		delete document.documentElement.dataset.pfTheme;
 	})();
 </script>
 {{ partialCached "head/css.html" . hugo.IsDevelopment }}

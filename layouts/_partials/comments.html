@@ -18,7 +18,7 @@
 				var doc = document;
 				var target = doc.head || doc.body;
 				var components = window.remark_config.components || ["embed"];
-				for (var i = 0; i < components.length; i++) {
+				for (const component of components) {
 					var script = doc.createElement("script");
 					var ext = ".js";
 					if ("noModule" in script) {
@@ -28,7 +28,7 @@
 						script.async = true;
 					}
 					script.defer = true;
-					script.src = window.remark_config.host + "/web/" + components[i] + ext;
+					script.src = window.remark_config.host + "/web/" + component + ext;
 					target.appendChild(script);
 				}
 			}

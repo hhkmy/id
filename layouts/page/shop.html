@@ -36,9 +36,7 @@
 					<p class="section-title">Service plans</p>
 					<h2 class="panel-heading">Choose your plan</h2>
 				</div>
-				<p class="panel-summary">
-					Select a product, then contact {{ $shop.name }} on Telegram to complete your order.
-				</p>
+				<p class="panel-summary">Select a product, then contact {{ $shop.name }} on Telegram to complete your order.</p>
 			</div>
 
 			<ul class="shop-grid">
@@ -89,14 +87,9 @@
 								<p class="shop-plan-price">{{ .price }}</p>
 								<span class="shop-plan-price-label">Direct order</span>
 							</div>
-							<a
-								href="{{ .buy_url | safeURL }}"
-								class="shop-buy-button"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Buy on Telegram: {{ $planLabel }} ({{ $shop.name }})"
-							>
+							<a href="{{ .buy_url | safeURL }}" class="shop-buy-button" target="_blank" rel="noopener noreferrer">
 								<span>Buy on Telegram</span>
+								<span class="sr-only">: {{ $planLabel }} ({{ $shop.name }})</span>
 								{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1rem" "height" "1rem") }}
 							</a>
 						</div>
@@ -174,9 +167,7 @@
 				</span>
 				<div>
 					<h2 class="panel-heading-sm">Ready to order?</h2>
-					<p class="panel-summary">
-						Send {{ $shop.handle }} the plan duration you want, and continue the purchase in Telegram.
-					</p>
+					<p class="panel-summary">Send {{ $shop.handle }} the plan duration you want, and continue the purchase in Telegram.</p>
 				</div>
 				<a href="{{ $shop.url | safeURL }}" class="link-button sm:ml-auto" target="_blank" rel="noopener noreferrer">
 					<span>Contact {{ $shop.name }}</span>
