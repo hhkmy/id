@@ -22,6 +22,45 @@ function getCountryName(countryCode) {
   return countryCode;
 }
 
+function buildLocationText(data, countryName) {
+  const city = data.city?.trim();
+  const region = data.region?.trim();
+  const locationParts = [];
+
+  if (city) {
+    locationParts.push(city);
+  }
+  if (region && region.toLowerCase() !== city?.toLowerCase()) {
+    locationParts.push(region);
+  }
+  locationParts.push(countryName);
+
+  return locationParts.join(", ");
+}
+
+function updateBadgeTitle(badge, data, locationText) {
+  if (!badge) return;
+
+  const details = [];
+  if (data.ip) {
+    details.push(`IP: ${data.ip}`);
+  }
+
+  const asnStr = data.asn ? `AS${data.asn}` : "";
+  const orgStr = data.asOrganization?.trim() || "";
+  const networkStr = [asnStr, orgStr].filter(Boolean).join(" ");
+  if (networkStr) {
+    details.push(`Network: ${networkStr}`);
+  }
+
+  details.push(`Location: ${locationText}`);
+  if (data.colo) {
+    details.push(`Edge: ${data.colo}`);
+  }
+
+  badge.title = details.join(" • ");
+}
+
 function renderLocation(locEl, data) {
   const cc = (data.country || "").toUpperCase();
   if (!cc || cc === "XX") {
@@ -31,22 +70,7 @@ function renderLocation(locEl, data) {
 
   const flagEmoji = getFlagEmoji(cc);
   const countryName = getCountryName(cc);
-
-  // Format visible location text: City, Region, Country
-  const locationParts = [];
-  if (data.city && data.city.trim()) {
-    locationParts.push(data.city.trim());
-  }
-  if (
-    data.region &&
-    data.region.trim() &&
-    data.region.trim().toLowerCase() !== data.city?.trim().toLowerCase()
-  ) {
-    locationParts.push(data.region.trim());
-  }
-  locationParts.push(countryName);
-  const locationText = locationParts.join(", ");
-
+  const locationText = buildLocationText(data, countryName);
   const flagImg = `<img src="https://flagcdn.com/24x18/${cc.toLowerCase()}.png" srcset="https://flagcdn.com/48x36/${cc.toLowerCase()}.png 2x" width="18" height="13.5" alt="${cc}" class="edge-flag" onerror="this.replaceWith(document.createTextNode('${flagEmoji}'))" />`;
 
   locEl.innerHTML = `
@@ -56,27 +80,8 @@ function renderLocation(locEl, data) {
     </span>
   `;
 
-  // Update badge title with Cloudflare Radar-style Real IP metadata
   const badge = locEl.closest("#cf-edge-badge, [data-edge-badge]");
-  if (badge) {
-    const details = [];
-    if (data.ip) {
-      details.push(`IP: ${data.ip}`);
-    }
-    if (data.asOrganization || data.asn) {
-      const asnStr = data.asn ? `AS${data.asn}` : "";
-      const orgStr = data.asOrganization || "";
-      const networkStr = [asnStr, orgStr].filter(Boolean).join(" ");
-      if (networkStr) {
-        details.push(`Network: ${networkStr}`);
-      }
-    }
-    details.push(`Location: ${locationText}`);
-    if (data.colo) {
-      details.push(`Edge: ${data.colo}`);
-    }
-    badge.title = details.join(" • ");
-  }
+  updateBadgeTitle(badge, data, locationText);
 }
 
 export async function initVisitorLocation() {
