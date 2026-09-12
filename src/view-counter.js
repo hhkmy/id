@@ -8,7 +8,7 @@ const MAX_TOP_VIEW_LIMIT = 100;
 const isValidArticlePath = (path) =>
   typeof path === "string" &&
   path.length <= MAX_PATH_LENGTH &&
-  /^\/articles\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%/-]*$/i.test(path);
+  /^\/articles?\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%/-]*$/i.test(path);
 
 const parseViewPath = async (request, url) => {
   if (request.method === "GET") {
@@ -159,7 +159,7 @@ export const handleViewCounter = async (request, env) => {
       {
         error: "Invalid article path",
         usage:
-          'GET /api/views?path=/articles/example/ or POST /api/views with {"path":"/articles/example/"}',
+          'GET /api/views?path=/article/example/ or POST /api/views with {"path":"/article/example/"}',
       },
       400,
     );

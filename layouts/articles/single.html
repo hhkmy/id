@@ -49,7 +49,7 @@
 					<p class="article-summary">{{ . | plainify }}</p>
 				{{ end }}
 			</div>
-			<div class="article-meta-card" aria-label="Article details">
+			<div class="article-meta-card" role="group" aria-label="Article details">
 				<div class="article-meta-grid">
 					{{ if .Date }}
 						{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
@@ -188,7 +188,7 @@
 		<footer class="article-footer">
 			{{ $tags := .GetTerms "tags" }}
 			{{ if $tags }}
-				<div class="article-tags" aria-label="Article tags">
+				<div class="article-tags" role="group" aria-label="Article tags">
 					{{ range $tags }}
 						<a href="{{ .RelPermalink }}" class="article-tag">#{{ .LinkTitle }}</a>
 					{{ end }}
