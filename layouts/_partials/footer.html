@@ -6,7 +6,9 @@
 		<div class="relative flex justify-center">
 			<div id="cf-edge-badge" data-edge-badge class="edge-badge group max-w-full" title="Connected via Cloudflare Global Anycast Network">
 				<svg class="size-4 shrink-0 text-[#F38020]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-					<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+					<path
+						d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"
+					/>
 				</svg>
 				<span class="edge-label">Connected:</span>
 				<div id="cf-edge-location" data-edge-location class="edge-location-text">
@@ -41,24 +43,25 @@
 			{{ end }}
 		</div>
 		<div class="flex items-center gap-2 mb-4">
-			{{ range slice (dict "vendor" "social" "name" "debian" "width" "1.1rem" "height" "1.1rem" "color" "#A81D33") (dict "vendor" "social" "name" "raspberrypi"
-				"width" "1.1rem" "height" "1.1rem" "color" "#A22846") (dict "vendor" "social" "name" "openai" "width" "1.1rem" "height" "1.1rem") (dict "vendor" "social"
-				"name" "docker" "width" "1.1rem" "height" "1.1rem" "color" "#2560FF") (dict "vendor" "social" "name" "zed" "width" "1.1rem" "height" "1.1rem" "color"
-				"#1348DC") (dict "vendor" "social" "name" "vscodium" "width" "1.1rem" "height" "1.1rem" "color" "#2F80ED") (dict "vendor" "social" "name" "oneplus" "width"
-				"1.1rem" "height" "1.1rem" "color" "#F5010C") (dict "vendor" "social" "name" "xiaomi" "width" "1.1rem" "height" "1.1rem" "color" "#FF6900") (dict "vendor"
-				"social" "name" "hugo" "width" "1.1rem" "height" "1.1rem" "color" "#FF4088") (dict "vendor" "social" "name" "tailwindcss" "width" "1.1rem" "height" "1.1rem"
-				"color" "#06B6D4")
+			{{ range slice
+				(dict "vendor" "social" "name" "debian" "width" "1.1rem" "height" "1.1rem" "color" "#A81D33")
+				(dict "vendor" "social" "name" "raspberrypi" "width" "1.1rem" "height" "1.1rem" "color" "#A22846")
+				(dict "vendor" "social" "name" "codex" "width" "1.1rem" "height" "1.1rem" "color" "#10A37F")
+				(dict "vendor" "social" "name" "antigravity" "width" "1.1rem" "height" "1.1rem" "color" "#4285F4")
+				(dict "vendor" "social" "name" "docker" "width" "1.1rem" "height" "1.1rem" "color" "#2560FF")
+				(dict "vendor" "social" "name" "zed" "width" "1.1rem" "height" "1.1rem" "color" "#1348DC")
+				(dict "vendor" "social" "name" "vscodium" "width" "1.1rem" "height" "1.1rem" "color" "#2F80ED")
+				(dict "vendor" "social" "name" "oneplus" "width" "1.1rem" "height" "1.1rem" "color" "#F5010C")
+				(dict "vendor" "social" "name" "xiaomi" "width" "1.1rem" "height" "1.1rem" "color" "#FF6900")
+				(dict "vendor" "social" "name" "hugo" "width" "1.1rem" "height" "1.1rem" "color" "#FF4088")
+				(dict "vendor" "social" "name" "tailwindcss" "width" "1.1rem" "height" "1.1rem" "color" "#06B6D4")
 			}}
 				{{ partialCached "icons/icon" . . }}
 			{{ end }}
 		</div>
 		<nav class="mb-4 flex max-w-md flex-wrap items-center justify-center gap-1" aria-label="Site pages">
 			{{ range slice (dict "label" "Lighthouse" "url" "/lighthouse/" "icon" "views") (dict "label" "Previously" "url" "/previously/" "icon" "calendar") (dict "label" "Whois" "url" "/whois/" "icon" "networking") (dict "label" "Updates" "url" "/update/" "icon" "time") (dict "label" "License" "url" "/license/" "icon" "certificate") (dict "label" "Privacy" "url" "/privacy/" "icon" "files") }}
-				<a
-					href="{{ .url }}"
-					aria-label="{{ .label }}"
-					class="site-footer-nav-link"
-				>
+				<a href="{{ .url }}" aria-label="{{ .label }}" class="site-footer-nav-link">
 					{{ $icon := dict "vendor" "default" "name" .icon "width" "1rem" "height" "1rem" }}
 					{{ partialCached "icons/icon" $icon $icon }}
 				</a>

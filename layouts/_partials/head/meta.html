@@ -7,16 +7,20 @@
 {{- $image := .Site.Params.ogimage | default "/images/og.webp" -}}
 {{- with .Params.image -}}{{- $image = . -}}{{- end -}}
 {{- with .Params.featured_image -}}{{- $image = . -}}{{- end -}}
-{{- $imageResource := resources.Get (strings.TrimPrefix "/" $image) -}}
+{{- $imageResource := "" -}}
 {{- $imageURL := $image | absURL -}}
 {{- $imageType := "" -}}
 {{- $imageWidth := 0 -}}
 {{- $imageHeight := 0 -}}
-{{- with $imageResource -}}
-	{{- $imageURL = .Permalink -}}
-	{{- $imageType = .MediaType.Type -}}
-	{{- $imageWidth = .Width -}}
-	{{- $imageHeight = .Height -}}
+{{- if not (or (hasPrefix $image "http://") (hasPrefix $image "https://")) -}}
+	{{- $cleanImg := strings.TrimPrefix "/" $image -}}
+	{{- $res := or (.Resources.GetMatch $image) (.Resources.GetMatch $cleanImg) (resources.Get $image) (resources.Get $cleanImg) (resources.Get (printf "images/%s" (strings.TrimPrefix "images/" $cleanImg))) -}}
+	{{- with $res -}}
+		{{- $imageURL = .Permalink -}}
+		{{- $imageType = .MediaType.Type -}}
+		{{- $imageWidth = .Width -}}
+		{{- $imageHeight = .Height -}}
+	{{- end -}}
 {{- end -}}
 {{- $ogType := cond (eq .Section "articles") "article" "website" -}}
 {{- $author := .Site.Params.author -}}
@@ -30,14 +34,9 @@
 {{ if eq .Section "articles" }}
 	<link rel="preconnect" href="https://comments.hhk.my.id" crossorigin />
 {{ end }}
-<link rel="icon" href="{{ (resources.Get "ui/favicon.ico").RelPermalink }}" type="image/x-icon" />
-<link rel="apple-touch-icon" href="{{ (resources.Get "ui/apple-touch-icon.png").RelPermalink }}" sizes="180x180" />
-<link rel="icon" type="image/png" href="{{ (resources.Get "ui/favicon-32x32.png").RelPermalink }}" sizes="32x32" />
-<link rel="icon" type="image/png" href="{{ (resources.Get "ui/favicon-16x16.png").RelPermalink }}" sizes="16x16" />
-<link rel="manifest" href="{{ (resources.Get "ui/site.webmanifest").RelPermalink }}" />
+{{ partialCached "head/favicons.html" . }}
 <link rel="canonical" href="{{ .Permalink }}" />
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ "index.xml" | absURL }}" />
-<link rel="alternate" type="application/json" title="{{ .Site.Title }} JSON Feed" href="{{ "index.json" | absURL }}" />
 <meta property="og:locale" content="{{ .Site.Language.Locale | default .Site.Language.Lang }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta property="og:title" content="{{ $title }}" />
@@ -71,7 +70,7 @@
 			"datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
 			"dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
 			"author" (dict "@type" "Person" "name" $author "url" .Site.BaseURL)
-			"publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" ((resources.Get "ui/logo.png").Permalink | absURL)))
+			"publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" (partialCached "head/logo-url.html" .)))
 			| jsonify (dict "indent" "\t")
 			| safeJS
 		-}}

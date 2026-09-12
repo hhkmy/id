@@ -17,12 +17,22 @@ enableRobotsTXT = true
     tag = "tags"
     series = "series"
 
+[permalinks.page]
+    articles = "/article/:slugorfilename/"
+
+[outputs]
+    home = ["html", "rss"]
+    section = ["html", "rss"]
+    page = ["html"]
+    taxonomy = ["html"]
+    term = ["html"]
+
 [caches]
     [caches.images]
         dir = ':cacheDir/images'
 
 [imaging]
-    resampleFilter = 'lanczos'
+    resampleFilter = 'catmullrom'
     [imaging.avif]
         compression = 'lossy'
         encoderSpeed = 10
@@ -31,9 +41,7 @@ enableRobotsTXT = true
     [imaging.webp]
         compression = 'lossy'
         hint = 'photo'
-        method = 4
         quality = 75
-        useSharpYuv = true
 
 [params]
     author = "Hein Htet Kyaw"

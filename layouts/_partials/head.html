@@ -19,6 +19,6 @@
 	})();
 </script>
 {{ partialCached "head/css.html" . hugo.IsDevelopment }}
-{{ partial "head/katex.html" . }}
+{{ partialCached "head/katex.html" . (cond (or .Params.katex site.Params.katex.enable) "katex" "no-katex") }}
 {{ partialCached "head/pagefind.html" . hugo.IsDevelopment }}
 {{ partialCached "head/js.html" . }}

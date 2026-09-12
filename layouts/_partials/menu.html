@@ -14,7 +14,13 @@
 	<ul class="mb-0 mt-0 flex flex-row items-center gap-1 sm:gap-2">
 		{{- range . }}
 			<li>
-				{{- $isActive := $page.IsMenuCurrent $menuID . }}
+				{{- $isActive := or ($page.IsMenuCurrent $menuID .) ($page.HasMenuCurrent $menuID .) }}
+				{{- if not $isActive }}
+					{{- $menuURL := strings.TrimRight "/" .URL }}
+					{{- if and (ne $menuURL "") (or (eq $page.Section (strings.TrimPrefix "/" $menuURL)) (strings.HasPrefix $page.RelPermalink (printf "%s/" $menuURL))) }}
+						{{- $isActive = true }}
+					{{- end }}
+				{{- end }}
 				<a
 					href="{{ .URL }}"
 					aria-label="{{ .Name }}"

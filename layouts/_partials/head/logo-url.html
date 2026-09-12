@@ -1,0 +1,3 @@
+{{- with resources.Get "ui/logo.png" -}}
+	{{- return (.Permalink | absURL) -}}
+{{- end -}}
