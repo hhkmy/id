@@ -69,7 +69,7 @@ main() {
 	if [[ -f package-lock.json ]]; then
 		echo "Installing Node.js dependencies..."
 		unset npm_config_allow_scripts NPM_CONFIG_ALLOW_SCRIPTS
-		npm ci
+		npm ci --ignore-scripts
 	fi
 
 	if [[ "${BUILD_MODE}" == "serve" ]]; then
