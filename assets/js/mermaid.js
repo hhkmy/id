@@ -5,7 +5,8 @@ export const initMermaid = async () => {
   }
 
   try {
-    const { default: mermaid } = await import("mermaid");
+    const { default: mermaid } =
+      await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
     const isDark = document.documentElement.classList.contains("dark");
     mermaid.initialize({
       startOnLoad: false,

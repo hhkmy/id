@@ -41,12 +41,14 @@
 		</div>
 
 		{{ if $pages }}
+			{{ $timeIcon := partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "0.9rem" "height" "0.9rem") }}
+			{{ $viewsIcon := partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "0.9rem" "height" "0.9rem") }}
 			<div class="grid gap-4">
 				{{ range $i, $p := $pages }}
 					<article class="term-card">
 						<div class="space-y-1.5 flex-1">
 							<div class="term-card-date">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "0.9rem" "height" "0.9rem") }}
+								{{ $timeIcon }}
 								<span>{{ (time $p.Date).Format "Jan 2, 2006" }}</span>
 								{{ with $p.ReadingTime }}<span>&bull; {{ . }} min read</span>{{ end }}
 							</div>
@@ -63,7 +65,7 @@
 								data-path="{{ $p.RelPermalink }}"
 								aria-live="polite"
 							>
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "0.9rem" "height" "0.9rem") }}
+								{{ $viewsIcon }}
 								<span><span class="count">0</span> views</span>
 							</span>
 							<a

@@ -4,9 +4,8 @@
 {{- with .Params.keywords -}}
 	{{- $keywords = cond (reflect.IsSlice .) (delimit . ", ") . -}}
 {{- end -}}
-{{- $image := .Site.Params.ogimage | default "/images/og.webp" -}}
-{{- with .Params.image -}}{{- $image = . -}}{{- end -}}
-{{- with .Params.featured_image -}}{{- $image = . -}}{{- end -}}
+{{- $customImage := or .Params.image .Params.featured_image -}}
+{{- $image := $customImage | default .Site.Params.ogimage | default "/images/og.webp" -}}
 {{- $imageResource := "" -}}
 {{- $imageURL := $image | absURL -}}
 {{- $imageType := "" -}}
@@ -14,7 +13,13 @@
 {{- $imageHeight := 0 -}}
 {{- if not (or (hasPrefix $image "http://") (hasPrefix $image "https://")) -}}
 	{{- $cleanImg := strings.TrimPrefix "/" $image -}}
-	{{- $res := or (.Resources.GetMatch $image) (.Resources.GetMatch $cleanImg) (resources.Get $image) (resources.Get $cleanImg) (resources.Get (printf "images/%s" (strings.TrimPrefix "images/" $cleanImg))) -}}
+	{{- $res := "" -}}
+	{{- if and $customImage .Resources -}}
+		{{- $res = or (.Resources.GetMatch $image) (.Resources.GetMatch $cleanImg) -}}
+	{{- end -}}
+	{{- if not $res -}}
+		{{- $res = or (resources.Get $cleanImg) (resources.Get (printf "images/%s" (strings.TrimPrefix "images/" $cleanImg))) (resources.Get $image) -}}
+	{{- end -}}
 	{{- with $res -}}
 		{{- $imageURL = .Permalink -}}
 		{{- $imageType = .MediaType.Type -}}

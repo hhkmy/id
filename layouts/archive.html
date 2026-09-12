@@ -38,6 +38,7 @@
 				<p class="section-title">Timeline</p>
 				<h2 class="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">All posts by year</h2>
 			</div>
+			{{ $viewsIcon := partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
 			<div class="grid gap-6">
 				{{ $n := sub (len $years) 1 }}
 				{{ range $i, $dummy := $years }}
@@ -58,7 +59,7 @@
 										data-path="{{ $article.RelPermalink }}"
 										aria-live="polite"
 									>
-										{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
+										{{ $viewsIcon }}
 										<span><span class="count">0</span> views</span>
 									</span>
 								</li>

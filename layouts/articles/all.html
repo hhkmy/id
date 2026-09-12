@@ -37,6 +37,8 @@
 				Browse practical notes on servers, software, DNS, Git, automation, and day-to-day troubleshooting.
 			</p>
 		</div>
+		{{ $timeIcon := partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+		{{ $viewsIcon := partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
 		<div class="article-bento-grid">
 			{{ range $i, $p := $paginator.Pages }}
 				{{ $badge := "Article" }}
@@ -53,12 +55,12 @@
 					<span class="article-category-badge">{{ $badge }}</span>
 					<div class="article-card-meta">
 						<span class="flex items-center gap-1.5"
-							>{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+							>{{ $timeIcon }}
 							{{ (time $p.Date).Format "Jan 2, 2006" }}</span
 						>
 						{{ with $p.ReadingTime }}<span>{{ . }} min read</span>{{ end }}
 						<span class="post-view-count flex items-center gap-1.5" data-path="{{ $p.RelPermalink }}" aria-live="polite">
-							{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
+							{{ $viewsIcon }}
 							<span><span class="count">0</span> views</span>
 						</span>
 					</div>

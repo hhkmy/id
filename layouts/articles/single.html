@@ -56,7 +56,7 @@
 						{{ $dateHuman := .Date | time.Format ":date_long" }}
 						<div class="article-meta-stat">
 							<span class="article-meta-icon">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+								{{ partialCached "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") "icon-default-time-1rem" }}
 							</span>
 							<div class="min-w-0">
 								<span class="article-meta-stat-label">Published</span>
@@ -67,7 +67,7 @@
 					{{ with site.Params.author }}
 						<div class="article-meta-stat">
 							<span class="article-meta-icon">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }}
+								{{ partialCached "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") "icon-default-author-1rem" }}
 							</span>
 							<div class="min-w-0">
 								<span class="article-meta-stat-label">Author</span>
@@ -78,7 +78,7 @@
 					{{ with .ReadingTime }}
 						<div class="article-meta-stat">
 							<span class="article-meta-icon">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "mins" "width" "1rem" "height" "1rem") }}
+								{{ partialCached "icons/icon" (dict "vendor" "default" "name" "mins" "width" "1rem" "height" "1rem") "icon-default-mins-1rem" }}
 							</span>
 							<div class="min-w-0">
 								<span class="article-meta-stat-label">Read Time</span>
@@ -89,7 +89,7 @@
 					{{ with .WordCount }}
 						<div class="article-meta-stat">
 							<span class="article-meta-icon">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "words" "width" "1rem" "height" "1rem") }}
+								{{ partialCached "icons/icon" (dict "vendor" "default" "name" "words" "width" "1rem" "height" "1rem") "icon-default-words-1rem" }}
 							</span>
 							<div class="min-w-0">
 								<span class="article-meta-stat-label">Length</span>
@@ -99,7 +99,7 @@
 					{{ end }}
 					<div class="article-meta-stat view-counter" data-path="{{ .RelPermalink }}" aria-live="polite">
 						<span class="article-meta-icon">
-							{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
+							{{ partialCached "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") "icon-default-views-1rem" }}
 						</span>
 						<div class="min-w-0">
 							<span class="article-meta-stat-label">Views</span>
@@ -112,7 +112,7 @@
 				{{ if $categories }}
 					<div class="article-meta-footer">
 						<span class="article-meta-footer-label">
-							{{ partial "icons/icon" (dict "vendor" "default" "name" "files" "width" "0.9rem" "height" "0.9rem") }}
+							{{ partialCached "icons/icon" (dict "vendor" "default" "name" "files" "width" "0.9rem" "height" "0.9rem") "icon-default-files-0.9rem" }}
 							<span>Categories:</span>
 						</span>
 						<div class="article-meta-categories">
@@ -132,7 +132,7 @@
 				<div class="series-nav-header">
 					<div class="flex items-center gap-2.5">
 						<span class="series-nav-icon">
-							{{ partial "icons/icon" (dict "vendor" "default" "name" "posts" "width" "1.1rem" "height" "1.1rem") }}
+							{{ partialCached "icons/icon" (dict "vendor" "default" "name" "posts" "width" "1.1rem" "height" "1.1rem") "icon-default-posts-1.1rem" }}
 						</span>
 						<div>
 							<span class="series-nav-tag">Series</span>

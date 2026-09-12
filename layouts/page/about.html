@@ -24,7 +24,7 @@
 		</header>
 
 		<section class="panel">
-			<h2 class="about-section-heading">{{ partial "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem") }} Contact</h2>
+			<h2 class="about-section-heading">{{ partialCached "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem") "icon-default-contact-1.2rem" }} Contact</h2>
 			<ul class="about-contact-grid">
 				{{ range hugo.Data.about.contact }}
 					<li class="about-contact-card">
@@ -42,14 +42,14 @@
 		</section>
 
 		<section class="panel">
-			<h2 class="about-section-heading">{{ partial "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem") }} Employment</h2>
+			<h2 class="about-section-heading">{{ partialCached "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem") "icon-default-work-1.2rem" }} Employment</h2>
 			<ol class="about-timeline">
 				{{ range hugo.Data.about.employment }}
 					<li class="about-timeline-item">
 						<div class="about-timeline-year">{{ .year }}</div>
 						<div>
 							<h3 class="about-timeline-company">
-								{{ partial "icons/icon" (dict "vendor" "default" "name" "worker" "width" "1rem" "height" "1rem") }}
+								{{ partialCached "icons/icon" (dict "vendor" "default" "name" "worker" "width" "1rem" "height" "1rem") "icon-default-worker-1rem" }}
 								{{ .company }}
 							</h3>
 							<p class="about-timeline-role">{{ .role }}</p>
@@ -68,12 +68,12 @@
 
 		<section class="panel">
 			<h2 class="about-section-heading">
-				{{ partial "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem") }} Education and Qualifications
+				{{ partialCached "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem") "icon-default-education-1.2rem" }} Education and Qualifications
 			</h2>
 			<div class="grid gap-6 md:grid-cols-2">
 				<div class="about-card">
 					<h3 class="about-subheading">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1rem" "height" "1rem") }} Education
+						{{ partialCached "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1rem" "height" "1rem") "icon-default-learning-1rem" }} Education
 					</h3>
 					<ul class="space-y-4">
 						{{ range hugo.Data.about.education }}
@@ -82,26 +82,20 @@
 									<span class="about-entry-title">{{ .name }}</span>
 									<span class="about-entry-year">{{ .year }}</span>
 								</div>
-								<p class="about-entry-meta">
-									{{ if .link }}
-										<a href="{{ .link | safeURL }}" class="hover:underline">{{ .location }}</a>
-									{{ else }}
-										{{ .location }}
-									{{ end }}
-								</p>
+								<p class="about-entry-meta">{{ if .link }}<a href="{{ .link | safeURL }}" class="hover:underline">{{ .location }}</a>{{ else }}{{ .location }}{{ end }}</p>
 							</li>
 						{{ end }}
 					</ul>
 				</div>
 				<div class="about-card">
 					<h3 class="about-subheading">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "qualification" "width" "1rem" "height" "1rem") }} Qualifications
+						{{ partialCached "icons/icon" (dict "vendor" "default" "name" "qualification" "width" "1rem" "height" "1rem") "icon-default-qualification-1rem" }} Qualifications
 					</h3>
 					<ul class="space-y-4">
 						{{ range hugo.Data.about.qualifications }}
 							<li>
 								<div class="about-entry-title flex items-center gap-2">
-									{{ partial "icons/icon" (dict "vendor" "default" "name" "certificate" "width" "1rem" "height" "1rem") }}
+									{{ partialCached "icons/icon" (dict "vendor" "default" "name" "certificate" "width" "1rem" "height" "1rem") "icon-default-certificate-1rem" }}
 									{{ .name }}
 								</div>
 								<p class="about-entry-meta">{{ .year }} - {{ .training }}, {{ .location }}</p>
@@ -115,7 +109,7 @@
 		<section class="panel">
 			<div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
 				<h2 class="about-section-heading mb-0">
-					{{ partial "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem") }} Skills
+					{{ partialCached "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem") "icon-default-skills-1.2rem" }} Skills
 				</h2>
 				<div class="skill-filter-tabs flex flex-wrap gap-2" role="tablist" aria-label="Skill categories">
 					<button type="button" class="skill-filter-btn active" data-filter="all">All ({{ len hugo.Data.about.skills }})</button>
