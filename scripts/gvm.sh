@@ -13,12 +13,14 @@ readonly COLOR_CYAN='\033[36m'
 readonly GO_VERSIONS_URL="https://go.dev/dl/?mode=json"
 readonly GO_DOWNLOAD_BASE="https://go.dev/dl/"
 readonly DEFAULT_INSTALL_DIR="/usr/local"
+readonly ARCH_ARMV6L="armv6l"
 
 # Helper function to print with colors
 print_color() {
     local color=$1
     local message=$2
     printf "${color}%s${COLOR_RESET}" "$message"
+    return 0
 }
 
 # Helper function to print with colors and newline
@@ -26,6 +28,7 @@ print_color_ln() {
     local color=$1
     local message=$2
     printf "${color}%s${COLOR_RESET}\n" "$message"
+    return 0
 }
 
 # Helper function to get current Go version
@@ -35,6 +38,7 @@ get_current_go_version() {
     else
         echo ""
     fi
+    return 0
 }
 
 # Helper function to detect current shell
@@ -65,6 +69,7 @@ print_banner() {
     echo ""
     print_color "$COLOR_MAGENTA" "╚════════════════════════════════════════╝"
     echo ""
+    return 0
 }
 
 # Print system information
@@ -84,8 +89,9 @@ print_system_info() {
     case "$arch" in
         "x86_64") arch="amd64" ;;
         "i386"|"i686") arch="386" ;;
-        "armv6l"|"armv7l") arch="armv6l" ;;
+        "armv6l"|"armv7l") arch="$ARCH_ARMV6L" ;;
         "aarch64") arch="arm64" ;;
+        *) ;;
     esac
     printf "  Architecture: "
     print_color "$COLOR_YELLOW" "$arch"
@@ -112,6 +118,7 @@ print_system_info() {
     printf "  Shell:        "
     print_color "$COLOR_YELLOW" "$shell"
     echo ""
+    return 0
 }
 
 # Get latest stable Go version
@@ -167,6 +174,7 @@ clean_previous_install() {
         echo ""
         rm -rf "$go_path"
     fi
+    return 0
 }
 
 # Extract tar.gz
@@ -274,8 +282,9 @@ install_go() {
     case "$arch" in
         "x86_64") arch="amd64" ;;
         "i386"|"i686") arch="386" ;;
-        "armv6l"|"armv7l") arch="armv6l" ;;
+        "armv6l"|"armv7l") arch="$ARCH_ARMV6L" ;;
         "aarch64") arch="arm64" ;;
+        *) ;;
     esac
     
     # Construct download URL
@@ -335,6 +344,7 @@ install_go() {
     
     # Clean up
     rm -f "$temp_file"
+    return 0
 }
 
 # Print success message
@@ -364,6 +374,7 @@ print_success() {
     print_color "$COLOR_CYAN" "go version"
     echo ""
     echo ""
+    return 0
 }
 
 # Exit with error

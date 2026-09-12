@@ -107,12 +107,11 @@ def generate_qr_code_dark(url: str, output_path: str):
             if first_tag != -1:
                 svg_data = svg_data[first_tag:]
         # Insert a black background rect and set all path fills to white
-        import re
         svg_tag_end = svg_data.find('>')
         if svg_tag_end != -1:
             rect = '<rect width="100%" height="100%" fill="#000"/>'
             svg_data = svg_data[:svg_tag_end+1] + rect + svg_data[svg_tag_end+1:]
-        svg_data = re.sub(r'fill="#000000"', 'fill="#ffffff"', svg_data)
+        svg_data = svg_data.replace('fill="#000000"', 'fill="#ffffff"')
         # Add XML declaration back
         svg_data = '<?xml version="1.0" encoding="UTF-8"?>\n' + svg_data
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
