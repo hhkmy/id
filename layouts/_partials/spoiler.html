@@ -1,3 +1,3 @@
 {{- $content := .content | default "" -}}
 {{- $class := .class | default "" -}}
-<span class="spoiler{{ with $class }} {{ . }}{{ end }}" tabindex="0" role="button" aria-expanded="false" title="Click to reveal"><span class="spoiler-inner">{{ $content | safeHTML }}</span></span>
+<button type="button" class="spoiler{{ with $class }} {{ . }}{{ end }}" aria-expanded="false" title="Click to reveal"><span class="spoiler-inner">{{ $content | safeHTML }}</span></button>

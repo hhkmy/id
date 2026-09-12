@@ -7,33 +7,29 @@
 import { initSpoiler } from "./spoiler.js";
 import { initTelegramPremiumEmoji } from "./telegram-premium-emoji.js";
 
-/**
- * Hydrates an individual plan card with live data.
- * @param {HTMLElement} card
- * @param {any} plan
- */
-function hydratePlanCard(card, plan) {
-  if (!card || !plan) return;
-
-  // 1. Update Price if changed
+function updateCardPrice(card, price) {
+  if (!price) return;
   const priceEl = card.querySelector("[data-shop-price]");
-  if (priceEl && plan.price) {
-    const spoiler = priceEl.querySelector(".spoiler");
-    if (spoiler && spoiler.textContent.trim() !== plan.price) {
+  if (!priceEl) return;
+
+  const spoiler = priceEl.querySelector(".spoiler");
+  if (spoiler) {
+    if (spoiler.textContent.trim() !== price) {
       const inner = spoiler.querySelector(".spoiler-inner");
       if (inner) {
-        inner.textContent = plan.price;
+        inner.textContent = price;
       } else {
-        spoiler.textContent = plan.price;
+        spoiler.textContent = price;
       }
-    } else if (!spoiler && priceEl.textContent.trim() !== plan.price) {
-      priceEl.textContent = plan.price;
     }
+  } else if (priceEl.textContent.trim() !== price) {
+    priceEl.textContent = price;
   }
+}
 
-  // 2. Update Popular badge & highlight class
+function updateCardBadge(card, highlight) {
   const popularBadge = card.querySelector("[data-shop-popular-badge]");
-  if (plan.highlight) {
+  if (highlight) {
     card.classList.add("shop-card-highlight");
     if (!popularBadge) {
       const header = card.querySelector(".shop-card-header");
@@ -51,29 +47,44 @@ function hydratePlanCard(card, plan) {
       popularBadge.remove();
     }
   }
+}
 
-  // 3. Update Buy URL if changed
+function updateCardBuyUrl(card, buyUrl) {
+  if (!buyUrl) return;
   const buyBtn = card.querySelector("[data-shop-buy-btn]");
-  if (buyBtn && plan.buy_url && buyBtn.getAttribute("href") !== plan.buy_url) {
-    buyBtn.setAttribute("href", plan.buy_url);
+  if (buyBtn && buyBtn.getAttribute("href") !== buyUrl) {
+    buyBtn.setAttribute("href", buyUrl);
   }
+}
 
-  // 4. Update Custom Emoji if changed
-  if (plan.premium_emoji_id) {
-    const emojiEl = card.querySelector("[data-shop-emoji]");
-    if (emojiEl) {
-      const currentSource = emojiEl.dataset.telegramEmoji || "";
-      const expectedSource = `/api/emoji/${plan.premium_emoji_id}`;
-      const staticSource = `/icons/premiumemojis/${plan.premium_emoji_id}.tgs.base64`;
+function updateCardEmoji(card, emojiId) {
+  if (!emojiId) return;
+  const emojiEl = card.querySelector("[data-shop-emoji]");
+  if (!emojiEl) return;
 
-      if (currentSource !== expectedSource && currentSource !== staticSource) {
-        emojiEl.dataset.telegramEmoji = expectedSource;
-        delete emojiEl.dataset.emojiState;
-        emojiEl.replaceChildren();
-        initTelegramPremiumEmoji();
-      }
-    }
+  const currentSource = emojiEl.dataset.telegramEmoji || "";
+  const expectedSource = `/api/emoji/${emojiId}`;
+  const staticSource = `/icons/premiumemojis/${emojiId}.tgs.base64`;
+
+  if (currentSource !== expectedSource && currentSource !== staticSource) {
+    emojiEl.dataset.telegramEmoji = expectedSource;
+    delete emojiEl.dataset.emojiState;
+    emojiEl.replaceChildren();
+    initTelegramPremiumEmoji();
   }
+}
+
+/**
+ * Hydrates an individual plan card with live data.
+ * @param {HTMLElement} card
+ * @param {any} plan
+ */
+function hydratePlanCard(card, plan) {
+  if (!card || !plan) return;
+  updateCardPrice(card, plan.price);
+  updateCardBadge(card, plan.highlight);
+  updateCardBuyUrl(card, plan.buy_url);
+  updateCardEmoji(card, plan.premium_emoji_id);
 }
 
 /**

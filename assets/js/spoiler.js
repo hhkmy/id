@@ -22,11 +22,13 @@ export function initSpoiler() {
     if (spoiler.dataset.spoilerInit) return;
     spoiler.dataset.spoilerInit = "true";
 
-    if (!spoiler.hasAttribute("tabindex")) {
-      spoiler.setAttribute("tabindex", "0");
-    }
-    if (!spoiler.hasAttribute("role")) {
-      spoiler.setAttribute("role", "button");
+    if (spoiler.tagName !== "BUTTON") {
+      if (!spoiler.hasAttribute("tabindex")) {
+        spoiler.setAttribute("tabindex", "0");
+      }
+      if (!spoiler.hasAttribute("role")) {
+        spoiler.setAttribute("role", "button");
+      }
     }
     if (!spoiler.hasAttribute("aria-expanded")) {
       spoiler.setAttribute("aria-expanded", "false");

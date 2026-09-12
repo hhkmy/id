@@ -645,8 +645,10 @@ img.emoji {
 }
 
 .spoiler {
-  @apply relative inline-flex items-center cursor-pointer select-none align-baseline;
+  @apply relative inline-flex items-center cursor-pointer select-none align-baseline border-0 p-0 text-inherit;
   background: transparent !important;
+  font: inherit;
+  text-align: inherit;
 
   /* Balanced, delicate blur with clean text shape */
   & .spoiler-inner {

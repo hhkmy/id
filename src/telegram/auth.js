@@ -197,7 +197,7 @@ export async function verifyTelegramWidgetAuth(
     // 2. data_check_string
     const sortedKeys = Object.keys(fields)
       .filter((k) => fields[k] !== undefined && fields[k] !== null)
-      .sort();
+      .sort((a, b) => a.localeCompare(b));
     const dataCheckString = sortedKeys
       .map((k) => `${k}=${fields[k]}`)
       .join("\n");

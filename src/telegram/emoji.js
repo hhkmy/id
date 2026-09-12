@@ -46,6 +46,30 @@ export function extractCustomEmojiId(message) {
   return info ? info.customEmojiId : null;
 }
 
+async function downloadTelegramStickerAsBase64(botToken, fileId) {
+  const fileRes = await fetch(
+    `https://api.telegram.org/bot${botToken}/getFile?file_id=${fileId}`,
+  );
+  if (!fileRes.ok) return null;
+
+  const fileData = await fileRes.json();
+  const filePath = fileData.result?.file_path;
+  if (!filePath) return null;
+
+  const downloadRes = await fetch(
+    `https://api.telegram.org/file/bot${botToken}/${filePath}`,
+  );
+  if (!downloadRes.ok) return null;
+
+  const buffer = await downloadRes.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  for (let i = 0; i < bytes.byteLength; i++) {
+    binary += String.fromCodePoint(bytes[i]);
+  }
+  return btoa(binary);
+}
+
 /**
  * Fetches a Telegram custom emoji sticker (.tgs.base64) using Bot API and caches it in KV.
  * @param {string} customEmojiId
@@ -82,31 +106,9 @@ export async function fetchAndCacheEmoji(customEmojiId, env) {
 
     const stickersData = await stickersRes.json();
     const sticker = stickersData.result?.[0];
-    if (!sticker || !sticker.file_id) return null;
+    if (!sticker?.file_id) return null;
 
-    // Get file path from Telegram
-    const fileRes = await fetch(
-      `https://api.telegram.org/bot${botToken}/getFile?file_id=${sticker.file_id}`,
-    );
-    if (!fileRes.ok) return null;
-
-    const fileData = await fileRes.json();
-    const filePath = fileData.result?.file_path;
-    if (!filePath) return null;
-
-    // Download the .tgs file (gzipped lottie)
-    const downloadRes = await fetch(
-      `https://api.telegram.org/file/bot${botToken}/${filePath}`,
-    );
-    if (!downloadRes.ok) return null;
-
-    const buffer = await downloadRes.arrayBuffer();
-    const bytes = new Uint8Array(buffer);
-    let binary = "";
-    for (let i = 0; i < bytes.byteLength; i++) {
-      binary += String.fromCodePoint(bytes[i]);
-    }
-    const base64 = btoa(binary);
+    const base64 = await downloadTelegramStickerAsBase64(botToken, sticker.file_id);
 
     // Cache in KV
     if (env.SHOP_DATA && base64) {
@@ -150,8 +152,8 @@ export async function resolveEmojiFromUrl(url) {
 
     const html = await res.text();
     const match =
-      html.match(/<tg-emoji\s+emoji-id="(\d+)"[^>]*>.*?<b>([^<]+)<\/b>.*?<\/tg-emoji>/s) ||
-      html.match(/<tg-emoji\s+emoji-id="(\d+)"/);
+      /<tg-emoji\s+emoji-id="(\d+)"[^>]*>.*?<b>([^<]+)<\/b>.*?<\/tg-emoji>/s.exec(html) ||
+      /<tg-emoji\s+emoji-id="(\d+)"/.exec(html);
 
     if (match) {
       return {
