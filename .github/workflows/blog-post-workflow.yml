@@ -1,0 +1,61 @@
+name: Update Recent Articles in README
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "content/articles/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-post-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update-readme-with-blog:
+    name: Update README with latest blog posts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Wait for Cloudflare deployment in RSS feed
+        shell: bash
+        run: |
+          FEED_URL="https://hhk.my.id/articles/index.xml"
+          LATEST_SLUG=$(git log -1 --name-only -- 'content/articles/**/index.md' | grep -E '^content/articles/[^/]+/index\.md' | head -n 1 | cut -d'/' -f3 || true)
+
+          if [[ -z "$LATEST_SLUG" ]]; then
+            echo "No specific article slug detected in the latest commit. Proceeding directly..."
+            exit 0
+          fi
+
+          echo "Waiting for article '$LATEST_SLUG' to appear in $FEED_URL..."
+          for i in {1..30}; do
+            if curl -s "$FEED_URL" | grep -q "/article/${LATEST_SLUG}/"; then
+              echo "Article is live on Cloudflare! Proceeding with README update..."
+              exit 0
+            fi
+            echo "Not live yet. Waiting 10 seconds... (attempt $i/30)"
+            sleep 10
+          done
+
+          echo "Timed out waiting for article to appear in live RSS feed."
+          exit 1
+
+      - name: Update README with blog posts
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: "https://hhk.my.id/articles/index.xml"
+          readme_path: "./.github/README.md"
+          max_post_count: 5
+          enable_keepalive: false
+          committer_username: "github-actions[bot]"
+          committer_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_message: "docs(readme): update recent articles list"

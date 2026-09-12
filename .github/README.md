@@ -83,6 +83,11 @@ This repository contains the source for that website, including the Hugo configu
 - **Edge APIs:** Dynamic `/api/edge-info` endpoint providing real visitor IP and Cloudflare Radar infrastructure metadata (colo, ASN, TLS/HTTP protocol), alongside Durable Objects for real-time view counting (`/api/views`).
 - **Client-side Search:** Fast in-browser full-text search powered by Pagefind indexing.
 
+## Recent Articles
+
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
+
 ## Requirement
 
 [![Github](https://img.shields.io/badge/Github-action?style=flat-square&logo=github&logoColor=white&labelColor=0d1117&color=24292f)](https://github.com)
