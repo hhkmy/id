@@ -26,6 +26,8 @@ pnpm-debug.log*
 
 # Cloudflare/Wrangler local state
 .wrangler
+.dev.vars*
+.env*
 
 # Hugo build output
 resources

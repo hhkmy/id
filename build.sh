@@ -30,21 +30,26 @@ latest_hugo_version() {
 main() {
 	export TZ
 	export HUGO_CACHEDIR
+	unset npm_config_allow_scripts NPM_CONFIG_ALLOW_SCRIPTS npm_config_global_ignore_file NPM_CONFIG_GLOBAL_IGNORE_FILE
 
 	build_temp_dir=$(mktemp -d)
 	mkdir -p "${HOME}/.local"
 
-	HUGO_VERSION=$(latest_hugo_version)
-	echo "Installing Hugo ${HUGO_VERSION}..."
-	curl --proto "${HTTPS_PROTO}" --proto-redir "${HTTPS_PROTO}" -sfL --output-dir "${build_temp_dir}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-	mkdir -p "${HOME}/.local/hugo"
-	tar -C "${HOME}/.local/hugo" -xf "${build_temp_dir}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+	if [[ ! -x "${HOME}/.local/hugo/hugo" ]]; then
+		HUGO_VERSION=$(latest_hugo_version)
+		echo "Installing Hugo ${HUGO_VERSION}..."
+		curl --proto "${HTTPS_PROTO}" --proto-redir "${HTTPS_PROTO}" -sfL --output-dir "${build_temp_dir}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+		mkdir -p "${HOME}/.local/hugo"
+		tar -C "${HOME}/.local/hugo" -xf "${build_temp_dir}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+	fi
 	export PATH="${HOME}/.local/hugo:${PATH}"
 
 	if [[ -f "package-lock.json" ]]; then
-		echo "Installing Node.js ${NODE_VERSION}..."
-		curl --proto "${HTTPS_PROTO}" --proto-redir "${HTTPS_PROTO}" -sfL --output-dir "${build_temp_dir}" -O "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
-		tar -C "${HOME}/.local" -xf "${build_temp_dir}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+		if [[ ! -x "${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin/node" ]]; then
+			echo "Installing Node.js ${NODE_VERSION}..."
+			curl --proto "${HTTPS_PROTO}" --proto-redir "${HTTPS_PROTO}" -sfL --output-dir "${build_temp_dir}" -O "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+			tar -C "${HOME}/.local" -xf "${build_temp_dir}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+		fi
 		export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 	fi
 

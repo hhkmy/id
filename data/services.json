@@ -4,6 +4,11 @@
     "handle": "@MPXStore",
     "url": "https://t.me/MPXStore"
   },
+  "stars_info": {
+    "rate": "1 Star = 70 MMK",
+    "min": 50,
+    "note": "Stars are 70 MMK each (minimum 50 Stars). Custom amounts available. Payment transfers must be rounded to hundreds."
+  },
   "payment_methods": [
     {
       "name": "AYA Pay",
@@ -39,6 +44,7 @@
   },
   "plans": [
     {
+      "category": "Telegram Premium",
       "title": "Telegram Premium",
       "duration": "1 Year",
       "price": "148,000 MMK",
@@ -48,6 +54,7 @@
       "highlight": false
     },
     {
+      "category": "Telegram Premium",
       "title": "Telegram Premium",
       "duration": "6 Months",
       "price": "81,500 MMK",
@@ -57,6 +64,7 @@
       "highlight": false
     },
     {
+      "category": "Telegram Premium",
       "title": "Telegram Premium",
       "duration": "3 Months",
       "price": "61,500 MMK",
@@ -66,6 +74,7 @@
       "highlight": false
     },
     {
+      "category": "Telegram Premium",
       "title": "Telegram Premium",
       "duration": "1 Month",
       "price": "22,500 MMK",
@@ -75,15 +84,187 @@
       "highlight": true
     },
     {
+      "category": "Gram",
+      "title": "Gram",
+      "duration": "1 Gram",
+      "price": "6,200 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%201%20Gram.",
+      "premium_emoji_id": "6169992765795999529",
+      "emoji": "💎",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "50 Stars",
+      "price": "3,500 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%2050%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "75 Stars",
+      "price": "5,300 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%2075%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "100 Stars",
+      "price": "7,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20100%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "200 Stars",
+      "price": "14,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20200%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "300 Stars",
+      "price": "21,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20300%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "400 Stars",
+      "price": "28,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20400%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "500 Stars",
+      "price": "35,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20500%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": true
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "600 Stars",
+      "price": "42,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20600%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "700 Stars",
+      "price": "49,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20700%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "800 Stars",
+      "price": "56,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20800%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "900 Stars",
+      "price": "63,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20900%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "1,000 Stars",
+      "price": "70,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%201000%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "2,000 Stars",
+      "price": "140,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%202000%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "3,000 Stars",
+      "price": "210,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%203000%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "4,000 Stars",
+      "price": "280,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%204000%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Telegram Stars",
+      "title": "Telegram Stars",
+      "duration": "5,000 Stars",
+      "price": "350,000 MMK",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%205000%20Telegram%20Stars.",
+      "premium_emoji_id": "6325838686378269641",
+      "emoji": "⭐️",
+      "highlight": false
+    },
+    {
+      "category": "Other Services",
       "title": "Google Gemini AI",
       "duration": "18 Months",
       "price": "50,000 MMK",
       "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20Google%20Gemini%20AI%2018%20Months.",
-      "twemoji_icon": "2728",
+      "premium_emoji_id": "6210689895912968015",
       "emoji": "✨",
       "highlight": false
     },
     {
+      "category": "Other Services",
       "title": "OpenVPN Profile",
       "duration": "1 Month",
       "price": "8,000 MMK",

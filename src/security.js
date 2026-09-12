@@ -18,6 +18,7 @@ export const createCsp = (nonce) => {
       "https://comments.hhk.my.id",
       "https://api.github.com",
       "https://cloudflareinsights.com",
+      "https://*.telesco.pe",
     ].join(" "),
     [
       "img-src 'self' data:",
@@ -26,6 +27,12 @@ export const createCsp = (nonce) => {
       "https://raw.githubusercontent.com",
       "https://i.ytimg.com",
       "https://flagcdn.com",
+      "https://cdn.jsdelivr.net",
+      "https://*.telesco.pe",
+      "https://t.me",
+      "https://*.telegram.org",
+      "https://telegram.org",
+      "https://github.com",
     ].join(" "),
     [
       "style-src 'self' 'unsafe-inline'",
@@ -39,17 +46,17 @@ export const createCsp = (nonce) => {
       "https://www.youtube.com",
       "https://www.youtube-nocookie.com",
     ].join(" "),
-    [
-      "font-src 'self' data:",
-      "https://cdn.jsdelivr.net",
-    ].join(" "),
-    "media-src 'self'",
+    ["font-src 'self' data:", "https://cdn.jsdelivr.net"].join(" "),
+    "media-src 'self' data: https://*.telesco.pe",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
     [
       "frame-ancestors 'self'",
       "https://*.cloudflarepreviews.com",
+      "https://web.telegram.org",
+      "https://*.telegram.org",
+      "https://*.t.me",
     ].join(" "),
     "upgrade-insecure-requests",
   ].join("; ");

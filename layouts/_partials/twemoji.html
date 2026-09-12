@@ -9,11 +9,25 @@
 					script.crossOrigin = "anonymous";
 					script.onload = function () {
 						if (window.twemoji) {
-							window.twemoji.parse(document.querySelector("main") || document.body, {
+							var container = document.querySelector("main") || document.body;
+							var targets = container.querySelectorAll(".prose, article, header, .home-hero, .panel-summary, .panel-heading");
+							var options = {
 								base: "https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/",
 								folder: "svg",
 								ext: ".svg",
-							});
+								attributes: function () {
+									return { width: "16", height: "16" };
+								},
+							};
+							if (targets.length) {
+								targets.forEach(function (el) {
+									if (!el.closest("#service-plans") && !el.closest(".shop-filter-grid")) {
+										window.twemoji.parse(el, options);
+									}
+								});
+							} else {
+								window.twemoji.parse(container, options);
+							}
 						}
 					};
 					document.head.appendChild(script);

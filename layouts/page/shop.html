@@ -3,6 +3,33 @@
 	{{ $plans := hugo.Data.services.plans }}
 	{{ $paymentMethods := hugo.Data.services.payment_methods }}
 	{{ $paymentDetails := hugo.Data.services.payment_details }}
+	{{/* Partition plans into 4 distinct product categories */}}
+	{{ $premiumItems := slice }}
+	{{ $starsItems := slice }}
+	{{ $gramItems := slice }}
+	{{ $otherItems := slice }}
+
+	{{ range $index, $plan := $plans }}
+		{{ $cat := lower (default "" .category) }}
+		{{ $title := lower (default "" .title) }}
+		{{ $item := dict "plan" $plan "index" $index }}
+		{{ if or (strings.Contains $cat "premium") (strings.Contains $title "premium") }}
+			{{ $premiumItems = $premiumItems | append $item }}
+		{{ else if or (strings.Contains $cat "star") (strings.Contains $title "star") }}
+			{{ $starsItems = $starsItems | append $item }}
+		{{ else if or (strings.Contains $cat "gram") (strings.Contains $title "gram") }}
+			{{ $gramItems = $gramItems | append $item }}
+		{{ else }}
+			{{ $otherItems = $otherItems | append $item }}
+		{{ end }}
+	{{ end }}
+
+	{{ $categorySections := slice
+		(dict "key" "premium" "title" "Telegram Premium" "shortTitle" "Premium" "emoji" "🎁" "emojiId" "6192798024230505469" "desc" "Official Telegram Premium subscriptions with instant direct activation." "items" $premiumItems)
+		(dict "key" "stars" "title" "Telegram Stars" "shortTitle" "Stars" "emoji" "⭐️" "emojiId" "6325838686378269641" "desc" "Telegram Stars for bots, mini apps, channels, and digital gifts (70 MMK / Star)." "items" $starsItems)
+		(dict "key" "gram" "title" "Gram" "shortTitle" "Gram" "emoji" "💎" "emojiId" "6169992765795999529" "desc" "Gram tokens for Telegram ecosystem and TON transactions." "items" $gramItems)
+		(dict "key" "other" "title" "Other Services" "shortTitle" "Others" "emoji" "🌐" "emojiId" "6294148308839442271" "desc" "Google Gemini AI subscriptions and high-speed OpenVPN profiles." "items" $otherItems)
+	}}
 	<section class="space-y-10">
 		<header class="home-hero">
 			<div class="home-hero-copy">
@@ -39,63 +66,168 @@
 				<p class="panel-summary">Select a product, then contact {{ $shop.name }} on Telegram to complete your order.</p>
 			</div>
 
-			<ul class="shop-grid">
-				{{ range $plans }}
-					{{ $planLabel := .title }}
-					{{ with .duration }}{{ $planLabel = printf "%s — %s" $planLabel . }}{{ end }}
-					{{ $planEmoji := false }}
-					{{ with .twemoji_icon }}{{ $planEmoji = resources.Get (printf "twemoji/svg/%s.svg" .) }}{{ end }}
-					{{ $cardClass := "shop-card" }}
-					{{ if .highlight }}{{ $cardClass = printf "%s shop-card-highlight" $cardClass }}{{ end }}
-					<li class="{{ $cardClass }}">
-						<div class="shop-card-top">
-							<div class="shop-card-header">
-								<span class="shop-service-pill">
-									{{ if .premium_emoji_id }}
-										<span
-											class="shop-card-icon telegram-premium-emoji"
-											data-telegram-emoji="/icons/premiumemojis/{{ .premium_emoji_id }}.tgs.base64"
-											aria-hidden="true"
-										></span>
-									{{ else if $planEmoji }}
-										<span class="shop-card-icon">
-											<img
-												src="{{ $planEmoji.RelPermalink }}"
-												width="18"
-												height="18"
-												alt="{{ .emoji }}"
-												class="shop-plan-emoji"
-												loading="lazy"
-												decoding="async"
-											/>
-										</span>
-									{{ end }}
-									<span>{{ .title }}</span>
-								</span>
-								{{ if .highlight }}
-									<span class="shop-popular-badge">
-										<span>Popular</span>
-									</span>
-								{{ end }}
-							</div>
-							<div class="shop-card-body">
-								<h3 class="shop-plan-duration">{{ .duration | default .title }}</h3>
-							</div>
-						</div>
-						<div class="shop-card-bottom">
-							<div class="shop-plan-price-wrap">
-								<p class="shop-plan-price">{{ .price }}</p>
-								<span class="shop-plan-price-label">Direct order</span>
-							</div>
-							<a href="{{ .buy_url | safeURL }}" class="shop-buy-button" target="_blank" rel="noopener noreferrer">
-								<span>Buy on Telegram</span>
-								<span class="sr-only">: {{ $planLabel }} ({{ $shop.name }})</span>
-								{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1rem" "height" "1rem") }}
-							</a>
-						</div>
-					</li>
+			<div class="shop-filter-grid" role="tablist" aria-label="Product categories" data-shop-filter-nav>
+				<button
+					type="button"
+					role="tab"
+					aria-selected="true"
+					class="shop-filter-card shop-filter-card-full-mobile active"
+					data-filter="all"
+				>
+					<span class="shop-filter-card-icon" aria-hidden="true">📋</span>
+					<span class="shop-filter-card-title">All Plans</span>
+					<span class="shop-filter-card-badge">{{ len $plans }} Plans</span>
+				</button>
+				{{ range $categorySections }}
+					<button
+						type="button"
+						role="tab"
+						aria-selected="false"
+						class="shop-filter-card"
+						data-filter="{{ .key }}"
+					>
+						<span class="shop-filter-card-icon">
+							{{ if .emojiId }}
+								<span
+									class="telegram-premium-emoji flex size-full shrink-0 items-center justify-center"
+									data-telegram-emoji="/icons/premiumemojis/{{ .emojiId }}.tgs.base64"
+									aria-hidden="true"
+								><span class="shop-plan-emoji-fallback">{{ .emoji }}</span></span>
+							{{ else }}
+								<span>{{ .emoji }}</span>
+							{{ end }}
+						</span>
+						<span class="shop-filter-card-title">{{ .shortTitle | default .title }}</span>
+						<span class="shop-filter-card-badge">{{ len .items }} {{ if eq (len .items) 1 }}Plan{{ else }}Plans{{ end }}</span>
+					</button>
 				{{ end }}
-			</ul>
+			</div>
+
+			{{ range $categorySections }}
+				{{ $catKey := .key }}
+				{{ $totalItems := len .items }}
+				<div class="shop-category-section" data-shop-category="{{ $catKey }}" id="category-{{ $catKey }}">
+					<div class="shop-category-header">
+						<div class="shop-category-title-group">
+							<span class="shop-category-icon">
+								{{ if .emojiId }}
+									<span
+										class="telegram-premium-emoji flex size-5 shrink-0 items-center justify-center"
+										data-telegram-emoji="/icons/premiumemojis/{{ .emojiId }}.tgs.base64"
+										aria-hidden="true"
+									><span class="shop-plan-emoji-fallback">{{ .emoji }}</span></span>
+								{{ else }}
+									<span>{{ .emoji }}</span>
+								{{ end }}
+							</span>
+							<h3 class="shop-category-title">{{ .title }}</h3>
+							<span class="shop-category-badge">{{ $totalItems }} {{ if eq $totalItems 1 }}plan{{ else }}plans{{ end }}</span>
+						</div>
+						<p class="shop-category-desc">{{ .desc }}</p>
+					</div>
+
+					<ul class="shop-grid" data-category-grid="{{ $catKey }}">
+						{{ range $i, $item := .items }}
+							{{ $plan := .plan }}
+							{{ $index := .index }}
+							{{ $planLabel := $plan.title }}
+							{{ with $plan.duration }}{{ $planLabel = printf "%s — %s" $planLabel . }}{{ end }}
+							{{ $planEmoji := false }}
+							{{ with $plan.twemoji_icon }}{{ $planEmoji = resources.Get (printf "twemoji/svg/%s.svg" .) }}{{ end }}
+
+							{{/* Dynamic span class calculation */}}
+							{{ $spanClass := "" }}
+							{{ if eq $catKey "premium" }}
+								{{/* Top 3 in row of 3, 1 Month spans full width */}}
+								{{ if eq $plan.duration "1 Month" }}
+									{{ $spanClass = "shop-card-full" }}
+								{{ end }}
+							{{ else if eq $catKey "gram" }}
+								{{/* Gram always spans full width */}}
+								{{ $spanClass = "shop-card-full" }}
+							{{ else if eq $catKey "other" }}
+								{{/* 2 items take 50% each (shop-card-half); 1 item takes full width */}}
+								{{ if eq $totalItems 1 }}
+									{{ $spanClass = "shop-card-full" }}
+								{{ else }}
+									{{ $spanClass = "shop-card-half" }}
+								{{ end }}
+							{{ else if eq $catKey "stars" }}
+								{{/* Rows of 3 on desktop, rows of 2 on tablet. Leftover items adaptively span remaining columns */}}
+								{{ $remLg := mod $totalItems 3 }}
+								{{ $remSm := mod $totalItems 2 }}
+								{{ if and (eq $remLg 1) (eq $i (sub $totalItems 1)) }}
+									{{ $spanClass = "shop-card-span-lg-full" }}
+								{{ else if and (eq $remLg 2) (ge $i (sub $totalItems 2)) }}
+									{{ $spanClass = "shop-card-span-lg-half" }}
+								{{ end }}
+								{{ if and (eq $remSm 1) (eq $i (sub $totalItems 1)) }}
+									{{ $spanClass = printf "%s shop-card-span-sm-full" $spanClass }}
+								{{ end }}
+							{{ end }}
+
+							{{ $cardClass := "shop-card" }}
+							{{ with (strings.TrimSpace $spanClass) }}{{ $cardClass = printf "%s %s" $cardClass . }}{{ end }}
+							{{ if $plan.highlight }}{{ $cardClass = printf "%s shop-card-highlight" $cardClass }}{{ end }}
+
+							<li
+								class="{{ $cardClass }}"
+								data-shop-card
+								data-plan-index="{{ $index }}"
+								data-plan-duration="{{ $plan.duration | default $plan.title }}"
+								data-plan-title="{{ $plan.title }}"
+							>
+								<div class="shop-card-top">
+									<div class="shop-card-header">
+										<span class="shop-service-pill">
+											{{ if $plan.premium_emoji_id }}
+												<span
+													class="shop-card-icon telegram-premium-emoji"
+													data-telegram-emoji="/icons/premiumemojis/{{ $plan.premium_emoji_id }}.tgs.base64"
+													data-shop-emoji
+													aria-label="{{ $plan.emoji | default "🎁" }}"
+													aria-hidden="true"
+												><span class="shop-plan-emoji-fallback">{{ $plan.emoji | default "🎁" }}</span></span>
+											{{ else if $planEmoji }}
+												<span class="shop-card-icon" data-shop-emoji>
+													<img
+														src="{{ $planEmoji.RelPermalink }}"
+														width="18"
+														height="18"
+														alt="{{ $plan.emoji }}"
+														class="shop-plan-emoji aspect-square"
+														loading="lazy"
+														decoding="async"
+													/>
+												</span>
+											{{ end }}
+											<span data-shop-card-title>{{ $plan.title }}</span>
+										</span>
+										{{ if $plan.highlight }}
+											<span class="shop-popular-badge" data-shop-popular-badge>
+												<span>Popular</span>
+											</span>
+										{{ end }}
+									</div>
+									<div class="shop-card-body">
+										<div class="shop-plan-info-row">
+											<h3 class="shop-plan-duration" data-shop-card-duration>{{ $plan.duration | default $plan.title }}</h3>
+											<p class="shop-plan-price" data-shop-price><span class="spoiler" tabindex="0" role="button" aria-expanded="false" title="Click to reveal price"><span class="spoiler-inner">{{ $plan.price }}</span></span></p>
+										</div>
+									</div>
+								</div>
+								<div class="shop-card-bottom">
+									<a href="{{ $plan.buy_url | safeURL }}" class="shop-buy-button" target="_blank" rel="noopener noreferrer" data-shop-buy-btn>
+										<span>Buy on Telegram</span>
+										<span class="sr-only">: {{ $planLabel }} ({{ $shop.name }})</span>
+										{{ partial "icons/icon" (dict "vendor" "social" "name" "telegram" "width" "1rem" "height" "1rem") }}
+									</a>
+								</div>
+							</li>
+						{{ end }}
+					</ul>
+				</div>
+			{{ end }}
 		</section>
 
 		<section class="panel">
@@ -111,6 +243,7 @@
 								type="button"
 								class="payment-copy-button"
 								data-clipboard-text="{{ $paymentDetails.phone }}"
+								data-shop-pay-phone
 								aria-label="Copy pay phone number: {{ $paymentDetails.phone }}"
 							>
 								{{ $paymentDetails.phone }}
@@ -123,6 +256,7 @@
 								type="button"
 								class="payment-copy-button"
 								data-clipboard-text="{{ $paymentDetails.account_name }}"
+								data-shop-pay-name
 								aria-label="Copy pay account name: {{ $paymentDetails.account_name }}"
 							>
 								{{ $paymentDetails.account_name }}
@@ -130,6 +264,7 @@
 							<span
 								class="shop-account-emoji telegram-premium-emoji"
 								data-telegram-emoji="/icons/premiumemojis/{{ $paymentDetails.account_name_emoji_id }}.tgs.base64"
+								data-shop-pay-emoji
 								aria-hidden="true"
 							></span>
 						</p>
@@ -140,6 +275,7 @@
 								type="button"
 								class="payment-copy-button"
 								data-clipboard-text="{{ $paymentDetails.note }}"
+								data-shop-pay-note
 								aria-label="Copy payment note: {{ $paymentDetails.note }}"
 							>
 								{{ $paymentDetails.note }}
