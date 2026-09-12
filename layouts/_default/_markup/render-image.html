@@ -1,7 +1,9 @@
 {{- $destination := .Destination -}}
 {{- $src := $destination -}}
-{{- if not (or (hasPrefix $destination "http://") (hasPrefix $destination "https://") (hasPrefix $destination "/")) -}}
-	{{- with resources.Get $destination -}}
+{{- if not (or (hasPrefix $destination "http://") (hasPrefix $destination "https://")) -}}
+	{{- $cleanDest := strings.TrimPrefix "/" $destination -}}
+	{{- $image := or ($.Page.Resources.GetMatch $destination) ($.Page.Resources.GetMatch $cleanDest) (resources.Get $destination) (resources.Get $cleanDest) (resources.Get (printf "images/%s" (strings.TrimPrefix "images/" $cleanDest))) -}}
+	{{- with $image -}}
 		{{- partial "picture.html" (dict "image" . "alt" $.Text "title" $.Title "class" "article-content-image" "pictureClass" "article-content-picture") -}}
 	{{- else -}}
 		{{- $src = $destination | relURL -}}

@@ -53,7 +53,7 @@
 							<h3 class="term-card-title">
 								<a href="{{ $p.RelPermalink }}">{{ $p.LinkTitle }}</a>
 							</h3>
-							{{ with $p.Summary }}
+							{{ with or $p.Description $p.Summary }}
 								<p class="term-card-summary">{{ . | plainify }}</p>
 							{{ end }}
 						</div>

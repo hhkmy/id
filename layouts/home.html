@@ -90,7 +90,7 @@
 							<a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.LinkTitle }}</a>
 						</h3>
 						<div class="article-card-snippet {{ if eq $i 0 }}line-clamp-4 text-lg leading-8{{ else if eq $i 1 }}line-clamp-5{{ else }}line-clamp-3{{ end }}">
-							{{ $p.Summary }}
+							{{ or $p.Description $p.Summary }}
 						</div>
 					</article>
 				{{ end }}

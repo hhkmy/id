@@ -91,6 +91,7 @@ function initRevealAnimations() {
     ".archive-item",
     ".home-hero-panel",
     ".article-meta",
+    ".article-meta-card",
     ".article-adjacent-link",
     ".book-card",
     ".project-card",
@@ -98,6 +99,7 @@ function initRevealAnimations() {
     ".shop-payment-method",
     ".shop-order-note",
     ".article-content",
+    ".series-nav",
     ".article-footer",
     ".lighthouse-table-wrap",
   ];

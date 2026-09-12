@@ -2,112 +2,194 @@
 	<article class="single-article">
 		<header class="article-hero">
 			<div>
-				<a href="/articles/" class="article-kicker">Articles</a>
+				<nav aria-label="Breadcrumb" class="article-breadcrumb">
+					<ol class="article-breadcrumb-list">
+						<li class="article-breadcrumb-item">
+							<a href="/" class="article-breadcrumb-link">Home</a>
+						</li>
+						<li class="article-breadcrumb-separator" aria-hidden="true">
+							<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="m9 18 6-6-6-6" />
+							</svg>
+						</li>
+						<li class="article-breadcrumb-item">
+							<a href="/articles/" class="article-breadcrumb-link">Articles</a>
+						</li>
+						{{ $series := .GetTerms "series" }}
+						{{ range $series }}
+							<li class="article-breadcrumb-separator" aria-hidden="true">
+								<svg
+									class="size-3"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="m9 18 6-6-6-6" />
+								</svg>
+							</li>
+							<li class="article-breadcrumb-item">
+								<a href="{{ .RelPermalink }}" class="article-breadcrumb-link article-breadcrumb-series">{{ .LinkTitle }}</a>
+							</li>
+						{{ end }}
+						<li class="article-breadcrumb-separator" aria-hidden="true">
+							<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="m9 18 6-6-6-6" />
+							</svg>
+						</li>
+						<li class="article-breadcrumb-item article-breadcrumb-current" aria-current="page">
+							<span>Article</span>
+						</li>
+					</ol>
+				</nav>
 				<h1 class="article-title">{{ .Title }}</h1>
 				{{ with .Description | default .Summary }}
 					<p class="article-summary">{{ . | plainify }}</p>
 				{{ end }}
 			</div>
-			<div class="article-meta" aria-label="Article details">
-				{{ if .Date }}
-					{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-					{{ $dateHuman := .Date | time.Format ":date_long" }}
-					<time datetime="{{ $dateMachine }}" class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
-						{{ $dateHuman }}
-					</time>
-				{{ end }}
-				{{ with site.Params.author }}
-					<span class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }} By
-						{{ . }}
-					</span>
-				{{ end }}
-				{{ with .ReadingTime }}
-					<span class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "mins" "width" "1rem" "height" "1rem") }} {{ . }} min read
-					</span>
-				{{ end }}
-				{{ with .WordCount }}
-					<span class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "words" "width" "1rem" "height" "1rem") }} {{ . }} words
-					</span>
-				{{ end }}
-				<span class="article-meta-item view-counter" data-path="{{ .RelPermalink }}" aria-live="polite">
-					{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
-					<span><span class="count">0</span> views</span>
-				</span>
-				{{ if .GetTerms "series" }}
-					<span class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "posts" "width" "1rem" "height" "1rem") }}
-						<span>Series:
-							{{ range $i, $term := .GetTerms "series" }}
-								{{ if gt $i 0 }}, {{ end }}
-								<a href="{{ $term.RelPermalink }}" class="article-meta-series-link">{{ $term.LinkTitle }}</a>
-							{{ end }}
+			<div class="article-meta-card" aria-label="Article details">
+				<div class="article-meta-grid">
+					{{ if .Date }}
+						{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+						{{ $dateHuman := .Date | time.Format ":date_long" }}
+						<div class="article-meta-stat">
+							<span class="article-meta-icon">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "time" "width" "1rem" "height" "1rem") }}
+							</span>
+							<div class="min-w-0">
+								<span class="article-meta-stat-label">Published</span>
+								<time datetime="{{ $dateMachine }}" class="article-meta-stat-value">{{ $dateHuman }}</time>
+							</div>
+						</div>
+					{{ end }}
+					{{ with site.Params.author }}
+						<div class="article-meta-stat">
+							<span class="article-meta-icon">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "author" "width" "1rem" "height" "1rem") }}
+							</span>
+							<div class="min-w-0">
+								<span class="article-meta-stat-label">Author</span>
+								<span class="article-meta-stat-value">{{ . }}</span>
+							</div>
+						</div>
+					{{ end }}
+					{{ with .ReadingTime }}
+						<div class="article-meta-stat">
+							<span class="article-meta-icon">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "mins" "width" "1rem" "height" "1rem") }}
+							</span>
+							<div class="min-w-0">
+								<span class="article-meta-stat-label">Read Time</span>
+								<span class="article-meta-stat-value">{{ . }} min read</span>
+							</div>
+						</div>
+					{{ end }}
+					{{ with .WordCount }}
+						<div class="article-meta-stat">
+							<span class="article-meta-icon">
+								{{ partial "icons/icon" (dict "vendor" "default" "name" "words" "width" "1rem" "height" "1rem") }}
+							</span>
+							<div class="min-w-0">
+								<span class="article-meta-stat-label">Length</span>
+								<span class="article-meta-stat-value">{{ . }} words</span>
+							</div>
+						</div>
+					{{ end }}
+					<div class="article-meta-stat view-counter" data-path="{{ .RelPermalink }}" aria-live="polite">
+						<span class="article-meta-icon">
+							{{ partial "icons/icon" (dict "vendor" "default" "name" "views" "width" "1rem" "height" "1rem") }}
 						</span>
-					</span>
-				{{ else if .Params.series }}
-					<span class="article-meta-item">
-						{{ partial "icons/icon" (dict "vendor" "default" "name" "posts" "width" "1rem" "height" "1rem") }}
-						<span>Series: {{ if reflect.IsSlice .Params.series }}{{ delimit .Params.series ", " }}{{ else }}{{ .Params.series }}{{ end }}</span>
-					</span>
+						<div class="min-w-0">
+							<span class="article-meta-stat-label">Views</span>
+							<span class="article-meta-stat-value"><span class="count">0</span> views</span>
+						</div>
+					</div>
+				</div>
+
+				{{ $categories := .GetTerms "categories" }}
+				{{ if $categories }}
+					<div class="article-meta-footer">
+						<span class="article-meta-footer-label">
+							{{ partial "icons/icon" (dict "vendor" "default" "name" "files" "width" "0.9rem" "height" "0.9rem") }}
+							<span>Categories:</span>
+						</span>
+						<div class="article-meta-categories">
+							{{ range $categories }}
+								<a href="{{ .RelPermalink }}" class="article-meta-category-pill">{{ .LinkTitle }}</a>
+							{{ end }}
+						</div>
+					</div>
 				{{ end }}
-				{{ with .Params.draft }}{{ if . }}<span class="article-meta-item article-meta-draft">Draft</span>{{ end }}{{ end }}
 			</div>
 		</header>
 
-		{{ range .GetTerms "series" }}
+		{{ $series := .GetTerms "series" }}
+		{{ range $series }}
 			{{ $seriesPages := .Pages.ByDate }}
-			{{ if gt (len $seriesPages) 1 }}
-				<div class="series-nav">
-					<div class="series-nav-header">
-						<div class="flex items-center gap-2">
+			<aside class="series-nav" aria-label="Article Series">
+				<div class="series-nav-header">
+					<div class="flex items-center gap-2.5">
+						<span class="series-nav-icon">
 							{{ partial "icons/icon" (dict "vendor" "default" "name" "posts" "width" "1.1rem" "height" "1.1rem") }}
+						</span>
+						<div>
 							<span class="series-nav-tag">Series</span>
 							<a href="{{ .RelPermalink }}" class="series-nav-title">{{ .LinkTitle }}</a>
 						</div>
-						<span class="series-nav-badge">{{ len $seriesPages }} parts</span>
 					</div>
-					<ol class="mt-4 space-y-2 text-sm">
+					{{ if gt (len $seriesPages) 1 }}
+						<span class="series-nav-badge">{{ len $seriesPages }} parts</span>
+					{{ end }}
+				</div>
+				{{ if gt (len $seriesPages) 1 }}
+					<ol class="mt-4 space-y-2.5 text-sm">
 						{{ range $index, $p := $seriesPages }}
-							<li class="flex items-start gap-2.5">
-								<span class="{{ if eq $p.RelPermalink $.RelPermalink }}series-nav-item-num-active{{ else }}series-nav-item-num{{ end }}">{{ add $index 1 }}</span>
+							<li class="flex items-start gap-3">
+								<span class="{{ if eq $p.RelPermalink $.RelPermalink }}series-nav-item-num-active{{ else }}series-nav-item-num{{ end }}"
+									>{{ add $index 1 }}</span
+								>
 								{{ if eq $p.RelPermalink $.RelPermalink }}
-									<span class="series-nav-current">{{ $p.LinkTitle }} <span class="series-nav-current-hint">(Current article)</span></span>
+									<span class="series-nav-current">{{ $p.LinkTitle }} <span class="series-nav-current-hint">(Current)</span></span>
 								{{ else }}
 									<a href="{{ $p.RelPermalink }}" class="series-nav-link">{{ $p.LinkTitle }}</a>
 								{{ end }}
 							</li>
 						{{ end }}
 					</ol>
-				</div>
-			{{ end }}
+				{{ else }}
+					<p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+						Part of the <a href="{{ .RelPermalink }}" class="font-medium text-sky-600 hover:underline dark:text-sky-400">{{ .LinkTitle }}</a> series.
+					</p>
+				{{ end }}
+			</aside>
 		{{ end }}
 
 		{{ $featured := or .Params.featured_image .Params.image }}
 		{{ with $featured }}
-			{{ with resources.Get . }}
+			{{ $cleanFeatured := strings.TrimPrefix "/" . }}
+			{{ $imgRes := or ($.Resources.GetMatch .) ($.Resources.GetMatch $cleanFeatured) (resources.Get .) (resources.Get $cleanFeatured) (resources.Get (printf "images/%s" (strings.TrimPrefix "images/" $cleanFeatured))) }}
+			{{ with $imgRes }}
 				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "loading" "eager" "fetchpriority" "high") }}
 			{{ else }}
 				{{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
 					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async" fetchpriority="high" />
 				{{ end }}
-
 			{{ end }}
-
 		{{ end }}
 
 
 		<div class="article-content prose">{{ .Content }}</div>
 
-		{{ partial "comments.html" . }}
+		{{ partialCached "comments.html" . }}
 
 
 		<footer class="article-footer">
-			{{ if .GetTerms "tags" }}
+			{{ $tags := .GetTerms "tags" }}
+			{{ if $tags }}
 				<div class="article-tags" aria-label="Article tags">
-					{{ range .GetTerms "tags" }}
+					{{ range $tags }}
 						<a href="{{ .RelPermalink }}" class="article-tag">#{{ .LinkTitle }}</a>
 					{{ end }}
 				</div>
