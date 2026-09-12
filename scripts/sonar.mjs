@@ -1,7 +1,16 @@
 import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
+
+const NPX_PATHS = [
+  "/usr/bin/npx",
+  "/usr/local/bin/npx",
+  "/opt/homebrew/bin/npx",
+];
+
+const npxBinary = NPX_PATHS.find((bin) => existsSync(bin)) || "/usr/bin/npx";
 
 const child = spawn(
-  "npx",
+  npxBinary,
   ["--yes", "sonarqube-scanner", ...process.argv.slice(2)],
   {
     stdio: "inherit",
