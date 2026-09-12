@@ -2,7 +2,7 @@ import { createJsonResponse } from "./utils.js";
 
 export const getVisitorLocation = (request) => {
   const rawCountry = String(request.cf?.country || "").toUpperCase();
-  const country = /^[A-Z]{2}$/.test(rawCountry) ? rawCountry : "MM";
+  const country = /^[A-Z]{2}$/.test(rawCountry) ? rawCountry : "";
 
   const rawCity = String(request.cf?.city || "").trim();
   const city = rawCity.slice(0, 100) || "";

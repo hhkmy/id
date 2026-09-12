@@ -1,25 +1,3 @@
-const COUNTRY_NAMES = {
-  MM: "Myanmar",
-  SG: "Singapore",
-  TH: "Thailand",
-  MY: "Malaysia",
-  US: "United States",
-  GB: "United Kingdom",
-  JP: "Japan",
-  KR: "South Korea",
-  IN: "India",
-  VN: "Vietnam",
-  ID: "Indonesia",
-  CN: "China",
-  AU: "Australia",
-  DE: "Germany",
-  FR: "France",
-  CA: "Canada",
-  AE: "UAE",
-  HK: "Hong Kong",
-  TW: "Taiwan",
-};
-
 function getFlagEmoji(countryCode) {
   if (countryCode?.length !== 2) return "🌐";
   return countryCode
@@ -29,18 +7,19 @@ function getFlagEmoji(countryCode) {
     .join("");
 }
 
-function getCountryName(cc) {
+function getCountryName(countryCode) {
   try {
     if (window.Intl?.DisplayNames) {
       const dn = new Intl.DisplayNames(["en"], { type: "region" });
-      const name = dn.of(cc);
-      if (name)
+      const name = dn.of(countryCode);
+      if (name) {
         return name.replace(" (Burma)", "").replace("(Burma)", "").trim();
+      }
     }
   } catch (_) {
-    // Ignore Intl.DisplayNames exceptions and fallback to COUNTRY_NAMES
+    // Ignore Intl.DisplayNames exceptions and fallback to country code
   }
-  return COUNTRY_NAMES[cc] || cc;
+  return countryCode;
 }
 
 function renderLocation(locEl, countryCode, cityName) {
@@ -74,11 +53,12 @@ export async function initVisitorLocation() {
     document.querySelector("[data-edge-location]");
   if (!locEl) return;
 
+  // 1. Fetch Cloudflare edge info from Worker (/api/edge-info) based on Real IP
   try {
     const res = await fetch("/api/edge-info", { cache: "no-store" });
     if (res.ok) {
       const data = await res.json();
-      if (data?.country) {
+      if (data?.country && data.country !== "XX") {
         renderLocation(locEl, data.country, data.city);
         return;
       }
@@ -87,6 +67,7 @@ export async function initVisitorLocation() {
     // Ignore edge-info fetch failure and fallback to cdn-cgi trace
   }
 
+  // 2. Fallback to Cloudflare native edge trace (/cdn-cgi/trace) based on Real IP
   try {
     const res = await fetch("/cdn-cgi/trace");
     if (res.ok) {
@@ -96,29 +77,15 @@ export async function initVisitorLocation() {
         const [k, v] = line.split("=");
         if (k && v) trace[k.trim()] = v.trim();
       });
-      if (trace.loc) {
+      if (trace.loc && trace.loc !== "XX") {
         renderLocation(locEl, trace.loc, "");
         return;
       }
     }
   } catch (_) {
-    // Ignore trace fetch failure and fallback to timezone
+    // Ignore trace fetch failure and fallback to global edge
   }
 
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-    if (tz.includes("Yangon") || tz.includes("Rangoon")) {
-      renderLocation(locEl, "MM", "Yangon");
-    } else if (tz.includes("Singapore")) {
-      renderLocation(locEl, "SG", "Singapore");
-    } else if (tz.includes("Bangkok")) {
-      renderLocation(locEl, "TH", "Bangkok");
-    } else {
-      const city = tz.split("/").pop().replaceAll("_", " ");
-      renderLocation(locEl, "MM", city || "Myanmar");
-    }
-  } catch (_) {
-    // Ignore timezone resolution errors and fallback to default MM location
-    renderLocation(locEl, "MM", "Myanmar");
-  }
+  // 3. Fallback when Cloudflare location is unavailable
+  renderLocation(locEl, "XX", "");
 }
