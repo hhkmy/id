@@ -64,6 +64,8 @@
 
 - **Mandatory Build Verification:** Always run `npm run build` after modifying CSS, HTML templates, JS, or Hugo configuration.
 - **Zero Errors & Warnings Policy:** Inspect the build logs and linter feedback. Any syntax error, `@apply` issue, template execution failure, or linter warning **must** be resolved immediately before finishing the task or committing. Never leave open errors or warnings in the repository.
+- **Automated IDE Problems Resolution (`@[current_problems]`):** Whenever `@[current_problems]` appears in user context or metadata, you MUST proactively and automatically resolve all reported warnings, errors, and diagnostic messages across all mentioned files during the current turn before concluding. Never ignore or leave items in `@[current_problems]`.
+- **Prohibit Inline Property Collisions:** In Tailwind CSS v4, never place conflicting base and variant classes on the same element in HTML templates (e.g. `text-slate-950 dark:text-white`, `border-slate-200 dark:border-slate-700`, `bg-white dark:bg-slate-950`). This triggers IDE property collision warnings (`'X' applies the same CSS properties as 'dark:Y'`). Always encapsulate them into semantic component classes in the appropriate CSS partial using `@variant dark { ... }` blocks.
 
 ## Git Push & Commit Policy
 

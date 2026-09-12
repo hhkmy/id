@@ -30,6 +30,27 @@
   }
 }
 
+.archive-year-heading {
+  @apply text-3xl font-bold tracking-tight text-slate-950;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.archive-year-count {
+  @apply text-sm font-semibold text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.archive-view-badge {
+  @apply inline-flex w-fit items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-600;
+  @variant dark {
+    @apply border-slate-700 bg-slate-950 text-slate-300;
+  }
+}
+
 .article-card {
   @apply rounded-xl border border-slate-200 bg-white p-6 transition-colors duration-200 hover:border-slate-400;
   @variant dark {

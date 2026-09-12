@@ -20,6 +20,20 @@
   @apply flex flex-1 flex-col p-5;
 }
 
+.book-title {
+  @apply mt-4 text-xl font-bold leading-snug tracking-tight text-slate-950;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.book-author {
+  @apply mt-2 inline-flex items-center gap-2 text-sm font-medium text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
 .book-card-footer {
   @apply mt-auto border-t border-slate-200 px-5 py-4;
   @variant dark {
