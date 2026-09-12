@@ -8,18 +8,25 @@
 					script.integrity = "{{ .Data.Integrity }}";
 					script.crossOrigin = "anonymous";
 					script.onload = function () {
-						window.twemoji &&
+						if (window.twemoji) {
 							window.twemoji.parse(document.querySelector("main") || document.body, {
-								base: "/twemoji/",
+								base: "https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/",
 								folder: "svg",
 								ext: ".svg",
 							});
+						}
 					};
 					document.head.appendChild(script);
 				};
 
-				window.setTimeout(loadTwemoji, 8000);
+				if ("requestIdleCallback" in window) {
+					window.requestIdleCallback(function () {
+						setTimeout(loadTwemoji, 2000);
+					}, { timeout: 4000 });
+				} else {
+					window.setTimeout(loadTwemoji, 3000);
+				}
 			})();
-	</script>
+		</script>
 	{{ end }}
 {{ end }}
