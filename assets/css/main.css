@@ -1,26 +1,4 @@
 @import "tailwindcss";
-@source "hugo_stats.json";
-@variant dark (&:is(.dark *));
-
-@theme {
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1100px;
-  --breakpoint-xl: 1440px;
-  --radius-4xl: 2rem;
-  --font-sans: "Myanmar", sans-serif;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", "Myanmar", monospace;
-}
-
-@font-face {
-  font-family: Myanmar;
-  font-style: normal;
-  font-weight: 200 700;
-  font-display: swap;
-  src: url("/fonts/Pyidaungsu.woff2") format("woff2");
-}
 
 /* ── Base ──────────────────────────────────────── */
 @import "./partials/_base.css";
@@ -53,3 +31,26 @@
 
 /* ── Utilities ─────────────────────────────────── */
 @import "./partials/_utilities.css";
+
+@source "hugo_stats.json";
+@variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1100px;
+  --breakpoint-xl: 1440px;
+  --radius-4xl: 2rem;
+  --font-sans: "Myanmar", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", "Myanmar", monospace;
+}
+
+@font-face {
+  font-family: Myanmar;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Pyidaungsu.woff2") format("woff2");
+}
