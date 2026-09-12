@@ -13,6 +13,14 @@
   - **Mandatory Conversational Endings:** Use spoken counterparts like `တယ်` / `ပါတယ်` (statements), `မယ်` / `ပါမယ်` / `မှာပါ` (future/intent), `ခဲ့တယ်` (past), `တာ` / `လုပ်တာ` (nominalization), `နဲ့` / `သုံးပြီး` (instrumental), `မှာ` / `ထဲမှာ` (location), `ဒါပေမဲ့` (but), `ဒါကြောင့်` (therefore), and `ဘာကြောင့်လဲဆိုတော့` (because).
   - **Narrative Voice:** Use first-person `ကျွန်တော်` and maintain an engaging, peer-to-peer technical storytelling tone.
 
+## Article Title Policy
+
+- **Concise & Punchy (အကျဉ်းချုံးပြီး ထိမိရှင်းလင်းခြင်း):** Keep article titles short, crisp, and readable (recommended under 50-60 characters / 5-10 words).
+- **No Sentence/Clause Bloat:** Never turn titles into full explanatory sentences, nested clauses, or bracketed explanations (e.g. avoid `...တကယ်အလုပ်လုပ်အောင် ပြင်ဆင်နည်း`, `...(Zsh <103a><1039> ဖြေရှင်းနည်းအပါအဝင်)`). Put detailed context in `description` or `summary` frontmatter instead.
+- **Natural Technical Style:** Use concise action formats such as `<Tool/Topic> <Feature/Problem> ပြင်နည်း / သတ်မှတ်နည်း / လမ်းညွှန် / မှတ်တမ်း` for Burmese titles, and Title Case for English titles.
+- **Page Bundles:** Organize articles as Hugo page bundles: `content/articles/<slug>/index.md` with co-located image assets.
+
+
 
 # Repository Guidance
 
