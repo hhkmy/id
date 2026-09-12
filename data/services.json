@@ -39,40 +39,45 @@
   },
   "plans": [
     {
-      "title": "1 Year",
+      "title": "Telegram Premium",
+      "duration": "1 Year",
       "price": "148,000 MMK",
-      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20the%201%20Year%20plan.",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20Telegram%20Premium%201%20Year.",
       "premium_emoji_id": "6192798024230505469",
       "emoji": "🎁",
       "highlight": false
     },
     {
-      "title": "6 Months",
+      "title": "Telegram Premium",
+      "duration": "6 Months",
       "price": "81,500 MMK",
-      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20the%206%20Months%20plan.",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20Telegram%20Premium%206%20Months.",
       "premium_emoji_id": "6190401548443454379",
       "emoji": "🎁",
       "highlight": false
     },
     {
-      "title": "3 Months",
+      "title": "Telegram Premium",
+      "duration": "3 Months",
       "price": "61,500 MMK",
-      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20the%203%20Months%20plan.",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20Telegram%20Premium%203%20Months.",
       "premium_emoji_id": "6190245881648778900",
       "emoji": "🎁",
       "highlight": false
     },
     {
-      "title": "1 Month",
+      "title": "Telegram Premium",
+      "duration": "1 Month",
       "price": "22,500 MMK",
-      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20the%201%20Month%20plan.",
+      "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20Telegram%20Premium%201%20Month.",
       "premium_emoji_id": "6158861769637891517",
       "emoji": "⭐️",
       "highlight": true
     },
     {
-      "title": "Google Gemini AI 18 Months",
-      "price": "35,000 MMK",
+      "title": "Google Gemini AI",
+      "duration": "18 Months",
+      "price": "50,000 MMK",
       "buy_url": "https://t.me/callmehhk?text=Hi%2C%20I%20would%20like%20to%20buy%20Google%20Gemini%20AI%2018%20Months.",
       "twemoji_icon": "2728",
       "emoji": "✨",
