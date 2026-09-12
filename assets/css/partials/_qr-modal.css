@@ -4,3 +4,8 @@
     @apply border-slate-800 bg-slate-950;
   }
 }
+
+#qr-modal-image {
+  @apply aspect-square;
+}
+

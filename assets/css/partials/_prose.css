@@ -235,7 +235,7 @@
   @apply my-8 block max-w-full;
 }
 .article-content-image {
-  @apply mx-auto my-8 block h-auto max-w-full rounded-xl;
+  @apply mx-auto my-8 block h-auto max-w-full rounded-xl aspect-auto;
 }
 .article-content-picture > .article-content-image {
   @apply my-0;

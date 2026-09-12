@@ -11,7 +11,7 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-	<ul class="mb-0 mt-0 flex flex-row items-center gap-1 sm:gap-2">
+	<ul class="mb-0 mt-0 flex flex-row items-center gap-0.5 sm:gap-1 lg:gap-1.5">
 		{{- range . }}
 			<li>
 				{{- $isActive := or ($page.IsMenuCurrent $menuID .) ($page.HasMenuCurrent $menuID .) }}
@@ -23,16 +23,17 @@
 				{{- end }}
 				<a
 					href="{{ .URL }}"
-					class="nav-menu-link{{ if $isActive }}nav-menu-link-active{{ end }}"
+					class="nav-menu-link{{ if $isActive }} nav-menu-link-active{{ end }}"
+					title="{{ .Name }}"
 					{{ if $isActive }}aria-current="page"{{ end }}
 				>
 					{{- if .Pre }}
-						<span class="flex items-center justify-center sm:mr-1">
-							{{ $icon := dict "vendor" "default" "name" .Pre "width" "1.2rem" "height" "1.2rem" }}
+						<span class="flex items-center justify-center lg:mr-1.5 shrink-0">
+							{{ $icon := dict "vendor" "default" "name" .Pre "width" "1.15rem" "height" "1.15rem" }}
 							{{ partialCached "icons/icon" $icon $icon }}
 						</span>
 					{{- end }}
-					<span class="max-sm:sr-only">{{ .Name }}</span>
+					<span class="max-lg:sr-only">{{ .Name }}</span>
 				</a>
 			</li>
 		{{- end }}

@@ -1,10 +1,10 @@
 <nav class="site-nav">
-	<div class="site-shell flex items-center justify-between py-3">
+	<div class="site-shell flex items-center justify-between py-2.5 sm:py-3">
 		<!-- Logo & Site Title -->
-		<div class="flex items-center gap-3">
+		<div class="flex items-center gap-2 sm:gap-3 shrink-0">
 			{{ $qr := resources.Get "ui/qr.svg" }}
 			<a href="{{ .Site.Home.RelPermalink }}" class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 sm:hidden" aria-label="Home">
-				<img class="site-brand-logo" src="{{ $qr.RelPermalink }}" width="40" height="40" alt="" />
+				<img class="site-brand-logo" src="{{ $qr.RelPermalink }}" width="36" height="36" alt="" />
 			</a>
 			<button
 				id="qr-image-trigger"
@@ -23,19 +23,19 @@
 		</div>
 
 		<!-- Navigation & Theme Switcher -->
-		<div class="flex items-center gap-2 sm:gap-3">
+		<div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
 			{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 			<button id="site-search-trigger" type="button" class="nav-search-trigger" aria-label="Search" title="Search">
-				<svg aria-hidden="true" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg aria-hidden="true" class="size-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35m1.1-5.4a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
 				</svg>
-				<span class="hidden sm:inline">Search</span>
+				<span class="hidden lg:inline">Search</span>
 			</button>
-			<div class="flex gap-1">
+			<div class="flex gap-0.5 sm:gap-1">
 				<button
 					id="theme-toggle-dark"
 					aria-label="Switch to dark mode"
-					class="rounded-md p-2 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
+					class="theme-toggle-button"
 					title="Dark mode"
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" class="theme-toggle-icon-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -45,7 +45,7 @@
 				<button
 					id="theme-toggle-light"
 					aria-label="Switch to light mode"
-					class="rounded-md p-2 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:hover:bg-slate-800"
+					class="theme-toggle-button"
 					title="Light mode"
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" class="theme-toggle-icon-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +74,7 @@
 		<h2 id="qr-modal-title" class="sr-only">QR code</h2>
 		<img
 			id="qr-modal-image"
-			class="h-auto max-h-[min(80dvh,48rem)] w-full max-w-[min(88vw,48rem)] rounded-md dark:invert"
+			class="aspect-square h-auto max-h-[min(80dvh,48rem)] w-full max-w-[min(88vw,48rem)] rounded-md dark:invert"
 			src="{{ (resources.Get "ui/qr.svg").RelPermalink }}"
 			width="1024"
 			height="1024"
