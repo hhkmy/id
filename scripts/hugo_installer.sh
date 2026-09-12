@@ -145,7 +145,7 @@ fi
 HUGO_VARIANT_NAME=$(echo "$HUGO_TYPE" | sed 's/_/ /g' | sed 's/\b\w/\u&/g')
 echo -e "${HOURGLASS} ${BLUE}Checking for latest ${HUGO_VARIANT_NAME} release...${NC}"
 
-LATEST_RELEASE=$(curl -s "https://api.github.com/repos/$HUGO_REPO/releases/latest")
+LATEST_RELEASE=$(curl -s --proto-default https --proto-redir =https "https://api.github.com/repos/$HUGO_REPO/releases/latest")
 LATEST_VERSION=$(echo "$LATEST_RELEASE" | grep -oP '"tag_name": "\Kv\d+\.\d+\.\d+')
 
 if [ -z "$LATEST_VERSION" ]; then
@@ -247,7 +247,7 @@ if [ -z "$DOWNLOAD_URL" ]; then
 fi
 
 echo -e "${DOWNLOAD} ${BLUE}Downloading ${HUGO_VARIANT_NAME} ${LATEST_VERSION}...${NC}"
-curl -sL "$DOWNLOAD_URL" -o "$TMP_DIR/hugo.tar.gz" || {
+curl -sL --proto-redir =https "$DOWNLOAD_URL" -o "$TMP_DIR/hugo.tar.gz" || {
     echo -e "${WARN} ${RED}Download failed!${NC}"
     exit 1
 }

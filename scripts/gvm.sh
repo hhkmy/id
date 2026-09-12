@@ -118,9 +118,9 @@ print_system_info() {
 get_latest_stable_version() {
     local versions_json
     if command -v curl >/dev/null 2>&1; then
-        versions_json=$(curl -s --connect-timeout 15 "$GO_VERSIONS_URL" 2>/dev/null)
+        versions_json=$(curl -s --connect-timeout 15 --proto-default https --proto-redir =https "$GO_VERSIONS_URL" 2>/dev/null)
     elif command -v wget >/dev/null 2>&1; then
-        versions_json=$(wget -q --timeout=15 -O - "$GO_VERSIONS_URL" 2>/dev/null)
+        versions_json=$(wget -q --https-only --timeout=15 -O - "$GO_VERSIONS_URL" 2>/dev/null)
     else
         return 1
     fi
@@ -147,9 +147,9 @@ download_with_progress() {
     local output_file=$2
     
     if command -v curl >/dev/null 2>&1; then
-        curl -L --progress-bar -o "$output_file" "$url"
+        curl -L --proto-redir =https --progress-bar -o "$output_file" "$url"
     elif command -v wget >/dev/null 2>&1; then
-        wget --progress=bar:force -O "$output_file" "$url"
+        wget --https-only --progress=bar:force -O "$output_file" "$url"
     else
         print_color "$COLOR_RED" "\n❌ Error: Neither curl nor wget found"
         return 1
