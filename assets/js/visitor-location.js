@@ -118,7 +118,7 @@ export async function initVisitorLocation() {
       renderLocation(locEl, "MM", city || "Myanmar");
     }
   } catch (_) {
-    // Fallback to default MM if timezone resolution fails
+    // Ignore timezone resolution errors and fallback to default MM location
     renderLocation(locEl, "MM", "Myanmar");
   }
 }
