@@ -15,7 +15,7 @@
     "deploy:cloudflare:version": "npx --ignore-scripts -y wrangler@4.131.1 versions upload && npx --ignore-scripts -y wrangler@4.131.1 versions deploy -y && npx --ignore-scripts -y wrangler@4.131.1 triggers deploy",
     "deploy:cloudflare:version:ci": "npm ci --ignore-scripts && npm run deploy:cloudflare:version",
     "format": "prettier --write \"**/*.{html,js,json,css,md}\"",
-    "sonar": "node --dns-result-order=ipv4first --env-file-if-exists=.env node_modules/sonarqube-scanner/bin/sonar-scanner.js",
+    "sonar": "node --env-file-if-exists=.env scripts/sonar.mjs",
     "precommit": "lint-staged"
   },
   "keywords": [
@@ -37,7 +37,6 @@
     "prettier": "^3.9.6",
     "prettier-plugin-go-template": "^0.0.15",
     "sass": "^1.104.0",
-    "sonarqube-scanner": "^5.0.0",
     "svgo": "^4.1.0",
     "tailwindcss": "^4.3.3",
     "toml-eslint-parser": "^1.0.3"
