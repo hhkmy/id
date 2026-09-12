@@ -7,7 +7,7 @@ export { ViewCounter } from "./view-counter.js";
 
 function getNormalizedPathname(pathname) {
   let end = pathname.length;
-  while (end > 1 && pathname.charCodeAt(end - 1) === 47) {
+  while (end > 1 && pathname.codePointAt(end - 1) === 47) {
     end--;
   }
   return end === pathname.length ? pathname : pathname.slice(0, end);
@@ -66,48 +66,53 @@ async function renderMiniAppResponse() {
   });
 }
 
-async function authenticateBody(body, env, secret) {
-  const {
-    verifyTelegramInitData,
-    verifyTelegramWidgetAuth,
-    createSessionToken,
-    verifySessionToken,
-  } = await import("./telegram/index.js");
+async function authenticateSession(body, env, secret) {
+  const { verifySessionToken } = await import("./telegram/index.js");
+  const valid = await verifySessionToken(body.token, secret, env.TELEGRAM_ADMIN_ID);
+  return valid
+    ? { status: 200, data: { success: true, authorized: true, token: body.token } }
+    : { status: 401, data: { success: false, authorized: false, error: "Session expired" } };
+}
 
+async function authenticateSecret(body, env, secret) {
+  if (env.TELEGRAM_SECRET_TOKEN && body.secret === env.TELEGRAM_SECRET_TOKEN) {
+    const primaryAdminId = String(env.TELEGRAM_ADMIN_ID || "100285683").split(/[\s,]+/)[0];
+    const { createSessionToken } = await import("./telegram/index.js");
+    const token = await createSessionToken(primaryAdminId, secret);
+    return { status: 200, data: { success: true, authorized: true, token, user: { id: primaryAdminId, name: "Admin" } } };
+  }
+  return { status: 401, data: { success: false, authorized: false, error: "Invalid admin passcode" } };
+}
+
+async function authenticateTelegramAuth(auth, env, secret) {
+  if (auth.valid) {
+    const primaryAdminId = auth.user?.id || String(env.TELEGRAM_ADMIN_ID || "100285683").split(/[\s,]+/)[0];
+    const { createSessionToken } = await import("./telegram/index.js");
+    const token = await createSessionToken(primaryAdminId, secret);
+    return { status: 200, data: { success: true, authorized: true, token, user: auth.user } };
+  }
+  return { status: 401, data: { success: false, authorized: false, error: auth.error || "Unauthorized" } };
+}
+
+async function authenticateBody(body, env, secret) {
   if (body.type === "session" && body.token) {
-    const valid = await verifySessionToken(body.token, secret, env.TELEGRAM_ADMIN_ID);
-    return valid
-      ? { status: 200, data: { success: true, authorized: true, token: body.token } }
-      : { status: 401, data: { success: false, authorized: false, error: "Session expired" } };
+    return authenticateSession(body, env, secret);
   }
 
   if (body.type === "secret" && body.secret) {
-    if (env.TELEGRAM_SECRET_TOKEN && body.secret === env.TELEGRAM_SECRET_TOKEN) {
-      const primaryAdminId = String(env.TELEGRAM_ADMIN_ID || "100285683").split(/[\s,]+/)[0];
-      const token = await createSessionToken(primaryAdminId, secret);
-      return { status: 200, data: { success: true, authorized: true, token, user: { id: primaryAdminId, name: "Admin" } } };
-    }
-    return { status: 401, data: { success: false, authorized: false, error: "Invalid admin passcode" } };
+    return authenticateSecret(body, env, secret);
   }
 
   if (body.type === "initData" && body.initData) {
+    const { verifyTelegramInitData } = await import("./telegram/index.js");
     const auth = await verifyTelegramInitData(body.initData, env.TELEGRAM_BOT_TOKEN, env.TELEGRAM_ADMIN_ID);
-    if (auth.valid) {
-      const primaryAdminId = auth.user?.id || String(env.TELEGRAM_ADMIN_ID || "100285683").split(/[\s,]+/)[0];
-      const token = await createSessionToken(primaryAdminId, secret);
-      return { status: 200, data: { success: true, authorized: true, token, user: auth.user } };
-    }
-    return { status: 401, data: { success: false, authorized: false, error: auth.error || "Unauthorized" } };
+    return authenticateTelegramAuth(auth, env, secret);
   }
 
   if (body.type === "widget" && body.widgetData) {
+    const { verifyTelegramWidgetAuth } = await import("./telegram/index.js");
     const auth = await verifyTelegramWidgetAuth(body.widgetData, env.TELEGRAM_BOT_TOKEN, env.TELEGRAM_ADMIN_ID);
-    if (auth.valid) {
-      const primaryAdminId = auth.user?.id || String(env.TELEGRAM_ADMIN_ID || "100285683").split(/[\s,]+/)[0];
-      const token = await createSessionToken(primaryAdminId, secret);
-      return { status: 200, data: { success: true, authorized: true, token, user: auth.user } };
-    }
-    return { status: 401, data: { success: false, authorized: false, error: auth.error || "Unauthorized" } };
+    return authenticateTelegramAuth(auth, env, secret);
   }
 
   return { status: 400, data: { success: false, authorized: false, error: "Invalid auth request" } };

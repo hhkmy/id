@@ -51,7 +51,7 @@ export async function sendTelegramMessage(chatId, text, extra, botToken) {
     text,
     parse_mode: "HTML",
     link_preview_options: { is_disabled: true },
-    ...(extra || {}),
+    ...extra,
   };
 
   try {
@@ -111,7 +111,7 @@ export async function editTelegramMessage(
     text,
     parse_mode: "HTML",
     link_preview_options: { is_disabled: true },
-    ...(extra || {}),
+    ...extra,
   };
 
   try {
@@ -431,15 +431,15 @@ async function handleMenuCallback(data, queryId, chatId, messageId, appUrl, botT
   return false;
 }
 
-async function handlePlanItemCallback(data, queryId, chatId, messageId, botToken, env) {
+async function handlePlanDetailCallback(data, queryId, chatId, messageId, botToken, env) {
+  const parts = data.split(":");
+  const index = Number.parseInt(parts[1], 10);
+  const categoryKey = parts[2] || "all";
+
   if (data.startsWith("plan:")) {
     await answerCallbackQuery(queryId, "", botToken);
-    const parts = data.split(":");
-    const index = Number.parseInt(parts[1], 10);
-    const categoryKey = parts[2] || "all";
     const shopData = await getShopData(env);
     const plan = shopData.plans[index];
-
     if (!plan) {
       await editTelegramMessage(chatId, messageId, "❌ Plan not found", {}, botToken);
       return true;
@@ -453,9 +453,6 @@ async function handlePlanItemCallback(data, queryId, chatId, messageId, botToken
   }
 
   if (data.startsWith("highlight:")) {
-    const parts = data.split(":");
-    const index = Number.parseInt(parts[1], 10);
-    const categoryKey = parts[2] || "all";
     const res = await togglePlanHighlight(env, index);
     await answerCallbackQuery(queryId, res.plan.highlight ? "Popular: ON" : "Popular: OFF", botToken);
 
@@ -466,15 +463,20 @@ async function handlePlanItemCallback(data, queryId, chatId, messageId, botToken
     return true;
   }
 
-  if (data.startsWith("price:")) {
-    await answerCallbackQuery(queryId, "", botToken);
-    const parts = data.split(":");
-    const index = Number.parseInt(parts[1], 10);
-    const categoryKey = parts[2] || "all";
-    const shopData = await getShopData(env);
-    const plan = shopData.plans[index];
-    if (!plan) return true;
+  return false;
+}
 
+async function handlePlanActionPrompt(data, queryId, chatId, messageId, botToken, env) {
+  const parts = data.split(":");
+  const index = Number.parseInt(parts[1], 10);
+  const categoryKey = parts[2] || "all";
+  const shopData = await getShopData(env);
+  const plan = shopData.plans[index];
+  if (!plan) return true;
+
+  await answerCallbackQuery(queryId, "", botToken);
+
+  if (data.startsWith("price:")) {
     if (env.SHOP_DATA) {
       await env.SHOP_DATA.put(
         `pending_price:${chatId}`,
@@ -490,14 +492,6 @@ async function handlePlanItemCallback(data, queryId, chatId, messageId, botToken
   }
 
   if (data.startsWith("emoji:")) {
-    await answerCallbackQuery(queryId, "", botToken);
-    const parts = data.split(":");
-    const index = Number.parseInt(parts[1], 10);
-    const categoryKey = parts[2] || "all";
-    const shopData = await getShopData(env);
-    const plan = shopData.plans[index];
-    if (!plan) return true;
-
     if (env.SHOP_DATA) {
       await env.SHOP_DATA.put(`pending_emoji:${chatId}`, String(index), { expirationTtl: 300 });
     }
@@ -508,6 +502,16 @@ async function handlePlanItemCallback(data, queryId, chatId, messageId, botToken
     return true;
   }
 
+  return false;
+}
+
+async function handlePlanItemCallback(data, queryId, chatId, messageId, botToken, env) {
+  if (data.startsWith("plan:") || data.startsWith("highlight:")) {
+    return handlePlanDetailCallback(data, queryId, chatId, messageId, botToken, env);
+  }
+  if (data.startsWith("price:") || data.startsWith("emoji:")) {
+    return handlePlanActionPrompt(data, queryId, chatId, messageId, botToken, env);
+  }
   return false;
 }
 
