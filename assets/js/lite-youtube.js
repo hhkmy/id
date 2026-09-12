@@ -11,8 +11,7 @@ export function initLiteYoutube() {
 
         const iframe = document.createElement("iframe");
         iframe.src = src;
-        iframe.title =
-          embed.getAttribute("data-youtube-title") || "YouTube video";
+        iframe.title = embed.dataset.youtubeTitle || "YouTube video";
         iframe.loading = "lazy";
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
         iframe.allow =

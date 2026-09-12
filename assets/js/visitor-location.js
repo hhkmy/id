@@ -21,22 +21,25 @@ const COUNTRY_NAMES = {
 };
 
 function getFlagEmoji(countryCode) {
-  if (!countryCode || countryCode.length !== 2) return "🌐";
+  if (countryCode?.length !== 2) return "🌐";
   return countryCode
     .toUpperCase()
     .split("")
-    .map((c) => String.fromCodePoint(127397 + c.charCodeAt(0)))
+    .map((c) => String.fromCodePoint(127397 + c.codePointAt(0)))
     .join("");
 }
 
 function getCountryName(cc) {
   try {
-    if (window.Intl && Intl.DisplayNames) {
+    if (window.Intl?.DisplayNames) {
       const dn = new Intl.DisplayNames(["en"], { type: "region" });
       const name = dn.of(cc);
-      if (name) return name.replace(/\s*\(Burma\)/i, "");
+      if (name)
+        return name.replace(" (Burma)", "").replace("(Burma)", "").trim();
     }
-  } catch (_) {}
+  } catch (_) {
+    // Ignore Intl.DisplayNames exceptions and fallback to COUNTRY_NAMES
+  }
   return COUNTRY_NAMES[cc] || cc;
 }
 
@@ -49,8 +52,11 @@ function renderLocation(locEl, countryCode, cityName) {
 
   const flagEmoji = getFlagEmoji(cc);
   const countryName = getCountryName(cc);
-  const displayCity = cityName && cityName.trim().length > 0 ? cityName.trim() : "";
-  const locationText = displayCity ? `${displayCity}, ${countryName}` : countryName;
+  const displayCity =
+    cityName && cityName.trim().length > 0 ? cityName.trim() : "";
+  const locationText = displayCity
+    ? `${displayCity}, ${countryName}`
+    : countryName;
 
   const flagImg = `<img src="https://flagcdn.com/24x18/${cc.toLowerCase()}.png" srcset="https://flagcdn.com/48x36/${cc.toLowerCase()}.png 2x" width="18" height="13.5" alt="${cc}" class="edge-flag" onerror="this.replaceWith(document.createTextNode('${flagEmoji}'))" />`;
 
@@ -63,19 +69,23 @@ function renderLocation(locEl, countryCode, cityName) {
 }
 
 export async function initVisitorLocation() {
-  const locEl = document.getElementById("cf-edge-location") || document.querySelector("[data-edge-location]");
+  const locEl =
+    document.getElementById("cf-edge-location") ||
+    document.querySelector("[data-edge-location]");
   if (!locEl) return;
 
   try {
     const res = await fetch("/api/edge-info", { cache: "no-store" });
     if (res.ok) {
       const data = await res.json();
-      if (data && data.country) {
+      if (data?.country) {
         renderLocation(locEl, data.country, data.city);
         return;
       }
     }
-  } catch (_) {}
+  } catch (_) {
+    // Ignore edge-info fetch failure and fallback to cdn-cgi trace
+  }
 
   try {
     const res = await fetch("/cdn-cgi/trace");
@@ -91,7 +101,9 @@ export async function initVisitorLocation() {
         return;
       }
     }
-  } catch (_) {}
+  } catch (_) {
+    // Ignore trace fetch failure and fallback to timezone
+  }
 
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
@@ -102,10 +114,11 @@ export async function initVisitorLocation() {
     } else if (tz.includes("Bangkok")) {
       renderLocation(locEl, "TH", "Bangkok");
     } else {
-      const city = tz.split("/").pop().replace(/_/g, " ");
+      const city = tz.split("/").pop().replaceAll("_", " ");
       renderLocation(locEl, "MM", city || "Myanmar");
     }
   } catch (_) {
+    // Fallback to default MM if timezone resolution fails
     renderLocation(locEl, "MM", "Myanmar");
   }
 }

@@ -1,9 +1,9 @@
 import { handleEdgeInfo } from "./edge-info.js";
-import { handleViewCounter, ViewCounter } from "./view-counter.js";
+import { handleViewCounter } from "./view-counter.js";
 import { applySecurity } from "./security.js";
 import { createJsonResponse } from "./utils.js";
 
-export { ViewCounter };
+export { ViewCounter } from "./view-counter.js";
 
 export default {
   async fetch(request, env) {

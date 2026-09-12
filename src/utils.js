@@ -20,7 +20,7 @@ export const createJsonResponse = (
 
 export const normalizePath = (path) => {
   let end = path.length;
-  while (end > 0 && path.charCodeAt(end - 1) === 47) {
+  while (end > 0 && path.codePointAt(end - 1) === 47) {
     end--;
   }
   return path.slice(0, end) || "/";
@@ -28,7 +28,7 @@ export const normalizePath = (path) => {
 
 export const generateNonce = () => {
   const bytes = crypto.getRandomValues(new Uint8Array(16));
-  return btoa(String.fromCharCode(...bytes));
+  return btoa(String.fromCodePoint(...bytes));
 };
 
 export const escapeHtml = (value) =>

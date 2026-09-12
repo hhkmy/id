@@ -15,12 +15,10 @@ export const initScrollToTop = () => {
         btn.setAttribute("tabindex", "0");
         btn.removeAttribute("aria-hidden");
       }
-    } else {
-      if (btn.classList.contains("is-visible")) {
-        btn.classList.remove("is-visible");
-        btn.setAttribute("tabindex", "-1");
-        btn.setAttribute("aria-hidden", "true");
-      }
+    } else if (btn.classList.contains("is-visible")) {
+      btn.classList.remove("is-visible");
+      btn.setAttribute("tabindex", "-1");
+      btn.setAttribute("aria-hidden", "true");
     }
   };
 

@@ -47,7 +47,7 @@ const loadAllViewCounters = async (counters) => {
 
 const normalizeCounterPath = (path) => {
   let end = path.length;
-  while (end > 0 && path.charCodeAt(end - 1) === 47) {
+  while (end > 0 && path.codePointAt(end - 1) === 47) {
     end--;
   }
   return path.slice(0, end) || "/";

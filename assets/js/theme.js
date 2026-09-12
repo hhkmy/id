@@ -24,9 +24,10 @@ export function initTheme() {
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
     root.classList.toggle("dark", isDark);
-    root.toggleAttribute("data-pf-theme", isDark);
     if (isDark) {
-      root.setAttribute("data-pf-theme", "dark");
+      root.dataset.pfTheme = "dark";
+    } else {
+      delete root.dataset.pfTheme;
     }
     if (darkBtn) darkBtn.style.display = isDark ? "none" : "";
     if (lightBtn) lightBtn.style.display = isDark ? "" : "none";
