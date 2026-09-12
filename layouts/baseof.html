@@ -4,9 +4,10 @@
 		{{ partial "head.html" . }}
 	</head>
 	<body>
-		<header>{{ partial "header.html" . }}</header>
+		<header>{{ partialCached "header.html" . (or .Section .RelPermalink) }}</header>
 		<main class="site-shell" data-pagefind-body>{{ block "main" . }}{{ end }}</main>
 		{{ partialCached "footer.html" . now.Year }}
-		{{ partial "twemoji.html" . }}
+		{{ partialCached "scroll-to-top.html" . }}
+		{{ partialCached "twemoji.html" . }}
 	</body>
 </html>
