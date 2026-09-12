@@ -23,6 +23,9 @@
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-deployment-F38020?logo=cloudflarepages&logoColor=white)](https://github.com/hhkmy/id/commits/main)
 [![Workers Builds](https://img.shields.io/badge/Workers%20Builds-hhkmyid-F38020?logo=cloudflareworkers&logoColor=white)](https://github.com/hhkmy/id/commits/main)
 [![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=hhkmy_id&metric=alert_status)](https://sonarcloud.io/dashboard?id=hhkmy_id&branch=main)
+[![SonarCloud Maintainability](https://sonarcloud.io/api/project_badges/measure?project=hhkmy_id&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=hhkmy_id&branch=main)
+[![SonarCloud Security](https://sonarcloud.io/api/project_badges/measure?project=hhkmy_id&metric=security_rating)](https://sonarcloud.io/dashboard?id=hhkmy_id&branch=main)
+[![SonarCloud Reliability](https://sonarcloud.io/api/project_badges/measure?project=hhkmy_id&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=hhkmy_id&branch=main)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhhkmy%2Fid.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhhkmy%2Fid?ref=badge_shield)
 
 ## Technology & Tools
@@ -72,6 +75,13 @@ HHK B/Vlog is my personal technical website for publishing practical notes, proj
 The site serves as a structured knowledge base for documenting real-world setup steps, configuration decisions, maintenance notes, and lessons learned from day-to-day technical work. Articles are written with a practical mindset: clear enough to revisit later, detailed enough to reproduce, and focused on solving actual problems rather than collecting theory.
 
 This repository contains the source for that website, including the Hugo configuration, content, assets, build pipeline, and deployment-related files. It is maintained as both a publishing workspace and a reference project for static-site workflows, frontend improvements, performance checks, and Cloudflare-backed delivery.
+
+### Architecture & Edge Capabilities
+
+- **Static Generation:** Built with Hugo Extended, Tailwind CSS v4, and PostCSS for performance-optimized, zero-runtime asset pipelines.
+- **Edge Delivery:** Hosted and served on Cloudflare Workers with Static Assets (`env.ASSETS`) and strict Content Security Policy (CSP).
+- **Edge APIs:** Dynamic `/api/edge-info` endpoint providing real visitor IP and Cloudflare Radar infrastructure metadata (colo, ASN, TLS/HTTP protocol), alongside Durable Objects for real-time view counting (`/api/views`).
+- **Client-side Search:** Fast in-browser full-text search powered by Pagefind indexing.
 
 ## Requirement
 
