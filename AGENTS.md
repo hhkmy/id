@@ -60,6 +60,12 @@
   - **Content:** `_prose.css` (typography, markdown), `_code.css` (code blocks, lite-youtube)
   - **Utilities:** `_utilities.css` (books, projects, shop, scroll-reveal, scroll-to-top, mermaid, flags, emoji)
 
+## Hugo Standards & Official Documentation Policy
+
+- **Official Grounding Mandatory:** When implementing, refactoring, or researching Hugo functions, page methods, shortcodes, and template structures, always prioritize the official documentation at [gohugo.io/documentation](https://gohugo.io/documentation/).
+- **Targeted Documentation Search:** Do not guess function signatures or rely on outdated memory or obsolete forum posts. Use web searches targeted to `domain: "gohugo.io"` and read pages directly via official Hugo URLs (`https://gohugo.io/functions/...`, `https://gohugo.io/methods/...`).
+- **Hugo Version (v0.165.0+):** Strictly adhere to modern Hugo standards. Never introduce legacy or deprecated functions (e.g. `.URL`, `$.Site.RegularPages`, `$.Site.Data`, legacy paginate). Use modern top-level functions and context methods (`site.RegularPages`, `site.Data`, `page.GetPage`, `.RelPermalink`).
+
 ## Quality Assurance & Verification
 
 - **Mandatory Build Verification:** Always run `npm run build` after modifying CSS, HTML templates, JS, or Hugo configuration.
@@ -70,14 +76,20 @@
 ## SonarQube & SonarCloud Standards
 
 - **Vendor & Build Asset Exclusions:** Keep third-party search libraries and generated files (`assets/pagefind/**`, `public/**`, `node_modules/**`, `resources/**`) excluded in `.sonarcloud.properties` and `sonar-project.properties`. Never allow vendor code to generate quality gate noise.
+- **Coverage Exclusion Policy:** Maintain `sonar.coverage.exclusions=**/*` in `sonar-project.properties`. As a static Hugo blog without automated test runners, test coverage must be excluded to prevent SonarCloud default Quality Gate failure (`new_coverage < 80%`).
+- **Function Cognitive Complexity (`javascript:S3776`):** Keep functions focused and modular; never exceed a cognitive complexity score of 15. Decompose large routines into helper functions.
 - **CSS `@import` Order (`css:S8778`):** In `assets/css/main.css` and all CSS entrypoints, all `@import` statements must strictly precede all other rules and at-rules (`@source`, `@variant dark`, `@theme`, `@font-face`).
-- **Modern JavaScript Conventions:**
+- **Modern JavaScript & Security Conventions:**
   - Prefer `element.dataset.*` over `setAttribute("data-*", ...)` or `getAttribute("data-*")` (`javascript:S7761`).
   - Prefer `String#codePointAt()` and `String.fromCodePoint()` over `charCodeAt()` and `fromCharCode()` (`javascript:S7758`).
   - Prefer `String#replaceAll()` over regex `replace(/.../g)` (`javascript:S7781`).
   - Re-export symbols directly with `export { X } from "./module.js"` instead of importing first (`javascript:S7763`).
   - Never leave empty `catch` blocks without an explanatory comment explaining why the exception is safely ignored (`javascript:S2486`).
   - Simplify conditions (`else if` instead of nesting `if` inside `else`, `for-of` instead of indexed `for` over arrays).
+  - **Safe Process Execution (`javascript:S4036`):** Never invoke bare command names (e.g. `"curl"`, `"npx"`, `"wrangler"`) with `execFileSync`, `execFile`, or `spawn`. Always use verified absolute binary paths (`/usr/bin/curl`, `process.execPath`, or `path.join(path.dirname(process.execPath), "npx")`) or sanitize the PATH.
+  - **Nullish Coalescing for Defaults (`javascript:S6644`):** Use `??` or `||` instead of ternary expressions for fallback/default assignments (`const x = val ?? defaultVal`).
+  - **Log Injection Prevention (`jssecurity:S5145` / CWE-117):** Never concatenate untrusted HTTP response strings, external API objects, or user input into `console.log`, `console.warn`, or `console.error`. Use parameterized logging (`%s`, `%d`), calculate lengths from local arrays, and strip CRLF characters.
+  - **Zero Sonar Issues Policy:** Run `npm run sonar:issues` to ensure `0 open issue(s)` on SonarCloud before committing. Refer to `.agents/skills/sonarcloud-standards/` for detailed guidelines.
 - **Accessible Name & Visible Label Compliance (WCAG 2.5.3 / `Web:S7927`):**
   - Interactive elements with visible text must never have conflicting or mismatched `aria-label` attributes.
   - Do not add redundant `aria-label` attributes to elements whose visible label already conveys the name. For extra context, nest `<span class="sr-only">`.
@@ -92,11 +104,15 @@
 ## Git Push & Commit Policy
 
 - **Do Not Push Automatically:** Do not execute `git push` unless the user explicitly instructs or confirms to push. You may make local git commits when appropriate to organize work, but pushing to the remote repository is strictly forbidden unless explicitly requested by the user.
+- **Atomic Logical Commits (No Micro-Commits):** Never commit single file edits repeatedly or make intermediate trial commits. Group all related changes for a complete task, feature, or bugfix into one clean, verified commit.
+- **Commit Message Standard:**
+  - Follow Conventional Commits: `type(scope): summary`.
+  - Header: Short, lowercase, imperative, under 72 characters.
+  - Body: Always include a blank line after the header, followed by a detailed bulleted list (`- ...`) detailing the specific changes made, reasons, and files affected.
+  - When reporting to the user after committing, provide the commit hash and a bulleted listing of changes made.
+- **Consolidate Unpushed Commits:** If multiple incremental or trial commits have accumulated locally before pushing to remote, reorganize/squash them into clean, logically grouped commits so the remote Git history remains clean.
 - Work directly on the `main` branch for repository changes. Do not create new branches unless the user explicitly asks for a branch or pull request workflow.
 - If `git push origin main` fails with `GH006: Protected branch update failed` or `Changes must be made through a pull request`, stay on `main` and fix the GitHub branch protection/ruleset that is requiring pull requests, then retry `git push origin main`. Do not create, switch to, push, merge, or open a branch/PR as a fallback unless the user explicitly asks for that workflow.
-- Prefer Conventional Commit style: `type(scope): summary`.
-- Keep the summary short, lowercase, and imperative when it reads naturally.
-- Choose a clear scope that names the area changed, such as `lighthouse`, `footer`, `header`, `deps`, or `content`.
 - Keep unrelated work in separate commits. When the worktree already has local changes, stage only the files that belong to the current request.
 - If a user asks to commit and says separate commits may be needed, split logically independent changes before pushing.
 - Good examples:
