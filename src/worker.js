@@ -171,8 +171,21 @@ async function handleTelegramSave(request, env) {
   }
 }
 
-async function handleEmojiProxy(pathname, env) {
+async function handleEmojiProxy(request, pathname, env) {
   const emojiId = pathname.slice("/api/emoji/".length);
+
+  if (env.ASSETS) {
+    try {
+      const assetUrl = new URL(`/icons/premiumemojis/${emojiId}.tgs.base64`, request.url);
+      const assetRes = await env.ASSETS.fetch(new Request(assetUrl));
+      if (assetRes.status === 200) {
+        return assetRes;
+      }
+    } catch {
+      // Asset fetch fallback
+    }
+  }
+
   const { fetchAndCacheEmoji } = await import("./telegram/index.js");
   const base64 = await fetchAndCacheEmoji(emojiId, env);
   if (!base64) {
@@ -277,7 +290,7 @@ export default {
     }
 
     if (pathname.startsWith("/api/emoji/")) {
-      return handleEmojiProxy(pathname, env);
+      return handleEmojiProxy(request, pathname, env);
     }
 
     if (pathname.startsWith("/icons/premiumemojis/")) {

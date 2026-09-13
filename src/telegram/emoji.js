@@ -74,15 +74,16 @@ async function downloadTelegramStickerAsBase64(botToken, fileId) {
  * Fetches a Telegram custom emoji sticker (.tgs.base64) using Bot API and caches it in KV.
  * @param {string} customEmojiId
  * @param {Record<string, any>} env
+ * @param {boolean} [skipKv=false] If true, bypasses checking KV and fetches directly from Telegram Bot API
  * @returns {Promise<string|null>} Base64 encoded .tgs string or null
  */
-export async function fetchAndCacheEmoji(customEmojiId, env) {
+export async function fetchAndCacheEmoji(customEmojiId, env, skipKv = false) {
   if (!customEmojiId) return null;
 
   const cacheKey = `emoji:${customEmojiId}`;
 
-  // 1. Check KV cache first
-  if (env.SHOP_DATA) {
+  // 1. Check KV cache first (unless explicitly skipped)
+  if (!skipKv && env.SHOP_DATA) {
     try {
       const cached = await env.SHOP_DATA.get(cacheKey);
       if (cached) return cached;
