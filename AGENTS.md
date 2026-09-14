@@ -112,7 +112,8 @@
   - Body: Always include a blank line after the header, followed by a detailed bulleted list (`- ...`) detailing the specific changes made, reasons, and files affected.
   - When reporting to the user after committing, provide the commit hash and a bulleted listing of changes made.
 - **Consolidate Unpushed Commits:** If multiple incremental or trial commits have accumulated locally before pushing to remote, reorganize/squash them into clean, logically grouped commits so the remote Git history remains clean.
-- Work directly on the `main` branch for repository changes. Do not create new branches unless the user explicitly asks for a branch or pull request workflow.
+- **Zero Same-File Duplicate Commits:** When modifying a file or feature (such as `README.md`, documentation, configs, or a specific module) that was already touched in an unpushed local commit, never create a second or third commit touching that exact same file or scope. Always consolidate, squash, or amend into the existing unpushed commit before reporting to the user.
+- Work directly on the `main` branch for repository changes. Do not create new branches unless the user asks for a branch or pull request workflow.
 - If `git push origin main` fails with `GH006: Protected branch update failed` or `Changes must be made through a pull request`, stay on `main` and fix the GitHub branch protection/ruleset that is requiring pull requests, then retry `git push origin main`. Do not create, switch to, push, merge, or open a branch/PR as a fallback unless the user explicitly asks for that workflow.
 - Keep unrelated work in separate commits. When the worktree already has local changes, stage only the files that belong to the current request.
 - If a user asks to commit and says separate commits may be needed, split logically independent changes before pushing.
