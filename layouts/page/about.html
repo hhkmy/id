@@ -24,7 +24,9 @@
 		</header>
 
 		<section class="panel">
-			<h2 class="about-section-heading">{{ partialCached "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem") "icon-default-contact-1.2rem" }} Contact</h2>
+			<h2 class="about-section-heading">
+				{{ partialCached "icons/icon" (dict "vendor" "default" "name" "contact" "width" "1.2rem" "height" "1.2rem") "icon-default-contact-1.2rem" }} Contact
+			</h2>
 			<ul class="about-contact-grid">
 				{{ range hugo.Data.about.contact }}
 					<li class="about-contact-card">
@@ -42,7 +44,9 @@
 		</section>
 
 		<section class="panel">
-			<h2 class="about-section-heading">{{ partialCached "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem") "icon-default-work-1.2rem" }} Employment</h2>
+			<h2 class="about-section-heading">
+				{{ partialCached "icons/icon" (dict "vendor" "default" "name" "work" "width" "1.2rem" "height" "1.2rem") "icon-default-work-1.2rem" }} Employment
+			</h2>
 			<ol class="about-timeline">
 				{{ range hugo.Data.about.employment }}
 					<li class="about-timeline-item">
@@ -54,11 +58,7 @@
 							</h3>
 							<p class="about-timeline-role">{{ .role }}</p>
 							{{ if .link }}
-								<a
-									href="{{ .link | safeURL }}"
-									class="about-timeline-link"
-									>{{ .link }}</a
-								>
+								<a href="{{ .link | safeURL }}" class="about-timeline-link">{{ .link }}</a>
 							{{ end }}
 						</div>
 					</li>
@@ -68,12 +68,14 @@
 
 		<section class="panel">
 			<h2 class="about-section-heading">
-				{{ partialCached "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem") "icon-default-education-1.2rem" }} Education and Qualifications
+				{{ partialCached "icons/icon" (dict "vendor" "default" "name" "education" "width" "1.2rem" "height" "1.2rem") "icon-default-education-1.2rem" }}
+				Education and Qualifications
 			</h2>
 			<div class="grid gap-6 md:grid-cols-2">
 				<div class="about-card">
 					<h3 class="about-subheading">
-						{{ partialCached "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1rem" "height" "1rem") "icon-default-learning-1rem" }} Education
+						{{ partialCached "icons/icon" (dict "vendor" "default" "name" "learning" "width" "1rem" "height" "1rem") "icon-default-learning-1rem" }}
+						Education
 					</h3>
 					<ul class="space-y-4">
 						{{ range hugo.Data.about.education }}
@@ -82,14 +84,21 @@
 									<span class="about-entry-title">{{ .name }}</span>
 									<span class="about-entry-year">{{ .year }}</span>
 								</div>
-								<p class="about-entry-meta">{{ if .link }}<a href="{{ .link | safeURL }}" class="hover:underline">{{ .location }}</a>{{ else }}{{ .location }}{{ end }}</p>
+								<p class="about-entry-meta">
+									{{ if .link }}
+										<a href="{{ .link | safeURL }}" class="hover:underline">{{ .location }}</a>
+									{{ else }}
+										{{ .location }}
+									{{ end }}
+								</p>
 							</li>
 						{{ end }}
 					</ul>
 				</div>
 				<div class="about-card">
 					<h3 class="about-subheading">
-						{{ partialCached "icons/icon" (dict "vendor" "default" "name" "qualification" "width" "1rem" "height" "1rem") "icon-default-qualification-1rem" }} Qualifications
+						{{ partialCached "icons/icon" (dict "vendor" "default" "name" "qualification" "width" "1rem" "height" "1rem") "icon-default-qualification-1rem" }}
+						Qualifications
 					</h3>
 					<ul class="space-y-4">
 						{{ range hugo.Data.about.qualifications }}
@@ -111,7 +120,7 @@
 				<h2 class="about-section-heading mb-0">
 					{{ partialCached "icons/icon" (dict "vendor" "default" "name" "skills" "width" "1.2rem" "height" "1.2rem") "icon-default-skills-1.2rem" }} Skills
 				</h2>
-				<div class="skill-filter-tabs flex flex-wrap gap-2" role="tablist" aria-label="Skill categories">
+				<div class="skill-filter-tabs flex flex-wrap gap-2">
 					<button type="button" class="skill-filter-btn active" data-filter="all">All ({{ len hugo.Data.about.skills }})</button>
 					<button type="button" class="skill-filter-btn" data-filter="backend">Backend & Bots</button>
 					<button type="button" class="skill-filter-btn" data-filter="devops">DevOps & Systems</button>
@@ -130,10 +139,7 @@
 							<span class="about-skill-pct">{{ .percentage }}%</span>
 						</div>
 						<div class="about-progress-track">
-							<div
-								class="about-progress-bar"
-								style="--progress: {{ .percentage }}%;"
-							></div>
+							<div class="about-progress-bar" style="--progress: {{ .percentage }}%;"></div>
 						</div>
 					</div>
 				{{ end }}

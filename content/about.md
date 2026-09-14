@@ -1,5 +1,6 @@
 ---
 title: About
+lang: en
 type: page
 layout: about
 slug: about

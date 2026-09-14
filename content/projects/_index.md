@@ -1,5 +1,9 @@
 ---
 title: Projects
+lang: en
+cascade:
+  params:
+    lang: en
 description: Explore Telegram bots and automation systems built and operated by Hein Htet Kyaw.
 summary: Production-focused Telegram bots and supporting systems built to solve operational, moderation, commerce, monitoring, and media workflows.
 keywords: projects, telegram bots, automation, python, cloudflare workers

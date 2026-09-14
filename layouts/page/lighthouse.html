@@ -30,6 +30,7 @@
 
 		{{ if $report.pages }}
 			<section class="panel">
+				<h2 class="sr-only">Audited pages</h2>
 				<div class="lighthouse-table-wrap">
 					<table class="lighthouse-table">
 						<thead>
@@ -58,12 +59,12 @@
 									<td>{{ with .metrics.totalBlockingTime }}{{ printf "%.0fms" . }}{{ else }}-{{ end }}</td>
 									<td>
 										{{ if .error }}
-											<span class="text-red-700 dark:text-red-300">{{ .error }}</span>
+											<span class="lighthouse-status-error">{{ .error }}</span>
 										{{ else }}
 											{{ range first 3 .failedAudits }}
 												<span class="lighthouse-issue">{{ .title }}</span>
 											{{ else }}
-												<span class="text-emerald-700 dark:text-emerald-300">No failed audits</span>
+												<span class="lighthouse-status-clean">No failed audits</span>
 											{{ end }}
 										{{ end }}
 									</td>
@@ -74,9 +75,9 @@
 				</div>
 			</section>
 		{{ else }}
-			<section class="panel">
-				<p class="text-slate-600 dark:text-slate-300">No Lighthouse data has been generated yet.</p>
-			</section>
+			<div class="panel">
+				<p class="lighthouse-empty-state">No Lighthouse data has been generated yet.</p>
+			</div>
 		{{ end }}
 	</section>
 {{ end }}

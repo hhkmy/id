@@ -1,6 +1,7 @@
 ---
 author: "heinhtetkyaw"
 title: License
+lang: en
 slug: /license
 type: page
 layout: legal

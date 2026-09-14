@@ -47,3 +47,24 @@
     @apply bg-amber-950/40 text-amber-200;
   }
 }
+
+.lighthouse-status-error {
+  @apply text-red-700;
+  @variant dark {
+    @apply text-red-300;
+  }
+}
+
+.lighthouse-status-clean {
+  @apply text-emerald-700;
+  @variant dark {
+    @apply text-emerald-300;
+  }
+}
+
+.lighthouse-empty-state {
+  @apply text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}

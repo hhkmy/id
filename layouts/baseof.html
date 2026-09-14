@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
+<html lang="{{ or .Params.lang site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
 	<head>
 		<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s - %s" .Title site.Title }}{{ end }}</title>
 		{{ partial "head.html" . }}

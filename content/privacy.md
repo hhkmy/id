@@ -1,6 +1,7 @@
 ---
 author: "heinhtetkyaw"
 title: Privacy
+lang: en
 slug: /privacy
 type: page
 layout: legal
