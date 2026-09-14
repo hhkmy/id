@@ -78,6 +78,72 @@ function setupQrSvgMotion(qrSvg) {
   };
 }
 
+function createRevealTimeline(item) {
+  return createTimeline({ autoplay: false }).add(item, {
+    opacity: [0, 1],
+    "--reveal-y": ["28px", "0px"],
+    scale: [0.96, 1],
+    rotate: [-1.4, 0],
+    duration: 620,
+    ease: "outQuad",
+  });
+}
+
+function createRevealController(item) {
+  item.classList.add("scroll-reveal");
+  remove(item, null, "opacity");
+  remove(item, null, "--reveal-y");
+  remove(item, null, "scale");
+  remove(item, null, "rotate");
+  item.style.opacity = "0";
+  item.style.setProperty("--reveal-y", "22px");
+
+  let isRevealed = false;
+  let timerId = null;
+  const revealTimeline = createRevealTimeline(item);
+
+  const playReveal = (delay = 0) => {
+    if (isRevealed) return;
+    isRevealed = true;
+    if (delay > 0) {
+      timerId = window.setTimeout(() => {
+        revealTimeline.restart();
+        timerId = null;
+      }, delay);
+    } else {
+      revealTimeline.restart();
+    }
+  };
+
+  const resetReveal = () => {
+    if (!isRevealed) return;
+    isRevealed = false;
+    if (timerId !== null) {
+      window.clearTimeout(timerId);
+      timerId = null;
+    }
+    revealTimeline.reset();
+    item.style.opacity = "0";
+    item.style.setProperty("--reveal-y", "22px");
+  };
+
+  return {
+    target: item,
+    isRevealed: () => isRevealed,
+    playReveal,
+    resetReveal,
+  };
+}
+
+function sortNewlyVisible(items) {
+  return items.sort((a, b) => {
+    if (Math.abs(a.top - b.top) <= 24) {
+      return a.left - b.left;
+    }
+    return a.top - b.top;
+  });
+}
+
 function initRevealAnimations() {
   const revealSelectors = [
     ".panel",
@@ -114,89 +180,60 @@ function initRevealAnimations() {
     ".archive-item",
     ".home-hero-panel",
     ".article-meta",
+    ".article-meta-card",
     ".article-adjacent-link",
     ".book-card",
     ".project-card",
     ".shop-card",
     ".shop-payment-method",
     ".shop-order-note",
+    ".article-content",
+    ".series-nav",
+    ".article-footer",
     ".lighthouse-table-wrap",
   ];
 
-  const revealItems = Array.from(
+  const nestedRevealSelector = nestedRevealSelectors.join(",");
+  const rawItems = Array.from(
     document.querySelectorAll(revealSelectors.join(",")),
   );
-  const nestedRevealSelector = nestedRevealSelectors.join(",");
-  const groupedItems = new Map();
 
-  document.querySelectorAll(".panel").forEach((panel) => {
-    const items = Array.from(panel.querySelectorAll(nestedRevealSelector));
-    items.forEach((item, index) => groupedItems.set(item, index));
-  });
-
-  const revealTargets = revealItems.filter(
+  const revealTargets = rawItems.filter(
     (item) =>
       !item.matches(".panel") || !item.querySelector(nestedRevealSelector),
   );
 
-  const isBoxVisible = (target) => {
-    const rect = target.getBoundingClientRect();
-    return (
-      rect.bottom > window.innerHeight * 0.12 &&
-      rect.top < window.innerHeight * 0.88
-    );
-  };
-
-  const revealControllers = [];
-
-  revealTargets.forEach((item, index) => {
-    const sequenceIndex = groupedItems.get(item) ?? index;
-
-    item.classList.add("scroll-reveal");
-    remove(item, null, "opacity");
-    remove(item, null, "--reveal-y");
-    remove(item, null, "scale");
-    remove(item, null, "rotate");
-    item.style.opacity = "0";
-    item.style.setProperty("--reveal-y", "22px");
-
-    let isRevealed = false;
-    const revealTimeline = createTimeline({ autoplay: false }).add(item, {
-      opacity: [0, 1],
-      "--reveal-y": ["28px", "0px"],
-      scale: [0.96, 1],
-      rotate: [-1.4, 0],
-      duration: 620,
-      delay: (sequenceIndex % 12) * 80,
-      ease: "outQuad",
-    });
-
-    const playReveal = () => {
-      if (isRevealed) return;
-      isRevealed = true;
-      revealTimeline.restart();
-    };
-
-    const resetReveal = () => {
-      if (!isRevealed) return;
-      isRevealed = false;
-      revealTimeline.reset();
-      item.style.opacity = "0";
-      item.style.setProperty("--reveal-y", "22px");
-    };
-
-    revealControllers.push({ target: item, playReveal, resetReveal });
-  });
+  const revealControllers = revealTargets.map(createRevealController);
 
   let revealSyncQueued = false;
   const syncRevealState = () => {
     revealSyncQueued = false;
-    revealControllers.forEach(({ target, playReveal, resetReveal }) => {
-      if (isBoxVisible(target)) {
-        playReveal();
-      } else {
-        resetReveal();
+    const windowH = window.innerHeight;
+    const newlyVisible = [];
+
+    for (const controller of revealControllers) {
+      const rect = controller.target.getBoundingClientRect();
+      const isCompletelyOut = rect.bottom < -40 || rect.top > windowH + 40;
+      const isInView = rect.top < windowH * 0.94 && rect.bottom > 0;
+
+      if (isCompletelyOut) {
+        controller.resetReveal();
+      } else if (isInView && !controller.isRevealed()) {
+        newlyVisible.push({
+          controller,
+          top: rect.top,
+          left: rect.left,
+        });
       }
+    }
+
+    if (newlyVisible.length === 0) return;
+
+    sortNewlyVisible(newlyVisible);
+
+    newlyVisible.forEach(({ controller }, i) => {
+      const delay = Math.min(i * 65, 390);
+      controller.playReveal(delay);
     });
   };
 

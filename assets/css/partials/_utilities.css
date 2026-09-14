@@ -537,6 +537,7 @@ tg-emoji i.emoji b {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html,
   *,
   ::before,
   ::after {
