@@ -87,14 +87,14 @@ Modal လုံးဝ မတက်လာစေဘဲ Tool အားလုံး�
 
 ### ဂ။ Antigravity CLI (`agy`)
 
-CLI သုံးတဲ့အခါ Flag တွေနဲ့ တိုက်ရိုက် Auto-Run စေနိုင်ပါတယ်-
+CLI သုံးတဲ့အခါ Flag နဲ့ Tool Permission တောင်းဆိုမှုတွေကို အလိုအလျောက် ခွင့်ပြုပြီး Run စေနိုင်ပါတယ်-
 
 ```bash
-# Auto-run mode နဲ့ စတင်တာ
-agy --auto-run
+# Tool permissions အားလုံးကို အလိုအလျောက် ခွင့်ပြုပြီး မေးခွန်းမမေးဘဲ Run တာ (Trusted Workspace တွေအတွက်)
+agy --dangerously-skip-permissions
 
-# Permissions အားလုံးကို အလိုအလျောက် သဘောတူပြီး Run တာ (Trusted Workspace တွေအတွက်)
-agy -y
+# Terminal restrictions ပါဝင်တဲ့ Sandbox ပတ်ဝန်းကျင်နဲ့ Run တာ
+agy --sandbox
 ```
 
 TUI ဖွင့်ထားချိန်မှာတော့ `/config` လို့ ရိုက်ထည့်ပြီး **Permissions** → **Tool Execution Policy** ထဲကနေ **`always-proceed`** ကို ရွေးချယ်နိုင်ပါတယ်။
