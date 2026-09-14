@@ -1,0 +1,76 @@
+{{- $file := .Get "file" | default (.Get "src") | default (.Get 0) -}}
+{{- $url := .Get "url" -}}
+{{- $label := .Get "label" | default (.Get "title") | default (.Get 1) -}}
+{{- $filename := .Get "filename" | default (.Get "name") -}}
+{{- $style := .Get "style" | default (.Get "type") | default "default" -}}
+{{- $customSize := .Get "size" -}}
+
+{{- $href := "" -}}
+{{- $downloadAttr := "" -}}
+{{- $fileSize := $customSize -}}
+
+{{- if $file -}}
+	{{- with $.Page.Resources.GetMatch $file -}}
+		{{- $href = .RelPermalink -}}
+		{{- $downloadAttr = $filename | default .Name -}}
+		{{- if not $fileSize -}}
+			{{- $bytes := len .Content -}}
+			{{- if ge $bytes 1048576 -}}
+				{{- $fileSize = printf "%.1f MB" (div (float $bytes) 1048576.0) -}}
+			{{- else if ge $bytes 1024 -}}
+				{{- $fileSize = printf "%.1f KB" (div (float $bytes) 1024.0) -}}
+			{{- else if gt $bytes 0 -}}
+				{{- $fileSize = printf "%d B" $bytes -}}
+			{{- end -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $href = $file -}}
+		{{- $downloadAttr = $filename | default (path.Base $file) -}}
+	{{- end -}}
+{{- else if $url -}}
+	{{- $href = $url -}}
+	{{- $downloadAttr = $filename | default (path.Base $url) -}}
+{{- end -}}
+
+{{- $displayText := $label | default $downloadAttr | default "Download" -}}
+{{- $cardClass := "download-card" -}}
+{{- if eq $style "primary" -}}
+	{{- $cardClass = "download-card download-card-primary" -}}
+{{- end -}}
+
+
+<div class="download-card-wrapper not-prose">
+	<a href="{{ $href }}" download="{{ $downloadAttr }}" class="{{ $cardClass }}" rel="noopener">
+		<div class="download-card-content">
+			<div class="download-card-icon" aria-hidden="true">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+					/>
+				</svg>
+			</div>
+			<div class="download-card-text">
+				<span class="download-card-title">{{ $displayText }}</span>
+				{{- if or $downloadAttr $fileSize -}}
+					<span class="download-card-meta">
+						{{- with $downloadAttr }}<span class="download-card-filename">{{ . }}</span>{{ end -}}
+						{{- if and $downloadAttr $fileSize }}<span class="download-card-dot">•</span>{{ end -}}
+						{{- with $fileSize }}<span class="download-card-size">{{ . }}</span>{{ end -}}
+					</span>
+				{{- end -}}
+			</div>
+		</div>
+		<div class="download-card-action">
+			<span class="download-card-action-text">Download</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+				/>
+			</svg>
+		</div>
+	</a>
+</div>

@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto-fix Synaptics Touchpad I2C probe timeout on boot
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/fix-touchpad.sh
+
+[Install]
+WantedBy=multi-user.target
