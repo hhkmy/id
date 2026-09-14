@@ -4,7 +4,7 @@
 
 # HHK B/Vlog [![Netlify Status](https://api.netlify.com/api/v1/badges/9bebb371-d351-437c-ab5b-c64a3ef6b71c/deploy-status)](https://app.netlify.com/projects/hhkmyid/deploys)
 
-## Website Stats
+### Website Stats
 
 [![Netlify](https://img.shields.io/netlify/9bebb371-d351-437c-ab5b-c64a3ef6b71c)](https://app.netlify.com/projects/hhkmyid/deploys)
 [![Website](https://img.shields.io/website?up_message=online&up_color=green&down_message=offline&down_color=lightgrey&url=https%3A%2F%2Fhhk.my.id)](https://hhk.my.id)
@@ -15,7 +15,7 @@
 [![W3C Validation](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fhhk.my.id%252F%26out%3Djson&query=%24.messages.length&label=w3c&suffix=%20errors&color=brightgreen&cacheSeconds=300)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fhhk.my.id%2F)
 [![Chromium HSTS preload](https://img.shields.io/hsts/preload/hhk.my.id)](https://hhk.my.id)
 
-## Build & Quality
+### Build & Quality
 
 [![All Checks](https://img.shields.io/github/checks-status/hhkmy/id/main?label=all%20checks)](https://github.com/hhkmy/id/commits/main)
 [![Dependabot](https://img.shields.io/badge/Dependabot-config%20validation-025E8C?logo=dependabot&logoColor=white)](https://github.com/hhkmy/id/blob/main/.github/dependabot.yml)
@@ -28,7 +28,7 @@
 [![SonarCloud Reliability](https://sonarcloud.io/api/project_badges/measure?project=hhkmy_id&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=hhkmy_id&branch=main)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhhkmy%2Fid.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhhkmy%2Fid?ref=badge_shield)
 
-## Technology & Tools
+### Technology & Tools
 
 [![Hugo](https://img.shields.io/badge/Hugo-build?style=flat-square&logo=hugo&labelColor=0d1117&color=24292f)](https://gohugo.io)
 [![Github](https://img.shields.io/badge/Github-action?style=flat-square&logo=github&logoColor=white&labelColor=0d1117&color=24292f)](https://github.com)
@@ -51,12 +51,12 @@
 [![Giscus](https://img.shields.io/badge/Giscus-comments?style=flat-square&logo=github&logoColor=white&labelColor=0d1117&color=24292f)](https://giscus.app)
 [![Twemoji](https://img.shields.io/badge/Twemoji-emoji?style=flat-square&logo=x&logoColor=%231DA1F2&labelColor=0d1117&color=24292f)](https://twemoji.twitter.com)
 [![HTML5](<https://img.shields.io/badge/HTML5-lang?style=flat-square&logo=html5&logoColor=rgb(228%2C%2077%2C%2038)&labelColor=0d1117&color=24292f>)](https://www.w3schools.com)
-[![Python](<https://img.shields.io/badge/Python-lang?style=flat-square&logo=python&logoColor=hsl(206.91deg%2050.23%25%2041.77%25)&labelColor=0d1117&color=24292f>)](https://www.python.org)
+[![Python](<https://img.shields.io/badge/Python-lang?style=flat-square&logo=python&logoColor=hsl(206.91deg%2050.23%25%2041.77%25)&labelColor=0d1117&color=24292f)](https://www.python.org)
 [![Git](https://img.shields.io/badge/Git-action?style=flat-square&logo=git&logoColor=%23f05033&labelColor=0d1117&color=24292f)](https://gitimmersion.com)
 [![npm Packages](https://img.shields.io/badge/npm-process?style=flat-square&logo=npm&logoColor=%23cb3837&labelColor=0d1117&color=24292f)](https://www.npmjs.com)
 [![PRETTIER](https://img.shields.io/badge/prettier-process?style=flat-square&logo=prettier&logoColor=%2356b3b4&labelColor=0d1117&color=24292f)](https://prettier.io)
 
-## Development Environment
+### Development Environment
 
 [![VisualCode](https://img.shields.io/badge/VisualCode-code?style=flat-square&logo=vscodium&logoColor=%231d89d2&labelColor=0d1117&color=24292f)](https://code.visualstudio.com)
 [![Zed](https://img.shields.io/badge/Zed-code?style=flat-square&logo=zedindustries&logoColor=%230844CC&labelColor=0d1117&color=24292f)](https://zed.dev)
@@ -68,7 +68,7 @@
 [![Android](https://img.shields.io/badge/Android-mobile?style=flat-square&logo=android&logoColor=%23a4c639&labelColor=0d1117&color=24292f)](https://www.oneplus.com)
 [![iOS](https://img.shields.io/badge/iOS-mobile?style=flat-square&logo=apple&logoColor=white&labelColor=0d1117&color=24292f)](https://www.apple.com)
 
-## Welcome to My Digital World
+### Welcome to My Digital World
 
 HHK B/Vlog is my personal technical website for publishing practical notes, project updates, and troubleshooting guides. It focuses on web systems, software workflows, server administration, and the tools I use to build and maintain reliable digital infrastructure.
 
@@ -76,14 +76,14 @@ The site serves as a structured knowledge base for documenting real-world setup 
 
 This repository contains the source for that website, including the Hugo configuration, content, assets, build pipeline, and deployment-related files. It is maintained as both a publishing workspace and a reference project for static-site workflows, frontend improvements, performance checks, and Cloudflare-backed delivery.
 
-### Architecture & Edge Capabilities
+#### Architecture & Edge Capabilities
 
 - **Static Generation:** Built with Hugo Extended, Tailwind CSS v4, and PostCSS for performance-optimized, zero-runtime asset pipelines.
 - **Edge Delivery:** Hosted and served on Cloudflare Workers with Static Assets (`env.ASSETS`) and strict Content Security Policy (CSP).
 - **Edge APIs:** Dynamic `/api/edge-info` endpoint providing real visitor IP and Cloudflare Radar infrastructure metadata (colo, ASN, TLS/HTTP protocol), alongside Durable Objects for real-time view counting (`/api/views`).
 - **Client-side Search:** Fast in-browser full-text search powered by Pagefind indexing.
 
-## Recent Articles
+### Recent Articles
 
 <!-- BLOG-POST-LIST:START -->
 - [Telegram Shop Bot နဲ့ Mini App အဆင့်မြှင့်တင်မှု မှတ်တမ်း](https://hhk.my.id/article/telegram-shop-bot-miniapp-premium-emoji-enhancements/)
@@ -93,7 +93,7 @@ This repository contains the source for that website, including the Hugo configu
 - [Google Antigravity မှာ Run Now Auto-Proceed သတ်မှတ်နည်း](https://hhk.my.id/article/automating-run-now-approvals-google-antigravity/)
 <!-- BLOG-POST-LIST:END -->
 
-## Requirement
+### Requirements & Setup
 
 [![Github](https://img.shields.io/badge/Github-action?style=flat-square&logo=github&logoColor=white&labelColor=0d1117&color=24292f)](https://github.com)
 [![Github](https://img.shields.io/badge/Github%20CLI-action?style=flat-square&logo=github&logoColor=white&labelColor=0d1117&color=24292f)](https://cli.github.com)
@@ -101,7 +101,7 @@ This repository contains the source for that website, including the Hugo configu
 [![npm Packages](https://img.shields.io/badge/npm-process?style=flat-square&logo=npm&logoColor=%23cb3837&labelColor=0d1117&color=24292f)](https://www.npmjs.com)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-check?style=flat-square&logo=cloudflare&logoColor=%23F38020&labelColor=0d1117&color=24292f)](https://cloudflare.com)
 
-### Local Development
+#### Local Development
 
 ```bash
 git clone git@github.com:hhkmy/id.git && cd id
@@ -113,11 +113,9 @@ or
 gh repo clone hhkmy/id && cd id
 ```
 
-Install the Node.js version declared in `.nvmrc`, then install dependencies:
+Ensure Node.js (>= 24.18.0) is available on your machine, then install dependencies:
 
 ```bash
-nvm install
-nvm use
 npm install
 ```
 
@@ -133,19 +131,19 @@ Start the local development server:
 npm run watch:hugo
 ```
 
-If Node.js or Hugo is not installed locally, use the repository bootstrap instead. It installs the declared Node.js version and the latest Hugo Extended release before starting the server:
+If Node.js or Hugo is not installed locally, use the repository bootstrap script instead. It automatically detects your local environment or installs the compatible Node.js runtime and latest Hugo Extended release:
 
 ```bash
 ./build.sh --serve
 ```
 
-### Build
+#### Build
 
 ```bash
 npm run build
 ```
 
-### Deploy
+#### Deploy
 
 Deploy the Cloudflare Worker and static assets with Wrangler:
 
@@ -153,7 +151,11 @@ Deploy the Cloudflare Worker and static assets with Wrangler:
 npm run deploy:cloudflare
 ```
 
-### Package Updates
+#### Project Scripts & Commands Reference
+
+For a complete breakdown of all available scripts (including development servers, search indexing, Telegram emoji sync, license audits, and Cloudflare versioned deployments), see the [NPM Scripts Guide](./NPM_SCRIPTS.md).
+
+#### Package Updates
 
 Check and update project dependencies:
 
@@ -167,7 +169,7 @@ npm update
 
 For major version upgrades, interactive tools, and verification workflows, see the [Package Updates Guide](./PACKAGE_UPDATES.md).
 
-## License
+### License
 
 Licensed under ISC.
 
