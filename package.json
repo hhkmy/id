@@ -25,6 +25,9 @@
     "check:licenses": "node scripts/check-licenses.mjs",
     "sonar": "node --dns-result-order=ipv4first --env-file-if-exists=.env scripts/sonar.mjs",
     "sonar:issues": "node --dns-result-order=ipv4first --env-file-if-exists=.env scripts/sonar.mjs --issues",
+    "fossa": "node --env-file-if-exists=.env scripts/fossa.mjs",
+    "fossa:test": "node --env-file-if-exists=.env scripts/fossa.mjs test",
+    "fossa:offline": "node scripts/fossa.mjs analyze --output",
     "precommit": "lint-staged && npm run check:licenses && npm run build"
   },
   "keywords": [

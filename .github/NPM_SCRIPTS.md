@@ -62,6 +62,18 @@ This document provides a comprehensive reference for all `npm` scripts configure
 - **Command:** `node --dns-result-order=ipv4first --env-file-if-exists=.env scripts/sonar.mjs`
 - **Purpose:** Executes full SonarCloud static code analysis. Prefers globally installed `sonar-scanner-npm` (`@sonar/scan`) and falls back to `npx @sonar/scan` on-demand without registering copyleft scanner packages into `package.json`.
 
+#### `npm run fossa`
+- **Command:** `node --env-file-if-exists=.env scripts/fossa.mjs`
+- **Purpose:** Runs FOSSA dependency analysis and uploads scan data to the FOSSA cloud dashboard (`app.fossa.com`), followed by policy evaluation test. Reads `FOSSA_API_KEY` from `.env`.
+
+#### `npm run fossa:test`
+- **Command:** `node --env-file-if-exists=.env scripts/fossa.mjs test`
+- **Purpose:** Verifies that the most recent FOSSA project scan passes all license compliance policies and security vulnerability gates.
+
+#### `npm run fossa:offline`
+- **Command:** `node scripts/fossa.mjs analyze --output`
+- **Purpose:** 100% offline dependency graph inspection. Extracts the dependency tree directly from package manifests and outputs JSON to the console without contacting the FOSSA server.
+
 ---
 
 ### 4. Telegram Premium Emoji & KV Synchronization

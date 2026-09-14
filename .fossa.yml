@@ -1,0 +1,17 @@
+# FOSSA Configuration File
+# https://docs.fossa.com/docs/fossa-cli
+version: 3
+
+server: https://app.fossa.com
+
+project:
+  id: git@github.com:hhkmy/id.git
+  url: https://github.com/hhkmy/id
+
+paths:
+  exclude:
+    - public
+    - resources
+    - node_modules
+    - static/vendor
+    - assets/pagefind

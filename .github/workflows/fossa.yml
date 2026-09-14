@@ -1,0 +1,37 @@
+name: FOSSA
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - ".fossa.yml"
+      - ".github/workflows/fossa.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - ".fossa.yml"
+      - ".github/workflows/fossa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fossa:
+    name: FOSSA Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Run FOSSA scan & test
+        uses: fossas/fossa-action@8dea2e348349fad66e838ce0b365b044c6bf2011 # v2.0.0
+        with:
+          api-key: ${{ secrets.FOSSA_API_KEY }}
+          run-tests: true
