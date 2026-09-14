@@ -59,3 +59,29 @@ jobs:
           committer_username: "github-actions[bot]"
           committer_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_message: "docs(readme): update recent articles list"
+
+      - name: Dispatch update to profile repositories
+        shell: bash
+        env:
+          PROFILE_UPDATE_PAT: ${{ secrets.PROFILE_UPDATE_PAT }}
+        run: |
+          if [[ -z "$PROFILE_UPDATE_PAT" ]]; then
+            echo "PROFILE_UPDATE_PAT secret not set. Skipping cross-repo dispatch."
+            exit 0
+          fi
+
+          for repo in ".github" ".github-private"; do
+            echo "Triggering update-blog-posts event in hhkmy/$repo..."
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $PROFILE_UPDATE_PAT" \
+              "https://api.github.com/repos/hhkmy/${repo}/dispatches" \
+              -d '{"event_type":"update-blog-posts"}')
+
+            if [[ "$HTTP_CODE" -ge 200 && "$HTTP_CODE" -lt 300 ]]; then
+              echo "Successfully dispatched to hhkmy/$repo (HTTP $HTTP_CODE)"
+            else
+              echo "Warning: Failed to dispatch to hhkmy/$repo (HTTP $HTTP_CODE)"
+            fi
+          done
+
