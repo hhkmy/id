@@ -159,9 +159,7 @@
 						{{ end }}
 					</ol>
 				{{ else }}
-					<p class="series-summary-text">
-						Part of the <a href="{{ .RelPermalink }}" class="series-summary-link">{{ .LinkTitle }}</a> series.
-					</p>
+					<p class="series-summary-text">Part of the <a href="{{ .RelPermalink }}" class="series-summary-link">{{ .LinkTitle }}</a> series.</p>
 				{{ end }}
 			</aside>
 		{{ end }}
@@ -171,7 +169,7 @@
 			{{ $cleanFeatured := strings.TrimPrefix "/" . }}
 			{{ $imgRes := or ($.Resources.GetMatch .) ($.Resources.GetMatch $cleanFeatured) (resources.Get .) (resources.Get $cleanFeatured) (resources.Get (printf "images/%s" (strings.TrimPrefix "images/" $cleanFeatured))) }}
 			{{ with $imgRes }}
-				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "loading" "eager" "fetchpriority" "high") }}
+				{{ partial "picture.html" (dict "image" . "alt" $.Title "class" "article-featured-image" "pictureClass" "article-featured-picture" "loading" "eager" "fetchpriority" "high") }}
 			{{ else }}
 				{{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
 					<img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-image" loading="eager" decoding="async" fetchpriority="high" />

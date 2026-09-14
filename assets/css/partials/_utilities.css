@@ -211,7 +211,6 @@
   @apply mb-10 grid grid-cols-2 gap-2.5 sm:grid-cols-5 sm:gap-3;
 }
 
-
 .shop-filter-card {
   @apply relative flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border border-transparent bg-white/60 p-3 text-center transition-all duration-200 select-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white hover:shadow-xs sm:p-3.5;
   @variant dark {
@@ -559,11 +558,11 @@ tg-emoji i.emoji b {
 }
 
 img.emoji {
-  display: inline;
-  height: 1em;
-  width: 1em;
-  margin: 0 0.05em 0 0.1em;
-  vertical-align: -0.1em;
+  display: inline-block;
+  height: 1.15em;
+  width: 1.15em;
+  margin: 0 0.15em;
+  vertical-align: -0.22em;
 }
 
 .scroll-to-top {
@@ -607,7 +606,8 @@ img.emoji {
 
 /* Spoiler Component (Subtle gentle blur with organic microscopic popping dots) */
 @keyframes spoiler-pop-1 {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.15;
     transform: translate(0, 0);
   }
@@ -626,7 +626,8 @@ img.emoji {
 }
 
 @keyframes spoiler-pop-2 {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.85;
     transform: translate(0.3px, 0.3px);
   }
@@ -655,7 +656,9 @@ img.emoji {
     display: inline-block;
     filter: blur(3.2px);
     opacity: 0.88;
-    transition: filter 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    transition:
+      filter 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.25s ease;
     user-select: none;
     will-change: filter;
   }
@@ -664,7 +667,9 @@ img.emoji {
   &:not(:has(.spoiler-inner)) {
     filter: blur(3.2px);
     opacity: 0.88;
-    transition: filter 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    transition:
+      filter 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.25s ease;
     will-change: filter;
   }
 
@@ -678,7 +683,11 @@ img.emoji {
       radial-gradient(1.1px 1.1px at 70% 40%, currentColor 100%, transparent),
       radial-gradient(0.8px 0.8px at 45% 80%, currentColor 100%, transparent),
       radial-gradient(1px 1px at 85% 75%, currentColor 100%, transparent);
-    background-size: 20px 18px, 28px 22px, 18px 20px, 24px 22px;
+    background-size:
+      20px 18px,
+      28px 22px,
+      18px 20px,
+      24px 22px;
     animation: spoiler-pop-1 1.8s ease-in-out infinite;
     color: #0284c7;
     opacity: 0.75;
@@ -694,7 +703,11 @@ img.emoji {
       radial-gradient(0.8px 0.8px at 80% 25%, currentColor 100%, transparent),
       radial-gradient(1.1px 1.1px at 15% 75%, currentColor 100%, transparent),
       radial-gradient(0.9px 0.9px at 60% 85%, currentColor 100%, transparent);
-    background-size: 24px 20px, 18px 18px, 26px 24px, 22px 20px;
+    background-size:
+      24px 20px,
+      18px 18px,
+      26px 24px,
+      22px 20px;
     animation: spoiler-pop-2 2.4s ease-in-out infinite 0.4s;
     color: #0ea5e9;
     opacity: 0.7;
@@ -745,4 +758,3 @@ img.emoji {
     }
   }
 }
-

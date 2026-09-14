@@ -1,4 +1,3 @@
-import { initArticleListIcons } from "./article-list-icons.js";
 import { initArticleViews } from "./article-views.js";
 import { initCodeCopy } from "./code-copy.js";
 import { initGithubUpdates } from "./github-updates.js";
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMermaid();
   initCodeCopy();
   initGithubUpdates();
-  initArticleListIcons();
   initArticleViews();
   initSearch();
   initScrollToTop();
