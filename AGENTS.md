@@ -16,13 +16,31 @@
 ## Article Title Policy
 
 - **Concise & Punchy (အကျဉ်းချုံးပြီး ထိမိရှင်းလင်းခြင်း):** Keep article titles short, crisp, and readable (recommended under 50-60 characters / 5-10 words).
-- **No Sentence/Clause Bloat:** Never turn titles into full explanatory sentences, nested clauses, or bracketed explanations (e.g. avoid `...တကယ်အလုပ်လုပ်အောင် ပြင်ဆင်နည်း`, `...(Zsh <103a><1039> ဖြေရှင်းနည်းအပါအဝင်)`). Put detailed context in `description` or `summary` frontmatter instead.
 - **Natural Technical Style:** Use concise action formats such as `<Tool/Topic> <Feature/Problem> ပြင်နည်း / သတ်မှတ်နည်း / လမ်းညွှန် / မှတ်တမ်း` for Burmese titles, and Title Case for English titles.
 - **Page Bundles:** Organize articles as Hugo page bundles: `content/articles/<slug>/index.md` with co-located image assets.
 
+# Empirical Verification & Anti-Hallucination Policy (Code & Content Integrity)
 
+This website is a trusted engineering resource. Hallucinated APIs, fabricated flags, non-existent configuration keys, or unverified code spread toxic, misleading, and broken information. All outputs—whether code implementations, shell commands, or published articles—must adhere to strict empirical engineering standards:
+
+## 1. Technical Writing & Documentation Integrity
+- **Zero-Tolerance for Hallucinations:** Every CLI flag, command syntax, configuration key, tool option, or software behavior mentioned in an article, note, or guide MUST be empirically verified against the live system (`--help`, man pages), active source code, or authoritative documentation before writing. Never guess or assume flags or options.
+- **Mandatory Pre-Authoring Execution:** If an article provides a command, script, or setup step, execute or test it in the terminal first to confirm that it genuinely succeeds with exit code 0. Never publish unverified commands.
+- **Owner Verification Escalation:** If a command or configuration cannot be tested directly due to lack of environment access, credentials, special hardware, destructive risk, or permission boundaries, DO NOT invent plausible-sounding commands. Clearly pause, disclose the limitation to the user/owner, and ask them to verify or run the test before documenting it.
+
+## 2. Professional Coding & Implementation Integrity
+- **Grounding in Active Codebase:** Never hallucinate API methods, import paths, or third-party packages. Always verify available dependencies in `package.json`, inspect active imports, and check actual function definitions in the codebase before writing code.
+- **Official Documentation Grounding:** For Hugo (v0.165+), Tailwind CSS v4, Anime.js, and dependencies, always ground implementations on official documentation rather than outdated memory or deprecated patterns.
+- **Mandatory Build & Diagnostic Verification:** Every code, template, or style change must be validated by running `npm run build` and checking diagnostics before concluding work. Zero errors and zero linter warnings are tolerated.
+- **Clean Architecture & Quality Gates:** Adhere to SonarCloud Quality Gate standards (`0 open issues`), keep cognitive complexity under 15, prevent security vulnerabilities (e.g. log injection, unsafe process execution), and ensure code executes correctly without runtime failures.
 
 # Repository Guidance
+
+## Symbols & Arrow Guidelines
+
+- **Unicode Over LaTeX for Arrows & Symbols:** Always use standard Unicode arrows (`→`, `←`, `↔`, `⇒`) instead of LaTeX math syntax (`$\to$`, `$\longrightarrow$`, `\implies`, `$$\text{...}$$`). Antigravity chat and markdown previews do not run KaTeX/LaTeX parsers on regular text, causing raw LaTeX commands to render as unsightly plain text.
+- **Math & Dimensions:** Use Unicode symbols for dimensions and math operators (e.g. `512 × 512 px` instead of `$512 \times 512$`).
+- **No Raw Mermaid in Chat:** Do not output raw Mermaid code blocks in chat conversations since the chat interface does not render them visually. Use clean Unicode arrows, lists, or structured text instead.
 
 ## JavaScript Libraries
 
