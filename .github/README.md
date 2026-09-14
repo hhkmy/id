@@ -65,11 +65,11 @@ Visit `http://localhost:1313/` to view the site.
 ### Recent Articles
 
 <!-- BLOG-POST-LIST:START -->
+- [Antigravity IDE မှာ Arrow နဲ့ Mermaid ပြင်နည်း](https://hhk.my.id/article/antigravity-ide-arrow-mermaid-fix-guide/)
+- [NPM အသုံးပြုနည်းနှင့် ပြဿနာဖြေရှင်းနည်း လမ်းညွှန်](https://hhk.my.id/article/npm-essentials-and-troubleshooting-guide/)
 - [Telegram Shop Bot နဲ့ Mini App အဆင့်မြှင့်တင်မှု မှတ်တမ်း](https://hhk.my.id/article/telegram-shop-bot-miniapp-premium-emoji-enhancements/)
 - [GitHub README မှာ Blog Post တွေ Auto Update လုပ်နည်း](https://hhk.my.id/article/github-readme-blog-post-workflow-automation/)
 - [Hugo Website မှာ Twemoji ထည့်သွင်း အသုံးပြုနည်း](https://hhk.my.id/article/hugo-twemoji-modern-setup-guide/)
-- [Linux Terminal မှာ Myanso နဲ့ Zsh မြန်မာစာ ပြင်နည်း](https://hhk.my.id/article/myanso-terminal-linux-zsh-myanmar-font-fix/)
-- [Google Antigravity မှာ Run Now Auto-Proceed သတ်မှတ်နည်း](https://hhk.my.id/article/automating-run-now-approvals-google-antigravity/)
 <!-- BLOG-POST-LIST:END -->
 
 ---
