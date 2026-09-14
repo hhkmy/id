@@ -95,11 +95,14 @@ if (process.argv.includes("--issues") || process.argv.includes("-i")) {
   process.exit(0);
 }
 
-const localJs = path.join(process.cwd(), "node_modules", "sonarqube-scanner", "bin", "sonar-scanner.js");
-const executable = existsSync(localJs) ? process.execPath : "npx";
-const args = existsSync(localJs)
-  ? [localJs, ...process.argv.slice(2)]
-  : ["--yes", "sonarqube-scanner", ...process.argv.slice(2)];
+const NPX_BIN = path.join(path.dirname(process.execPath), "npx");
+const globalCli = path.join(path.dirname(process.execPath), "sonar-scanner-npm");
+const hasGlobal = existsSync(globalCli);
+
+const executable = hasGlobal ? globalCli : NPX_BIN;
+const args = hasGlobal
+  ? process.argv.slice(2)
+  : ["--yes", "@sonar/scan", ...process.argv.slice(2)];
 
 const child = spawn(
   executable,
