@@ -1,7 +1,6 @@
 title = "HHK BVlog"
 baseURL = "https://hhk.my.id/"
 publishDir = "public"
-cacheDir = "/home/hhk/websites/id/.cache/hugo"
 
 languageName = "မြန်မာ"
 locale = "my-MM"
