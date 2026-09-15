@@ -1,5 +1,6 @@
 <meta charset="utf-8" />
-{{ partialCached "head/meta.html" . .Permalink }}
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{{ partialCached "head/css.html" . hugo.IsDevelopment }}
 <script>
 	(function () {
 		var storedTheme = null;
@@ -19,7 +20,7 @@
 		delete document.documentElement.dataset.pfTheme;
 	})();
 </script>
-{{ partialCached "head/css.html" . hugo.IsDevelopment }}
+{{ partialCached "head/meta.html" . .Permalink }}
 {{ partialCached "head/katex.html" . (cond (or .Params.katex site.Params.katex.enable) "katex" "no-katex") }}
 {{ partialCached "head/pagefind.html" . hugo.IsDevelopment }}
 {{ partialCached "head/js.html" . }}

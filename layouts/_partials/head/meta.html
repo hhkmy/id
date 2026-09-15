@@ -29,7 +29,6 @@
 {{- end -}}
 {{- $ogType := cond (eq .Section "articles") "article" "website" -}}
 {{- $author := .Site.Params.author -}}
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="description" content="{{ $description }}" />
 {{ with $keywords }}<meta name="keywords" content="{{ . }}" />{{ end }}
@@ -95,8 +94,7 @@
 			| jsonify (dict "indent" "\t")
 			| safeJS
 		-}}
-	</script>
-	<script type="application/ld+json">
+	</script>	<script type="application/ld+json">
 		{{- dict
 			"@context" "https://schema.org"
 			"@type" "BreadcrumbList"
