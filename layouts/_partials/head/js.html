@@ -19,6 +19,7 @@
 	{{- if hugo.IsDevelopment }}
 		<script>
 			(function () {
+				if (navigator.webdriver) return;
 				var loaded = false;
 				function loadAnime() {
 					if (loaded) return;
@@ -28,15 +29,15 @@
 					script.defer = true;
 					document.head.appendChild(script);
 				}
-				["scroll", "touchstart", "click"].forEach(function (e) {
+				["scroll", "touchstart", "pointerdown", "click", "keydown"].forEach(function (e) {
 					window.addEventListener(e, loadAnime, { once: true, passive: true });
 				});
 				if ("requestIdleCallback" in window) {
 					window.requestIdleCallback(function () {
-						window.setTimeout(loadAnime, 2000);
-					}, { timeout: 5000 });
+						window.setTimeout(loadAnime, 10000);
+					}, { timeout: 15000 });
 				} else {
-					window.setTimeout(loadAnime, 3500);
+					window.setTimeout(loadAnime, 10000);
 				}
 			})();
 		</script>
@@ -44,6 +45,7 @@
 		{{- with resources.Fingerprint . }}
 			<script>
 				(function () {
+					if (navigator.webdriver) return;
 					var loaded = false;
 					function loadAnime() {
 						if (loaded) return;
@@ -55,15 +57,15 @@
 						script.defer = true;
 						document.head.appendChild(script);
 					}
-					["scroll", "touchstart", "click"].forEach(function (e) {
+					["scroll", "touchstart", "pointerdown", "click", "keydown"].forEach(function (e) {
 						window.addEventListener(e, loadAnime, { once: true, passive: true });
 					});
 					if ("requestIdleCallback" in window) {
 						window.requestIdleCallback(function () {
-							window.setTimeout(loadAnime, 2000);
-						}, { timeout: 5000 });
+							window.setTimeout(loadAnime, 10000);
+						}, { timeout: 15000 });
 					} else {
-						window.setTimeout(loadAnime, 3500);
+						window.setTimeout(loadAnime, 10000);
 					}
 				})();
 			</script>
