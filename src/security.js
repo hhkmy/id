@@ -1,7 +1,5 @@
 import { generateNonce } from "./utils.js";
 
-const BEACON_TOKEN = "8c7b2f58353c4498b218d4429da3e6dd";
-
 export const createCsp = (nonce) => {
   return [
     "default-src 'self'",
@@ -128,20 +126,6 @@ export const applySecurity = async (response, request) => {
         if (!element.getAttribute("nonce")) {
           element.setAttribute("nonce", nonce);
         }
-      },
-    })
-    .on("body", {
-      element(element) {
-        element.append(
-          `
-<script
-  defer
-  src="https://static.cloudflareinsights.com/beacon.min.js"
-  data-cf-beacon='${JSON.stringify({ token: BEACON_TOKEN })}'
-  nonce="${nonce}"
-></script>`,
-          { html: true },
-        );
       },
     })
     .transform(response);
