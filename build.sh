@@ -116,6 +116,9 @@ main() {
 	npm run build -- "$@"
 	npm run pagefind
 	cp cloudflare/_redirects public/_redirects
+	if [[ -f "cloudflare/_headers" ]]; then
+		cp cloudflare/_headers public/_headers
+	fi
 	return 0
 }
 

@@ -70,6 +70,31 @@ export const applySecurityHeaders = (headers) => {
   headers.set("Permissions-Policy", "clipboard-write=(self)");
 };
 
+const applyStaticAssetCaching = (headers, pathname) => {
+  if (
+    pathname.startsWith("/css/") ||
+    pathname.startsWith("/js/") ||
+    pathname.startsWith("/fonts/") ||
+    pathname.startsWith("/images/") ||
+    pathname.startsWith("/twemoji/") ||
+    pathname.startsWith("/icons/") ||
+    pathname.startsWith("/pagefind/")
+  ) {
+    headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  } else if (
+    pathname.startsWith("/ui/") ||
+    pathname.endsWith(".ico") ||
+    pathname.endsWith(".webmanifest") ||
+    pathname.endsWith(".xml") ||
+    pathname.endsWith(".txt")
+  ) {
+    headers.set(
+      "Cache-Control",
+      "public, max-age=86400, stale-while-revalidate=604800",
+    );
+  }
+};
+
 export const applySecurity = async (response, request) => {
   const contentType = response.headers.get("Content-Type") || "";
 
@@ -81,6 +106,11 @@ export const applySecurity = async (response, request) => {
   ) {
     const headers = new Headers(response.headers);
     applySecurityHeaders(headers);
+
+    if (response.ok && request.method === "GET") {
+      applyStaticAssetCaching(headers, new URL(request.url).pathname);
+    }
+
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
@@ -121,8 +151,8 @@ export const applySecurity = async (response, request) => {
   headers.delete("ETag");
   headers.delete("Last-Modified");
 
-  // Dynamic nonce must not be cached by shared proxies
-  headers.set("Cache-Control", "private, no-store, max-age=0");
+  // Dynamic nonce must not be cached by shared proxies, but allow browser bfcache
+  headers.set("Cache-Control", "private, no-cache");
   headers.set("Content-Security-Policy", createCsp(nonce));
 
   applySecurityHeaders(headers);
