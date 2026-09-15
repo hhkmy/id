@@ -1,0 +1,27 @@
+{{- $token := site.Params.cloudflare.analyticsToken -}}
+{{- if and $token (not hugo.IsDevelopment) -}}
+<script>
+	(function () {
+		var loaded = false;
+		function loadCFBeacon() {
+			if (loaded) return;
+			loaded = true;
+			var script = document.createElement("script");
+			script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+			script.setAttribute("data-cf-beacon", JSON.stringify({ token: {{ $token }} }));
+			script.defer = true;
+			document.body.appendChild(script);
+		}
+		["scroll", "touchstart", "click"].forEach(function (e) {
+			window.addEventListener(e, loadCFBeacon, { once: true, passive: true });
+		});
+		if ("requestIdleCallback" in window) {
+			window.requestIdleCallback(function () {
+				window.setTimeout(loadCFBeacon, 3500);
+			}, { timeout: 6000 });
+		} else {
+			window.setTimeout(loadCFBeacon, 4000);
+		}
+	})();
+</script>
+{{- end -}}

@@ -43,3 +43,6 @@ orgurl = "https://www.facebook.com/groups/mmKaliLinuxOrg"
 url = "https://speedlify.hhk.my.id"
 targetUrl = "https://hhk.my.id/"
 
+[cloudflare]
+analyticsToken = "8c7b2f58353c4498b218d4429da3e6dd"
+
