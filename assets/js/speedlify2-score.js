@@ -113,22 +113,18 @@ class SpeedlifyScoreElement extends HTMLElement {
       { label: "SEO", score: normalizeScore(scores.seo) },
     ];
 
-    const container = document.createElement("div");
+    const container = document.createElement("a");
+    container.href = speedlifyUrl;
     container.className = "speedlify-score-group";
+    container.target = "_blank";
+    container.rel = "noopener noreferrer";
+    container.setAttribute("aria-label", "Speedlify site benchmark report");
 
     for (const cat of categories) {
       if (!Number.isNaN(cat.score)) {
         container.appendChild(createScoreItem(cat));
       }
     }
-
-    const link = document.createElement("a");
-    link.href = speedlifyUrl;
-    link.className = "speedlify-score-link";
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = "Speedlify";
-    container.appendChild(link);
 
     this.replaceChildren(container);
   }

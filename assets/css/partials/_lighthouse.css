@@ -3,7 +3,7 @@
 }
 
 .speedlify-score-group {
-  @apply flex items-center justify-center gap-1.5;
+  @apply flex items-center justify-center gap-1.5 no-underline transition-opacity hover:opacity-80;
 }
 
 .lighthouse-score-circle,
@@ -32,8 +32,7 @@
   }
 }
 
-.lighthouse-score-link,
-.speedlify-score-link {
+.lighthouse-score-link {
   @apply ml-2 text-xs font-semibold text-slate-500 hover:text-slate-950 hover:underline;
   @variant dark {
     @apply text-slate-400 hover:text-white;

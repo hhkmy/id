@@ -16,6 +16,7 @@ export const createCsp = (nonce) => {
     [
       "connect-src 'self'",
       "https://comments.hhk.my.id",
+      "https://speedlify.hhk.my.id",
       "https://api.github.com",
       "https://cloudflareinsights.com",
       "https://*.telesco.pe",
@@ -23,6 +24,7 @@ export const createCsp = (nonce) => {
     [
       "img-src 'self' data:",
       "https://comments.hhk.my.id",
+      "https://speedlify.hhk.my.id",
       "https://avatars.githubusercontent.com",
       "https://raw.githubusercontent.com",
       "https://i.ytimg.com",
