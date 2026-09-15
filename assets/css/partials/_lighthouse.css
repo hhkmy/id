@@ -2,17 +2,162 @@
   @apply flex items-center justify-center gap-1.5;
 }
 
-.lighthouse-score-circle {
-  @apply inline-flex size-8 items-center justify-center rounded-full border-2 border-emerald-500 text-[0.72rem] font-bold leading-none text-emerald-700;
+.speedlify-score-group {
+  @apply flex items-center justify-center gap-1.5;
+}
+
+.lighthouse-score-circle,
+.speedlify-score-circle {
+  @apply inline-flex size-8 items-center justify-center rounded-full border-2 text-[0.72rem] font-bold leading-none;
+}
+
+.speedlify-score-good {
+  @apply border-emerald-500 text-emerald-700;
+  @variant dark {
+    @apply border-emerald-500 text-emerald-400;
+  }
+}
+
+.speedlify-score-warn {
+  @apply border-amber-500 text-amber-700;
+  @variant dark {
+    @apply border-amber-500 text-amber-400;
+  }
+}
+
+.speedlify-score-bad {
+  @apply border-rose-500 text-rose-700;
+  @variant dark {
+    @apply border-rose-500 text-rose-400;
+  }
+}
+
+.lighthouse-score-link,
+.speedlify-score-link {
+  @apply ml-2 text-xs font-semibold text-slate-500 hover:text-slate-950 hover:underline;
+  @variant dark {
+    @apply text-slate-400 hover:text-white;
+  }
+}
+
+.speedlify-stats-grid {
+  @apply grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4;
+}
+
+.speedlify-stat-card {
+  @apply rounded-lg border border-slate-200 bg-slate-50/70 p-3.5;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900/60;
+  }
+}
+
+.speedlify-stat-label {
+  @apply text-xs font-medium uppercase tracking-wider text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.speedlify-stat-value {
+  @apply mt-1 text-xl font-bold tracking-tight text-slate-900;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.speedlify-stat-sub {
+  @apply mt-0.5 text-xs text-slate-500;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.speedlify-metric-pill {
+  @apply inline-flex items-center rounded px-1.5 py-0.5 font-mono text-xs font-medium;
+}
+
+.speedlify-metric-good {
+  @apply bg-emerald-50 text-emerald-700;
+  @variant dark {
+    @apply bg-emerald-950/50 text-emerald-300;
+  }
+}
+
+.speedlify-metric-warn {
+  @apply bg-amber-50 text-amber-700;
+  @variant dark {
+    @apply bg-amber-950/50 text-amber-300;
+  }
+}
+
+.speedlify-metric-bad {
+  @apply bg-rose-50 text-rose-700;
+  @variant dark {
+    @apply bg-rose-950/50 text-rose-300;
+  }
+}
+
+.speedlify-scores-cell {
+  @apply flex items-center gap-1;
+}
+
+.speedlify-score-mini {
+  @apply inline-flex size-6 items-center justify-center rounded-full border text-[0.62rem] font-bold leading-none;
+}
+
+.speedlify-instance-banner {
+  @apply rounded-xl border border-slate-200 bg-slate-50/80 p-6;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900/60;
+  }
+}
+
+.speedlify-badge-text {
+  @apply text-xs font-semibold uppercase tracking-wider text-emerald-600;
   @variant dark {
     @apply text-emerald-400;
   }
 }
 
-.lighthouse-score-link {
-  @apply ml-2 text-xs font-semibold text-slate-500 hover:text-slate-950 hover:underline;
+.speedlify-banner-text {
+  @apply text-sm text-slate-700;
   @variant dark {
-    @apply text-slate-400 hover:text-white;
+    @apply text-slate-300;
+  }
+}
+
+.speedlify-section-heading {
+  @apply text-lg font-bold text-slate-900;
+  @variant dark {
+    @apply text-white;
+  }
+}
+
+.speedlify-section-desc {
+  @apply text-sm text-slate-600;
+  @variant dark {
+    @apply text-slate-400;
+  }
+}
+
+.speedlify-embed-box {
+  @apply rounded-lg border border-slate-200 bg-slate-50/50 p-4;
+  @variant dark {
+    @apply border-slate-800 bg-slate-900/40;
+  }
+}
+
+.speedlify-weight-text {
+  @apply font-mono text-xs font-medium text-slate-600;
+  @variant dark {
+    @apply text-slate-300;
+  }
+}
+
+.speedlify-btn {
+  @apply inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-xs hover:bg-emerald-700;
+  @variant dark {
+    @apply bg-emerald-500 text-slate-950 hover:bg-emerald-400;
   }
 }
 

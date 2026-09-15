@@ -188,12 +188,35 @@ async function auditUrl(url, index) {
     }))
     .slice(0, 12);
 
+  const totalByteWeight = numericAudit(report.audits["total-byte-weight"]);
+  const resourceSummaryItems =
+    report.audits["resource-summary"]?.details?.items ?? [];
+  const resourceBreakdown = {};
+  let totalRequests = 0;
+  for (const item of resourceSummaryItems) {
+    if (item.resourceType) {
+      resourceBreakdown[item.resourceType] = {
+        requestCount: item.requestCount ?? 0,
+        transferSize: item.transferSize ?? 0,
+      };
+      if (item.resourceType === "total") {
+        totalRequests = item.requestCount ?? 0;
+      }
+    }
+  }
+
   return {
     url,
     path: new URL(url).pathname,
     title: report.finalDisplayedUrl,
     average: averageScore(scores),
     scores,
+    weight: {
+      total: totalByteWeight,
+      displayValue: report.audits["total-byte-weight"]?.displayValue ?? "",
+      requests: totalRequests,
+      breakdown: resourceBreakdown,
+    },
     metrics: {
       firstContentfulPaint: numericAudit(
         report.audits["first-contentful-paint"],
@@ -209,6 +232,17 @@ async function auditUrl(url, index) {
     },
     failedAudits,
   };
+}
+
+function calculateMedian(numbers) {
+  const sorted = numbers
+    .filter((value) => typeof value === "number" && !Number.isNaN(value))
+    .sort((a, b) => a - b);
+  if (!sorted.length) return null;
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? Math.round(((sorted[middle - 1] + sorted[middle]) / 2) * 100) / 100
+    : Math.round(sorted[middle] * 100) / 100;
 }
 
 function summarize(pages) {
@@ -229,9 +263,28 @@ function summarize(pages) {
     }),
   );
 
+  const lcpValues = pages
+    .map((p) => p.metrics?.largestContentfulPaint)
+    .filter((v) => typeof v === "number");
+  const tbtValues = pages
+    .map((p) => p.metrics?.totalBlockingTime)
+    .filter((v) => typeof v === "number");
+  const clsValues = pages
+    .map((p) => p.metrics?.cumulativeLayoutShift)
+    .filter((v) => typeof v === "number");
+  const weightValues = pages
+    .map((p) => p.weight?.total)
+    .filter((v) => typeof v === "number");
+
   return {
     pagesAudited: pages.length,
     averages,
+    medians: {
+      largestContentfulPaint: calculateMedian(lcpValues),
+      totalBlockingTime: calculateMedian(tbtValues),
+      cumulativeLayoutShift: calculateMedian(clsValues),
+      weight: calculateMedian(weightValues),
+    },
     weakestPages: pages.slice(0, 10).map((page) => ({
       path: page.path,
       average: page.average,

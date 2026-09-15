@@ -34,3 +34,12 @@ streetaddress = "3555 Fourth Ave, Yangon MY 11361"
 orgname = "Myanmar Kali Linux Organization"
 orgdescription = "Myanmar Kali Linux Organization is a community of Kali Linux users in Myanmar. We provide support, resources, and training for Kali Linux users in Myanmar."
 orgurl = "https://www.facebook.com/groups/mmKaliLinuxOrg"
+
+# Speedlify configuration
+# Option 1: Set url to an external Speedlify2 instance (e.g., "https://perf.hhk.my.id").
+# When url is set, Option 1 is active (embeds <speedlify2-score> and links to the Speedlify instance).
+# When url is empty (""), Option 2 is active (uses local Speedlify-style benchmark data and report).
+[speedlify]
+url = "https://speedlify.hhk.my.id"
+targetUrl = "https://hhk.my.id/"
+

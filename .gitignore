@@ -34,3 +34,5 @@ pnpm-debug.log*
 # Hugo build output
 resources
 public
+
+

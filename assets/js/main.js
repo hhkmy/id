@@ -9,6 +9,7 @@ import { initScrollToTop } from "./scroll-to-top.js";
 import { initShopHydration } from "./shop.js";
 import { initSiteTooltips } from "./site-tooltips.js";
 import { initSkillFilter } from "./skill-filter.js";
+import { initSpeedlifyScore } from "./speedlify2-score.js";
 import { initSpoiler } from "./spoiler.js";
 import { initTelegramPremiumEmoji } from "./telegram-premium-emoji.js";
 import { initTheme } from "./theme.js";
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSiteTooltips();
   initSkillFilter();
   initSpoiler();
+  initSpeedlifyScore();
   initTelegramPremiumEmoji();
   initVisitorLocation();
   initShopHydration();

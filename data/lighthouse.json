@@ -110,7 +110,12 @@
           "seo": 100
         }
       }
-    ]
+    ],
+    "medians": {
+      "largestContentfulPaint": 2551.25,
+      "totalBlockingTime": 59,
+      "cumulativeLayoutShift": 0
+    }
   },
   "pages": [
     {
