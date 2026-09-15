@@ -27,9 +27,9 @@
 }
 
 .edge-pulse-text {
-  @apply animate-pulse font-medium leading-none text-slate-600;
+  @apply font-medium leading-none text-slate-700;
   @variant dark {
-    @apply text-slate-400;
+    @apply text-slate-300;
   }
 }
 
