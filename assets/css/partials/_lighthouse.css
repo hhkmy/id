@@ -3,7 +3,7 @@
 }
 
 .speedlify-score-group {
-  @apply flex items-center justify-center gap-1.5 no-underline transition-opacity hover:opacity-80;
+  @apply flex items-center justify-center gap-1.5;
 }
 
 .lighthouse-score-circle,

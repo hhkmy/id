@@ -113,12 +113,10 @@ class SpeedlifyScoreElement extends HTMLElement {
       { label: "SEO", score: normalizeScore(scores.seo) },
     ];
 
-    const container = document.createElement("a");
-    container.href = speedlifyUrl;
+    const container = document.createElement("div");
     container.className = "speedlify-score-group";
-    container.target = "_blank";
-    container.rel = "noopener noreferrer";
-    container.setAttribute("aria-label", "Speedlify site benchmark report");
+    container.setAttribute("role", "group");
+    container.setAttribute("aria-label", "Speedlify benchmark scores");
 
     for (const cat of categories) {
       if (!Number.isNaN(cat.score)) {
