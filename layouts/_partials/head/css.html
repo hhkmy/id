@@ -5,7 +5,7 @@
 			<link rel="stylesheet" href="{{ .RelPermalink }}" />
 		{{ else }}
 			{{ with resources.Fingerprint . }}
-				<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+				<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" fetchpriority="high" />
 			{{ end }}
 		{{ end }}
 	{{ end }}

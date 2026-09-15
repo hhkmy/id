@@ -91,6 +91,12 @@ This website is a trusted engineering resource. Hallucinated APIs, fabricated fl
 - **Zero Errors & Warnings Policy:** Inspect the build logs and linter feedback. Any syntax error, `@apply` issue, template execution failure, or linter warning **must** be resolved immediately before finishing the task or committing. Never leave open errors or warnings in the repository.
 - **Automated IDE Problems Resolution (`@[current_problems]`):** Whenever `@[current_problems]` appears in user context or metadata, you MUST proactively and automatically resolve all reported warnings, errors, and diagnostic messages across all mentioned files during the current turn before concluding. Refer to `.agents/skills/ide-diagnostics/` for proactive prevention rules, including avoiding object stringification (`no-base-to-string`), ensuring concrete primitive JSDoc types, and eliminating Tailwind CSS v4 class collisions. Never ignore or leave items in `@[current_problems]`.
 - **Prohibit Inline Property Collisions:** In Tailwind CSS v4, never place conflicting base and variant classes on the same element in HTML templates (e.g. `text-slate-950 dark:text-white`, `border-slate-200 dark:border-slate-700`, `bg-white dark:bg-slate-950`). This triggers IDE property collision warnings (`'X' applies the same CSS properties as 'dark:Y'`). Always encapsulate them into semantic component classes in the appropriate CSS partial using `@variant dark { ... }` blocks.
+- **100% Lighthouse & Core Web Vitals Standard:**
+  - Maintain 100/100 across Accessibility, Best Practices, and SEO, and 90-100 on Performance.
+  - Zero failing nodes on color contrast: all text must meet WCAG 2.1 AA (4.5:1) and AAA (7:1) contrast ratios across both light and dark modes.
+  - Total Blocking Time (TBT) must stay under 50 ms via cooperative idle slicing (`runIdleTasks`) and lazy Anime.js timeline instantiation.
+  - Eliminate Cumulative Layout Shift (CLS: 0) using Hugo render hooks (`layouts/_markup/render-image.html`) with automated `width`, `height`, `loading="lazy"`, and `decoding="async"` attributes.
+  - Page Health Hygiene must maintain 100% compliance across all 8 security audits (HSTS, clickjacking mitigation, CSP, origin isolation, trusted types, bfCache). Refer to `.agents/skills/performance-optimization/` for architecture details.
 
 ## SonarQube & SonarCloud Standards
 

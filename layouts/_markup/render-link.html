@@ -1,0 +1,26 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $href := .Destination -}}
+{{- $isExternal := false -}}
+{{- if $u.IsAbs -}}
+	{{- $siteUrl := urls.Parse site.BaseURL -}}
+	{{- if ne $u.Host $siteUrl.Host -}}
+		{{- $isExternal = true -}}
+	{{- end -}}
+{{- else -}}
+	{{- with .Page.GetPage .Destination -}}
+		{{- $href = .RelPermalink -}}
+	{{- end -}}
+{{- end -}}
+
+
+<a
+	href="{{ $href }}"
+	{{- with .Title }}title="{{ . }}"{{ end -}}
+	{{- if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end -}}
+	{{- range $k, $v := .Attributes -}}
+		{{- if not (in (slice "href" "title" "target" "rel") $k) -}}
+			{{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+		{{- end -}}
+	{{- end -}}
+	>{{ .Text | safeHTML }}</a
+>
