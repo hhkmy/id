@@ -78,11 +78,11 @@ const applyStaticAssetCaching = (headers, pathname) => {
     pathname.startsWith("/images/") ||
     pathname.startsWith("/twemoji/") ||
     pathname.startsWith("/icons/") ||
-    pathname.startsWith("/pagefind/")
+    pathname.startsWith("/pagefind/") ||
+    pathname.startsWith("/ui/")
   ) {
     headers.set("Cache-Control", "public, max-age=31536000, immutable");
   } else if (
-    pathname.startsWith("/ui/") ||
     pathname.endsWith(".ico") ||
     pathname.endsWith(".webmanifest") ||
     pathname.endsWith(".xml") ||
