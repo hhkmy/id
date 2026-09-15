@@ -2,9 +2,19 @@ let lottieLoader = null;
 
 function getLottie() {
   if (!lottieLoader) {
-    lottieLoader = import("lottie-web/build/player/lottie_light").then(
-      (m) => m.default || m,
-    );
+    if (window.lottie) {
+      lottieLoader = Promise.resolve(window.lottie);
+    } else {
+      lottieLoader = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src =
+          "https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_light.min.js";
+        script.crossOrigin = "anonymous";
+        script.onload = () => resolve(window.lottie);
+        script.onerror = (err) => reject(err);
+        document.head.appendChild(script);
+      });
+    }
   }
   return lottieLoader;
 }

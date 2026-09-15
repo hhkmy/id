@@ -17,16 +17,16 @@ const getTooltipLabel = (target) => {
   const ariaLabel = target.getAttribute("aria-label")?.trim();
   if (ariaLabel) return ariaLabel;
 
-  return target.dataset.tooltipLabel || "";
-};
-
-const prepareIconLabels = () => {
-  document.querySelectorAll(ICON_SELECTOR).forEach((icon) => {
-    const title = icon.querySelector("title");
+  if (!target.dataset.tooltipLabel) {
+    const title = target.querySelector("title");
     const label = title?.textContent?.trim();
-    if (label) icon.dataset.tooltipLabel = label;
-    title?.remove();
-  });
+    if (label) {
+      target.dataset.tooltipLabel = label;
+      title.remove();
+    }
+  }
+
+  return target.dataset.tooltipLabel || "";
 };
 
 const positionTooltip = (tooltip, target) => {
@@ -60,8 +60,6 @@ export function initSiteTooltips() {
   const tooltip = document.createElement("div");
   const arrow = document.createElement("span");
   let activeTarget = null;
-
-  prepareIconLabels();
 
   tooltip.className = "site-tooltip";
   tooltip.setAttribute("role", "tooltip");

@@ -17,24 +17,54 @@
 {{- with $anime | js.Build (merge $opts (dict "targetPath" "js/anime-enhancements.js")) }}
 	{{- if hugo.IsDevelopment }}
 		<script>
-			window.setTimeout(function () {
-				var script = document.createElement("script");
-				script.src = "{{ .RelPermalink }}";
-				script.defer = true;
-				document.head.appendChild(script);
-			}, 1500);
+			(function () {
+				var loaded = false;
+				function loadAnime() {
+					if (loaded) return;
+					loaded = true;
+					var script = document.createElement("script");
+					script.src = "{{ .RelPermalink }}";
+					script.defer = true;
+					document.head.appendChild(script);
+				}
+				["scroll", "touchstart", "click"].forEach(function (e) {
+					window.addEventListener(e, loadAnime, { once: true, passive: true });
+				});
+				if ("requestIdleCallback" in window) {
+					window.requestIdleCallback(function () {
+						window.setTimeout(loadAnime, 2000);
+					}, { timeout: 5000 });
+				} else {
+					window.setTimeout(loadAnime, 3500);
+				}
+			})();
 		</script>
 	{{- else }}
 		{{- with resources.Fingerprint . }}
 			<script>
-				window.setTimeout(function () {
-					var script = document.createElement("script");
-					script.src = "{{ .RelPermalink }}";
-					script.integrity = "{{ .Data.Integrity }}";
-					script.crossOrigin = "anonymous";
-					script.defer = true;
-					document.head.appendChild(script);
-				}, 1500);
+				(function () {
+					var loaded = false;
+					function loadAnime() {
+						if (loaded) return;
+						loaded = true;
+						var script = document.createElement("script");
+						script.src = "{{ .RelPermalink }}";
+						script.integrity = "{{ .Data.Integrity }}";
+						script.crossOrigin = "anonymous";
+						script.defer = true;
+						document.head.appendChild(script);
+					}
+					["scroll", "touchstart", "click"].forEach(function (e) {
+						window.addEventListener(e, loadAnime, { once: true, passive: true });
+					});
+					if ("requestIdleCallback" in window) {
+						window.requestIdleCallback(function () {
+							window.setTimeout(loadAnime, 2000);
+						}, { timeout: 5000 });
+					} else {
+						window.setTimeout(loadAnime, 3500);
+					}
+				})();
 			</script>
 		{{- end }}
 	{{- end }}
