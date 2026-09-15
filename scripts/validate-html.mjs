@@ -78,7 +78,7 @@ function checkHtmlLine(line, lineNum, fullContent, issues) {
     const attrs = match[2];
 
     const hasAriaLabel = /\baria-label\s*=/i.test(attrs);
-    const roleMatch = attrs.match(/\brole\s*=\s*["']?([^"'\s>]+)/i);
+    const roleMatch = /\brole\s*=\s*["']?([^"'\s>]+)/i.exec(attrs);
     const role = roleMatch ? roleMatch[1].toLowerCase() : null;
     const hasValidRole = Boolean(role && !INVALID_ROLES.has(role));
 
@@ -287,7 +287,7 @@ function main() {
   console.log("🔍 W3C Nu HTML Validation Check");
   console.log("========================================================\n");
 
-  let summary = { errors: 0, warnings: 0 };
+  let summary;
 
   if (customUrl) {
     summary = runSingleRemoteUrl(customUrl);

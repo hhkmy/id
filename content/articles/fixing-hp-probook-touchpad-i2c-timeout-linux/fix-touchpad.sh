@@ -9,9 +9,9 @@ TOUCHPAD_DEVICE="i2c-SYNA3067:00"
 SYSFS_PATH="/sys/bus/i2c/devices/${TOUCHPAD_DEVICE}"
 
 # Check if the touchpad hardware device is declared in ACPI/I2C
-if [ -d "${SYSFS_PATH}" ]; then
+if [[ -d "${SYSFS_PATH}" ]]; then
     # Check if the driver is bound
-    if [ ! -d "${SYSFS_PATH}/driver" ]; then
+    if [[ ! -d "${SYSFS_PATH}/driver" ]]; then
         logger -t fix-touchpad "Touchpad (${TOUCHPAD_DEVICE}) driver not bound (probe timeout). Reloading i2c_hid_acpi..."
         /sbin/modprobe -r i2c_hid_acpi 2>/dev/null
         sleep 1

@@ -10,8 +10,10 @@ function getLottie() {
         script.src =
           "https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_light.min.js";
         script.crossOrigin = "anonymous";
+        script.integrity =
+          "sha384-Vtbz3QbtSBqleuQry6kQy5smig1gPZCXUoTFN7RmN9QW47xpEDsV/J1w0Pw0rDJu";
         script.onload = () => resolve(window.lottie);
-        script.onerror = (err) => reject(err);
+        script.onerror = () => reject(new Error("Failed to load Lottie script"));
         document.head.appendChild(script);
       });
     }

@@ -8,4 +8,6 @@ case "$1" in
     post)
         /usr/local/bin/fix-touchpad.sh
         ;;
+    *)
+        ;;
 esac

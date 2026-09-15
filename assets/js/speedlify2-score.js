@@ -51,7 +51,20 @@ function calculateSpeedlifySlug(targetUrl) {
 
 class SpeedlifyScoreElement extends HTMLElement {
   connectedCallback() {
-    this.render();
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            observer.disconnect();
+            this.render();
+          }
+        },
+        { rootMargin: "150px" },
+      );
+      observer.observe(this);
+    } else {
+      this.render();
+    }
   }
 
   async render() {

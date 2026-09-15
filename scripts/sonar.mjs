@@ -95,14 +95,37 @@ if (process.argv.includes("--issues") || process.argv.includes("-i")) {
   process.exit(0);
 }
 
+const localJar = path.join(
+  process.env.HOME ?? "",
+  ".sonar/native-sonar-scanner/sonar-scanner-4.7.0.2747-linux/lib/sonar-scanner-cli-4.7.0.2747.jar",
+);
+const hasJar = existsSync(localJar);
+const javaBin = existsSync("/usr/bin/java") ? "/usr/bin/java" : "/bin/java";
+
 const NPX_BIN = path.join(path.dirname(process.execPath), "npx");
 const globalCli = path.join(path.dirname(process.execPath), "sonar-scanner-npm");
 const hasGlobal = existsSync(globalCli);
 
-const executable = hasGlobal ? globalCli : NPX_BIN;
-const args = hasGlobal
-  ? process.argv.slice(2)
-  : ["--yes", "@sonar/scan", ...process.argv.slice(2)];
+let executable;
+let args;
+
+if (hasJar) {
+  executable = javaBin;
+  const tokenArgs = process.env.SONAR_TOKEN ? [`-Dsonar.login=${process.env.SONAR_TOKEN}`] : [];
+  args = [
+    "-Djava.net.preferIPv4Stack=true",
+    "-jar",
+    localJar,
+    ...tokenArgs,
+    ...process.argv.slice(2),
+  ];
+} else if (hasGlobal) {
+  executable = globalCli;
+  args = process.argv.slice(2);
+} else {
+  executable = NPX_BIN;
+  args = ["--yes", "@sonar/scan", ...process.argv.slice(2)];
+}
 
 const child = spawn(
   executable,

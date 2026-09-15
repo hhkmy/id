@@ -100,11 +100,14 @@ function createRevealController(item) {
 
   let isRevealed = false;
   let timerId = null;
-  const revealTimeline = createRevealTimeline(item);
+  let revealTimeline = null;
 
   const playReveal = (delay = 0) => {
     if (isRevealed) return;
     isRevealed = true;
+    if (!revealTimeline) {
+      revealTimeline = createRevealTimeline(item);
+    }
     if (delay > 0) {
       timerId = window.setTimeout(() => {
         revealTimeline.restart();
@@ -122,7 +125,9 @@ function createRevealController(item) {
       window.clearTimeout(timerId);
       timerId = null;
     }
-    revealTimeline.reset();
+    if (revealTimeline) {
+      revealTimeline.reset();
+    }
     item.style.opacity = "0";
     item.style.setProperty("--reveal-y", "22px");
   };

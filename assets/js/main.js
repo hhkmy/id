@@ -15,23 +15,53 @@ import { initTelegramPremiumEmoji } from "./telegram-premium-emoji.js";
 import { initTheme } from "./theme.js";
 import { initVisitorLocation } from "./visitor-location.js";
 
+function runWhenIdle(callback, timeout = 2000) {
+  if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+    window.requestIdleCallback(callback, { timeout });
+  } else {
+    setTimeout(callback, 50);
+  }
+}
+
+function runIdleTasks(tasks) {
+  const queue = [...tasks];
+  function step(deadline) {
+    while (queue.length > 0 && (deadline ? deadline.timeRemaining() > 10 : true)) {
+      const task = queue.shift();
+      try {
+        task();
+      } catch (_) {
+        // Safely ignore non-critical task errors during background hydration
+      }
+      if (!deadline) break;
+    }
+    if (queue.length > 0) {
+      runWhenIdle(step, 1000);
+    }
+  }
+  runWhenIdle(step, 1500);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const theme = initTheme();
 
   initQrModal();
-  initLiteYoutube();
-  initMermaid();
-  initCodeCopy();
-  initGithubUpdates();
-  initArticleViews();
   initSearch();
-  initScrollToTop();
-  initSiteTooltips();
   initSkillFilter();
   initSpoiler();
-  initSpeedlifyScore();
-  initTelegramPremiumEmoji();
-  initVisitorLocation();
-  initShopHydration();
   theme.watchSystemTheme();
+
+  runIdleTasks([
+    initLiteYoutube,
+    initMermaid,
+    initCodeCopy,
+    initGithubUpdates,
+    initArticleViews,
+    initScrollToTop,
+    initSiteTooltips,
+    initSpeedlifyScore,
+    initTelegramPremiumEmoji,
+    initVisitorLocation,
+    initShopHydration,
+  ]);
 });

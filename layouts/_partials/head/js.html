@@ -4,6 +4,7 @@
 	"minify" (not hugo.IsDevelopment)
 	"sourceMap" (cond hugo.IsDevelopment "external" "")
 	"targetPath" "js/main.js"
+	"target" "es2022"
 }}
 {{- with $main | js.Build $opts }}
 	{{- if hugo.IsDevelopment }}
