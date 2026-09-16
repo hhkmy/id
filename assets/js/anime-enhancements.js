@@ -374,7 +374,6 @@ function initQrAnimation() {
   qrSvg.dataset.theme = getActiveTheme();
   const playQrSvgMotion = setupQrSvgMotion(qrSvg);
 
-  if (playQrSvgMotion) window.setTimeout(playQrSvgMotion, 350);
   qrImageTrigger.addEventListener("mouseenter", () => {
     playQrSvgMotion?.();
     remove(qrSvg);

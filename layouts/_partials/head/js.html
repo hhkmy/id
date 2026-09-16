@@ -29,7 +29,7 @@
 					script.defer = true;
 					document.head.appendChild(script);
 				}
-				["scroll", "wheel", "touchstart", "pointerdown", "mousemove", "click", "keydown"].forEach(function (e) {
+				["scroll", "wheel", "touchstart", "click", "keydown"].forEach(function (e) {
 					window.addEventListener(e, loadAnime, { once: true, passive: true });
 				});
 			})();
@@ -50,7 +50,7 @@
 						script.defer = true;
 						document.head.appendChild(script);
 					}
-					["scroll", "wheel", "touchstart", "pointerdown", "mousemove", "click", "keydown"].forEach(function (e) {
+					["scroll", "wheel", "touchstart", "click", "keydown"].forEach(function (e) {
 						window.addEventListener(e, loadAnime, { once: true, passive: true });
 					});
 				})();
