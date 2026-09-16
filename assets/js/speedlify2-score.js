@@ -142,6 +142,8 @@ class SpeedlifyScoreElement extends HTMLElement {
 }
 
 export function initSpeedlifyScore() {
+  if (!document.querySelector("speedlify-score, speedlify2-score")) return;
+
   if (!customElements.get("speedlify-score")) {
     customElements.define("speedlify-score", SpeedlifyScoreElement);
   }

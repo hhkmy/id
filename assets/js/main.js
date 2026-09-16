@@ -25,15 +25,14 @@ function runWhenIdle(callback, timeout = 2000) {
 
 function runIdleTasks(tasks) {
   const queue = [...tasks];
-  function step(deadline) {
-    while (queue.length > 0 && (deadline ? deadline.timeRemaining() > 10 : true)) {
+  function step() {
+    if (queue.length > 0) {
       const task = queue.shift();
       try {
         task();
       } catch (_) {
         // Safely ignore non-critical task errors during background hydration
       }
-      if (!deadline) break;
     }
     if (queue.length > 0) {
       runWhenIdle(step, 1000);

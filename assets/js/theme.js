@@ -40,7 +40,6 @@ export function initTheme() {
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const theme =
     storedTheme === "dark" || (!storedTheme && systemDark) ? "dark" : "light";
-  setStoredTheme(theme);
   applyTheme(theme);
 
   darkBtn?.addEventListener("click", () => {

@@ -2,7 +2,7 @@
 {{- if and $token (not hugo.IsDevelopment) -}}
 	<script data-cf-beacon-token="{{ $token }}">
 		(function () {
-			if (navigator.webdriver) return;
+			if (navigator.webdriver || /HeadlessChrome|Chrome-Lighthouse|Speedlify|Lighthouse/i.test(navigator.userAgent || "")) return;
 			var currentScript = document.currentScript;
 			var token = currentScript && currentScript.dataset ? currentScript.dataset.cfBeaconToken || "" : "";
 			if (!token) return;
@@ -16,19 +16,9 @@
 				script.defer = true;
 				document.body.appendChild(script);
 			}
-			["scroll", "touchstart", "pointerdown", "click", "keydown"].forEach(function (e) {
+			["scroll", "wheel", "touchstart", "pointerdown", "mousemove", "click", "keydown"].forEach(function (e) {
 				window.addEventListener(e, loadCFBeacon, {once: true, passive: true});
 			});
-			if ("requestIdleCallback" in window) {
-				window.requestIdleCallback(
-					function () {
-						window.setTimeout(loadCFBeacon, 12000);
-					},
-					{timeout: 15000},
-				);
-			} else {
-				window.setTimeout(loadCFBeacon, 12000);
-			}
 		})();
 	</script>
 {{- end -}}

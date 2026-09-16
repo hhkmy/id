@@ -63,11 +63,18 @@ export const createCsp = (nonce) => {
 };
 
 export const applySecurityHeaders = (headers) => {
-  headers.delete("X-Frame-Options");
+  headers.set(
+    "Strict-Transport-Security",
+    "max-age=31536000; includeSubDomains; preload",
+  );
+  headers.set("X-Frame-Options", "SAMEORIGIN");
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   headers.set("Cross-Origin-Resource-Policy", "cross-origin");
-  headers.set("Permissions-Policy", "clipboard-write=(self)");
+  headers.set(
+    "Permissions-Policy",
+    "camera=(), microphone=(), geolocation=(), clipboard-write=(self)",
+  );
 };
 
 const applyStaticAssetCaching = (headers, pathname) => {

@@ -81,6 +81,9 @@ export const initArticleViews = () => {
 
   const singleCounter = document.querySelector(".view-counter");
   const listCounters = [...document.querySelectorAll(".post-view-count")];
+  if (!singleCounter && !listCounters.length) {
+    return;
+  }
 
   loadAllViewCounters(listCounters).catch((error) => {
     console.error(error);

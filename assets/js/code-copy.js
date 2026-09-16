@@ -48,6 +48,14 @@ const addCommitCopyFeedback = (clipboard) => {
 };
 
 export function initCodeCopy() {
+  if (
+    !document.querySelector(
+      ".code-copy-button, .payment-copy-button, .github-commit-copy",
+    )
+  ) {
+    return;
+  }
+
   const codeClipboard = new ClipboardJS(".code-copy-button", {
     text(trigger) {
       return (

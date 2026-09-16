@@ -1,6 +1,5 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-{{ partialCached "head/css.html" . hugo.IsDevelopment }}
 <script>
 	(function () {
 		var storedTheme = null;
@@ -20,6 +19,8 @@
 		delete document.documentElement.dataset.pfTheme;
 	})();
 </script>
+<link rel="preload" href="/fonts/Pyidaungsu.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
+{{ partialCached "head/css.html" . hugo.IsDevelopment }}
 {{ partialCached "head/meta.html" . .Permalink }}
 {{ partialCached "head/katex.html" . (cond (or .Params.katex site.Params.katex.enable) "katex" "no-katex") }}
 {{ partialCached "head/pagefind.html" . hugo.IsDevelopment }}

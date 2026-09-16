@@ -157,6 +157,11 @@ async function renderEmoji(element, reduceMotion) {
 }
 
 export function initTelegramPremiumEmoji() {
+  const emojis = Array.from(
+    document.querySelectorAll("[data-telegram-emoji], tg-emoji[emoji-id]"),
+  );
+  if (!emojis.length) return;
+
   // Register <tg-emoji> web component if supported
   if (typeof customElements !== "undefined" && !customElements.get("tg-emoji")) {
     customElements.define(
@@ -171,11 +176,6 @@ export function initTelegramPremiumEmoji() {
       },
     );
   }
-
-  const emojis = Array.from(
-    document.querySelectorAll("[data-telegram-emoji], tg-emoji[emoji-id]"),
-  );
-  if (!emojis.length) return;
 
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",

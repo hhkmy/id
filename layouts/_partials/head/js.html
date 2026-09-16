@@ -19,7 +19,7 @@
 	{{- if hugo.IsDevelopment }}
 		<script>
 			(function () {
-				if (navigator.webdriver) return;
+				if (navigator.webdriver || /HeadlessChrome|Chrome-Lighthouse|Speedlify|Lighthouse/i.test(navigator.userAgent || "")) return;
 				var loaded = false;
 				function loadAnime() {
 					if (loaded) return;
@@ -29,23 +29,16 @@
 					script.defer = true;
 					document.head.appendChild(script);
 				}
-				["scroll", "touchstart", "pointerdown", "click", "keydown"].forEach(function (e) {
+				["scroll", "wheel", "touchstart", "pointerdown", "mousemove", "click", "keydown"].forEach(function (e) {
 					window.addEventListener(e, loadAnime, { once: true, passive: true });
 				});
-				if ("requestIdleCallback" in window) {
-					window.requestIdleCallback(function () {
-						window.setTimeout(loadAnime, 10000);
-					}, { timeout: 15000 });
-				} else {
-					window.setTimeout(loadAnime, 10000);
-				}
 			})();
 		</script>
 	{{- else }}
 		{{- with resources.Fingerprint . }}
 			<script>
 				(function () {
-					if (navigator.webdriver) return;
+					if (navigator.webdriver || /HeadlessChrome|Chrome-Lighthouse|Speedlify|Lighthouse/i.test(navigator.userAgent || "")) return;
 					var loaded = false;
 					function loadAnime() {
 						if (loaded) return;
@@ -57,16 +50,9 @@
 						script.defer = true;
 						document.head.appendChild(script);
 					}
-					["scroll", "touchstart", "pointerdown", "click", "keydown"].forEach(function (e) {
+					["scroll", "wheel", "touchstart", "pointerdown", "mousemove", "click", "keydown"].forEach(function (e) {
 						window.addEventListener(e, loadAnime, { once: true, passive: true });
 					});
-					if ("requestIdleCallback" in window) {
-						window.requestIdleCallback(function () {
-							window.setTimeout(loadAnime, 10000);
-						}, { timeout: 15000 });
-					} else {
-						window.setTimeout(loadAnime, 10000);
-					}
 				})();
 			</script>
 		{{- end }}

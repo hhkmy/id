@@ -162,10 +162,11 @@ export function initShopFilter() {
  * Initializes shop client hydration and filtering on the shop page.
  */
 export async function initShopHydration() {
-  initShopFilter();
-
   const cards = Array.from(document.querySelectorAll("[data-shop-card]"));
-  if (cards.length === 0) return;
+  const nav = document.querySelector("[data-shop-filter-nav]");
+  if (cards.length === 0 && !nav) return;
+
+  initShopFilter();
 
   try {
     const res = await fetch("/api/shop");
