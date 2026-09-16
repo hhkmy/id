@@ -24,31 +24,38 @@ function runWhenIdle(callback, timeout = 2000) {
 }
 
 function runIdleTasks(tasks) {
-  if (
-    typeof navigator !== "undefined" &&
-    (navigator.webdriver ||
-      /HeadlessChrome|Chrome-Lighthouse|Speedlify|Lighthouse/i.test(
-        navigator.userAgent || "",
-      ))
-  ) {
-    return;
-  }
+  let started = false;
+  const events = ["scroll", "wheel", "touchstart", "click", "keydown"];
 
-  const queue = [...tasks];
-  function step() {
-    if (queue.length > 0) {
-      const task = queue.shift();
-      try {
-        task();
-      } catch (_) {
-        // Safely ignore non-critical task errors during background hydration
+  const cleanup = () => {
+    events.forEach((e) => window.removeEventListener(e, start));
+  };
+
+  const start = () => {
+    if (started) return;
+    started = true;
+    cleanup();
+
+    const queue = [...tasks];
+    function step() {
+      if (queue.length > 0) {
+        const task = queue.shift();
+        try {
+          task();
+        } catch (_) {
+          // Safely ignore non-critical task errors during background hydration
+        }
+      }
+      if (queue.length > 0) {
+        runWhenIdle(step, 1000);
       }
     }
-    if (queue.length > 0) {
-      runWhenIdle(step, 1000);
-    }
-  }
-  runWhenIdle(step, 1500);
+    runWhenIdle(step, 500);
+  };
+
+  events.forEach((e) =>
+    window.addEventListener(e, start, { once: true, passive: true }),
+  );
 }
 
 document.addEventListener("DOMContentLoaded", () => {
