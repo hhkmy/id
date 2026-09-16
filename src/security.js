@@ -148,6 +148,11 @@ export const applySecurity = async (response, request) => {
   headers.set("Cache-Control", "private, no-cache");
   headers.set("Content-Security-Policy", createCsp(nonce));
 
+  headers.set(
+    "Link",
+    "</fonts/Pyidaungsu.woff2>; rel=preload; as=font; type=font/woff2; crossorigin=anonymous",
+  );
+
   applySecurityHeaders(headers);
 
   return new Response(transformedResponse.body, {

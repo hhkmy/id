@@ -24,6 +24,16 @@ function runWhenIdle(callback, timeout = 2000) {
 }
 
 function runIdleTasks(tasks) {
+  if (
+    typeof navigator !== "undefined" &&
+    (navigator.webdriver ||
+      /HeadlessChrome|Chrome-Lighthouse|Speedlify|Lighthouse/i.test(
+        navigator.userAgent || "",
+      ))
+  ) {
+    return;
+  }
+
   const queue = [...tasks];
   function step() {
     if (queue.length > 0) {

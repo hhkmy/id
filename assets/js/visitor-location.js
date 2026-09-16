@@ -84,12 +84,7 @@ function renderLocation(locEl, data) {
   updateBadgeTitle(badge, data, locationText);
 }
 
-export async function initVisitorLocation() {
-  const locEl =
-    document.getElementById("cf-edge-location") ||
-    document.querySelector("[data-edge-location]");
-  if (!locEl) return;
-
+async function fetchAndRenderLocation(locEl) {
   // 1. Fetch Cloudflare Worker endpoint (/api/edge-info) for Real IP Data (Radar-style)
   try {
     const res = await fetch("/api/edge-info", { cache: "no-store" });
@@ -129,4 +124,27 @@ export async function initVisitorLocation() {
 
   // 3. Fallback when Cloudflare location is unavailable
   renderLocation(locEl, { country: "XX" });
+}
+
+export function initVisitorLocation() {
+  const locEl =
+    document.getElementById("cf-edge-location") ||
+    document.querySelector("[data-edge-location]");
+  if (!locEl) return;
+
+  const badge = locEl.closest("#cf-edge-badge, [data-edge-badge]") || locEl;
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          observer.disconnect();
+          fetchAndRenderLocation(locEl);
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(badge);
+  } else {
+    fetchAndRenderLocation(locEl);
+  }
 }
