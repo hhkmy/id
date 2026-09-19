@@ -1,5 +1,5 @@
 ---
-title: "HP ProBook Touchpad အလုပ်မလုပ်ခြင်း (I2C Controller Timeout -110) စစ်ဆေးဖြေရှင်းနည်း"
+title: "HP ProBook Touchpad I2C Timeout ပြင်နည်း"
 date: 2026-09-15T04:35:00+06:30
 image: "cover.webp"
 thumbnail_image: "cover.webp"

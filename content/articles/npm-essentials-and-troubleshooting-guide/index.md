@@ -1,5 +1,5 @@
 ---
-title: "NPM အသုံးပြုနည်းနှင့် ပြဿနာဖြေရှင်းနည်း လမ်းညွှန်"
+title: "NPM အသုံးပြုနည်းနဲ့ ပြဿနာဖြေရှင်းနည်း လမ်းညွှန်"
 date: 2026-09-14T02:58:00+06:30
 image: npm-guide.jpg
 thumbnail_image: npm-guide.jpg

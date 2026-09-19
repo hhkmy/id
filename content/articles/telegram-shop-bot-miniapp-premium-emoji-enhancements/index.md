@@ -1,5 +1,5 @@
 ---
-title: "Telegram Shop Bot နဲ့ Mini App အဆင့်မြှင့်တင်မှု မှတ်တမ်း"
+title: "Telegram Shop Bot နဲ့ Mini App အဆင့်မြှင့်တင်မှု"
 date: 2026-09-13T00:10:00+06:30
 image: cover.png
 thumbnail_image: cover.png

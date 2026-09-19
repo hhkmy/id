@@ -1,5 +1,5 @@
 ---
-title: "HXSJ T90 3-Mode Gaming Mouse သုံးသပ်ချက်နဲ့ Bluetooth ချိတ်နည်း"
+title: "HXSJ T90 3-Mode Gaming Mouse သုံးသပ်ချက်"
 date: 2026-09-16T09:25:00+06:30
 image: hxsj-t90-gaming-mouse.webp
 thumbnail_image: hxsj-t90-gaming-mouse.webp

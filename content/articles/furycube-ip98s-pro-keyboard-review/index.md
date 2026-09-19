@@ -1,5 +1,5 @@
 ---
-title: "Furycube IP98S Pro Keyboard သုံးသပ်ချက်နဲ့ အသံထွက် လုပ်ဆောင်ချက်များ"
+title: "Furycube IP98S Pro Tri-Mode Keyboard သုံးသပ်ချက်"
 date: 2026-09-16T09:50:00+06:30
 image: furycube-ip98s-pro-keyboard.webp
 thumbnail_image: furycube-ip98s-pro-keyboard.webp
