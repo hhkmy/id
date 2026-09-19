@@ -3,13 +3,8 @@ title: Office 365 with Developer Account
 date: 2023-12-21T21:52:06.768Z
 image: microsoft_dns.png
 categories: ["Microsoft", "Cloud Services"]
-description:
-  Microsoft ရဲ့ Office 365 ကြီးကိုတော့ မဝယ်နိုင်ဘူး ဒါပေမယ့် သုံးချင်တယ်ဆိုတဲ့
-  ကိုယ့်လိုလူတွေအတွက်တော့ အသုံးဝင်မယ့် Note လေးတစ်ခုမှတ်ထားဖို့။
-summary:
-  Microsoft ရဲ့ Office 365 ကို ဝယ်သုံးဖို့က ဈေးနည်းနည်းများသလို တစ်နှစ်တစ်ခါကြီး
-  ဝယ်ဝယ်နေရတော့ အဆင်မပြေဖြစ်တာရယ် Microsoft ရဲ့ Devloper program ကိုတွေ့ထားတာနဲ့
-  ရေးဖြစ်တဲ့ Note လေး
+description: "Microsoft 365 E5 Developer Program မှာ အခမဲ့ Account လျှောက်ထားပြီး Office 365 Apps တွေကို တရားဝင် အသုံးပြုနိုင်အောင် စနစ်တကျ ပြင်ဆင်နည်း။"
+summary: "Microsoft 365 E5 Developer Program မှာ အခမဲ့ Account လျှောက်ထားပြီး Office 365 Apps တွေကို တရားဝင် အသုံးပြုနိုင်အောင် စနစ်တကျ ပြင်ဆင်နည်း။"
 tags:
   - Office365
   - Microsoft

@@ -3,15 +3,8 @@ title: Download m3u8 with ffmpeg
 date: 2023-09-28T18:12:51+06:30
 image: m3u8-data.png
 categories: ["Multimedia", "Software"]
-description:
-  m3u8 url တွေကို ffmpeg နဲ့ ဘယ်လို Download လုပ်ရမလဲဆိုတာကို လာမှတ်ထားတာပါ။
-  ဒီနည်းကတော့ တော်တော်များများသော key တွေနဲ့ ပိတ်ထားတာကိုတောင် download
-  လုပ်နိုင်ပါတယ်။
-summary:
-  online ပေါ်က Downloader တွေနဲ့တောင် download လုပ်လို့မရတဲ့ m3u8 file format
-  တွေကို ffmpeg software နဲ့ဘယ်လို Download လုပ်လို့ရသလဲဆိုတာလေးကို
-  လာမှတ်ထားတာပါ။ IDM paid version နဲ့တောင် Download လုပ်လို့မရဘူး (ကြွားတာ)
-  ဆိုတော့ အခြားနည်းရှာကြည့်တဲ့အခါ ffmpeg က တော်တော်လေးကိုအဆင်ပြေလှပေတော့တယ်။
+description: "Live Stream နဲ့ Video Streaming m3u8 playlist URL တွေကို FFmpeg CLI tool သုံးပြီး အရည်အသွေးမြင့် MP4 ဗီဒီယိုအဖြစ် Download ဆွဲနည်း။"
+summary: "Live Stream နဲ့ Video Streaming m3u8 playlist URL တွေကို FFmpeg CLI tool သုံးပြီး အရည်အသွေးမြင့် MP4 ဗီဒီယိုအဖြစ် Download ဆွဲနည်း။"
 tags:
   - m3u8
   - ffmpeg

@@ -3,8 +3,8 @@ title: "Resolving Myanmar Font Rendering on Debian 13"
 date: 2026-07-17T02:07:59+06:30
 image: HarfBuzz.png
 thumbnail_image: HarfBuzz.png
-description: "Debian 13 တွင် HarfBuzz နှင့် Pyidaungsu Font ပဋိပက္ခကြောင့် မြန်မာစာအက္ခရာများ ထပ်နေသည့် ပြဿနာကို Noto Sans Myanmar နှင့် Fontconfig ပြင်ဆင်မှုဖြင့် ဖြေရှင်းခဲ့ပုံ။"
-summary: "Debian 13 Trixie တွင် Pyidaungsu Font သုံးထားသော်လည်း HarfBuzz Shaping Engine ကြောင့် အက္ခရာများ ထပ်နေသော ပြဿနာကို `fonts-noto-core` သွင်းပြီး Font Fallback သတ်မှတ်ပေးခြင်းဖြင့် ဖြေရှင်းခဲ့သည့် မှတ်တမ်း။"
+description: "Debian 13 မှာ HarfBuzz ကြောင့် မြန်မာစာ အက္ခရာတွေ ထပ်နေတဲ့ ပြဿနာကို Noto Sans Myanmar နဲ့ Fontconfig သတ်မှတ်ပြီး စနစ်တကျ ဖြေရှင်းခဲ့တဲ့ လက်တွေ့မှတ်တမ်း။"
+summary: "Debian 13 မှာ HarfBuzz ကြောင့် မြန်မာစာ အက္ခရာတွေ ထပ်နေတဲ့ ပြဿနာကို Noto Sans Myanmar နဲ့ Fontconfig သတ်မှတ်ပြီး စနစ်တကျ ဖြေရှင်းခဲ့တဲ့ လက်တွေ့မှတ်တမ်း။"
 categories: ["Linux", "System Administration", "Troubleshooting"]
 tags: ["Debian", "GNOME", "Fonts", "HarfBuzz", "Noto", "Myanmar", "Pyidaungsu"]
 series: ["Debian Troubleshooting"]

@@ -3,8 +3,8 @@ title: "Google Antigravity မှာ Run Now Auto-Proceed သတ်မှတ်�
 date: 2026-09-11T20:00:00+06:30
 image: antigravity-auto-run-now.webp
 thumbnail_image: antigravity-auto-run-now.webp
-description: "Google Antigravity မှာ Terminal Command run တိုင်း 'Run now' confirmation ပေါ်နေတာကို Skill/Prompt တစ်ခုတည်းနဲ့ ဘာကြောင့် မရတာလဲဆိုတဲ့ အကြောင်းရင်းနဲ့ Host-level Always-Proceed တကယ်အလုပ်လုပ်အောင် ပြင်ဆင်နည်း လက်တွေ့မှတ်တမ်း။"
-summary: "Antigravity IDE, Desktop 2.0 နဲ့ CLI မှာ Tool Execution Approval အလုပ်လုပ်ပုံ Source of Truth၊ Host-level Always-Proceed Setting ပြင်ဆင်နည်းနဲ့ AGENTS.md Autonomous Rules ပေါင်းစပ်အသုံးပြုနည်း လမ်းညွှန်။"
+description: "Google Antigravity မှာ Terminal Command run တိုင်း Run now ပေါ်နေတာကို Skill တစ်ခုတည်းနဲ့ မရတဲ့ အကြောင်းရင်းနဲ့ Always-Proceed သတ်မှတ်နည်း လက်တွေ့မှတ်တမ်း။"
+summary: "Google Antigravity မှာ Terminal Command run တိုင်း Run now ပေါ်နေတာကို Skill တစ်ခုတည်းနဲ့ မရတဲ့ အကြောင်းရင်းနဲ့ Always-Proceed သတ်မှတ်နည်း လက်တွေ့မှတ်တမ်း။"
 categories: ["AI", "Development", "Productivity"]
 tags: ["Google Antigravity", "AI Agent", "CLI", "Developer Tools", "Automation", "Pair Programming"]
 series: ["Antigravity Workflows"]

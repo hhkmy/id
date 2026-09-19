@@ -3,16 +3,8 @@ title: Hyper + Git Terminal Customize
 date: 2023-08-23T07:01:30+07:00
 image: hyper-terminal-windows-10.png
 categories: ["Windows", "Developer Tools"]
-description:
-    Terminal တွေအများကြီး သုံးဖူးတာမဟုတ်ပေမယ့် Terminal
-    တော်တော်များများလိုက်သုံးရင်း ဒီတစ်ခါကတော့ Hyper + terminal လေးကို Git
-    နဲရောသုးဖြစ်သွားတာလေးပါ။
-summary:
-    Terminal တွေအများကြီးထဲကမှ နောက်ထပ် Testing and Customize လုပ်မိတာကတော့
-    Hyper Terminal လေးပါ။ နည်းနည်းလေး သွက်တယ်ထင်ရပေမယ့် မသွက်သလိုလိုဖြစ်နေတာနဲ့
-    Testing လုပ်ပြီး Windows နောက်တစ်ခါ တင်လိုက်တော့ မထည့်ဖြစ်တော့တာလေး
-    ဆိုပေမယ့် Test လည်းလုပ်ခဲ့သလို Customize လည်း ကောင်းကောင်းလုပ်ခဲ့တာလေးကို
-    Note အဖြစ်နဲ့ မှတ်ရင်း
+description: "Windows ပေါ်မှာ Hyper Terminal နဲ့ Git Bash ကို ပေါင်းစပ်ပြီး Plugin တွေ၊ Themes တွေနဲ့ လှပသပ်ရပ်အောင် စိတ်ကြိုက် ပြင်ဆင်အသုံးပြုနည်း။"
+summary: "Windows ပေါ်မှာ Hyper Terminal နဲ့ Git Bash ကို ပေါင်းစပ်ပြီး Plugin တွေ၊ Themes တွေနဲ့ လှပသပ်ရပ်အောင် စိတ်ကြိုက် ပြင်ဆင်အသုံးပြုနည်း။"
 tags:
     - Terminal
     - Windows

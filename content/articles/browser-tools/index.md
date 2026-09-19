@@ -3,15 +3,8 @@ title: Useful Browser Tools
 date: 2021-03-01T19:36:56+06:30
 image: Inspect_Elements.png
 categories: ["Web Development", "Developer Tools"]
-description:
-  အသုံးဝင်တဲ့ useful Browser tools functions တွေထဲကမှ snapshot
-  ဘယ်လိုရိုက်ရမလဲဆိုတာရယ် အခြားအသုံးဝင်တဲ့ Function တွေအကြောင်းရေးထားတာလေး
-summary:
-  Daliy use ဖြစ်တဲ့ Browser တွေထဲမှာ အသုံးဝင်ပြီး လိုအပ်တဲ့ အသုံးပြုများတဲ့ tool
-  လို့ပြောလို့ရတဲ့ function လေးတွေအကြောင်းပေါ့။ ဒီထဲမှာ Tag တွေကို Sanpshot
-  ရိုက်လို့ရတာတွေ အပြင် အခြားသော အသုံးဝင်တဲ့ Debug လုပ်လို့ရတာတွေကို Developer
-  tools ထဲက သုံးဖြစ်၊ စမ်းဖြစ်ပြီး ဘယ်လိုသုံးရမလဲဆိုတဲ့အကြောင်းနဲ့ နောက်ထပ်
-  ပိုပြီး လေ့လာဖြစ်မယ့် Content လေးတစ်ပုဒ်ပေါ့။
+description: "Web Browser တွေမှာ နေ့စဉ်အသုံးဝင်တဲ့ Developer Tools တွေ၊ Full Page Snapshot ရိုက်နည်းနဲ့ အသုံးဝင်တဲ့ Features တွေကို မျှဝေထားပါတယ်။"
+summary: "Web Browser တွေမှာ နေ့စဉ်အသုံးဝင်တဲ့ Developer Tools တွေ၊ Full Page Snapshot ရိုက်နည်းနဲ့ အသုံးဝင်တဲ့ Features တွေကို မျှဝေထားပါတယ်။"
 tags:
   - Tools
 keywords:

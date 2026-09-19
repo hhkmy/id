@@ -3,16 +3,8 @@ title: Generals Zero Hour Crash Fix
 date: 2021-02-06T19:22:51+06:30
 image: CCGeneralsRemasteredDemo32022Update.webp
 categories: ["Gaming", "Troubleshooting"]
-description:
-  Fixing Command & Conquer Generals Zero Hour Crach Error at High Windows like
-  windows 10 and above.
-summary:
-  Fixing Command & Conquer Generals Zero Hour Crach Error ဆိုတာလေးပေါ့
-  ငယ်ငယ်တုန်းကလို့ ပြောလို့ရတဲ့ အချိန်က ဆော့ဖြစ်ခဲ့တဲ့ ဂိမ်းလေးကို
-  ပြန်ဆော့ချင်တာနဲ့ ဆော့ပေမယ့် နည်းနည်း load များသွားရင် ဂိမ်းက crach ဖြစ်ပြီး
-  ပြန်ပြန်ပိတ်သွားရတေ့တယ်။ မပိတ်သွားအောင်လိုက်ရှာရင်းနဲ့ နည်းလမ်းတစ်ခုက
-  အဆင်ပြေပေမယ့် ဘာကြောင်မှန်းမသိ ဆော့ရတာ smooth မဖြစ်တော့တာနဲ့ မဆော့ဖြစ်ပေမယ့်
-  အဆင်ပြေခဲ့တာလေး Note အဖြစ်နဲ့ သိမ်းထားမိတော့တယ်။
+description: "Windows 10/11 ပေါ်မှာ Command & Conquer Generals Zero Hour ဂိမ်းဖွင့်မရဘဲ Crash ဖြစ်တဲ့ Error ကို options.ini ပြင်ဆင်ပြီး ဖြေရှင်းနည်း။"
+summary: "Windows 10/11 ပေါ်မှာ Command & Conquer Generals Zero Hour ဂိမ်းဖွင့်မရဘဲ Crash ဖြစ်တဲ့ Error ကို options.ini ပြင်ဆင်ပြီး ဖြေရှင်းနည်း။"
 tags:
   - Games
 keywords:

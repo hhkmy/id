@@ -4,16 +4,8 @@ date: 2023-09-21T05:19:51+06:30
 katex: true
 image: chemical.png
 categories: ["Science", "Reference"]
-description:
-  chemical formula Testing အတွက်ရှာရင်းနဲ့ သူ့အတွက် formula format တွေပါ
-  ပေးထားပါတယ် ကိုယ်တိုင်လည်း တစ်ချိန်ပြန်သုံးနိုင်ပြီး Ref
-  လုပ်နိုင်အောင်ထားလိုက်တော့မယ် xD
-summary:
-  chemical formula Testing အတွက်ရှာရင်းနဲ့ သူ့အတွက် formula format တွေပါ
-  ပေးထားပါတယ်။ ကိုယ်တိုင်လည်း တစ်ချိန်ပြန်သုံးနိုင်ပြီး Ref
-  လုပ်နိုင်အောင်ထားလိုက်တော့မယ် xD နောက်ပိုင်းမှာတော့ ဒီလိုမျိုးဟာတွေ များများ
-  မြင်ဖြစ်မလား မမြင်ဖြစ်မလားမသိပေမယ့် အခုအချိန်မှာတော့ Content တစ်ပုဒ်အဖြစ်နဲ့ပဲ
-  သိမ်းထားလိုက်တော့မယ်။
+description: "Hugo Markdown ပေါ်မှာ ဓာတုဗေဒ Chemical Formulas တွေနဲ့ Equations တွေကို KaTeX / MathJax သုံးပြီး မှန်ကန်စွာ ရေးသားဖော်ပြနည်း စမ်းသပ်ချက်။"
+summary: "Hugo Markdown ပေါ်မှာ ဓာတုဗေဒ Chemical Formulas တွေနဲ့ Equations တွေကို KaTeX / MathJax သုံးပြီး မှန်ကန်စွာ ရေးသားဖော်ပြနည်း စမ်းသပ်ချက်။"
 tags:
   - chemical
 keywords:

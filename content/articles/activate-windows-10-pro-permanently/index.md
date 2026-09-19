@@ -3,16 +3,8 @@ title: Activate Windows 10 Pro Permanently
 date: 2021-02-04T22:08:58+06:30
 image: activate-windows-10-pro-permanently.png
 categories: ["Windows", "Software"]
-description:
-  ဒီတစ်ခါကတော့ Windows 10 ကို ဘယ်လို Activate
-  လုပ်ရမလဲဆိုတဲ့အကြောင်းအရာပဲဖြစ်ပါတယ်။
-summary:
-  Windows 10 License Key တွေ ရောင်းနေကြတာမြင်လို့ ဒီဟာလေးကို ရေးဖြစ်တာပါ။
-  တကယ်ကော Windows Licens Key တွေ ဝယ်သင့်သလားဆိုတာ မသိပေမယ့် ကျွန်တော် Windows 10
-  စသုံးကတည်းက သုံးဖြစ်တာဆိုလည်းမမှားပါဘူး။ KMS လိုအရာတွေရှိပေမယ့် အခုလောက်တော့
-  အဆင်မပြေခဲ့တာရယ် Third Party app ဆိုတော Anti-Virus တွေနဲ့ Defender
-  တွေနဲ့အလုပ်ရှုပ်တာတွေကြောင့် အခုလို သုံးကြည့်တော့လည်း အဆင်ပြေနေပြန်တာ
-  ဆယ်စုနှစ်တစ်ခုဖြစ်နေပြီလို့တောင်ပြောလို့ရပြီ။
+description: "Windows 10 Pro ကို KMS Client Key နဲ့ slmgr command တွေ အသုံးပြုပြီး Permanent Activate စနစ်တကျ ပြုလုပ်နည်း လက်တွေ့ လမ်းညွှန်ဖြစ်ပါတယ်။"
+summary: "Windows 10 Pro ကို KMS Client Key နဲ့ slmgr command တွေ အသုံးပြုပြီး Permanent Activate စနစ်တကျ ပြုလုပ်နည်း လက်တွေ့ လမ်းညွှန်ဖြစ်ပါတယ်။"
 tags:
   - Windows
   - Activation

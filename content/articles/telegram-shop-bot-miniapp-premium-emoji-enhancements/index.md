@@ -3,8 +3,8 @@ title: "Telegram Shop Bot နဲ့ Mini App အဆင့်မြှင့်�
 date: 2026-09-13T00:10:00+06:30
 image: cover.png
 thumbnail_image: cover.png
-description: "Telegram Shop Bot နဲ့ Mini App ထဲမှာ Custom Animated Premium Emojis တွေ ချိတ်ဆက်တာ၊ Product Categories ခွဲထုတ်တာ၊ Hugo Spoiler Shortcode ရေးသားတာနဲ့ W3C Accessibility Error တွေ ဖြေရှင်းခဲ့တဲ့ လက်တွေ့မှတ်တမ်းပါ။"
-summary: "ဒီဆောင်းပါးမှာ Telegram Shop Bot ရဲ့ Admin Panel ကို အဆင့်မြှင့်တင်ခဲ့တဲ့ အတွေ့အကြုံ၊ Mini App ထဲမှာ Lottie Vector TGS နဲ့ WebP Custom Emojis တွေ တိုက်ရိုက် Render လုပ်ပုံ၊ Website Shop Grid Layout ပြင်ဆင်ပုံနဲ့ Hugo Shortcode ဖန်တီးခဲ့ပုံတွေကို အသေးစိတ် မျှဝေထားပါတယ်။"
+description: "Telegram Shop Bot နဲ့ Mini App ထဲမှာ Custom Animated Emojis တွေ ချိတ်ဆက်တာ၊ Product Categories ခွဲတာနဲ့ Accessibility Error တွေ ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
+summary: "Telegram Shop Bot နဲ့ Mini App ထဲမှာ Custom Animated Emojis တွေ ချိတ်ဆက်တာ၊ Product Categories ခွဲတာနဲ့ Accessibility Error တွေ ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
 categories: ["Web Development", "Cloud Services", "AI"]
 tags: ["Telegram", "Mini App", "Cloudflare Workers", "Hugo", "Custom Emoji", "W3C"]
 series: ["DevOps & Automation"]

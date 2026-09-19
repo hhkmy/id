@@ -3,8 +3,8 @@ title: "Linux Terminal မှာ Myanso နဲ့ Zsh မြန်မာစာ �
 date: 2026-09-12T10:35:00+06:30
 image: myanso.png
 thumbnail_image: myanso.png
-description: "Linux (Debian) မှာ Myanso Terminal Emulator သွင်းယူအသုံးပြုနည်း၊ Zsh မှာ <103a><1039> အဖြစ် စာလုံးပျက်နေတာကို setopt COMBINING_CHARS နဲ့ ဖြေရှင်းနည်းနဲ့ Google Antigravity (agy) CLI မှာ မြန်မာစာ shaping မှန်ကန်အောင် တွဲဖက်သုံးနည်း လက်တွေ့မှတ်တမ်း။"
-summary: "Debian Linux မှာ Myanso Terminal ကို Install လုပ်နည်း၊ Zsh Line Editor က မြန်မာစာ အသတ်နဲ့ ဝိရမတွေကို <103a><1039> လို့ ပြသနေတဲ့ ပြဿနာကို setopt COMBINING_CHARS နဲ့ ဖြေရှင်းပုံ၊ agy CLI မှာ မြန်မာစာ ကောင်းကောင်းဖတ်ရအောင် ပြင်ဆင်နည်း လမ်းညွှန်။"
+description: "Linux မှာ Myanso Terminal သွင်းနည်း၊ Zsh မှာ စာလုံးပျက်နေတာကို setopt COMBINING_CHARS နဲ့ ပြင်နည်းနဲ့ agy CLI မှာ မြန်မာစာ မှန်အောင် တွဲဖက်သုံးနည်း။"
+summary: "Linux မှာ Myanso Terminal သွင်းနည်း၊ Zsh မှာ စာလုံးပျက်နေတာကို setopt COMBINING_CHARS နဲ့ ပြင်နည်းနဲ့ agy CLI မှာ မြန်မာစာ မှန်အောင် တွဲဖက်သုံးနည်း။"
 categories: ["Linux", "Terminal", "Troubleshooting"]
 tags: ["Myanso", "Zsh", "Debian", "Myanmar Unicode", "Antigravity", "agy", "Noto Sans Myanmar", "Linux Terminal"]
 series: ["Debian Troubleshooting"]

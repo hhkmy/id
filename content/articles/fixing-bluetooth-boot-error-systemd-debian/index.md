@@ -3,8 +3,8 @@ title: "Fixing Bluetooth Boot & Systemd Errors on Debian"
 date: 2026-09-08T16:53:00+06:30
 image: "fastfetch.png"
 thumbnail_image: "fastfetch.png"
-description: "Debian Linux စတင်ချိန်တွင် တွေ့ရတတ်သည့် Bluetooth kernel probe error များနှင့် systemd configuration directory permission မကိုက်ညီသည့် ပြဿနာကို အဆင့်ဆင့် ဖြေရှင်းခဲ့ပုံ။"
-summary: "Debian တွင် ကွန်ပျူတာ Boot တက်ချိန် သို့မဟုတ် Setup ပြုလုပ်ချိန်၌ တွေ့ရသည့် Bluetooth hci0 error များနှင့် systemd Directory mode mismatch သတိပေးချက်များကို အဆင့်ဆင့် စစ်ဆေးဖြေရှင်းခဲ့သည့် မှတ်တမ်း။"
+description: "Debian Linux စတင်ချိန်မှာ တွေ့ရတတ်တဲ့ Bluetooth kernel probe error နဲ့ systemd directory permission မကိုက်တဲ့ ပြဿနာကို အဆင့်ဆင့် ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
+summary: "Debian Linux စတင်ချိန်မှာ တွေ့ရတတ်တဲ့ Bluetooth kernel probe error နဲ့ systemd directory permission မကိုက်တဲ့ ပြဿနာကို အဆင့်ဆင့် ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
 categories: ["Linux", "System Administration", "Troubleshooting"]
 tags: ["Debian", "Bluetooth", "Linux", "Troubleshooting", "systemd", "GRUB", "Kernel"]
 series: ["Debian Troubleshooting"]

@@ -3,8 +3,8 @@ title: "NPM အသုံးပြုနည်းနဲ့ ပြဿနာဖြ�
 date: 2026-09-14T02:58:00+06:30
 image: npm-guide.jpg
 thumbnail_image: npm-guide.jpg
-description: "Node Package Manager (npm) ရဲ့ အခြေခံ သဘောတရားများ၊ Global Package များကို sudo မသုံးဘဲ လုံခြုံစွာ သွင်းနည်းနဲ့ audit fix --force ထောင်ချောက်၊ overrides အသုံးပြုနည်း လက်တွေ့ ဖြေရှင်းချက်များ။"
-summary: "npm ဆိုတာ ဘာလဲ၊ Linux ပေါ်မှာ sudo မပါဘဲ Global Packages တွေ သွင်းနည်း၊ npm audit fix --force ကြောင့် Version စောက်ထိုးကျတဲ့ ပြဿနာကို package.json overrides နဲ့ အရင်းအမြစ်ကနေ ဖြေရှင်းနည်း လမ်းညွှန်။"
+description: "Node Package Manager (npm) ရဲ့ အခြေခံ သဘောတရားများ၊ Global Package တွေကို sudo မလိုဘဲ သွင်းနည်းနဲ့ audit fix ထောင်ချောက် ဖြေရှင်းနည်း လက်တွေ့လမ်းညွှန်။"
+summary: "Node Package Manager (npm) ရဲ့ အခြေခံ သဘောတရားများ၊ Global Package တွေကို sudo မလိုဘဲ သွင်းနည်းနဲ့ audit fix ထောင်ချောက် ဖြေရှင်းနည်း လက်တွေ့လမ်းညွှန်။"
 categories: ["Node.js", "Linux", "Troubleshooting"]
 tags: ["npm", "Node.js", "Linux", "DevOps", "Package Manager", "Troubleshooting", "Debian"]
 series: ["Developer Tools"]

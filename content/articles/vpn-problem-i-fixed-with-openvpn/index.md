@@ -3,8 +3,8 @@ title: "VPN Problem I Fixed With OpenVPN"
 date: 2026-07-10T17:39:31+06:30
 image: "OpenVPN.png"
 thumbnail_image: ""
-description: "အစိုးရပိတ်ထားသော VPN ပြဿနာကို Raspberry Pi နှင့် OpenVPN အသုံးပြု၍ ဖြေရှင်းခဲ့သည့် ကျွန်တော့်ရဲ့ အတွေ့အကြုံ"
-summary: "အစိုးရပိတ်ထားသော VPN ပြဿနာကို Raspberry Pi နှင့် OpenVPN အသုံးပြု၍ ဖြေရှင်းခဲ့သည့် ကျွန်တော့်ရဲ့ အတွေ့အကြုံ"
+description: "အင်တာနက် ပိတ်ဆို့မှုတွေကို ကျော်လွှားဖို့ Raspberry Pi နဲ့ OpenVPN ကို အသုံးပြုပြီး ကိုယ်ပိုင် VPN Server တည်ဆောက် ဖြေရှင်းခဲ့တဲ့ အတွေ့အကြုံ။"
+summary: "အင်တာနက် ပိတ်ဆို့မှုတွေကို ကျော်လွှားဖို့ Raspberry Pi နဲ့ OpenVPN ကို အသုံးပြုပြီး ကိုယ်ပိုင် VPN Server တည်ဆောက် ဖြေရှင်းခဲ့တဲ့ အတွေ့အကြုံ။"
 categories: ["Networking", "Technology"]
 tags: ["OpenVPN", "Raspberry Pi", "Telegram Bot", "IPTables", "Docker"]
 series: []

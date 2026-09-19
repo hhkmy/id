@@ -3,8 +3,8 @@ title: "HP ProBook Touchpad I2C Timeout ပြင်နည်း"
 date: 2026-09-15T04:35:00+06:30
 image: "cover.webp"
 thumbnail_image: "cover.webp"
-description: "HP ProBook လက်ပ်တော့ပ်တွင် Linux Boot တက်ချိန်၌ I2C DesignWare controller timed out ဖြစ်ပြီး Synaptics Touchpad (SYNA3067) အလုပ်မလုပ်တော့သည့် ပြဿနာကို အမြစ်ပြတ် စစ်ဆေးဖြေရှင်းခဲ့သည့် လက်တွေ့မှတ်တမ်း။"
-summary: "HP ProBook 430 G5 တွင် Kernel boot အချိန်၌ i2c_hid_acpi driver probe timed out (-110) ဖြစ်သွားသည့် Touchpad ပြဿနာကို Root Cause ရှာဖွေပြီး script နှင့် systemd service ဖြင့် အလိုအလျောက် ပြန်လည် recover လုပ်ဆောင်စေနည်း။"
+description: "HP ProBook မှာ Linux Boot တက်ချိန် I2C Controller Timed Out ဖြစ်ပြီး Touchpad အလုပ်မလုပ်တော့တဲ့ ပြဿနာကို kernel parameter ချိန်ညှိပြီး ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
+summary: "HP ProBook မှာ Linux Boot တက်ချိန် I2C Controller Timed Out ဖြစ်ပြီး Touchpad အလုပ်မလုပ်တော့တဲ့ ပြဿနာကို kernel parameter ချိန်ညှိပြီး ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
 categories: ["Linux", "Hardware", "Troubleshooting"]
 tags: ["Debian", "Linux", "Touchpad", "Synaptics", "I2C", "systemd", "HP ProBook", "Kernel"]
 series: ["Debian Troubleshooting"]

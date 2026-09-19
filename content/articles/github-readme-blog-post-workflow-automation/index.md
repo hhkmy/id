@@ -3,8 +3,8 @@ title: "GitHub README မှာ Blog Post တွေ Auto Update လုပ်န�
 date: 2026-09-12T15:45:00+06:30
 image: blog-post-workflow-automation.webp
 thumbnail_image: blog-post-workflow-automation.webp
-description: "GitHub Actions ရဲ့ blog-post-workflow ကို အမြဲတမ်း cron schedule run နေစရာမလိုဘဲ content အသစ် push လုပ်မှ Cloudflare deployment စစ်ပြီး auto update လုပ်နည်း လက်တွေ့မှတ်တမ်း။"
-summary: "Cron job ကြောင့် Actions minutes အလဟဿမဖြစ်စေဘဲ Static Site content push လုပ်တဲ့အခါမှ Cloudflare RSS feed ကို smart polling စစ်ဆေးပြီး README မှာ blog post တွေ update လုပ်နည်း လမ်းညွှန်။"
+description: "GitHub Actions ရဲ့ blog-post-workflow ကို cron အစား content push လုပ်မှ Cloudflare deployment စစ်ပြီး README ကို auto update လုပ်အောင် ပြင်ဆင်နည်း။"
+summary: "GitHub Actions ရဲ့ blog-post-workflow ကို cron အစား content push လုပ်မှ Cloudflare deployment စစ်ပြီး README ကို auto update လုပ်အောင် ပြင်ဆင်နည်း။"
 categories: ["Development", "Automation", "CI/CD"]
 tags: ["GitHub Actions", "Workflow", "Hugo", "Cloudflare", "Automation", "Guide"]
 series: ["DevOps & Automation"]

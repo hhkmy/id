@@ -4,8 +4,8 @@ date: 2025-08-01T09:14:21+06:30
 image: key-is-stored-in-legacy-trusted-gpg-keyring.png
 categories: ["Linux", "System Administration"]
 thumbnail_image: key-is-stored-in-legacy-trusted-gpg-keyring.png
-description: "Debian အခြေပြုစနစ်များတွင် legacy trusted.gpg keyring တွင် key သိမ်းထားခြင်းအကြောင်းသတိပေးချက်ကို ဖြေရှင်းနည်း။"
-summary: "Legacy trusted.gpg keyring မှ GPG key များကို အသုံးပြုရန်အကြံပြုထားသော keyring format သို့ ပြောင်းရွှေ့နည်းလမ်းညွှန်။"
+description: "Debian / Ubuntu မှာ apt update လုပ်ချိန် legacy trusted.gpg keyring သတိပေးချက် တက်လာတာကို signed-by နည်းလမ်းသစ်နဲ့ ဖြေရှင်းနည်း လမ်းညွှန်။"
+summary: "Debian / Ubuntu မှာ apt update လုပ်ချိန် legacy trusted.gpg keyring သတိပေးချက် တက်လာတာကို signed-by နည်းလမ်းသစ်နဲ့ ဖြေရှင်းနည်း လမ်းညွှန်။"
 tags: ["apt", "gpg", "trusted.gpg", "debian", "ubuntu"]
 series: []
 keywords: ["trusted.gpg", "apt-key", "keyring migration", "linux security", "debian", "ubuntu"]

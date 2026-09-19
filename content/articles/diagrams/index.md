@@ -4,15 +4,8 @@ date: 2023-09-18T05:19:51+06:30
 draft: false
 image: diagrams.png
 categories: ["Web Development", "Reference"]
-description:
-  Hugo Diagrams or Diagrams system in website. For testing purpose to
-  Development.
-summary:
-  Website အတွက် လိုအပ်တာတွေ ထည့်ရင်း Hugo Website ကိုလည်း Setup လုပ်ရင်းနဲ့
-  ရလာတဲ့ Content ကတော့ website မှာ selectable Diagrams တွေကို
-  ဘယ်လိုဆွဲလို့ရမလဲဆိုတာပါပဲ။ ကိုယ်တိုင်လုပ်ချင်တဲ့လူတွေအတွက်လည်း
-  အဆင်ပြေအောင်လို့ Content လေးတစ်ပုဒ်အဖြစ်နဲ့ ရေးသားရင်းနောက်များလိုအပ်တော့လည်း
-  Ref- ပြန်လုပ်နိုင်ဖို့အတွက် သိမ်းထားလိုက်တာပါ။
+description: "Hugo Website ထဲမှာ Mermaid.js နဲ့ SVG Diagrams တွေကို Code Blocks တွေကနေတစ်ဆင့် အလွယ်တကူ ထည့်သွင်းရေးဆွဲနည်း လက်တွေ့စမ်းသပ်ချက်။"
+summary: "Hugo Website ထဲမှာ Mermaid.js နဲ့ SVG Diagrams တွေကို Code Blocks တွေကနေတစ်ဆင့် အလွယ်တကူ ထည့်သွင်းရေးဆွဲနည်း လက်တွေ့စမ်းသပ်ချက်။"
 tags:
   - diagrams
 keywords:

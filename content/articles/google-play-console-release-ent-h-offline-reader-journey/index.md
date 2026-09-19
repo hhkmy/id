@@ -3,8 +3,8 @@ title: "Google Play Console ပေါ် Ent H App တင်ခဲ့တဲ့ �
 date: 2026-09-09T21:50:00+06:30
 image: enth-feature-graphic.png
 thumbnail_image: enth-app-icon.png
-description: "Ent H (Myanmar Offline Reader) မိုဘိုင်းအက်ပ်ကို Google Play Console ပေါ်တင်ဖို့ Policy Declarations၊ Step-by-Step Questions၊ Data Safety၊ Store Assets နဲ့ UI အသစ်တွေ ပြင်ဆင်ခဲ့တဲ့ လက်တွေ့မှတ်တမ်း။"
-summary: "Google Play Console မှာ Account Verification ကနေစပြီး Closed Testing၊ Data Safety၊ Financial/Health Declarations၊ IARC Content Rating၊ Store Graphics တွေနဲ့ Flutter UI Dropdown Box အသစ် ပြင်ဆင်ခဲ့တဲ့ အသေးစိတ် အတွေ့အကြုံ။"
+description: "Ent H Myanmar Offline Reader မိုဘိုင်းအက်ပ်ကို Google Play Console ပေါ်တင်ဖို့ Policy၊ Data Safety၊ Store Assets တွေ ပြင်ဆင်ခဲ့တဲ့ လက်တွေ့မှတ်တမ်း။"
+summary: "Ent H Myanmar Offline Reader မိုဘိုင်းအက်ပ်ကို Google Play Console ပေါ်တင်ဖို့ Policy၊ Data Safety၊ Store Assets တွေ ပြင်ဆင်ခဲ့တဲ့ လက်တွေ့မှတ်တမ်း။"
 categories: ["Mobile Development", "Android", "Flutter"]
 tags: ["Google Play", "Play Console", "Flutter", "Android", "Ent H", "Offline Reader", "App Store"]
 series: ["App Publishing Journey"]

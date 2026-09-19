@@ -3,8 +3,8 @@ title: "Antigravity IDE မှာ Arrow နဲ့ Mermaid ပြင်နည်�
 date: 2026-09-14T08:55:00+06:30
 image: antigravity-arrow-mermaid.webp
 thumbnail_image: antigravity-arrow-mermaid.webp
-description: "Antigravity IDE Chat ထဲမှာ $\\to$ စာသားအကြမ်းကြီး ပေါ်နေတာကို Unicode Arrow ပြောင်းလဲနည်းနဲ့ Mermaid Code တွေ ရှင်းလင်းအောင် AGENTS.md သတ်မှတ်နည်း အဆင့်ဆင့် လမ်းညွှန်။"
-summary: "Antigravity IDE မှာ Arrow ($\to$) Plain Text ဖြစ်နေတဲ့ အကြောင်းရင်း၊ Chat ထဲမှာ Mermaid Code အကြမ်းကြီးတွေ မရှုပ်အောင် AGENTS.md စည်းမျဉ်း သတ်မှတ်ပြီး Markdown Preview နဲ့ စနစ်တကျ သုံးစွဲနည်း အပြည့်အစုံ။"
+description: "Antigravity IDE Chat ထဲမှာ မြှားသင်္ကေတ ပျက်နေတာကို Unicode ပြောင်းလဲနည်းနဲ့ Mermaid Diagrams တွေ ရှင်းလင်းအောင် AGENTS.md သတ်မှတ်နည်း အဆင့်ဆင့် လမ်းညွှန်။"
+summary: "Antigravity IDE Chat ထဲမှာ မြှားသင်္ကေတ ပျက်နေတာကို Unicode ပြောင်းလဲနည်းနဲ့ Mermaid Diagrams တွေ ရှင်းလင်းအောင် AGENTS.md သတ်မှတ်နည်း အဆင့်ဆင့် လမ်းညွှန်။"
 categories: ["AI", "Development", "Productivity"]
 tags: ["Google Antigravity", "Antigravity IDE", "Mermaid", "Markdown", "Developer Tools", "AI Pair Programming"]
 series: ["Antigravity Workflows"]

@@ -3,17 +3,8 @@ title: Unlock Ooredoo Broadband B310s-22
 date: 2021-05-18T22:45:31+06:30
 image: Multicast_Upgrade_Tool.png
 categories: ["Networking", "Hardware"]
-description:
-  B310s-22 Ooredoo Device လေး Unlock လုပ်ဖြစ်တဲ့အကြောင်း ရေးထားတာလေးပေါ့
-  Broadband တွေကို Unlock လုပ်ပြီး Sim Card တွေ
-  ကြိုက်ရာကိုထည့်သုံးလို့ရသွားပါတယ်။
-summary:
-  Operator တွေစီက ဝယ်ထားတဲ့ Broadband တွေ Wireless တွေက Locked device
-  တွေဖြစ်နေတဲ့အတွက် Unlock လုပ်ဖို့ရာဖြစ်လာရင်းနဲ့ စမ်းချင်ခဲ့တာလေးပေါ့။
-  တော်သေးတာကတော့ B310s-22 ဖြစ်နေတော့ အဆင်ပြေပြေ Unlock လုပ်လို့ရသွားတော့တယ်။
-  အခြား Device တော်တော်များများကတော့ Unlock လုပ်လို့မရပဲ Hardware Method နဲ့
-  ကျော်ရင် အဆင်ပြေတယ်ဆိုပေမယ့် Hardware ပိုင်း အဲ့လောက်မရတာနဲ့ပဲ Software နဲ့
-  ကျော်လို့အဆင်ပြေသွားတဲ့ Device လေးအကြောင်း အဆင့်ဆင့် ရေးထားတာလေးပါ။
+description: "Ooredoo B310s-22 4G LTE Router ကို SIM ကတ် အားလုံး ထည့်သွင်း အသုံးပြုနိုင်အောင် Multicast Upgrade Tool နဲ့ Firmware Unlock လုပ်နည်း။"
+summary: "Ooredoo B310s-22 4G LTE Router ကို SIM ကတ် အားလုံး ထည့်သွင်း အသုံးပြုနိုင်အောင် Multicast Upgrade Tool နဲ့ Firmware Unlock လုပ်နည်း။"
 tags:
   - Wireless
   - Broadband

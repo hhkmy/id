@@ -4,10 +4,8 @@ date: 2025-07-28T20:56:23+06:30
 image: ssh-gpg-keys.png
 categories: ["Security", "Developer Tools"]
 thumbnail_image: ssh-gpg-keys.png
-description: 
-    GitHub အတွက် SSH နဲ့ GPG Key များကို လုံခြုံစွာ ဖန်တီးခြင်း၊ Backup လုပ်ခြင်း၊ ပြန်လည် Restore လုပ်ခြင်းနည်းလမ်းများကို လုပ်ဆောင်နိုင်အောင် လုပ်ဆောင်ပုံအဆင့်ဆင့်နဲ့ ပြဿနာဖြေရှင်းနည်းများပါဝင်တဲ့ လက်တွေ့လမ်းညွှန်ပါ။
-summary:
-    ဒီလမ်းညွှန်မှာ GitHub အတွက် SSH နဲ့ GPG Key များကို လုံခြုံစွာ ဖန်တီးခြင်း၊ Backup လုပ်ခြင်း၊ ပြန်လည် Restore လုပ်ခြင်းနည်းလမ်းများကို အဆင့်လိုက်ရှင်းပြထားပါတယ်။ SSH/GPG Key များကို GitHub တွင် Encrypted Repo အသုံးပြုပြီး သိမ်းဆည်းနိုင်သလို၊ အသစ်သော Device တစ်ခုတွင်လည်း လွယ်ကူစွာ ပြန်လည်သုံးနိုင်ပါသည်။ လုံခြုံရေးအတွက် Key များကို နှစ်စဉ်ပြောင်းလဲသင့်ပြီး Hardware Key အသုံးပြုခြင်းကိုလည်း အကြံပြုထားပါသည်။
+description: "GitHub အတွက် SSH နဲ့ GPG Key တွေကို လုံခြုံစွာ ဖန်တီးနည်း၊ Backup သိမ်းဆည်းနည်း၊ စက်အသစ်မှာ Restore လုပ်နည်းနဲ့ Git Commit Signing ပြုလုပ်နည်း လမ်းညွှန်။"
+summary: "GitHub အတွက် SSH နဲ့ GPG Key တွေကို လုံခြုံစွာ ဖန်တီးနည်း၊ Backup သိမ်းဆည်းနည်း၊ စက်အသစ်မှာ Restore လုပ်နည်းနဲ့ Git Commit Signing ပြုလုပ်နည်း လမ်းညွှန်။"
 tags:
     - SSH
     - GPG

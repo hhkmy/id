@@ -3,8 +3,8 @@ title: "SSH & GPG Keys Setup, Storage နဲ့ Restore လမ်းညွှန
 date: 2026-09-09T00:40:00+06:30
 image: ssh-gpg-keys.png
 thumbnail_image: ssh-gpg-keys.png
-description: "Windows နဲ့ Linux စနစ်နှစ်ခုလုံးအတွက် SSH နဲ့ GPG Keys တွေကို စနစ်တကျ Generate လုပ်ပုံ၊ Secure Permissions တွေနဲ့ သိမ်းဆည်းပုံ၊ Backup & Restore လုပ်ပုံနဲ့ Git Commit Signing အထိ အစအဆုံး အသေးစိတ်လမ်းညွှန်"
-summary: "SSH နဲ့ GPG Keys တွေကို Windows နဲ့ Linux ပေါ်မှာ Ed25519 / RSA နဲ့ စနစ်တကျ ဖန်တီးနည်း၊ File Permissions တွေ သတ်မှတ်ပြီး လုံခြုံအောင် သိမ်းနည်း၊ စက်အသစ်မှာ အလွယ်တကူ Restore ပြန်လုပ်နည်းနဲ့ GitHub Verified Commit ရအောင် Sign လုပ်နည်း အဆင့်ဆင့်ကို ရှင်းပြပေးထားပါတယ်။"
+description: "Windows နဲ့ Linux မှာ SSH / GPG Keys တွေကို Ed25519 နဲ့ ဖန်တီးပုံ၊ လုံခြုံအောင် သိမ်းဆည်းနည်း၊ Restore လုပ်နည်းနဲ့ Verified Commit ရအောင် Sign လုပ်နည်း။"
+summary: "Windows နဲ့ Linux မှာ SSH / GPG Keys တွေကို Ed25519 နဲ့ ဖန်တီးပုံ၊ လုံခြုံအောင် သိမ်းဆည်းနည်း၊ Restore လုပ်နည်းနဲ့ Verified Commit ရအောင် Sign လုပ်နည်း။"
 categories: ["Security", "Developer Tools", "Linux", "Windows"]
 tags: ["SSH", "GPG", "GitHub", "Linux", "Windows", "Security", "Key Management", "Git"]
 series: ["Developer Security Essentials"]

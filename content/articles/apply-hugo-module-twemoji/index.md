@@ -3,15 +3,8 @@ title: Apply Hugo Module Twemoji
 date: 2021-08-01T16:52:52+06:30
 image: Twemoji-Hugo.png
 categories: ["Web Development", "Hugo"]
-description:
-  Hugo Website မှာ Twitter Emoji အတွက်ရှာရင်း ဖွေရင်း Error တွေ တက်ရင်း
-  အဆင်ပြေသွားတာလေးကို Blog အဖြစ်နဲ့ Note လာသိမ်းရင်း Share ပေးလိုက်ပါတယ်။
-summary:
-  Emoji တွေထဲမှာကတော့ Twitter ရဲ့ Emoji ကို တော်တော်သဘောကျတာဆိုတော့ ရှာရင်း
-  ဖွေရင်းနဲ့ တွေ့ဖြစ်တာလေးကို ပြန်ရေးပေးလိုက်ပါတော့မယ်။ ထည့်ခဲ့တုန်းက Error တွေ
-  တက်ခဲ့ရတာဆိုတော့ အဆင်ပြေသွားတော့ Note လေးအဖြစ်နဲ့ သိမ်းထားရင်းနဲ့ပေါ့။ Hugo
-  Version အမြင့်တွေမှာ အဆင်ပြေမပြေမသိပေမယ့် အနိမ့်တွေမှာတော့
-  အဆင်ပြေခဲ့တာဆိုတော့။ တော်တော်လေးကို အဆင်ပြေခဲ့ရတာပါ။
+description: "Hugo Website မှာ Twitter Emoji (Twemoji) Module ကို ထည့်သွင်းအသုံးပြုရင်း ကြုံတွေ့ရတဲ့ Error တွေနဲ့ ဖြေရှင်းနည်း လက်တွေ့မှတ်တမ်း။"
+summary: "Hugo Website မှာ Twitter Emoji (Twemoji) Module ကို ထည့်သွင်းအသုံးပြုရင်း ကြုံတွေ့ရတဲ့ Error တွေနဲ့ ဖြေရှင်းနည်း လက်တွေ့မှတ်တမ်း။"
 tags:
   - hugo
   - Emoji

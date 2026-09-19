@@ -3,8 +3,8 @@ title: "Troubleshooting Boot Errors on Debian Linux"
 date: 2026-09-08T17:20:00+06:30
 image: "fastfetch.png"
 thumbnail_image: "fastfetch.png"
-description: "Debian Linux စတင်ချိန်တွင် တွေ့ရတတ်သည့် ALSA udev rules typo၊ NTPsec directory မရှိခြင်း၊ GNOME autostart အဟောင်းများနှင့် GRUB boot loglevel များကို အဆင့်ဆင့် စစ်ဆေးဖြေရှင်းခဲ့ပုံ။"
-summary: "Debian တွင် ကွန်ပျူတာ Boot တက်ချိန်၌ တွေ့ရသည့် ALSA udev error၊ NTPsec directory ပြဿနာ၊ မလိုအပ်တော့သော residual package များနှင့် Hardware probe warning များကို ရှင်းလင်းပြီး Clean Boot ဖြစ်အောင် ပြုပြင်ခဲ့သည့် မှတ်တမ်း။"
+description: "Debian Linux စတင်ချိန်မှာ တွေ့ရတဲ့ ALSA udev typo၊ NTPsec directory နဲ့ GRUB boot loglevel တွေကို အဆင့်ဆင့် စစ်ဆေးပြီး အမြစ်ပြတ် ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
+summary: "Debian Linux စတင်ချိန်မှာ တွေ့ရတဲ့ ALSA udev typo၊ NTPsec directory နဲ့ GRUB boot loglevel တွေကို အဆင့်ဆင့် စစ်ဆေးပြီး အမြစ်ပြတ် ဖြေရှင်းခဲ့တဲ့ မှတ်တမ်း။"
 categories: ["Linux", "System Administration", "Troubleshooting"]
 tags: ["Debian", "systemd", "udev", "GRUB", "Troubleshooting", "Linux", "Kernel"]
 series: ["Debian Troubleshooting"]
