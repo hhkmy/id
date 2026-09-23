@@ -136,11 +136,11 @@ Visit `http://localhost:1313/` to view the site.
 ### Recent Articles
 
 <!-- BLOG-POST-LIST:START -->
-- [Furycube IP98S Pro Keyboard သုံးသပ်ချက်နဲ့ အသံထွက် လုပ်ဆောင်ချက်များ](https://hhk.my.id/article/furycube-ip98s-pro-keyboard-review/)
-- [HXSJ T90 3-Mode Gaming Mouse သုံးသပ်ချက်နဲ့ Bluetooth ချိတ်နည်း](https://hhk.my.id/article/hxsj-t90-3mode-gaming-mouse-review-setup/)
-- [HP ProBook Touchpad အလုပ်မလုပ်ခြင်း &lpar;I2C Controller Timeout -110&rpar; စစ်ဆေးဖြေရှင်းနည်း](https://hhk.my.id/article/fixing-hp-probook-touchpad-i2c-timeout-linux/)
-- [Antigravity IDE မှာ Arrow နဲ့ Mermaid ပြင်နည်း](https://hhk.my.id/article/antigravity-ide-arrow-mermaid-fix-guide/)
-- [NPM အသုံးပြုနည်းနှင့် ပြဿနာဖြေရှင်းနည်း လမ်းညွှန်](https://hhk.my.id/article/npm-essentials-and-troubleshooting-guide/)
+- [Securing a Self-Hosted Telegram Crypto Bot on a Local Raspberry Pi](https://hhk.my.id/article/securing-local-raspberry-pi-node/)
+- [Antigravity IDE Python Interpreter Error ပြင်နည်း](https://hhk.my.id/article/antigravity-ide-python-interpreter-fix/)
+- [MI Bluetooth Speaker Audio Lag နဲ့ Stutter ပြင်နည်း](https://hhk.my.id/article/debian-bluetooth-audio-lag-fix/)
+- [Debian Shutdown Error Debugging နဲ့ Log စစ်ဆေးနည်း](https://hhk.my.id/article/debian-shutdown-debugging-analysis/)
+- [Debian စတင်ချိန် GNOME Keyring Scope Error ပြင်နည်း](https://hhk.my.id/article/debian-gnome-keyring-startup-errors-fix/)
 <!-- BLOG-POST-LIST:END -->
 
 ---
