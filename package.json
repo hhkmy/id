@@ -63,7 +63,7 @@
     "animejs": "^4.5.0",
     "clipboard": "^2.0.11",
     "lottie-web": "^5.13.0",
-    "mermaid": "^12.1.0"
+    "mermaid": "^12.2.0"
   },
   "overrides": {
     "lodash-es": "^4.18.1",
