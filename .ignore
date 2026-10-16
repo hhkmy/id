@@ -1,0 +1,32 @@
+# Hugo Output & Cache
+public/
+resources/
+.cache/
+.hugo_build.lock
+
+# Node Dependencies (335MB)
+node_modules/
+**/node_modules/
+
+# Python Virtualenvs
+venv/
+.venv/
+**/venv/
+**/.venv/
+__pycache__/
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars*
+
+# Secrets & Environment
+.env*
+!.env.example
+
+# OS & Editor
+.DS_Store
+.vscode/
+.codex/
+.frontmatter/
+desktop.ini
+*.log
