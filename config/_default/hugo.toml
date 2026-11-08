@@ -10,6 +10,7 @@ canonifyURLs = false
 enableEmoji = true
 enableGitInfo = false
 enableRobotsTXT = true
+buildFuture = true
 
 [taxonomies]
     category = "categories"
