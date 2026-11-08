@@ -136,11 +136,11 @@ Visit `http://localhost:1313/` to view the site.
 ### Recent Articles
 
 <!-- BLOG-POST-LIST:START -->
+- [Windows Linux Dual Boot နဲ့ Btrfs အကောင်းဆုံး ပြင်ဆင်နည်း လမ်းညွှန်](https://hhk.my.id/article/windows-linux-dual-boot-btrfs-setup-guide/)
+- [Debian Partition အရွယ်အစား တိုးချဲ့နည်း လမ်းညွှန်](https://hhk.my.id/article/debian-partition-resize-guide/)
+- [VLESS Reality, Xray-core နှင့် Sing-box ဖြင့် DPI ကျော်လွှားနိုင်သော Hotspot တည်ဆောက်ခြင်းနှင့် လက်တွေ့ပြဿနာဖြေရှင်းနည်း မှတ်တမ်း](https://hhk.my.id/article/vless-reality-xray-singbox-raspberrypi-setup-troubleshooting/)
+- [Antigravity Linux ထည့်သွင်းနည်းနဲ့ Icon ပြင်နည်း](https://hhk.my.id/article/antigravity-linux-setup-icon-fix-guide/)
 - [Securing a Self-Hosted Telegram Crypto Bot on a Local Raspberry Pi](https://hhk.my.id/article/securing-local-raspberry-pi-node/)
-- [Antigravity IDE Python Interpreter Error ပြင်နည်း](https://hhk.my.id/article/antigravity-ide-python-interpreter-fix/)
-- [MI Bluetooth Speaker Audio Lag နဲ့ Stutter ပြင်နည်း](https://hhk.my.id/article/debian-bluetooth-audio-lag-fix/)
-- [Debian Shutdown Error Debugging နဲ့ Log စစ်ဆေးနည်း](https://hhk.my.id/article/debian-shutdown-debugging-analysis/)
-- [Debian စတင်ချိန် GNOME Keyring Scope Error ပြင်နည်း](https://hhk.my.id/article/debian-gnome-keyring-startup-errors-fix/)
 <!-- BLOG-POST-LIST:END -->
 
 ---
